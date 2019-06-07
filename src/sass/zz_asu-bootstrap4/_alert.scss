@@ -1,0 +1,74 @@
+//
+// Base styles
+//
+
+.alert {
+  position: relative;
+  padding: $alert-padding-y $alert-padding-x;
+  margin-bottom: $alert-margin-bottom;
+  border: $alert-border-width solid transparent;
+}
+
+// Headings for larger alerts
+.alert-heading {
+  // Specified to prevent conflicts of changing $headings-color
+  color: inherit;
+}
+
+// Provide class for links that match alerts
+.alert-link {
+  font-weight: $alert-link-font-weight;
+}
+
+
+// Dismissible alerts
+//
+// Expand the right padding and account for the close button's positioning.
+
+.alert-dismissible {
+  padding-right: ($close-font-size + $alert-padding-x * 2);
+
+  // Adjust close link position
+  .close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: $alert-padding-y $alert-padding-x;
+    color: inherit;
+  }
+}
+
+
+// Alternate styles
+//
+// Generate contextual modifier classes for colorizing the alert.
+
+.alert-success {
+  @include alert-variant(theme-color-level("success", $alert-bg-level), theme-color-level("success", $alert-border-level), theme-color-level("success", $alert-color-level));
+}
+
+.alert-info {
+  @include alert-variant(theme-color-level("info", $alert-bg-level), theme-color-level("info", $alert-border-level), theme-color-level("info", $alert-color-level));
+}
+
+.alert-warning {
+  @include alert-variant(theme-color-level("warning", $alert-bg-level), theme-color-level("warning", $alert-border-level), theme-color-level("warning", $alert-color-level));
+}
+
+.alert-secondary {
+  @include alert-variant(theme-color-level("secondary", $alert-bg-level), theme-color-level("secondary", $alert-border-level), theme-color-level("secondary", $alert-color-level));
+}
+
+.alert-danger {
+  @include alert-variant(theme-color-level("danger", $alert-bg-level), theme-color-level("danger", $alert-border-level), theme-color-level("danger", $alert-color-level));
+}
+
+.alert-primary {
+  @include alert-variant($primary, $primary, $white);
+}
+
+.alert-dark {
+  @include alert-variant($dark, $dark, $gold);
+  border-left: 7px solid $gold;   // Customized dark alert with black box, white text and gold accent
+}
+

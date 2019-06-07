@@ -1,0 +1,23 @@
+// This file contains all of the modifications for Bootstrap 4 to successfully implement ASU Web Standards
+
+// The ASU Color Palette.
+$maroon: #8C1D40;
+$gold: #FFC627;
+$asu-green: #78BE20;
+$asu-blue:#00A3E0;
+$asu-orange: #FF7F32;
+$asu-grey: #5C6670;
+
+// Additional colors for the super footer. Includes white
+$asu-footer-grey:#cccccc;
+$asu-footer-black:#1e1e1e;
+
+// Other colors as specified by the Brand Standard.
+
+
+// Overriding existing BS colors with colors from the brand guide.
+$primary:       $maroon;
+$secondary:     $gold;
+$warning:       $gold;
+// The variables for success, info & $danger all have semantic meaning associated with their colors.
+// Best not to mess with them. However, warning is very close already to gold. Let's change it.
