@@ -69,7 +69,7 @@ function asuwp_load_global_header() {
 
     $parent = asuwp_load_header_sitenames();
 
-    $response .= '<div id="sitename-wrapper">' . $parent . '<a href="'. get_home_url() . '" title="Home" rel="home" id="current-site">'. get_bloginfo( 'name' ) . '</a></div>';
+    $response .= '<div id="sitename-wrapper" class="d-none d-lg-block">' . $parent . '<a href="'. get_home_url() . '" title="Home" rel="home" id="current-site">'. get_bloginfo( 'name' ) . '</a></div>';
     echo $response;
 
 }
@@ -91,7 +91,7 @@ function asuwp_add_home_menu_icon ( $items, $args ) {
         }
 
         $homeicon .= '<a href="' . get_home_url() . '" title="Home" id="home-icon-main-nav" class="nav-link">';
-        $homeicon .= '<span class="fa fa-home" aria-hidden="true"></span>';
+        $homeicon .= '<span class="fas fa-home"></span>';
         $homeicon .= '</a>';
         $homeicon .= '</li>';
         

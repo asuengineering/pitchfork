@@ -25,7 +25,7 @@ $container = get_theme_mod( 'understrap_container_type' );
 </head>
 
 <body <?php body_class(); ?>>
-<div class="container">
+<div id="asu-global-header" class="container">
 	<?php asuwp_load_global_header();?>
 </div>
 
@@ -52,9 +52,11 @@ $container = get_theme_mod( 'understrap_container_type' );
 			<div class="container" >
 		<?php endif; ?>
 
-				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+				<!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
-				</button>
+				</button> -->
+
+				<a class="navbar-brand" href="<?php echo get_home_url() ?>" title="Home" rel="home"><?php echo get_bloginfo( 'name' ); ?></a>
 
 				<!-- The WordPress Menu goes here -->
 				<?php wp_nav_menu(

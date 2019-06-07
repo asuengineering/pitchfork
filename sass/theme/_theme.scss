@@ -1,5 +1,18 @@
 // This is an empty scss file for your custom styles - Please add your super duper awesome mega design styles here
 
+#asu-global-header {
+    @media (max-width: 575px) {
+        &.container {
+            padding-left:0;
+            padding-right:0;
+        }
+    }
+
+    #main-search label {
+        display: none;
+    }
+}
+
 /* Site Name + Subsite Name */
 #sitename-wrapper {
     position: relative;
@@ -49,17 +62,27 @@ $nav-text-hover: #ffb310;
     padding: 0;
     background-color: $nav-bg;
     font-size: 16px;
-    font-weight: 700;
+    font-weight: 500;
     font-family: Roboto, 'Helvetica Neue', Helvetica, Arial, sans-serif;
     background-color: $nav-bg;
     color: $nav-text;
+
+    .navbar-brand {
+        margin-left:15px;
+    }
+
+    @media (min-width: 768px) {
+        .navbar-brand {
+            display:none;
+        }
+    }
 
     .navbar-nav {
         .menu-item .nav-link {
             font-size: 16px;
             font-family: Roboto, 'Helvetica Neue', Helvetica, Arial, sans-serif;
             border-bottom: 0px;
-            font-weight: 400;
+            font-weight: 7x 00;
             padding: 1rem;
             color: $nav-text;
         }
@@ -113,7 +136,7 @@ $nav-text-hover: #ffb310;
     }
 }
 
-/* =======================================================
+/* ====================================================
   ASU Super Footer area
   Super Footer Widget styles
   ASU Footer (Global)

@@ -15,11 +15,20 @@ Use Pitchfork as a parent for your own child theme theme, or fork it proudly and
 
 ## Release Notes
 
-### Version 0.3 
+### Version 0.3 ###
 
-Unforked the project from the original to keep the commit history mostly to ourselves. Updates from the original project will be merged back into the repository in regular intervals.
+Restructuring the Github repo for the project to not be a direct fork from the original project. It will still be easy enough to pull in the code from the original project on an as-needed basis.
 
-### Version 0.2
+- Also consolidates additional modifications from other active projects which were using the theme in the wild. (Yes, we're building the car and driving it at the same time. Exciting!)
+
+### Version 0.2 ###
+
+- Added JS functions to translate BS4 Navmenu object to ASU global mobile menu.
+- Improvements to mobile menu formatting.
+
+**Version 0.2.1**
+
+- Continued improvement to the product. Minor adjustments.
 
 Previous versions of the theme used the customizer to build the branding elements of the ASU Super Footer. To better align this product with the experiences of other WordPress themes maintained by ASU Engineering, we opted to use the widgetized footer area that was already built into Understrap to deliver the same content. The theme now includes two widgets which allow for the quick addition of ASU branding elements to the super footer.
 

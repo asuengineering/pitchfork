@@ -61,7 +61,7 @@ class ASUSuperFooterEndorsedLogo extends Widget {
         
         if (! empty($instance['logo-image'])) {
             echo '<div><a class="footer-logo-link" href="' . $logourl . '">';
-            echo '<img class="footer-logo" src="' . get_stylesheet_directory_uri() . '/assets/endorsed-logos/' . $logosrc . '" alt="' . $logoalt . '">';
+            echo '<img class="footer-logo" src="' . get_template_directory_uri() . '/assets/endorsed-logos/' . $logosrc . '" alt="' . $logoalt . '">';
             echo '</a></div>';
         }
 
