@@ -15,6 +15,10 @@ Use Pitchfork as a parent for your own child theme theme, or fork it proudly and
 
 ## Release Notes
 
+### Version 0.3 
+
+Unforked the project from the original to keep the commit history mostly to ourselves. Updates from the original project will be merged back into the repository in regular intervals.
+
 ### Version 0.2
 
 Previous versions of the theme used the customizer to build the branding elements of the ASU Super Footer. To better align this product with the experiences of other WordPress themes maintained by ASU Engineering, we opted to use the widgetized footer area that was already built into Understrap to deliver the same content. The theme now includes two widgets which allow for the quick addition of ASU branding elements to the super footer.
@@ -24,7 +28,7 @@ Previous versions of the theme used the customizer to build the branding element
 
 Additional enhancements include:
 
-- Adjustments to multiple parts of the theme to better align it with UnderStrap. Now maintained as a fork of the original project for better tracking of future enhancements.
+- Adjustments to multiple parts of the theme to better align it with UnderStrap.
 - The global ASU header and footer elements are now referenced as direct PHP includes. This makes it much easier to update the theme to future versions of the global ASU assets.
 - Changes to `style.css` now makes the theme compatible with [GitHub Updater](https://github.com/afragen/github-updater).
 
