@@ -17,8 +17,9 @@ Use Pitchfork as a parent for your own child theme theme, or fork it proudly and
 
 ### Version 0.3 ###
 
-- Added JS functions to translate BS4 Navmenu object to ASU global mobile menu.
-- Improvements to mobile menu formatting.
+Restructuring the Github repo for the project to not be a direct fork from the original project. It will still be easy enough to pull in the code from the original project on an as-needed basis.
+
+- Also consolidates additional modifications from other active projects which were using the theme in the wild. (Yes, we're building the car and driving it at the same time. Exciting!)
 
 ### Version 0.2 ###
 
@@ -36,7 +37,7 @@ Previous versions of the theme used the customizer to build the branding element
 
 Additional enhancements include:
 
-- Adjustments to multiple parts of the theme to better align it with UnderStrap. Now maintained as a fork of the original project for better tracking of future enhancements.
+- Adjustments to multiple parts of the theme to better align it with UnderStrap.
 - The global ASU header and footer elements are now referenced as direct PHP includes. This makes it much easier to update the theme to future versions of the global ASU assets.
 - Changes to `style.css` now makes the theme compatible with [GitHub Updater](https://github.com/afragen/github-updater).
 
