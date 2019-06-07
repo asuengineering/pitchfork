@@ -1,3 +1,14 @@
 // Use this file to overwrite the basic Bootstrap variables and add your own variables
 // To overwrite a Bootstrap variable you don´t have to touch the Bootstrap folder. 
 // Just copy a variable from src/sass/bootstrap4/_variables.scss, paste it here and edit the value.
+
+// Moves Roboto to the top of the stack for consistency with the brand guide.
+$font-family-sans-serif:    Roboto, 
+                            -apple-system,
+                            BlinkMacSystemFont,
+                            "Segoe UI",
+                            "Helvetica Neue",
+                            Arial, sans-serif,
+                            "Apple Color Emoji",
+                            "Segoe UI Emoji",
+                            "Segoe UI Symbol";

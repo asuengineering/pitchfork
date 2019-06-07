@@ -5,52 +5,68 @@
 </head>
 <body>
 
-<h1 id="asulabstheme">ASU Labs Theme</h1>
+<h1 id="pitchfork-awordpressthemeforarizonastateuniversity">Pitchfork - A WordPress theme for Arizona State University</h1>
 
-<p>A theme for WordPress to help build and organize small group websites. Ideal for engineering &#8220;lab&#8221; groups on campus.</p>
-
-<h2 id="description">Description</h2>
-
-<p>This theme brings to life several templates and custom post types that we commonly found within our collection of working small &amp; medium sized lab groups. It is a parent theme and includes the following assets.</p>
+<p>Pitchfork is a theme for WordPress which contains an implementation of Bootstrap 4 and the ASU Brand Standards. The following assets are linked to or included in the theme:</p>
 
 <ul>
-<li>ASU Header and Footer, version 4.6</li>
+<li>ASU Header and Footer, version 4.8</li>
 <li>Font Awesome Pro, version 5.2</li>
 <li>Google Font &#8220;Roboto&#8221;, part of the ASU Web Standards.</li>
 <li>Carbon Fields v3.0, loaded as a part of the theme.</li>
 </ul>
 
-<h2 id="requirements">Requirements</h2>
+<p>The project is a fork from <a href="https://understrap.com">Understrap</a>, which is a popular starter theme for WordPress which combines elements from <a href="https://underscores.me/">_s</a> by Automattic and <a href="https://getbootstrap.com/">Bootstrap</a>.</p>
 
-<p>To form the relationships needed between our custom post types, this theme requires the use of a plugin called <a href="https://github.com/asuengineering/wp-posts-to-posts">Posts 2 Posts</a>.</p>
-
-<ul>
-<li>It&#8217;s an oldie but a goodie. Still working within WP 5.0, even if the original was abandoned in 2016.</li>
-<li>ASU Engineering maintains an active fork of the original plugin to deal with any &#8220;breakage&#8221; that might occur over time.</li>
-</ul>
+<p>Use Pitchfork as a parent for your own child theme theme, or fork it proudly and make it your own.</p>
 
 <figure>
 <img src="https://brandguide.asu.edu/sites/default/files/styles/panopoly_image_original/public/asu_brandhq_images_master_pitchfork_0.png?itok=CdnAzLZW" alt="Sparky's Trident" />
 <figcaption>Sparky&#8217;s Trident</figcaption>
 </figure>
 
-<h2 id="enhancements">Enhancements</h2>
+<h2 id="releasenotes">Release Notes</h2>
 
-<h3 id="version1.2">Version 1.2</h3>
+<h3 id="version0.3">Version 0.3</h3>
 
 <ul>
-<li>Adjustments to <code>archive-person.php</code> and related CSS for better layout with longer names. Single column layout.</li>
-<li>Bug fix: Dropdown icons in navigation menu now displaying correctly. (Converted to traditonal markup via FA5).</li>
+<li>Added JS functions to translate BS4 Navmenu object to ASU global mobile menu.</li>
+<li>Improvements to mobile menu formatting.</li>
 </ul>
 
-<h3 id="version1.1">Version 1.1</h3>
-
-<p>The most current version of the theme marks our first example of this theme in production.</p>
+<h3 id="version0.2">Version 0.2</h3>
 
 <ul>
-<li>Completed templates for a single publications, research projects and research topics pages.</li>
-<li>Corrected several display problems with <code>single-person.php</code> and the related <code>archive-person.php</code> directory view.</li>
-<li>Spacing and padding issues were adjusted to avoid collisions for tablet and mobile viewing.</li>
+<li>Added JS functions to translate BS4 Navmenu object to ASU global mobile menu.</li>
+<li>Improvements to mobile menu formatting.</li>
+</ul>
+
+<p><strong>Version 0.2.1</strong></p>
+
+<ul>
+<li>Continued improvement to the product. Minor adjustments.</li>
+</ul>
+
+<p>Previous versions of the theme used the customizer to build the branding elements of the ASU Super Footer. To better align this product with the experiences of other WordPress themes maintained by ASU Engineering, we opted to use the widgetized footer area that was already built into Understrap to deliver the same content. The theme now includes two widgets which allow for the quick addition of ASU branding elements to the super footer.</p>
+
+<ul>
+<li>The <strong>ASU Endorsed Logo Widget</strong> displays the endorsed logo as well as the text, phone number and contact information for the site.</li>
+<li>The <strong>ASU Social Media Icons Widget</strong> displays the row of social media icons that traditionally falls below the information under the endorsed logo.</li>
+</ul>
+
+<p>Additional enhancements include:</p>
+
+<ul>
+<li>Adjustments to multiple parts of the theme to better align it with UnderStrap. Now maintained as a fork of the original project for better tracking of future enhancements.</li>
+<li>The global ASU header and footer elements are now referenced as direct PHP includes. This makes it much easier to update the theme to future versions of the global ASU assets.</li>
+<li>Changes to <code>style.css</code> now makes the theme compatible with <a href="https://github.com/afragen/github-updater">GitHub Updater</a>.</li>
+</ul>
+
+<h3 id="version0.1">Version 0.1</h3>
+
+<ul>
+<li>Version 0.1 and related minor releases mark our first example of this theme in production.</li>
+<li>Older versions of the theme have been moved to a private repository and are no longer distributed within this project&#8217;s history.</li>
 </ul>
 
 </body>

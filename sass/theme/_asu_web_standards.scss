@@ -21,3 +21,12 @@ $secondary:     $gold;
 $warning:       $gold;
 // The variables for success, info & $danger all have semantic meaning associated with their colors.
 // Best not to mess with them. However, warning is very close already to gold. Let's change it.
+
+// The main navigation behaves oddly at some of the default widths.
+// Changing the container width at the md breakpoint helps that.
+$container-max-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 980px,  // from 960px
+  xl: 1140px
+)
