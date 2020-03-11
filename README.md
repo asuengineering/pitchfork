@@ -21,6 +21,10 @@ Restructuring the Github repo for the project to not be a direct fork from the o
 
 - Also consolidates additional modifications from other active projects which were using the theme in the wild. (Yes, we're building the car and driving it at the same time. Exciting!)
 
+**Version 0.3.1**
+
+- Update Font Awesome to version 5.11.2.
+
 ### Version 0.2 ###
 
 - Added JS functions to translate BS4 Navmenu object to ASU global mobile menu.
