@@ -39,7 +39,7 @@ require get_template_directory() . '/inc/editor.php';
 
 // Load global assets via remote get. Allows for easy access to the version in each of the URLs below.
 function asuwp_load_global_head_scripts() {
-	$request = wp_remote_get('http://www.asu.edu/asuthemes/4.6/heads/default.shtml');
+	$request = wp_remote_get('http://www.asu.edu/asuthemes/4.10/heads/default.shtml');
 	$response = wp_remote_retrieve_body( $request );
 	echo $response;
 }
@@ -64,7 +64,7 @@ function asuwp_load_header_sitenames() {
 
 // Remote get ASU global header elements. Print site name along with returned code.
 function asuwp_load_global_header() {
-    $request = wp_remote_get('http://www.asu.edu/asuthemes/4.6/headers/default.shtml');
+    $request = wp_remote_get('http://www.asu.edu/asuthemes/4.10/headers/default.shtml');
     $response = wp_remote_retrieve_body( $request );
 
     $parent = asuwp_load_header_sitenames();
@@ -75,7 +75,7 @@ function asuwp_load_global_header() {
 }
 // Remote get ASU global footer elements.
 function asuwp_load_global_footer() {
-    $request = wp_remote_get('http://www.asu.edu/asuthemes/4.6/includes/footer.shtml');
+    $request = wp_remote_get('http://www.asu.edu/asuthemes/4.10/includes/footer.shtml');
     $response = wp_remote_retrieve_body( $request );
     echo $response;
 }
