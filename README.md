@@ -25,6 +25,11 @@ Restructuring the Github repo for the project to not be a direct fork from the o
 
 - Update Font Awesome to version 5.11.2.
 
+**Version 0.3.2**
+
+- Update ASU Header / Footer to latest version.
+- Updated Bootstrap 4 library to latest version (via Dependabot)
+
 ### Version 0.2 ###
 
 - Added JS functions to translate BS4 Navmenu object to ASU global mobile menu.
