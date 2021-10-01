@@ -3,7 +3,7 @@
 /**
  * Theme support functions
  *
- * @package Byvex
+ * @package pitchfork
  */
 
 if (!function_exists('byvex_setup')) :

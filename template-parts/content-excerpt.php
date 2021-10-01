@@ -3,7 +3,7 @@
 /**
  * Template part for displaying post archives and search results
  *
- *  @package Byvex
+ *  @package pitchfork
  */
 ?>
 <article id="post-<?php the_ID(); ?>" <?php post_class('h-100'); ?>>

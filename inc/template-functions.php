@@ -3,7 +3,7 @@
 /**
  * Functions which enhance the theme by hooking into WordPress
  *
- * @package Byvex
+ * @package pitchfork
  */
 
 // Add a pingback url auto-discovery header for single posts, pages, or attachments

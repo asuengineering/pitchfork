@@ -3,7 +3,7 @@
 /**
  * Template part for displaying a message that posts cannot be found
  *
- * @package Byvex
+ * @package pitchfork
  */
 ?>
 <section class="no-results not-found">

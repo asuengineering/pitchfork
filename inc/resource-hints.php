@@ -3,7 +3,7 @@
 /**
  * Preload & Preconnect External Resources
  *
- * @package Byvex
+ * @package pitchfork
  */
 
 function byvex_preload($hints, $relation_type)

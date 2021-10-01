@@ -3,7 +3,7 @@
 /**
  * Add widgets here, like sidebar widget and footer widget
  *
- * @package Byvex
+ * @package pitchfork
  */
 
 function byvex_widgets_init()

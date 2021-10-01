@@ -3,7 +3,7 @@
 /**
  * Displays the footer widget area.
  *
- * @package Byvex
+ * @package pitchfork
  */
 ?>
 

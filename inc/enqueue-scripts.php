@@ -3,7 +3,7 @@
 /**
  * Connect stylesheets & scripts
  *
- * @package Byvex
+ * @package pitchfork
  */
 
 function byvex_enqueue_scripts()

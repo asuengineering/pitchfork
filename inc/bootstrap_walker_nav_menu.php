@@ -4,7 +4,7 @@
  * Bootstrap Walker Nav Menu
  *
  * @link https://github.com/wp-bootstrap/wp-bootstrap-navwalker
- * @package Byvex
+ * @package pitchfork
  */
 
 // Check if Class Exists.

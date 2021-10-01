@@ -3,7 +3,7 @@
 /**
  * Used any time that get_search_form() is called.
  *
- * @package Byvex
+ * @package pitchfork
  */
 $byvex_unique_id = wp_unique_id('search-');
 ?>

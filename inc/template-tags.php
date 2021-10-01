@@ -3,7 +3,7 @@
 /**
  * Custom template tags for this theme
  *
- * @package Byvex
+ * @package pitchfork
  */
 
 

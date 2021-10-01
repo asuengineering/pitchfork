@@ -3,7 +3,7 @@
 /**
  * The template for displaying archive pages
  *
- * @package Byvex
+ * @package pitchfork
  */
 get_header();
 ?>
