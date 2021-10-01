@@ -1,18 +1,29 @@
 /*
-Theme Name: Byvex
-Theme URI: https://github.com/byvex/byvex-wordpress-theme
-Author: Byvex Team
-Author URI: https://byvex.com
-Description: A well crafted starter WordPress theme built on top of Bootstrap 5.0.2. We created this theme to fulfill just one goal, "A lightweight theme with less code to remove and ready to use with Bootstrap".
-Version: 2.0.3
-Requires at least: 5.3
-Tested up to: 5.7
-Requires PHP: 5.6
+Theme Name: Pitchfork
+Theme URI: http://github.com/ASU-Engineering/Pitchfork
+GitHub Theme URI: hhttp://github.com/ASU-Engineering/Pitchfork
+Author: Steve Ryan, Ira A. Fulton Schools of Engineering
+
+Description: A WordPress theme for Arizona State University. Uses the <a href="https://github.com/ASU/asu-unity-stack/tree/dev/packages/bootstrap4-theme" UDS-Bootstrap-4 package</a> and other compoents of the <a href="https://unity.web.asu.edu">universal design system</a> to ensure brand standard consistency.
+
+Text Domain: pitchfork
+
+GitHub Theme URI: https://github.com/asuengineering/pitchfork/
+
+Version: 0.4.0 (alpha)
+
+------ Licensing -------
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Text Domain: byvex
-Tags: blog, custom-background, custom-header, custom-logo, custom-menu, one-column, footer-widgets
 
-Byvex Starter Theme, (C) 2021 Byvex.com
-Byvex Starter Theme is distributed under the terms of the GNU GPL
+----- Resource Licenses -----
+Bootstrap:          http://getbootstrap.com | https://github.com/twbs/bootstrap/blob/master/LICENSE (Code licensed under MIT, documentation under CC BY 3.0.)
+jQuery:             https://jquery.org | (Code licensed under MIT)
+FontAwesome:
+
+----- Notes -----
+This file is just used to identify the theme in WordPress.
+The compiled CSS output can be found in /css/theme.css
+The SASS sources for it can be found in /sass/
+...go forth and do good work. :-)
 */
