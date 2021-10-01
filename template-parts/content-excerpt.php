@@ -21,15 +21,15 @@
 		?>
 		<div class="card-body">
 			<small class="d-block text-truncate">
-				<?php byvex_posted_on(); ?> by
-				<?php byvex_posted_by(); ?>
+				<?php pitchfork_posted_on(); ?> by
+				<?php pitchfork_posted_by(); ?>
 			</small>
 			<a href="<?php esc_url(the_permalink()); ?>" class="text-decoration-none text-body" title="<?php esc_attr(the_title()); ?>">
 				<div class="card-title h5 mb-0"><?php the_title(); ?></div>
 				<?php the_excerpt(); ?>
 			</a>
 			<?php
-			byvex_entry_footer();
+			pitchfork_entry_footer();
 			?>
 		</div>
 	</div>

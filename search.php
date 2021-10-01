@@ -17,7 +17,7 @@ get_header();
 				<?php
 				/* translators: %s: Search term. */
 				printf(
-					esc_html__('Results for "%s" ', 'byvex'),
+					esc_html__('Results for "%s" ', 'pitchfork'),
 					'<span>' . esc_html(get_search_query()) . '</span>'
 				);
 				?>
@@ -31,7 +31,7 @@ get_header();
 							'We found %d result for your search.',
 							'We found %d results for your search.',
 							(int) $wp_query->found_posts,
-							'byvex'
+							'pitchfork'
 						)
 					),
 					(int) $wp_query->found_posts
@@ -48,7 +48,7 @@ get_header();
 			?>
 		</div>
 	<?php
-		byvex_the_posts_pagination();
+		pitchfork_the_posts_pagination();
 	else :
 		get_template_part('template-parts/content-none');
 	endif;

@@ -11,7 +11,7 @@
                 </div>
                 <div class="col-sm-6 text-sm-end">
                     <p>
-                        <a href="https://byvex.com" title="Crafted by Byvex Team" class="fw-bold link-light text-decoration-none" target="_blank" rel="noopener noreferrer nofollow">Byvex.com</a>
+                        <a href="https://pitchfork.com" title="Crafted by pitchfork Team" class="fw-bold link-light text-decoration-none" target="_blank" rel="noopener noreferrer nofollow">pitchfork.com</a>
                     </p>
                 </div>
             </div>

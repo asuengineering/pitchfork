@@ -14,13 +14,13 @@
 				<?php
 				printf(
 					/* translators: %s: Search term. */
-					esc_html__('Results for "%s"', 'byvex'),
+					esc_html__('Results for "%s"', 'pitchfork'),
 					'<span class="page-description search-term">' . esc_html(get_search_query()) . '</span>'
 				);
 				?>
 			</h1>
 		<?php else : ?>
-			<h1 class="page-title"><?php esc_html_e('Nothing here', 'byvex'); ?></h1>
+			<h1 class="page-title"><?php esc_html_e('Nothing here', 'pitchfork'); ?></h1>
 		<?php endif; ?>
 	</header><!-- .page-header -->
 
@@ -30,7 +30,7 @@
 			printf(
 				'<p>' . wp_kses(
 					/* translators: %s: Link to WP admin new post page. */
-					__('Ready to publish your first post? <a href="%s">Get started here</a>.', 'byvex'),
+					__('Ready to publish your first post? <a href="%s">Get started here</a>.', 'pitchfork'),
 					array(
 						'a' => array(
 							'href' => array(),
@@ -41,10 +41,10 @@
 			);
 			?>
 		<?php elseif (is_search()) : ?>
-			<p><?php esc_html_e('Sorry, but nothing matched your search terms. Please try again with some different keywords.', 'byvex'); ?></p>
+			<p><?php esc_html_e('Sorry, but nothing matched your search terms. Please try again with some different keywords.', 'pitchfork'); ?></p>
 			<?php get_search_form(); ?>
 		<?php else : ?>
-			<p><?php esc_html_e('It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help.', 'byvex'); ?></p>
+			<p><?php esc_html_e('It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help.', 'pitchfork'); ?></p>
 			<?php get_search_form(); ?>
 		<?php endif; ?>
 	</div><!-- .page-content -->

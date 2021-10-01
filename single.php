@@ -15,7 +15,7 @@ get_header();
 
 			get_template_part('template-parts/content');
 
-			byvex_the_post_navigation();
+			pitchfork_the_post_navigation();
 
 			if (comments_open() || get_comments_number()) :
 				comments_template();

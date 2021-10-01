@@ -6,7 +6,7 @@
  * @package pitchfork
  */
 
-function byvex_preload($hints, $relation_type)
+function pitchfork_preload($hints, $relation_type)
 {
 	if ('preconnect' === $relation_type) {
 
@@ -22,4 +22,4 @@ function byvex_preload($hints, $relation_type)
 	return $hints;
 }
 
-add_filter('wp_resource_hints', 'byvex_preload', 10, 2);
+add_filter('wp_resource_hints', 'pitchfork_preload', 10, 2);

@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Byvex functions and definitions
+ * pitchfork functions and definitions
  *
  * @package pitchfork
  */

@@ -26,7 +26,7 @@ get_header();
 		</div>
 
 	<?php
-		byvex_the_posts_pagination();
+		pitchfork_the_posts_pagination();
 	else :
 		get_template_part('template-parts/content-none');
 	endif; ?>
