@@ -20,6 +20,10 @@
 *.tar
 *.zip
 
+# Node / Composer #
+######################
+/vendor
+
 # Logs and databases #
 ######################
 *.log

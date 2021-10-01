@@ -6,14 +6,13 @@
  * @package pitchfork
  */
 
-add_action('after_setup_theme', 'uds_pitchfork_setup');
-if (!function_exists('uds_pitchfork_setup')) {
+add_action( 'after_setup_theme', 'uds_pitchfork_setup' );
+if ( ! function_exists( 'uds_pitchfork_setup' ) ) {
 
-	function uds_pitchfork_setup()
-	{
-		add_theme_support('automatic-feed-links');
+	function uds_pitchfork_setup() {
+		add_theme_support( 'automatic-feed-links' );
 
-		add_theme_support('customize-selective-refresh-widgets');
+		add_theme_support( 'customize-selective-refresh-widgets' );
 
 		add_theme_support(
 			'html5',
@@ -25,17 +24,19 @@ if (!function_exists('uds_pitchfork_setup')) {
 				'caption',
 				'style',
 				'script',
-				'navigation-widgets'
+				'navigation-widgets',
 			)
 		);
 
-		add_theme_support('post-thumbnails');
+		add_theme_support( 'post-thumbnails' );
 
-		add_theme_support('title-tag');
+		add_theme_support( 'title-tag' );
 
-		register_nav_menus(array(
-			'primary' => esc_html__('Primary', 'pitchfork'),
-		));
+		register_nav_menus(
+			array(
+				'primary' => esc_html__( 'Primary', 'pitchfork' ),
+			)
+		);
 		
 	}
 }

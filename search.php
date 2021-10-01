@@ -10,15 +10,15 @@ get_header();
 
 <div class="container py-4">
 	<?php
-	if (have_posts()) :
-	?>
+	if ( have_posts() ) :
+		?>
 		<header class="page-header alignwide">
 			<h1 class="page-title">
 				<?php
 				/* translators: %s: Search term. */
 				printf(
-					esc_html__('Results for "%s" ', 'pitchfork'),
-					'<span>' . esc_html(get_search_query()) . '</span>'
+					esc_html__( 'Results for "%s" ', 'pitchfork' ),
+					'<span>' . esc_html( get_search_query() ) . '</span>'
 				);
 				?>
 			</h1>
@@ -41,16 +41,16 @@ get_header();
 		</header><!-- .page-header -->
 		<div class="loop-container">
 			<?php
-			while (have_posts()) :
+			while ( have_posts() ) :
 				the_post();
-				get_template_part('template-parts/content-excerpt');
+				get_template_part( 'template-parts/content-excerpt' );
 			endwhile;
 			?>
 		</div>
-	<?php
+		<?php
 		pitchfork_the_posts_pagination();
 	else :
-		get_template_part('template-parts/content-none');
+		get_template_part( 'template-parts/content-none' );
 	endif;
 	?>
 </div>

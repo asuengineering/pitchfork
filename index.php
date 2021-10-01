@@ -14,22 +14,23 @@ get_header();
 ?>
 
 <div class="container py-4">
-	<?php if (have_posts()) : ?>
+	<?php if ( have_posts() ) : ?>
 
 		<div class="loop-container">
 			<?php
-			while (have_posts()) :
+			while ( have_posts() ) :
 				the_post();
-				get_template_part('template-parts/content-excerpt');
+				get_template_part( 'template-parts/content-excerpt' );
 			endwhile;
 			?>
 		</div>
 
-	<?php
+		<?php
 		pitchfork_the_posts_pagination();
 	else :
-		get_template_part('template-parts/content-none');
-	endif; ?>
+		get_template_part( 'template-parts/content-none' );
+	endif; 
+	?>
 </div>
 
 <?php
