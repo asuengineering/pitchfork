@@ -1,0 +1,256 @@
+// Aligning Classes
+.aligncenter {
+	@extend .text-center;
+}
+
+.alignright {
+	@extend .text-end;
+}
+
+.alignleft {
+	@extend .text-start;
+}
+
+// Basic classes
+.screen-reader-text {
+	@extend .visually-hidden-focusable;
+}
+
+.skip-link:focus {
+	font-weight: 600;
+}
+
+.wp-caption,
+.wp-caption-text,
+.gallery-caption,
+.bypostauthor {
+	font: inherit;
+}
+
+// Content width
+img,
+video,
+.size-auto,
+.size-full,
+.size-large,
+.size-medium,
+.size-thumbnail {
+	max-width: 100%;
+	height: auto;
+}
+
+// Sticky post card styling
+.sticky {
+	.card {
+		@extend .border-primary;
+		@extend .border-2;
+	}
+}
+
+// Active Nav Item Class
+.current-menu-item a {
+	@extend .active;
+}
+
+// Widgets
+.widget {
+	select {
+		@extend .form-select;
+	}
+
+	ul {
+		@extend .list-unstyled;
+		@extend .mb-0;
+	}
+}
+
+// Recent Comments
+.recentcomments,
+.widget_recent_entries ul li {
+	@extend .border-bottom;
+	@extend .py-1;
+
+	&:last-child {
+		@extend .border-0;
+		@extend .mb-0;
+		@extend .pb-0;
+	}
+}
+
+// Comments
+.comment-body {
+	@extend .card;
+	@extend .shadow-sm;
+	@extend .mb-2;
+
+	.comment-meta {
+		@extend .card-header;
+		@extend .px-2;
+		@extend .lh-sm;
+
+		.avatar {
+			@extend .rounded;
+			@extend .me-2;
+			@extend .float-start;
+		}
+
+		.says {
+			@extend .d-none;
+		}
+
+		.comment-metadata {
+			@extend .small;
+			@extend .ms-2;
+		}
+	}
+
+	.comment-content {
+		@extend .card-body;
+
+		p {
+			@extend .mb-0;
+		}
+	}
+
+	.reply {
+		@extend .card-footer;
+		@extend .py-1;
+		a {
+			@extend .small;
+			@extend .d-block;
+		}
+	}
+}
+
+.comment .children {
+	@extend .list-unstyled;
+	@extend .ms-3;
+	@extend .border-start;
+	@extend .rounded;
+
+	.comment-body {
+		@extend .border-start-0;
+	}
+}
+
+// Comment Form
+#respond {
+	@extend .card;
+	@extend .shadow-sm;
+
+	#reply-title {
+		@extend .card-header;
+		@extend .h4;
+	}
+}
+
+#commentform {
+	@extend .card-body;
+
+	#email-notes {
+		@extend .d-none;
+	}
+
+	label {
+		@extend .form-label;
+		@extend .mb-0;
+	}
+
+	#comment,
+	#author,
+	#email,
+	#url {
+		@extend .form-control;
+	}
+
+	.comment-form-cookies-consent {
+		@extend .form-check;
+		@extend .mb-3;
+
+		label {
+			@extend .form-check-label;
+			@extend .small;
+		}
+
+		#wp-comment-cookies-consent {
+			@extend .form-check-input;
+		}
+	}
+
+	.form-submit {
+		@extend .mb-0;
+
+		#submit {
+			@extend .btn;
+			@extend .btn-primary;
+			@extend .w-100;
+		}
+	}
+}
+
+.cat-links {
+	a {
+		@extend .badge;
+		@extend .bg-primary;
+		text-decoration: none;
+	}
+}
+
+.tags-links {
+	a {
+		@extend .badge;
+		@extend .bg-secondary;
+		text-decoration: none;
+	}
+}
+
+// Numbered Pagination Links
+.page-numbers {
+	@extend .pagination;
+	@extend .flex-wrap;
+
+	li {
+		@extend .page-item;
+
+		a,
+		span {
+			@extend .page-link;
+
+			&.current {
+				background-color: #6c757d;
+				color: #ffffff;
+				border-color: #6c757d;
+			}
+
+			&.dots {
+				@extend .disabled;
+			}
+		}
+	}
+}
+
+// Single Post Navigation
+.nav-links {
+	@extend .d-flex;
+	@extend .flex-lg-row;
+	@extend .flex-column;
+	@extend .my-2;
+
+	.nav-next {
+		@extend .text-end;
+		@extend .ms-lg-2;
+	}
+
+	.nav-previous,
+	.nav-next {
+		@extend .shadow-sm;
+		@extend .card;
+		@extend .card-body;
+		@extend .p-2;
+		@extend .mb-1;
+
+		a {
+			@extend .text-decoration-none;
+		}
+	}
+}
