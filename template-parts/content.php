@@ -1,10 +1,10 @@
 <?php
-
 /**
  * Template part for displaying post content in single.php
  *
  * @package pitchfork
  */
+
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>

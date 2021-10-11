@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Theme support functions
  *
@@ -8,7 +7,12 @@
 
 add_action( 'after_setup_theme', 'uds_pitchfork_setup' );
 if ( ! function_exists( 'uds_pitchfork_setup' ) ) {
-
+	
+	/**
+	 * Setup functions for theme.
+	 *
+	 * @return void
+	 */
 	function uds_pitchfork_setup() {
 		add_theme_support( 'automatic-feed-links' );
 

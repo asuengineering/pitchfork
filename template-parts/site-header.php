@@ -1,3 +1,12 @@
+<?php
+/**
+ * Contains the header for the site. 
+ *
+ * @package pitchfork
+ */
+
+?>
+
 <header id="masthead" class="site-header bg-primary shadow" role="banner">
 	<nav class="container navbar navbar-dark navbar-expand-md">
 

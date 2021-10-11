@@ -1,10 +1,10 @@
 <?php
-
 /**
  * The template for displaying search results pages
  *
  * @package pitchfork
  */
+
 get_header();
 ?>
 
@@ -15,8 +15,8 @@ get_header();
 		<header class="page-header alignwide">
 			<h1 class="page-title">
 				<?php
-				/* translators: %s: Search term. */
 				printf(
+					/* translators: %s: Search term. */
 					esc_html__( 'Results for "%s" ', 'pitchfork' ),
 					'<span>' . esc_html( get_search_query() ) . '</span>'
 				);

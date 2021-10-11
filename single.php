@@ -1,11 +1,12 @@
 <?php
-
 /**
  * The template for displaying all single posts
  *
  * @package pitchfork
  */
+
 get_header();
+
 ?>
 
 <div class="container py-4">

@@ -1,11 +1,15 @@
 <?php
-
 /**
  * Add widgets here, like sidebar widget and footer widget
  *
  * @package pitchfork
  */
 
+/**
+ * Pitchfork initialize widgets
+ *
+ * @return void
+ */
 function pitchfork_widgets_init() {
 	register_sidebar(
 		array(

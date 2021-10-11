@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Bootstrap Walker Nav Menu
  *
@@ -9,7 +8,10 @@
 
 // Check if Class Exists.
 if ( ! class_exists( 'Bootstrap_Walker_Nav_Menu' ) ) :
-
+	
+	/**
+	 * Bootstrap_Walker_Nav_Menu
+	 */
 	class Bootstrap_Walker_Nav_Menu extends Walker_Nav_Menu {
 	
 

@@ -1,11 +1,12 @@
 <?php
-
 /**
  * Template part for displaying post archives and search results
  *
  *  @package pitchfork
  */
+
 ?>
+
 <article id="post-<?php the_ID(); ?>" <?php post_class( 'h-100' ); ?>>
 	<div class="card h-100 shadow-sm">
 		<?php

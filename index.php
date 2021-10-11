@@ -1,5 +1,4 @@
 <?php
-
 /**
  * The main template file
  *
@@ -10,6 +9,7 @@
  *
  * @package pitchfork
  */
+
 get_header();
 ?>
 

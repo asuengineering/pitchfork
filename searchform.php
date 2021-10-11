@@ -1,11 +1,12 @@
 <?php
-
 /**
  * Used any time that get_search_form() is called.
  *
  * @package pitchfork
  */
+
 $pitchfork_unique_id = wp_unique_id( 'search-' );
+
 ?>
 
 <form class="" method="get" action="<?php echo esc_url( home_url( '/' ) ); ?>">

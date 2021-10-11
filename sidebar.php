@@ -1,10 +1,10 @@
 <?php
-
 /**
  * Displays the footer widget area.
  *
  * @package pitchfork
  */
+
 ?>
 
 <div class="mt-auto bg-light border-top">

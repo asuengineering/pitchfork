@@ -1,19 +1,28 @@
 <?php
-
 /**
  * Custom template tags for this theme
  *
  * @package pitchfork
  */
 
-
+/**
+ * Add class to excerpt.
+ *
+ * @param  mixed $excerpt Post excerpt.
+ * @return $excerpt Post excerpt.
+ */
 function pitchfork_add_class_to_excerpt( $excerpt ) {
 	return str_replace( '<p', '<p class="mb-2"', $excerpt );
 }
 add_filter( 'the_excerpt', 'pitchfork_add_class_to_excerpt' );
 
 
-
+/**
+ * Pitchfork_excerpt_more
+ *
+ * @param  mixed $more Before elipsis.
+ * @return mixed $more Elipsis.
+ */
 function pitchfork_excerpt_more( $more ) {
 	if ( ! is_admin() ) {
 		return '...';
@@ -97,7 +106,12 @@ endif;
 
 
 // Print the next and previous posts navigation.
-if ( ! function_exists( 'pitchfork_the_post_navigation' ) ) {
+if ( ! function_exists( 'pitchfork_the_post_navigation' ) ) {   
+	/**
+	 * Pitchfork_the_post_navigation
+	 *
+	 * @return void
+	 */
 	function pitchfork_the_post_navigation() {
 		the_post_navigation(
 			array(
@@ -109,7 +123,7 @@ if ( ! function_exists( 'pitchfork_the_post_navigation' ) ) {
 }
 
 
-// Print numbered pagination
+// Print numbered pagination.
 if ( ! function_exists( 'pitchfork_the_posts_pagination' ) ) {
 	/**
 	 * Print the next and previous posts navigation.

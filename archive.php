@@ -1,10 +1,10 @@
 <?php
-
 /**
  * The template for displaying archive pages
  *
  * @package pitchfork
  */
+
 get_header();
 ?>
 

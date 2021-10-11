@@ -1,3 +1,13 @@
+<?php
+/**
+ * Template part for the site footer.
+ * Contains information from customizer settings + gold/gray bar from UI kit.
+ *
+ * @package pitchfork
+ */
+
+?>
+
 <footer id="colophon" class="site-footer" role="contentinfo">
 
 	<div class="site-info bg-dark text-white">
