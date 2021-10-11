@@ -31,7 +31,6 @@ function pitchfork_excerpt_more( $more ) {
 add_filter( 'excerpt_more', 'pitchfork_excerpt_more' );
 
 
-
 if ( ! function_exists( 'pitchfork_posted_on' ) ) :
 	/**
 	 * Prints HTML with meta information for the current post-date/time.
@@ -139,5 +138,48 @@ if ( ! function_exists( 'pitchfork_the_posts_pagination' ) ) {
 				'end_size' => 2,
 			)
 		);
+	}
+}
+
+
+if ( ! function_exists( 'pitchfork_default_body_attributes' ) ) {
+	/**
+	 * Adds schema markup to the body element.
+	 *
+	 * @param array $atts An associative array of attributes.
+	 * @return array
+	 */
+	function pitchfork_default_body_attributes( $atts ) {
+		$atts['itemscope'] = '';
+		$atts['itemtype']  = 'http://schema.org/WebSite';
+		return $atts;
+	}
+}
+add_filter( 'pitchfork_body_attributes', 'pitchfork_default_body_attributes' );
+
+
+if ( ! function_exists( 'pitchfork_body_attributes' ) ) {
+	/**
+	 * Displays the attributes for the body element.
+	 */
+	function pitchfork_body_attributes() {
+		/**
+		 * Filters the body attributes.
+		 *
+		 * @param array $atts An associative array of attributes.
+		 */
+		$atts = array_unique( apply_filters( 'pitchfork_body_attributes', $atts = array() ) );
+		if ( ! is_array( $atts ) || empty( $atts ) ) {
+			return;
+		}
+		$attributes = '';
+		foreach ( $atts as $name => $value ) {
+			if ( $value ) {
+				$attributes .= sanitize_key( $name ) . '="' . esc_attr( $value ) . '" ';
+			} else {
+				$attributes .= sanitize_key( $name ) . ' ';
+			}
+		}
+		echo trim( $attributes ); // phpcs:ignore WordPress.Security.EscapeOutput
 	}
 }

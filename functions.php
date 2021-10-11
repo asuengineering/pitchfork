@@ -12,6 +12,8 @@ require get_template_directory() . '/inc/after-setup-theme.php';
 // Enqueue scripts and styles.
 require get_template_directory() . '/inc/enqueue-scripts.php';
 
+// Add Bootstrap nav walker class.
+require get_template_directory() . '/inc/class-bootstrap-walker-nav-menu.php';
 
 // Customizer options.
 require get_template_directory() . '/inc/customizer/customizer-sanitizers.php';            
@@ -19,7 +21,10 @@ require get_template_directory() . '/inc/customizer/customizer-preview-js.php';
 require get_template_directory() . '/inc/customizer/customizer-controls-js.php';           
 require get_template_directory() . '/inc/customizer/customizer-post-message-support.php'; 
 require get_template_directory() . '/inc/customizer/customizer-endorsed-unit-logos.php'; 
-require get_template_directory() . '/inc/customizer/customizer-settings.php';        
+require get_template_directory() . '/inc/customizer/customizer-settings.php';
+
+// Render partials from customizer controls. Used for header.php and for selective refresh of the customizer.
+require get_template_directory() . '/inc/render-partials.php';
 
 
 // Add preload for CDN.
