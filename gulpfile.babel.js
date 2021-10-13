@@ -407,3 +407,57 @@ gulp.task(
 		gulp.watch(config.imgSRC, gulp.series('images', reload)); // Reload on customJS file changes.
 	})
 );
+
+// Run:
+// gulp copy-assets.
+// Copy all needed dependency assets files from node_modules to theme's /js, /scss and /fonts folder.
+// Run this task after npm update
+
+/**
+ * Copy Assets from node_modules.
+ * 
+ * Does the following:
+ * 1. Copies files from bootstrap4-theme to /src
+ * 2. Copies files from cookie-consent to /src
+ *
+ */
+
+gulp.task("upboot", function (done) {
+
+	var paths = {
+		"node": "./node_modules",
+		"dev": "./src",
+	}
+
+	// Copy UDS image files
+	gulp
+		.src(paths.node + "/@asu-design-system/bootstrap4-theme/dist/img/**/*")
+		.pipe(gulp.dest(paths.dev + "/asu-unity-img"));
+
+	// Copy distributed JS packages from Bootstrap (co-located within the ASU Bootstrap-4 theme).
+	gulp
+		.src(paths.node + "/@asu-design-system/bootstrap4-theme/dist/js/*.js")
+		.pipe(gulp.dest(paths.dev + "/bootstrap4-asu/js"));
+
+	// Copy UDS JS files
+	gulp
+		.src(paths.node + "/@asu-design-system/bootstrap4-theme/src/js/*.js")
+		.pipe(gulp.dest(paths.dev + "/bootstrap4-asu/js"));
+
+	// Copy UDS SCSS files
+	gulp
+		.src(paths.node + "/@asu-design-system/bootstrap4-theme/src/scss/**/*.scss")
+		.pipe(gulp.dest(paths.dev + "/bootstrap4-asu/sass"));
+
+	// Copy UDS compiled CSS files
+	gulp
+		.src(paths.node + "/@asu-design-system/bootstrap4-theme/src/css/*.css")
+		.pipe(gulp.dest(paths.dev + "/bootstrap4-asu/css"));
+
+	// Copy UDS cookie-consent JS files
+	gulp
+		.src(paths.node + "/@asu-design-system/cookie-consent/dist/*.js")
+		.pipe(gulp.dest(paths.dev + "/cookie-consent/js"));
+
+	done();
+});
