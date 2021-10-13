@@ -452,7 +452,7 @@ gulp.task("upboot", function (done) {
 
 	// Copy UDS compiled CSS files
 	gulp
-		.src(paths.node + "/@asu-design-system/bootstrap4-theme/src/css/*.css")
+		.src(paths.node + "/@asu-design-system/bootstrap4-theme/dist/css/*.css")
 		.pipe(gulp.dest(paths.dev + "/bootstrap4-asu/css"));
 
 	// Copy UDS cookie-consent JS files
