@@ -429,10 +429,11 @@ gulp.task("upboot", function (done) {
 		"dev": "./src",
 	}
 
-	// Copy UDS image files
+	// Copy UDS image files to /img at root level.
+	// Accomodates default setting for image paths from shipped Bootstrap CSS.
 	gulp
 		.src(paths.node + "/@asu-design-system/bootstrap4-theme/dist/img/**/*")
-		.pipe(gulp.dest(paths.dev + "/asu-unity-img"));
+		.pipe(gulp.dest("./img"));
 
 	// Copy distributed JS packages from Bootstrap (co-located within the ASU Bootstrap-4 theme).
 	gulp
