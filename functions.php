@@ -8,7 +8,6 @@
 // Set up theme defaults and register support for various WordPress features.
 require get_template_directory() . '/inc/after-setup-theme.php';
 
-
 // Enqueue scripts and styles.
 require get_template_directory() . '/inc/enqueue-scripts.php';
 

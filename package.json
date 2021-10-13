@@ -46,7 +46,9 @@
 		"cache-clear": "gulp clearCache"
 	},
 	"dependencies": {
-		"@asu-design-system/bootstrap4-theme": "^3.3.2",
-		"@asu-design-system/cookie-consent": "^1.0.0"
+		"@asu-design-system/bootstrap4-theme": "^7.2.1",
+		"@asu-design-system/cookie-consent": "dev",
+		"@asu-design-system/design-tokens": "dev",
+		"bootstrap": "^4.6.0"
 	}
 }

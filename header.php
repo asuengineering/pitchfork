@@ -135,9 +135,9 @@ if ( ! empty( $c_options['hotjar_site_id'] ) ) {
 						<nav class="navbar navbar-expand-xl" aria-label="Main">
 
 							<a class="navbar-brand" href="https://www.asu.edu">
-								<img class="vert" src="<?php echo get_template_directory_uri(); ?>/img/logo/asu_university_vert_maroongold.png" alt="Arizona State University" />
-								<img class="horiz" src="<?php echo get_template_directory_uri(); ?>/img/logo/asu_university_horiz_maroongold.png" alt="Arizona State University" />
-							</a>
+								<img class="vert" src="<?php echo get_template_directory_uri(); ?>/src/img/asu-unity/asu-logo/asu-university-vert-maroongold.png" alt="Arizona State University" />
+								<img class="horiz" src="<?php echo get_template_directory_uri(); ?>/src/img/asu-unity/asu-logo/asu-university-horiz-maroongold.png" alt="Arizona State University" />
+							</a>  
 
 							<button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#menubar" aria-controls="menubar" aria-expanded="false" aria-label="Toggle navigation">
 								<span title="Open mobile menu" class="fa fa-bars"></span>

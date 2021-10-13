@@ -152,17 +152,17 @@ function uds_wp_render_main_nav_menu() {
 
 		<?php
 		// render the actual menu items.
-		include get_template_directory() . '/asu-navigation-menu.php';
+		include get_template_directory() . '/template-parts/asu-navigation-menu.php';
 		?>
 
 		</div>
-    <form class="navbar-site-buttons form-inline">
+	<form class="navbar-site-buttons form-inline">
 				<?php
-				if ($cta_menu_btns){
-				foreach ($cta_menu_btns as $cta_menu_btn){
-					echo $cta_menu_btn;
+				if ( $cta_menu_btns ) {
+					foreach ( $cta_menu_btns as $cta_menu_btn ) {
+						echo $cta_menu_btn;
+					}
 				}
-			}
 				?>
 		</form>
 		<?php

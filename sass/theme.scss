@@ -1,6 +1,8 @@
 /** 
-The beginning of the local SASS files for the theme, if there are any.
-
-Should eventually be enqueued with ASU Bootstrap as a dependancy
-to ensure that so styles here can override that package.
+Contains compiled code for Bootstrap 4 + ASU Bootstrap 4 + addditional theme modifications.
 */
+
+// Override image base path for theme css
+$image-assets-path: "/wp-content/themes/UDS-WordPress-Theme/src/img/asu-unity";
+
+@import "../src/sass/bootstrap-asu";
