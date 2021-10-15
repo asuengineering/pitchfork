@@ -2458,6 +2458,16 @@ canvas{width:100%;height:auto;position:relative}
 .uds-person-profile .person ul li:not(:first-child){margin-left:1.5rem}
 .uds-person-profile .person ul.person-contact-info{margin-bottom:1.5rem}
 .uds-person-profile .person ul.person-social-medias a{color:#191919;font-size:1.75rem}
+.title .subdomain-name a{color:#191919;text-decoration:none}
+.title .subdomain-name a:hover{text-decoration:underline}
+.alert-dismissible{padding-right:1rem}
+.alert-dismissible .close{position:relative}
+.alert-icon{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;-webkit-box-align:start;-ms-flex-align:start;align-items:flex-start}
+.alert-close{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column;-webkit-box-pack:start;-ms-flex-pack:start;justify-content:flex-start;-webkit-box-align:end;-ms-flex-align:end;align-items:flex-end}
+#wpadminbar+#asu-header.fixed-top{top:32px !important}
+.uds-modal{z-index:1050;position:fixed}
+.uds-story-hero .hero{width:100%;max-height:100%}
+#wpadminbar{z-index:999999 !important}
 @media(prefers-reduced-motion:reduce){.form-control{-webkit-transition:none;transition:none}
 .btn,.uds-modal-close-btn{-webkit-transition:none;transition:none}
 .fade{-webkit-transition:none;transition:none}
@@ -4401,6 +4411,9 @@ div[class^='uds-hero'] h1,div[class^='uds-hero'] [role='doc-subtitle'],div[class
 .uds-image-background-with-cta{height:434px;padding:3rem 2rem;-webkit-box-align:end;-ms-flex-align:end;align-items:flex-end}
 .uds-image-background-with-cta-container{-webkit-box-align:start;-ms-flex-align:start;align-items:flex-start;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column;-webkit-box-pack:end;-ms-flex-pack:end;justify-content:flex-end}
 .uds-image-background-with-cta-container>span{font-size:2rem;margin-bottom:2rem;max-width:512px}
+.alert .alert-content{margin-right:1rem}
+.alert .alert-icon svg{margin-top:0 !important}
+.alert .alert-close{-webkit-box-pack:start;-ms-flex-pack:start;justify-content:flex-start;-webkit-box-align:end;-ms-flex-align:end;align-items:flex-end;margin-top:0;margin-right:0}
 }@media only screen and (max-width:992px){.uds-card-image-and-content-content-container .card{width:40%;margin:-161px 2% 0 8%}
 }@media(max-width:991.98px){.table-responsive-lg{display:block;width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}
 .table-responsive-lg>.table-bordered{border:0}
@@ -4465,6 +4478,7 @@ div.uds-hero-lg .hero{max-height:32rem}
 .uds-blockquote{padding:2rem}
 .uds-blockquote.no-cite.with-image{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column;-webkit-box-align:center;-ms-flex-align:center;align-items:center}
 .uds-blockquote.no-cite.with-image blockquote,.uds-blockquote.no-cite.with-image h3{text-align:center}
+#wpadminbar+#asu-header.fixed-top{top:46px !important}
 }@media(max-width:577px){h1,h1.article{font-size:2.25rem;line-height:2.5rem;letter-spacing:-0.078rem}
 h2{font-size:2rem;line-height:2.125rem;letter-spacing:-0.07rem}
 }@media screen and (max-width:576px){.alert .alert-icon{-webkit-box-flex:0;-ms-flex:0 0 3rem;flex:0 0 3rem}

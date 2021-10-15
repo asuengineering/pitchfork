@@ -450,6 +450,11 @@ gulp.task("upboot", function (done) {
 		.src(paths.node + "/@asu-design-system/bootstrap4-theme/src/scss/**/*.scss")
 		.pipe(gulp.dest(paths.dev + "/sass"));
 
+	// Copy Preact files from NPM
+	gulp
+		.src(paths.node + "/preact/dist/*.js")
+		.pipe(gulp.dest(paths.dev + "/preact/js"));
+
 	// Copy UDS cookie-consent JS files
 	gulp
 		.src(paths.node + "/@asu-design-system/cookie-consent/dist/*.js")

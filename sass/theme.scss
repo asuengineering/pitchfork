@@ -6,3 +6,10 @@ Contains compiled code for Bootstrap 4 + ASU Bootstrap 4 + addditional theme mod
 $image-assets-path: "/wp-content/themes/UDS-WordPress-Theme/src/img/asu-unity";
 
 @import "../src/sass/bootstrap-asu";
+
+// Theme fixes
+@import '_theme';
+
+#wpadminbar {
+    z-index: 999999 !important;
+}

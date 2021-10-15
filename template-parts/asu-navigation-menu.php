@@ -12,6 +12,7 @@ defined( 'ABSPATH' ) || exit;
 $menu_name   = 'primary';
 $menu_items  = uds_wp_get_menu_formatted_array( $menu_name );
 $current_uri = null;
+$cta_menu_btns = [];
 
 // attempt to retrieve the current page's URL.
 if ( isset( $_SERVER['REQUEST_URI'] ) ) {

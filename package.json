@@ -5,6 +5,9 @@
 	"repository": "ahmadawais/WPGulp",
 	"license": "MIT",
 	"devDependencies": {
+		"@asu-design-system/bootstrap4-theme": "^7.2.1",
+		"@asu-design-system/cookie-consent": "2.0.0",
+		"@asu-design-system/design-tokens": "dev",
 		"@babel/core": "^7.0.0",
 		"@babel/preset-env": "^7.12.1",
 		"@babel/register": "^7.0.0",
@@ -46,9 +49,7 @@
 		"cache-clear": "gulp clearCache"
 	},
 	"dependencies": {
-		"@asu-design-system/bootstrap4-theme": "^7.2.1",
-		"@asu-design-system/cookie-consent": "dev",
-		"@asu-design-system/design-tokens": "dev",
-		"bootstrap": "^4.6.0"
+		"bootstrap": "^4.6.0",
+		"preact": "^10.5.15"
 	}
 }

@@ -53,16 +53,6 @@ if ( ! empty( $c_options['hotjar_site_id'] ) ) {
 	<?php wp_head(); ?>
 
 	<?php
-	if ( is_user_logged_in() && ! is_customize_preview() ) {
-		// shift page content below the WP Admin toolbar.
-		?>
-		<style type="text/css" media="screen">
-			#wpadminbar {
-				z-index: 999999 !important;
-			}
-		</style>
-		<?php
-	}
 
 	// ASU Hub Analytics.
 	if ( ! empty( $asu_hub_analytics ) && 'enabled' === $asu_hub_analytics ) {
@@ -84,6 +74,7 @@ if ( ! empty( $c_options['hotjar_site_id'] ) ) {
 		include get_template_directory() . '/inc/analytics/hotjar-tracking-code.php';
 	}
 	?>
+	
 </head>
 
 <body <?php body_class(); ?> <?php pitchfork_body_attributes(); ?> id="back_to_top">
