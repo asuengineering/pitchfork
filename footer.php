@@ -6,19 +6,66 @@
  * @package pitchfork
  */
 
+// Exit if accessed directly.
+defined( 'ABSPATH' ) || exit;
 ?>
 
-</main><!-- #main -->
-</div><!-- #primary -->
-</div><!-- #content -->
+<footer id="asu-footer">
 
-<?php get_template_part( 'sidebar' ); ?>
-<?php get_template_part( 'template-parts/site-footer' ); ?>
+	<div class="wrapper" id="wrapper-endorsed-footer">
+		<?php uds_wp_render_footer_branding_row(); ?>
+	</div> <!-- wrapper-endorsed-footer -->
 
-</div><!-- #page -->
+	<?php do_action( 'uds_wp_before_global_footer_columns' ); ?>
+
+	<div class="wrapper" id="wrapper-footer-columns">
+		<?php uds_wp_render_footer_action_row(); ?>
+	</div>
+
+	<div class="wrapper" id="wrapper-footer-innovation">
+		<div class="container" id="footer-innovation">
+			<div class="row">
+				<div class="col">
+					<div class="d-flex footer-innovation-links">
+						<a class="img-link" href="https://www.asu.edu/rankings">
+						<img src="<?php echo get_template_directory_uri(); ?>/src/img/university-logo/GlobalFooter-No1InnovationLockup.png" alt="Number one in the U.S. for innovation. ASU ahead of MIT and Stanford . - U.S. News and World Report, 7 years, 2016-2022">
+                        
+					</a>
+						<nav class="nav" aria-label="University Services">
+							<a class="nav-link" href="https://asu.edu/map/">Maps and Locations</a>
+							<a class="nav-link" href="https://asu.edu/asujobs">Jobs</a>
+							<a class="nav-link" href="https://isearch.asu.edu/">Directory</a>
+							<a class="nav-link" href="https://asu.edu/contactasu/">Contact ASU</a>
+							<a class="nav-link" href="https://my.asu.edu/">My ASU</a>
+						</nav>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div> <!-- wrapper-footer-innovation -->
+
+	<div class="wrapper" id="wrapper-footer-colophon">
+		<div class="container" id="footer-colophon">
+			<div class="row">
+				<div class="col">
+					<nav class="nav colophon" aria-label="University Legal and Compliance">
+						<a class="nav-link" href="https://asu.edu/copyright/">Copyright and Trademark</a>
+						<a class="nav-link" href="https://asu.edu/accessibility/">Accessibility</a>
+						<a class="nav-link" href="https://asu.edu/privacy/">Privacy</a>
+						<a class="nav-link" href="https://asu.edu/tou/">Terms of Use</a>
+						<a class="nav-link" href="https://asu.edu/emergency/">Emergency</a>
+					</nav>
+				</div>
+			</div>
+		</div>
+	</div> <!-- wrapper-footer-colophon -->
+</footer>
 
 <?php wp_footer(); ?>
+
 <div id="cookieConsentContainer"></div>
+
 </body>
 
 </html>
+

@@ -205,7 +205,7 @@ function uds_wp_render_footer_logo() {
 			echo wp_kses(
 				sprintf(
 					$logo_template,
-					get_template_directory_uri() . '/img/endorsed-logo/' . $filename,
+					get_template_directory_uri() . '/src/img/endorsed-logo/' . $filename,
 					get_bloginfo( 'name' ) . ' Logo',
 					home_url( '/' )
 				),
@@ -334,7 +334,7 @@ function uds_wp_render_footer_action_row() {
 							<?php uds_wp_render_contribute_button(); ?>
 						</div>
 					</div>
-					<?php include get_template_directory() . '/asu-footer-menu.php'; ?>
+					<?php include get_template_directory() . '/template-parts/asu-footer-menu.php'; ?>
 				</div> <!-- row -->
 			</div> <!-- footer-columns -->
 		</nav>
@@ -351,7 +351,7 @@ function uds_wp_render_asu_footer_logo() {
 	echo wp_kses(
 		sprintf(
 			$logo_template,
-			get_template_directory_uri() . '/img/asu-logo/asu_university_horiz_rgb_white_150.png',
+			get_template_directory_uri() . '/src/img/university-logo/ASU_University_2_Horiz_RGB_White_150ppi.png',
 			get_bloginfo( 'name' ) . ' Logo',
 			'https://asu.edu'
 		),
