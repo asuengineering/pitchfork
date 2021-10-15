@@ -11,6 +11,9 @@ require get_template_directory() . '/inc/after-setup-theme.php';
 // Enqueue scripts and styles.
 require get_template_directory() . '/inc/enqueue-scripts.php';
 
+// Add favicons, anti iFrame hijacking and other improvements.
+require get_template_directory() . '/inc/header-additions.php';
+
 // Add Bootstrap nav walker class.
 require get_template_directory() . '/inc/class-bootstrap-walker-nav-menu.php';
 
