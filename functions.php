@@ -5,6 +5,10 @@
  * @package pitchfork
  */
 
+// TGMPA plugin activation script. Checks for required active plugins and nags the user to install.
+require_once get_template_directory() . '/inc/tgmpa/class-tgm-plugin-activation.php';
+require get_template_directory() . '/inc/tgmpa/recommended-plugins.php';
+
 // Set up theme defaults and register support for various WordPress features.
 require get_template_directory() . '/inc/after-setup-theme.php';
 
@@ -47,3 +51,6 @@ require get_template_directory() . '/inc/widgets-init.php';
 
 // Load ASU WordPress nav walker.
 require get_template_directory() . '/inc/wp-custom-menu.php';
+
+// Remove support for a couple of the native WordPress blocks.
+require get_template_directory() . '/inc/blocks.php';
