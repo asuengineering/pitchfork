@@ -30,6 +30,10 @@ function pitchfork_enqueue_scripts() {
 	$custom_js_version = $theme_version . '.' . filemtime( get_template_directory() . '/js/custom.min.js' );
 	wp_register_script( 'custom', get_template_directory_uri() . '/js/custom.min.js', array( 'jquery', 'bootstrap-bundle' ), $custom_js_version, false );
 
+	// Global header support script.
+	$header_version = $theme_version . '.' . filemtime( get_template_directory() . '/src/js/global-header.js' );
+	wp_register_script( 'global-header', get_template_directory_uri() . '/src/js/global-header.js', array( 'jquery', 'bootstrap-bundle' ), $header_version, false );
+	
 	// Font Awesome. Kit distributed by ASU Engineering.
 	wp_register_script ( 'font-awesome-kit', 'https://kit.fontawesome.com/51b562cd96.js', array(), null, false );
 	wp_script_add_data( 'font-awesome-kit', 'crossorigin', 'anonymous' );
@@ -43,6 +47,7 @@ function pitchfork_enqueue_scripts() {
 	wp_enqueue_script('bootstrap-bundle');
 	wp_enqueue_script('font-awesome-kit');
 	wp_enqueue_script('cookie-consent');
+	wp_enqueue_script('global-header');
 	wp_enqueue_script('custom');
 
 }

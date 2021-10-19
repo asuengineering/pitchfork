@@ -18,8 +18,9 @@ require get_template_directory() . '/inc/enqueue-scripts.php';
 // Add favicons, anti iFrame hijacking and other improvements.
 require get_template_directory() . '/inc/header-additions.php';
 
-// Add Bootstrap nav walker class.
+// Add nav walker classese for main menu and social media icons.
 require get_template_directory() . '/inc/class-bootstrap-walker-nav-menu.php';
+require get_template_directory() . '/inc/class-wp-social-media-walker.php';
 
 // Customizer options.
 require get_template_directory() . '/inc/customizer/customizer-sanitizers.php';            

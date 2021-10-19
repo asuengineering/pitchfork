@@ -1,0 +1,61 @@
+{
+    "key": "group_616de0a0c3714",
+    "title": "UDS: Menu Social Icons",
+    "fields": [
+        {
+            "key": "field_616de0a8fcc66",
+            "label": "menu_social_media_icon",
+            "name": "menu_social_media_icon",
+            "type": "select",
+            "instructions": "Which icons should be use for this link?",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "fa-square": "(Default)",
+                "fa-behance-square": "Behance",
+                "fa-facebook-square": "Facebook",
+                "fa-flickr": "Flickr",
+                "fa-github-square": "GitHub",
+                "fa-instagram-square": "Instagram",
+                "fa-linkedin": "Linkedin",
+                "fa-pinterest-square": "Pinterest",
+                "fa-researchgate": "ResearchGate",
+                "fa-snapchat-square": "Snaphcat",
+                "fa-tumblr-square": "Tumblr",
+                "fa-twitter-square": "Twitter",
+                "fa-vimeo-square": "Vimeo",
+                "fa-youtube-square": "YouTube"
+            },
+            "default_value": "fa-square",
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "nav_menu_item",
+                "operator": "==",
+                "value": "location\/social-media"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "Creates select box with pre-filled FA icon choices for the social media menu.",
+    "modified": 1634592912
+}
