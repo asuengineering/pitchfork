@@ -8,7 +8,8 @@ $image-assets-path: "/wp-content/themes/UDS-WordPress-Theme/src/img/asu-unity";
 @import "../src/sass/bootstrap-asu";
 
 // Theme fixes
-@import '_theme';
+@import '_theme.scss';
+@import '_alignment.scss';
 
 #wpadminbar {
     z-index: 999999 !important;

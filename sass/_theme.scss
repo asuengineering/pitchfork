@@ -124,10 +124,20 @@ Allow admin bar to set above grey bar in header when logged in.
 #wpadminbar + #asu-header.fixed-top {
 	top: 32px !important;
 }
+
 @include media-breakpoint-down(sm) {
-#wpadminbar + #asu-header.fixed-top {
-	top: 46px !important;
+	#wpadminbar + #asu-header.fixed-top {
+		top: 46px !important;
+	}
 }
+
+// The admin bar is not at a fixed position on mobile.
+// But, since the header is still fixed, the admin bar will overlap the header.
+// Fixing the header on mobile prevents further oddness.
+@media screen and (max-width: 600px) {
+	#wpadminbar {
+		position: fixed;
+	}
 }
 
 /*--------------------------------------------------------------

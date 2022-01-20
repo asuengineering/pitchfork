@@ -1,0 +1,56 @@
+/*--------------------------------------------------------------
+1. Mobile style includes a 2rem padding-left/right
+--------------------------------------------------------------*/
+
+main {
+	padding:0 2rem;
+}
+
+@include media-breakpoint-up(xl) {
+	main {
+		padding:0;
+	}
+}
+
+/*--------------------------------------------------------------
+2. Max width 1920px, align center, accomodate align-wide.
+--------------------------------------------------------------*/
+
+// Mobile styles.
+main > *:not(.alignfull):not(.alignwide){
+	margin-left: auto;
+	margin-right: auto;
+}
+
+main > *.alignwide {
+	margin-left: -1rem;
+	margin-right: -1rem;
+}
+
+main > *.alignfull {
+	margin-left: -2rem;
+	margin-right: -2rem;
+}
+
+
+// Desktop styles.
+@include media-breakpoint-up(xl) {
+	main > *:not(.alignfull):not(.alignwide) {
+		max-width: 1200px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	
+	main > *.alignwide {
+		max-width: 1450px; /* width of the wide blocks */
+		margin-left: auto;
+		margin-right: auto;
+	}
+	
+	main > *.alignfull {
+		max-width: 1920px; /* width of the wide blocks */
+		margin-left: auto;
+		margin-right: auto;
+	}
+}
+

@@ -34,8 +34,8 @@ if ( ! function_exists( 'pitchfork_unregister_native_blocks' ) ) {
 		unset( $registered_blocks['core/file'] );
 		unset( $registered_blocks['core/button'] );
 		unset( $registered_blocks['core/buttons'] );
-		unset( $registered_blocks['core/column'] );
-		unset( $registered_blocks['core/columns'] );
+		// unset( $registered_blocks['core/column'] );
+		// unset( $registered_blocks['core/columns'] );
 
 
 		// Strip the array down to just the keys.
@@ -44,7 +44,7 @@ if ( ! function_exists( 'pitchfork_unregister_native_blocks' ) ) {
 		return $registered_blocks;
 	}
 
-	add_filter( 'allowed_block_types', 'pitchfork_unregister_native_blocks' );
+	add_filter( 'allowed_block_types_all', 'pitchfork_unregister_native_blocks' );
 }
 
 // Deregister the core WordPress block patterns.

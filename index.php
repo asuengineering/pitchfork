@@ -13,7 +13,7 @@
 get_header();
 ?>
 
-<div class="container py-4">
+<div class="">
 	<?php if ( have_posts() ) : ?>
 
 		<div class="loop-container">

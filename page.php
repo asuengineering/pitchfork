@@ -1,30 +1,40 @@
 <?php
 /**
- * The template for displaying all single posts
+ * The default template in use by all pages within the Pitchfork theme.
  *
  * @package pitchfork
  */
 
-get_header();
+// Exit if accessed directly.
+defined( 'ABSPATH' ) || exit;
 
+get_header();
 ?>
 
-<div class="container py-4">
-	<?php 
-	if ( have_posts() ) :
-		while ( have_posts() ) :
+	<main id="skip-to-content" <?php post_class(); ?>>
+
+		<?php
+
+		while ( have_posts() ) {
+
 			the_post();
 
-			get_template_part( 'template-parts/content-page' );
+			get_template_part( 'templates-global/hero' );
 
-			if ( comments_open() || get_comments_number() ) :
-				comments_template();
-			endif;
+			get_template_part( 'templates-global/global-banner' );
 
-		endwhile;
-	endif; 
-	?>
-</div>
+			the_content();
 
+			// Display the edit post button to logged in users.
+			echo '<footer class="entry-footer"><div class="container"><div class="row"><div class="col-md-12">';
+			edit_post_link( __( 'Edit', 'uds-wordpress-theme' ), '<span class="edit-link">', '</span>' );
+			echo '</div></div></div></footer><!-- end .entry-footer -->';
+		}
+
+		?>
+
+	</main><!-- #main -->
+	
 <?php
 get_footer();
+
