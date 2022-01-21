@@ -22,12 +22,18 @@
 		"php-parallel-lint/php-parallel-lint": "^1.2"
 	},
 	"scripts": {
-		"check:cs": ["@php ./vendor/squizlabs/php_codesniffer/bin/phpcs --ignore=*/src/* --runtime-set testVersion 5.6-"],
-		"fix:cs": ["@php ./vendor/squizlabs/php_codesniffer/bin/phpcbf"],
+		"check:cs": ["@php phpcs -s --extensions=php --runtime-set testVersion 5.6- ."],
+		"fix:cs": ["@php phpcbf --extensions=php ."],
 		"lint:php": ["@php ./vendor/bin/parallel-lint --exclude .git --exclude vendor . --exclude src ."]
 	},
 	"support": {
 		"issues": "https://github.com/asu-ke-web-services/uds-wordpress-theme/issues",
 		"source": "https://github.com/asu-ke-web-services/uds-wordpress-theme"
+	},
+	"config": {
+		"allow-plugins": {
+			"dealerdirect/phpcodesniffer-composer-installer": true,
+			"composer/installers": true
+		}
 	}
 }
