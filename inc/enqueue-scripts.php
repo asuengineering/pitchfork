@@ -16,8 +16,6 @@ function pitchfork_enqueue_scripts() {
 	$the_theme     = wp_get_theme();
 	$theme_version = $the_theme->get( 'Version' );
 
-	// Registering scripts as a separate action from enquing them to make admin enquing easier.
-
 	// Compiled SASS from ASU Boostrap + theme modifications.
 	$css_version = $theme_version . '.' . filemtime( get_template_directory() . '/css/theme.min.css' );
 	wp_enqueue_style( 'pitchfork-styles', get_template_directory_uri() . '/css/theme.min.css', array(), $css_version );
@@ -55,20 +53,27 @@ function pitchfork_enqueue_admin_scripts() {
 	$the_theme     = wp_get_theme();
 	$theme_version = $the_theme->get( 'Version' );
 
-	// // Compiled SASS from ASU Boostrap + theme modifications.
+	// Don't enqueue these scripts here directly. Impacts the admin "frame" within Gutenberg among other things.
+	// Instead, declare support for CSS styles in the editor area, add the file there.
 	// $css_version = $theme_version . '.' . filemtime( get_template_directory() . '/css/theme.min.css' );
 	// wp_enqueue_style( 'pitchfork-styles', get_template_directory_uri() . '/css/theme.min.css', array(), $css_version );
 
 	// SASS fixes specifically for the admin area. (Gutenberg).
 	$admin_css_version = $theme_version . '.' . filemtime( get_template_directory() . '/css/admin.min.css' );
-	wp_register_style( 'pitchfork-admin-styles', get_template_directory_uri() . '/css/admin.min.css', array(), $admin_css_version );
+	wp_enqueue_style( 'pitchfork-admin-styles', get_template_directory_uri() . '/css/admin.min.css', array(), $admin_css_version );
 
-	// Enqueued scripts for front end display.
-	wp_enqueue_style('pitchfork-styles');
-	wp_enqueue_style('pitchfork-admin-styles');
-	wp_enqueue_script('bootstrap-bundle');
-	wp_enqueue_script('font-awesome-kit');
-	wp_enqueue_script('custom');
+	// Jquery + Bootstrap Bundle with PopperJS.
+	$bs_js_version = $theme_version . '.' . filemtime( get_template_directory() . '/src/js/bootstrap.bundle.min.js' );
+	wp_enqueue_script( 'bootstrap-bundle', get_template_directory_uri() . '/src/js/bootstrap.bundle.min.js', array( 'jquery' ), $bs_js_version );
+
+	// Font Awesome. Kit distributed by ASU Engineering.
+	wp_enqueue_script ( 'font-awesome-kit', 'https://kit.fontawesome.com/51b562cd96.js', array(), null, false );
+	wp_script_add_data( 'font-awesome-kit', 'crossorigin', 'anonymous' );
+
+	// Applying heading highlight classes to core/headings block.
+	$js_heading_highlights = $theme_version . '.' . filemtime( get_template_directory() . '/js/heading-highlights.js' );
+	wp_enqueue_script( 'uds-heading-highlights', get_template_directory_uri() . '/js/heading-highlights.js', array( 'wp-rich-text', 'wp-element', 'wp-editor' ), $js_heading_highlights );
 
 }
 add_action( 'admin_enqueue_scripts', 'pitchfork_enqueue_admin_scripts' );
+

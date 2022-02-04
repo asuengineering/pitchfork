@@ -32,5 +32,8 @@ section.bg{min-height:90px}
 .menu-item-depth-13 .menu-item-bar .menu-item-handle{background-color:#F99}
 .menu-item-depth-13 .menu-item-bar .menu-item-handle .is-submenu::after{content:' - too deep!'}
 .menu-item-depth-13 .menu-item-bar .menu-item-handle .item-title{margin-right:5em}
+.wp-block{max-width:1200px}
+.wp-block[data-align='wide']{max-width:1300px}
+.wp-block[data-align='full']{max-width:none}
 .editor-styles-wrapper svg.svg-inline--fa{vertical-align:-.125rem}
 .acf-block-preview .uds-button a,.acf-block-preview .card-button a{pointer-events:none}

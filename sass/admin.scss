@@ -3,8 +3,9 @@
 Enqueued only within the admin screen. (Via /inc/enqueue-scripts.php)
 
 1. Menus, draggable items
-2. Font Awesome fixes for Gutenberg
-3. Prevent links within blocks from firing during editing.
+2. Editor style widths
+3. Font Awesome fixes for Gutenberg
+4. Prevent links within blocks from firing during editing.
 --------------------------------------------------------------*/
 
 section.bg {
@@ -41,7 +42,26 @@ $warning-color: #F99;
 }
 
 /*-------------------------------------------------------------------
-2. Font Awesome fixes for Gutenberg
+2. Editor style width. Blocks should default to 1200px wide.
+--------------------------------------------------------------------*/
+
+/* Editor Style Width */
+.wp-block {
+    max-width: 1200px;
+}
+ 
+/* Width of "wide" blocks */
+.wp-block[data-align='wide'] {
+    max-width: 1300px;
+}
+ 
+/* Width of "full-wide" blocks */
+.wp-block[data-align='full'] {
+    max-width: none;
+}
+
+/*-------------------------------------------------------------------
+3. Font Awesome fixes for Gutenberg
 --------------------------------------------------------------------*/
 
 // The front-end contains a vertical-align rule that helps to align
@@ -54,7 +74,7 @@ $warning-color: #F99;
 }
 
 /*--------------------------------------------------------------
-3. Prevent blocks which contain links from firing during editing.
+4. Prevent blocks which contain links from firing during editing.
 --------------------------------------------------------------*/
 
 .acf-block-preview .uds-button a,

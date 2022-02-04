@@ -3,13 +3,14 @@ Contains compiled code for Bootstrap 4 + ASU Bootstrap 4 + addditional theme mod
 */
 
 // Override image base path for theme css
-$image-assets-path: "/wp-content/themes/UDS-WordPress-Theme/src/img/asu-unity";
+$image-assets-path: "/wp-content/themes/pitchfork/src/img/asu-unity";
 
 @import "../src/sass/bootstrap-asu";
 
 // Theme fixes
 @import '_theme.scss';
 @import '_alignment.scss';
+@import '_block-styles';
 
 #wpadminbar {
     z-index: 999999 !important;
