@@ -37,21 +37,21 @@ require get_template_directory() . '/inc/render-partials.php';
 // Add preload for CDN.
 // require get_template_directory() . '/inc/resource-hints.php'; !
 
-
 // Custom template functions for this theme.
 require get_template_directory() . '/inc/template-functions.php';
-
 
 // Custom template tags for this theme.
 require get_template_directory() . '/inc/template-tags.php';
 
-
 // Register widget area.
 require get_template_directory() . '/inc/widgets-init.php';
-
 
 // Load ASU WordPress nav walker.
 require get_template_directory() . '/inc/wp-custom-menu.php';
 
 // Remove support for a couple of the native WordPress blocks.
 require get_template_directory() . '/inc/blocks.php';
+
+// Might be temporrary. Remove duotone SVG from <body>.
+remove_action( 'wp_body_open', 'wp_global_styles_render_svg_filters' );
+

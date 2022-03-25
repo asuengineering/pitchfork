@@ -2474,7 +2474,6 @@ main{padding:0 2rem}
 main>*:not(.alignfull):not(.alignwide){margin-left:auto;margin-right:auto}
 main>*.alignwide{margin-left:-1rem;margin-right:-1rem}
 main>*.alignfull{margin-left:-2rem;margin-right:-2rem}
-#wpadminbar{z-index:999999 !important}
 @media(prefers-reduced-motion:reduce){.form-control{-webkit-transition:none;transition:none}
 .btn,.uds-modal-close-btn{-webkit-transition:none;transition:none}
 .fade{-webkit-transition:none;transition:none}
