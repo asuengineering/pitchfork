@@ -8,6 +8,7 @@ $image-assets-path: "/wp-content/themes/pitchfork/src/img/asu-unity";
 @import "../src/sass/bootstrap-asu";
 
 // Theme fixes
+@import '_has-color.scss';
 @import '_theme.scss';
 @import '_alignment.scss';
 @import '_block-styles';

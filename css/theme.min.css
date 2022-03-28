@@ -2461,6 +2461,32 @@ canvas{width:100%;height:auto;position:relative}
 .uds-person-profile .person ul li:not(:first-child){margin-left:1.5rem}
 .uds-person-profile .person ul.person-contact-info{margin-bottom:1.5rem}
 .uds-person-profile .person ul.person-social-medias a{color:#191919;font-size:1.75rem}
+.has-asu-maroon-color{color:#8c1d40}
+.has-asu-maroon-background-color{background-color:#8c1d40}
+.has-asu-gold-color{color:#ffc627}
+.has-asu-gold-background-color{background-color:#ffc627}
+.has-asu-blue-color{color:#00a3e0}
+.has-asu-blue-background-color{background-color:#00a3e0}
+.has-asu-green-color{color:#78be20}
+.has-asu-green-background-color{background-color:#78be20}
+.has-asu-orange-color{color:#ff7f32}
+.has-asu-orange-background-color{background-color:#ff7f32}
+.has-asu-white-color{color:#fff}
+.has-asu-white-background-color{background-color:#fff}
+.has-asu-gray-1-color{color:#fafafa}
+.has-asu-gray-1-background-color{background-color:#fafafa}
+.has-asu-gray-2-color{color:#e8e8e8}
+.has-asu-gray-2-background-color{background-color:#e8e8e8}
+.has-asu-gray-3-color{color:#d0d0d0}
+.has-asu-gray-3-background-color{background-color:#d0d0d0}
+.has-asu-gray-4-color{color:#bfbfbf}
+.has-asu-gray-4-background-color{background-color:#bfbfbf}
+.has-asu-gray-5-color{color:#747474}
+.has-asu-gray-5-background-color{background-color:#747474}
+.has-asu-gray-6-color{color:#484848}
+.has-asu-gray-6-background-color{background-color:#484848}
+.has-asu-gray-7-color{color:#191919}
+.has-asu-gray-7-background-color{background-color:#191919}
 .title .subdomain-name a{color:#191919;text-decoration:none}
 .title .subdomain-name a:hover{text-decoration:underline}
 .alert-dismissible{padding-right:1rem}
