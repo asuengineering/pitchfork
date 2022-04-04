@@ -72,23 +72,36 @@ if ( ! function_exists( 'pitchfork_gutenberg_css' ) ) {
 add_action( 'after_setup_theme', 'pitchfork_gutenberg_css' );
 
 
-if ( ! function_exists( 'pitchfork_theme_support_block_editor_opt_in' ) ) {
-	/**
-	 * Opt in/out features for the theme and the block editor.
-	 * From: https://developer.wordpress.org/block-editor/developers/themes/theme-support/
-	 *
-	 * @return void
-	 */
-	function pitchfork_theme_support_block_editor_opt_in() {
+/**
+ * Opt in/out features for the theme and the block editor.
+ * From: https://developer.wordpress.org/block-editor/developers/themes/theme-support/
+ *
+ * @return void
+ */
+function pitchfork_theme_support_block_editor_opt_in() {
 
-		// This is still in expirimental-theme.json, but not an actual theme.json 
-		add_theme_support( 'responsive-embeds' );
+	// This is still in expirimental-theme.json, but not an actual theme.json 
+	add_theme_support( 'responsive-embeds' );
 
-		// Reminder: Lots of other theme options moved to theme.json.
+	// Reminder: Lots of other theme options moved to theme.json.
 
-	}
 }
 add_action( 'after_setup_theme', 'pitchfork_theme_support_block_editor_opt_in' );
 
 
 
+/**
+ * With the use of the separate core assets filter, we can easily deregister
+ * block styles from individual core blocks with the deregister_style hook.
+ * Ref: https://github.com/WordPress/gutenberg/issues/32051#issuecomment-1058964416
+ * 
+ * Affects front end only, not block editor screens.
+ * Ref: https://developer.wordpress.org/reference/functions/wp_should_load_separate_core_block_assets/
+ *
+ * @return void
+ */
+function pitchfork_remove_core_wp_block_style() { 
+    wp_deregister_style( 'wp-block-button' );    
+}
+add_filter( 'should_load_separate_core_block_assets', '__return_true' ); 
+add_action( 'wp_enqueue_scripts', 'pitchfork_remove_core_wp_block_style', 100 );

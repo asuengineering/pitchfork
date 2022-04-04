@@ -1,0 +1,83 @@
+/*-------------------------------------------------------------------
+3. Font Awesome fixes for Gutenberg
+--------------------------------------------------------------------*/
+
+// The front-end contains a vertical-align rule that helps to align
+// icons with the text. Because of the '.editor-styles-wrapper' on the
+// editor side, it was not working. Added that same rule, specifically
+// targeting Fontawesome SVG icons inside the Gutenberg styles wrapper
+// so that we get the same look while editing.
+.editor-styles-wrapper svg.svg-inline--fa {
+	vertical-align: -.125rem;
+}
+
+/*--------------------------------------------------------------
+4. Prevent blocks which contain links from firing during editing.
+--------------------------------------------------------------*/
+
+.acf-block-preview .uds-button a,
+.acf-block-preview .card-button a {
+	pointer-events: none;
+}
+
+/*--------------------------------------------------------------
+4. core/button. Add styles from UDS-Bootstrap manually.
+See: /inc/blocks:93 for explination. 
+--------------------------------------------------------------*/
+
+.editor-styles-wrapper {
+	.wp-block-button__link {
+		font-weight: bold;
+		text-align: center;
+		text-decoration: none;
+		vertical-align: middle;
+		border: 1px solid transparent;
+		padding: 1rem 2rem;
+		font-size: 1rem;
+		line-height: 1rem;
+		border-radius: 400rem;
+
+		// Default color choice. No explicit class applied.
+		color: #ffffff;
+		border-color: #8c1d40;
+		background-color: #8c1d40;
+
+		// Applied color choices. Background color applied by 'da gutes.
+		&.has-asu-maroon-background-color {
+			color: #ffffff;
+			border-color: #8c1d40;
+		}
+		&.has-asu-gold-background-color {
+			color: #212529;
+			border-color: #FFC627;
+		}
+		&.has-gray-4-background-color {
+			color: #212529;
+			border-color: #bfbfbf;
+		}
+		&.has-gray-7-background-color {
+			color: #ffffff;
+			border-color: #191919;
+		}
+	}
+
+	// Size options.
+	.wp-block-button.is-style-uds-sm div.wp-block-button__link {
+		font-size: .75rem;
+		padding: 0.25rem 0.75rem;
+	}
+
+	// Size options.
+	.wp-block-button.is-style-uds-md div.wp-block-button__link {
+		font-size: .875rem;
+		padding: 0.5rem 1rem;
+	}
+
+	// Size options.
+	.wp-block-button.is-style-uds-lg div.wp-block-button__link {
+		padding: 0.5rem 1rem;
+		font-size: 1.25rem;
+		line-height: 1.5;
+		border-radius: 400rem;
+	}
+}

@@ -1,14 +1,21 @@
-/** 
-Contains compiled code for Bootstrap 4 + ASU Bootstrap 4 + addditional theme modifications.
-*/
+/*--------------------------------------------------------------
+# Theme CSS
+Loads UDS-Bootstrap-4 and appends additional styles as needed.
+
+--------------------------------------------------------------*/
 
 // Override image base path for theme css
 $image-assets-path: "/wp-content/themes/pitchfork/src/img/asu-unity";
 
+// Import Bootstrap.
 @import "../src/sass/bootstrap-asu";
 
-// Theme fixes
-@import '_has-color.scss';
-@import '_theme.scss';
-@import '_alignment.scss';
-@import '_block-styles';
+// Parials applicable to both theme (FE) and the editor.
+@import 'theme/has-color';
+@import 'theme/alignment';
+@import 'theme/extras';
+@import 'theme/core-blocks';
+
+// Partials only applicable for the theme.
+
+

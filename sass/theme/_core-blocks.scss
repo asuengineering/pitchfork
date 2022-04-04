@@ -1,0 +1,58 @@
+/*--------------------------------------------------------------
+# Style mods for core blocks.
+
+- core/paragraph
+- core/button
+--------------------------------------------------------------*/
+
+
+/*--------------------------------------------------------------
+1. core/paragraph
+--------------------------------------------------------------*/
+
+// Lead Paragraph
+p.is-style-lead {
+    @extend .lead;
+}
+
+
+/*--------------------------------------------------------------
+2. core/button. Add styles from UDS-Bootstrap manually.
+See: /inc/blocks:93 for explination. 
+--------------------------------------------------------------*/
+
+// Base class, applied at the <a> tag level.
+a.wp-block-button__link {
+    @extend .btn;
+    @extend .btn-maroon;
+    // Default size should be .md
+}
+
+// Size modifiers 
+.wp-block-button.is-style-uds-sm a.wp-block-button__link {
+    @extend .btn-sm;
+}
+
+.wp-block-button.is-style-uds-md a.wp-block-button__link {
+    @extend .btn-md;
+}
+
+.wp-block-button.is-style-uds-lg a.wp-block-button__link {
+    @extend .btn-lg;
+}
+
+// Color modifiers
+a.wp-block-button__link {
+    &.has-asu-maroon-background-color {
+        @extend .btn-maroon;
+    }
+    &.has-asu-gold-background-color {
+        @extend .btn-gold;
+    }
+    &.has-gray-4-background-color {
+        @extend .btn-gray;
+    }
+    &.has-gray-7-background-color {
+        @extend .btn-dark;
+    }
+}

@@ -1,5 +1,6 @@
 /*--------------------------------------------------------------
 1. Max width 1920px, align center
+Replicated in _alignment.scss
 --------------------------------------------------------------*/
 
 // main > * {
@@ -100,6 +101,7 @@
 
 /*--------------------------------------------------------------
 Fixes an issue with a gap between the header and the block that immediately follows.
+** Problem not present in Pitchfork
 --------------------------------------------------------------*/
 // // Desktop
 // @include media-breakpoint-up(xl) {
@@ -142,6 +144,7 @@ Allow admin bar to set above grey bar in header when logged in.
 
 /*--------------------------------------------------------------
 Fix content alignment issues between header/content/footer
+Moved to alignment.scss and implemented in Bootstrap 4 library.
 --------------------------------------------------------------*/
 
 // #header-main .navbar,
