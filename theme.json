@@ -102,7 +102,60 @@
 			"fontFamilies": []
         },
         "blocks": {
-            "core/button": {
+            "core/heading": {
+                "border": {
+                    "color": false,
+                    "radius": false,
+                    "style": false,
+                    "width": false
+                },
+				"color": {
+					"background": false,
+					"text": true,
+					"palette": [
+                        {
+                            "slug": "gray-7",
+                            "color": "#191919",
+                            "name": "ASU Gray 7"
+                        },
+						{
+							"slug": "white",
+							"color": "#FFFFFF",
+							"name": "White"
+						},
+						{
+                            "slug": "asu-gold",
+                            "color": "#FFC627",
+                            "name": "ASU Gold"
+                        }
+					]
+				}
+			},
+			"core/paragraph": {
+                "border": {
+                    "color": false,
+                    "radius": false,
+                    "style": false,
+                    "width": false
+                },
+				"color": {
+					"background": false,
+					"text": true,
+					"palette": [
+						{
+                            "slug": "gray-7",
+                            "color": "#191919",
+                            "name": "ASU Gray 7"
+                        },
+						{
+							"slug": "white",
+							"color": "#FFFFFF",
+							"name": "White"
+						}
+					]
+				}
+			},
+			"core/button": {
                 "border": {
                     "color": false,
                     "radius": false,
