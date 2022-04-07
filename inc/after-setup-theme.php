@@ -60,11 +60,6 @@ if ( ! function_exists( 'pitchfork_theme_setup' ) ) {
 		 * Adding support for Widget edit icons in customizer.
 		 */
 		add_theme_support( 'customize-selective-refresh-widgets' );
-
-		/*
-		 * Theme support for align-wide and align-full.
-		 */
-		add_theme_support( 'align-wide');
 		
 	}
 }
