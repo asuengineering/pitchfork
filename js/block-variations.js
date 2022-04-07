@@ -40,7 +40,7 @@
 
     wp.blocks.registerBlockStyle(
         'core/button', [{
-            name: 'uds-lg',
+            name: '',
             label: 'Large',
             isDefault: false,
         }]
