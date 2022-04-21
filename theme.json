@@ -186,6 +186,11 @@
                         }
 					]
 				}
+			},
+			"core/column": {
+				"spacing": {
+					"units": [ "%" ]
+				}
 			}
         }
     }
