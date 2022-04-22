@@ -1,0 +1,9 @@
+/*--------------------------------------------------------------
+Extra styles for page.php template. 
+
+- Define spacing around the_title() when present.
+--------------------------------------------------------------*/
+
+.page .page-title {
+    padding: $uds-size-spacing-4 0;
+}
