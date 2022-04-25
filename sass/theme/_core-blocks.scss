@@ -56,3 +56,28 @@ a.wp-block-button__link {
         @extend .btn-dark;
     }
 }
+
+/*--------------------------------------------------------------
+3. core/list
+--------------------------------------------------------------*/
+
+.is-style-uds-list {
+	@extend .uds-list;
+}
+
+.is-style-uds-steplist {
+	@extend .uds-list;
+    @extend .uds-steplist;
+}
+
+.is-style-uds-steplist-maroon {
+	@extend .uds-list;
+    @extend .uds-steplist;
+    @extend .uds-steplist-maroon;
+}
+
+.is-style-uds-steplist-gold {
+	@extend .uds-list;
+    @extend .uds-steplist;
+    @extend .uds-steplist-gold;
+}
