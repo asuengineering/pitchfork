@@ -29,14 +29,10 @@ if ( ! function_exists( 'pitchfork_unregister_native_blocks' ) ) {
 		// Removing native blocks from the "text" category.
 		unset( $registered_blocks['core/verse'] );
 		unset( $registered_blocks['core/pullquote'] );
+		unset( $registered_blocks['core/quote'] );
 		unset( $registered_blocks['core/preformatted'] );
 		unset( $registered_blocks['core/cover'] );
 		unset( $registered_blocks['core/file'] );
-		// unset( $registered_blocks['core/button'] );
-		// unset( $registered_blocks['core/buttons'] );
-		// unset( $registered_blocks['core/column'] );
-		// unset( $registered_blocks['core/columns'] );
-
 
 		// Strip the array down to just the keys.
 		$registered_blocks = array_keys( $registered_blocks );
