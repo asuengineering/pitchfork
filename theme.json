@@ -245,6 +245,25 @@
                         }
 					]
 				}
+			},
+			"acf/blockquote": {
+				"color": {
+					"background": false,
+					"text": true,
+					"link": false,
+					"palette": [
+						{
+							"slug": "white",
+							"color": "#FFFFFF",
+							"name": "White"
+						},
+                        {
+                            "slug": "gray-7",
+                            "color": "#191919",
+                            "name": "ASU Gray 7"
+                        }
+					]
+				}
 			}
         }
     }
