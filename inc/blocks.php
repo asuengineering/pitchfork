@@ -27,10 +27,11 @@ if ( ! function_exists( 'pitchfork_unregister_native_blocks' ) ) {
 		$registered_blocks = WP_Block_Type_Registry::get_instance()->get_all_registered();
 
 		// Removing native blocks from the "text" category.
-		unset( $registered_blocks['core/verse'] );
+		
 		unset( $registered_blocks['core/pullquote'] );
 		unset( $registered_blocks['core/quote'] );
 		unset( $registered_blocks['core/preformatted'] );
+		unset( $registered_blocks['core/verse'] );
 		unset( $registered_blocks['core/cover'] );
 		unset( $registered_blocks['core/file'] );
 
