@@ -3,6 +3,8 @@
 
 - core/paragraph
 - core/button
+- core/list
+- core/image
 --------------------------------------------------------------*/
 
 
@@ -80,4 +82,60 @@ a.wp-block-button__link {
 	@extend .uds-list;
     @extend .uds-steplist;
     @extend .uds-steplist-gold;
+}
+
+/*--------------------------------------------------------------
+4. core/image
+--------------------------------------------------------------*/
+@mixin uds-figure {
+    img {
+        border: 1px solid $uds-color-base-gray-3;
+    }
+    
+    figcaption {
+        border: 1px solid $uds-color-base-gray-3;
+        border-top: none;
+        opacity: 1;
+        background: #fff 0% 0% no-repeat padding-box;
+        padding: 0.75rem;
+        font-size: .75rem;
+        
+        // Default WP figcaption adds margin.
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+}
+
+.wp-block-image {
+
+    &.is-style-plain {
+        figcaption {
+            margin-top: $uds-size-spacing-2;
+        }
+    }
+
+    &.is-style-uds-figure {
+        @include uds-figure;
+    }
+
+    &.is-style-drop-shadow {
+        box-shadow: 0rem .5rem 1rem rgba(25,25,25,.2);
+        @include uds-figure;
+    }
+
+    &.is-style-circular {
+        @include uds-figure;
+
+        img {
+            border: none;
+            border-radius: 100%;
+            object-fit: cover;
+            aspect-ratio: 1 / 1;
+        }
+
+        figcaption {
+            border: none;
+            text-align:center;
+        }
+    }
 }

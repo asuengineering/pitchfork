@@ -3,6 +3,7 @@
  * - core/paragraph, add lead style.
  * - core/button, add size selection, rework CSS for UDS styles.
  * - core/list, add list styles.
+ * - core/image, remove default styles, add our own.
  */
 
  wp.domReady( () => {
@@ -76,6 +77,43 @@
         'core/list', [{
             name: 'uds-steplist-gold',
             label: 'UDS Steplist, Gold',
+            isDefault: false,
+        }]
+    );
+
+    // Remove default block styles for core/image.
+    // Replace with UDS-specific styles.
+	wp.blocks.unregisterBlockStyle( 'core/image', 'default' );
+    wp.blocks.unregisterBlockStyle( 'core/image', 'rounded' );
+
+    wp.blocks.registerBlockStyle(
+        'core/image', [{
+            name: 'plain',
+            label: 'Plain Image',
+            isDefault: true,
+        }]
+    );
+
+    wp.blocks.registerBlockStyle(
+        'core/image', [{
+            name: 'uds-figure',
+            label: 'Figure',
+            isDefault: false,
+        }]
+    );
+
+    wp.blocks.registerBlockStyle(
+        'core/image', [{
+            name: 'drop-shadow',
+            label: 'Figure w/drop shadow',
+            isDefault: false,
+        }]
+    );
+
+    wp.blocks.registerBlockStyle(
+        'core/image', [{
+            name: 'circular',
+            label: 'Circular',
             isDefault: false,
         }]
     );
