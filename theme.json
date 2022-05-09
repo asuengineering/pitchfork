@@ -288,6 +288,35 @@
                         }
 					]
 				}
+			},
+			"acf/card-foldable": {
+				"color": {
+					"background": true,
+					"text": false,
+					"link": false,
+					"palette": [
+						{
+                            "slug": "gold",
+                            "color": "#FFC627",
+                            "name": "ASU Gold"
+                        },
+						{
+                            "slug": "maroon",
+                            "color": "#8C1D40",
+                            "name": "ASU Maroon"
+                        },
+                        {
+                            "slug": "gray",
+                            "color": "#BFBFBF",
+                            "name": "ASU Gray 4"
+                        },
+                        {
+                            "slug": "dark",
+                            "color": "#191919",
+                            "name": "ASU Gray 7"
+                        }
+					]
+				}
 			}
         }
     }
