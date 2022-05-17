@@ -16,8 +16,9 @@
             isDefault: false,
         }]
     );
-    
-    // Remove default block styles for core/button
+    /**
+     * Remove default block styles for core/button
+     */
 	wp.blocks.unregisterBlockStyle( 'core/button', 'default' );
 	wp.blocks.unregisterBlockStyle( 'core/button', 'outline' );
 	wp.blocks.unregisterBlockStyle( 'core/button', 'squared' );
@@ -117,5 +118,9 @@
             isDefault: false,
         }]
     );
+
+    /** Table block. Remove all styles. */
+    wp.blocks.unregisterBlockStyle( 'core/table', 'regular' );
+    wp.blocks.unregisterBlockStyle( 'core/table', 'stripes' );
 
 });

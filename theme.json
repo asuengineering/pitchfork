@@ -246,6 +246,19 @@
 					]
 				}
 			},
+			"core/image": {
+				"color": {
+					"duotone": [],
+					"customDuotone": false
+				}
+			},
+			"core/table": {
+				"color": {
+					"background": false,
+					"text": false,
+					"link": false
+				}
+			},
 			"acf/blockquote": {
 				"color": {
 					"background": false,
