@@ -100,6 +100,7 @@ add_action( 'after_setup_theme', 'pitchfork_theme_support_block_editor_opt_in' )
 function pitchfork_remove_core_wp_block_styles() { 
     wp_deregister_style( 'wp-block-button' );   
 	wp_deregister_style( 'wp-block-image' ); 
+	wp_deregister_style( 'wp-block-separator' ); 
 }
 add_filter( 'should_load_separate_core_block_assets', '__return_true' ); 
 add_action( 'wp_enqueue_scripts', 'pitchfork_remove_core_wp_block_styles', 100 );

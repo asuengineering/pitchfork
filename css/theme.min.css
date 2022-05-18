@@ -2508,6 +2508,9 @@ main>*.alignfull{margin-left:-2rem;margin-right:-2rem}
 .wp-block-image.is-style-circular figcaption{border:1px solid #d0d0d0;border-top:0;opacity:1;background:#fff 0 0 no-repeat padding-box;padding:.75rem;font-size:.75rem;margin-top:0;margin-bottom:0}
 .wp-block-image.is-style-circular img{border:0;border-radius:100%;-o-object-fit:cover;object-fit:cover;aspect-ratio:1 / 1}
 .wp-block-image.is-style-circular figcaption{border:0;text-align:center}
+.wp-block-separator.is-style-default{border-top:0;height:1px;margin:3rem 0;background-color:#d0d0d0}
+.wp-block-separator.is-style-copy-divider{background-color:transparent}
+.wp-block-separator.is-style-copy-divider:after{content:'';height:.5rem;background-color:#ffc627;max-width:16rem;width:100%;position:absolute}
 .page .page-title{padding:2rem 0}
 @media(prefers-reduced-motion:reduce){.form-control{-webkit-transition:none;transition:none}
 .btn,.uds-modal-close-btn,a.wp-block-button__link{-webkit-transition:none;transition:none}

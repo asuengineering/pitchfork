@@ -146,3 +146,34 @@ a.wp-block-button__link {
 .wp-block-table {
     @extend .uds-table;
 }
+
+
+/*--------------------------------------------------------------
+4. core/divider
+--------------------------------------------------------------*/
+.wp-block-separator {
+
+    &.is-style-default {
+        // The default UDS styles are directly applied to the HR element.
+        border-top: 0;
+        height: 1px;
+        margin: 3rem 0;
+        background-color: #d0d0d0;
+    }
+
+    &.is-style-copy-divider {
+
+        // Cancels out styles applied to <hr> by UDS Boostrap 4
+        background-color: transparent;
+        
+        // Applies gold bar style to psudo-element to avoid the use of max-width in the definition.
+        &:after {
+            content: '';
+            height: 0.5rem;
+            background-color: #ffc627;
+            max-width: 16rem;
+            width:100%;
+            position: absolute;
+        }
+    }
+}

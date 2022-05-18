@@ -4,6 +4,8 @@
  * - core/button, add size selection, rework CSS for UDS styles.
  * - core/list, add list styles.
  * - core/image, remove default styles, add our own.
+ * - core/table, remove all styles. Apply uds-table to native class.
+ * - core/separator, remove default styles, add back UDS classes.
  */
 
  wp.domReady( () => {
@@ -122,5 +124,14 @@
     /** Table block. Remove all styles. */
     wp.blocks.unregisterBlockStyle( 'core/table', 'regular' );
     wp.blocks.unregisterBlockStyle( 'core/table', 'stripes' );
+
+    /** Separator (HR) Block. Remove/add styles. */
+    wp.blocks.unregisterBlockStyle( 'core/separator', 'wide' );
+    wp.blocks.unregisterBlockStyle( 'core/separator', 'dots' );
+
+    wp.blocks.registerBlockStyle( 'core/separator', {
+        name: 'copy-divider',
+        label: 'Copy Divider (Gold)'
+    });
 
 });

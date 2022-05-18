@@ -254,9 +254,15 @@
 			},
 			"core/table": {
 				"color": {
+					"palette": [],
 					"background": false,
 					"text": false,
 					"link": false
+				}
+			},
+			"core/separator": {
+				"color": {
+					"palette": []
 				}
 			},
 			"acf/blockquote": {
