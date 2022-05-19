@@ -336,6 +336,40 @@
                         }
 					]
 				}
+			},
+			"acf/banner": {
+				"color": {
+					"background": true,
+					"text": false,
+					"link": false,
+					"palette": [
+						{
+							"slug": "blue",
+							"color": "#00A3E0",
+							"name": "ASU Blue"
+						},
+						{
+							"slug": "green",
+							"color": "#78BE20",
+							"name": "ASU Green"
+						},
+						{
+							"slug": "orange",
+							"color": "#FF7F32",
+							"name": "ASU Orange"
+						},
+						{
+							"slug": "gray",
+							"color": "#E8E8E8",
+							"name": "ASU Gray 2"
+						},
+                        {
+                            "slug": "black",
+                            "color": "#191919",
+                            "name": "ASU Gray 7"
+                        }
+					]
+				}
 			}
         }
     }
