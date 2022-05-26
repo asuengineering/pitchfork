@@ -309,6 +309,11 @@
 				}
 			},
 			"acf/card-foldable": {
+				"spacing": {
+					"units": [ "em" ],
+					"margin": true,
+					"padding": true
+				},
 				"color": {
 					"background": true,
 					"text": false,
