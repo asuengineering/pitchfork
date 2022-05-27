@@ -13,25 +13,40 @@
 get_header();
 ?>
 
-<div class="">
-	<?php if ( have_posts() ) : ?>
-
-		<div class="loop-container">
-			<?php
-			while ( have_posts() ) :
-				the_post();
-				get_template_part( 'template-parts/content-excerpt' );
-			endwhile;
+<main id="skip-to-content" <?php post_class(); ?>>
+	<div class="container py-4">
+		<div class="index-title">
+			<?php 
+				echo '<h1 class="page-title">' . get_bloginfo( 'name' ) . '</h1>';
+				// The blog description is disabled in the customizer
+				if (! empty(get_bloginfo('description'))) {
+					echo '<p class="lead">' . get_bloginfo( 'description' ) . '</p>';
+				}
 			?>
 		</div>
 
-		<?php
-		pitchfork_the_posts_pagination();
-	else :
-		get_template_part( 'template-parts/content-none' );
-	endif; 
-	?>
-</div>
+		<div class="row">
+			<?php 
+			if ( have_posts() ) {
+				// Start the loop.
+				while ( have_posts() ) {
+					the_post();
+					get_template_part( 'template-parts/content-card' );
+				}
+			} else {
+				get_template_part( 'template-parts/content-none' );
+			}
+			?>
+		</div>
+
+		<div class="row py-4">
+			<div class="col">
+				<!-- The pagination component -->
+				<?php pitchfork_pagination(); ?>
+			</div>
+		</div>
+	</div>
+</main><!-- #main -->
 
 <?php
 get_footer();

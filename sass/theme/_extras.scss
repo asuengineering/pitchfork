@@ -200,16 +200,53 @@ Moved to alignment.scss and implemented in Bootstrap 4 library.
 Add scope for modal window block.
 --------------------------------------------------------------*/
 
-.uds-modal{
-	z-index: 1050;
-	position: fixed;
-}
+// .uds-modal{
+// 	z-index: 1050;
+// 	position: fixed;
+// }
 
 
 /*--------------------------------------------------------------
 BUG: Story hero layout breaks with oversized images.
 --------------------------------------------------------------*/
-.uds-story-hero .hero {
-	width: 100%;
-    max-height: 100%;
+// .uds-story-hero .hero {
+// 	width: 100%;
+//     max-height: 100%;
+// }
+
+// Pagination formatting fix. Span tag produces zero padding from default WP.
+.pagination {
+	span.page-link {
+		padding: $uds-size-spacing-1 12px;
+	}
+}
+
+
+// 404 error page 
+.error404 div[class^='uds-hero'] .search-form-inline {
+
+	position: relative;
+
+	input[type='search'] {
+		width: 300px;
+
+		+label {
+			display: block;
+			position:absolute;
+			left: 12px;
+			top: 6px;
+			color: $uds-color-base-gray-5;
+		}
+
+		&:valid+label {
+			display: none;
+		}
+	}
+}
+
+// Border and spacing for index.php site title display.
+.home .index-title {
+	padding-bottom: $uds-size-spacing-2;
+	border-bottom: 1px solid $uds-color-base-gray-3;
+	margin-bottom: $uds-size-spacing-4;
 }

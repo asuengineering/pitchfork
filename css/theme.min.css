@@ -2496,8 +2496,12 @@ main>*.alignfull{margin-left:-2rem;margin-right:-2rem}
 .alert-icon{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;-webkit-box-align:start;-ms-flex-align:start;align-items:flex-start}
 .alert-close{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column;-webkit-box-pack:start;-ms-flex-pack:start;justify-content:flex-start;-webkit-box-align:end;-ms-flex-align:end;align-items:flex-end}
 #wpadminbar+#asu-header.fixed-top{top:32px !important}
-.uds-modal{z-index:1050;position:fixed}
-.uds-story-hero .hero{width:100%;max-height:100%}
+.pagination span.page-link{padding:.5rem 12px}
+.error404 div[class^='uds-hero'] .search-form-inline{position:relative}
+.error404 div[class^='uds-hero'] .search-form-inline input[type='search']{width:300px}
+.error404 div[class^='uds-hero'] .search-form-inline input[type='search']+label{display:block;position:absolute;left:12px;top:6px;color:#747474}
+.error404 div[class^='uds-hero'] .search-form-inline input[type='search']:valid+label{display:none}
+.home .index-title{padding-bottom:1rem;border-bottom:1px solid #d0d0d0;margin-bottom:2rem}
 .wp-block-image.is-style-plain figcaption{margin-top:1rem}
 .wp-block-image.is-style-uds-figure img{border:1px solid #d0d0d0}
 .wp-block-image.is-style-uds-figure figcaption{border:1px solid #d0d0d0;border-top:0;opacity:1;background:#fff 0 0 no-repeat padding-box;padding:.75rem;font-size:.75rem;margin-top:0;margin-bottom:0}
