@@ -49,9 +49,12 @@ require get_template_directory() . '/inc/widgets-init.php';
 // Load ASU WordPress nav walker.
 require get_template_directory() . '/inc/wp-custom-menu.php';
 
+// Load ASU WordPres pagination function.
+require get_template_directory() . '/inc/pagination.php';
+
 // Remove support for a couple of the native WordPress blocks.
 require get_template_directory() . '/inc/blocks.php';
 
-// Might be temporrary. Remove duotone SVG from <body>.
+// Might be temporary. Remove duotone SVG from <body>.
 remove_action( 'wp_body_open', 'wp_global_styles_render_svg_filters' );
 
