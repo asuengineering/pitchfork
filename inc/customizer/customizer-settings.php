@@ -2,7 +2,7 @@
 /**
  * UDS WordPress Theme Customizer
  *
- * @package pitchfork
+ * @package uds-wordpress-theme
  * @author KE Web Services
  *
  * Creates the customizer settings, controls, and selective refresh values
@@ -55,7 +55,7 @@ if ( ! function_exists( 'uds_wp_register_theme_customizer_settings' ) ) {
 		$wp_customize->remove_control( 'custom_logo' );
 
 		// Rename the 'Site Identity' section to 'Site Information'.
-		$wp_customize->get_section( 'title_tagline' )->title = __( 'Site Information', 'pitchfork' );
+		$wp_customize->get_section( 'title_tagline' )->title = __( 'Site Information', 'uds-wordpress-theme' );
 
 		/***********************************************************************
 		 * Site Information Section
@@ -103,8 +103,8 @@ if ( ! function_exists( 'uds_wp_register_theme_customizer_settings' ) ) {
 		$wp_customize->add_control(
 			'sitename_as_link_control',
 			array(
-				'description' => __( '<p>Determines if the site name in the header is also a link to the root (home page) of your site.</p>', 'pitchfork' ),
-				'label'       => __( 'Make title a link', 'pitchfork' ),
+				'description' => __( '<p>Determines if the site name in the header is also a link to the root (home page) of your site.</p>', 'uds-wordpress-theme' ),
+				'label'       => __( 'Make title a link', 'uds-wordpress-theme' ),
 				'section'     => 'title_tagline',
 				'type'        => 'checkbox',
 				'settings'    => 'sitename_as_link',
@@ -114,6 +114,46 @@ if ( ! function_exists( 'uds_wp_register_theme_customizer_settings' ) ) {
 
 		$wp_customize->selective_refresh->add_partial(
 			'sitename_as_link_control',
+			array(
+				'selector'        => '.navbar-container',
+				'container_inclusive' => false,
+				'render_callback' => function() {
+					return (
+						uds_wp_render_title_wrapper()
+						&&
+						uds_wp_render_subdomain_name()
+					);
+				},
+			)
+		);
+
+		/**
+		 * Alternate 'Display' Name for the Site
+		 */
+		$wp_customize->add_setting(
+			'site_display_name',
+			array(
+				'default'           => '',
+				'capability'        => 'edit_theme_options',
+				'type'              => 'theme_mod',
+				'sanitize_callback' => 'uds_wp_sanitize_nothing',
+				'transport'         => 'postMessage',
+			)
+		);
+
+		$wp_customize->add_control(
+			'site_display_name_control',
+			array(
+				'description' => __( '<p>To display a site title other than the one listed above, enter an alternate title here.</p>', 'uds-wordpress-theme' ),
+				'label'       => __( 'Site Display Name', 'uds-wordpress-theme' ),
+				'section'     => 'title_tagline',
+				'settings'    => 'site_display_name',
+				'priority'    => 20,
+			)
+		);
+
+		$wp_customize->selective_refresh->add_partial(
+			'site_display_name',
 			array(
 				'selector'        => '.navbar-container',
 				'container_inclusive' => false,
@@ -144,8 +184,8 @@ if ( ! function_exists( 'uds_wp_register_theme_customizer_settings' ) ) {
 		$wp_customize->add_control(
 			'parent_unit_name',
 			array(
-				'description' => __( '<p>The Parent Unit name displays as smaller text above the site title, but <b>will be hidden in mobile views.</b></p>', 'pitchfork' ),
-				'label'       => __( 'Parent Unit Name', 'pitchfork' ),
+				'description' => __( '<p>The Parent Unit name displays as smaller text above the site title, but <b>will be hidden in mobile views.</b></p>', 'uds-wordpress-theme' ),
+				'label'       => __( 'Parent Unit Name', 'uds-wordpress-theme' ),
 				'section'     => 'title_tagline',
 				'settings'    => 'parent_unit_name',
 				'priority'    => 20,
@@ -184,8 +224,8 @@ if ( ! function_exists( 'uds_wp_register_theme_customizer_settings' ) ) {
 		$wp_customize->add_control(
 			'parent_unit_link',
 			array(
-				'description'       => __( '<p>To make the Parent Unit a link, provide the URL here.</p>', 'pitchfork' ),
-				'label'      => __( 'Parent Unit URL', 'pitchfork' ),
+				'description'       => __( '<p>To make the Parent Unit a link, provide the URL here.</p>', 'uds-wordpress-theme' ),
+				'label'      => __( 'Parent Unit URL', 'uds-wordpress-theme' ),
 				'section'    => 'title_tagline',
 				'settings'   => 'parent_unit_link',
 				'priority'   => 30,
@@ -219,7 +259,7 @@ if ( ! function_exists( 'uds_wp_register_theme_customizer_settings' ) ) {
 		$wp_customize->add_section(
 			'uds_wp_theme_section_header',
 			array(
-				'title'      => __( 'ASU Global Header', 'pitchfork' ),
+				'title'      => __( 'ASU Global Header', 'uds-wordpress-theme' ),
 				'priority'   => 30,
 			)
 		);
@@ -234,17 +274,17 @@ if ( ! function_exists( 'uds_wp_register_theme_customizer_settings' ) ) {
 				'capability'        => 'edit_theme_options',
 				'type'              => 'theme_mod',
 				'sanitize_callback' => 'uds_wp_sanitize_nothing',
-				'transport'         => 'postMessage',
+				'transport'         => 'refresh',
 			)
 		);
 
 		$wp_customize->add_control(
 			'header_navigation_menu',
 			array(
-				'label'      => __( 'Main Navigation Menu', 'pitchfork' ),
+				'label'      => __( 'Main Navigation Menu', 'uds-wordpress-theme' ),
 				'description'       => __(
 					'<p>Show or hide the main navigation menu. Hiding this is <b>only</b> approved for Landing Page sites.</p>',
-					'pitchfork'
+					'uds-wordpress-theme'
 				),
 				'section'    => 'uds_wp_theme_section_header',
 				'settings'   => 'header_navigation_menu',
@@ -257,6 +297,46 @@ if ( ! function_exists( 'uds_wp_register_theme_customizer_settings' ) ) {
 			)
 		);
 
+		/**
+		 * Use Parent menu?
+		 */
+		if( is_multisite() && ! is_main_site() ) {
+			$wp_customize->add_setting(
+				'use_main_site_menu',
+				array(
+					'default'           => false,
+					'capability'        => 'edit_theme_options',
+					'type'              => 'theme_mod',
+					'sanitize_callback' => 'uds_wp_sanitize_nothing',
+					'transport'         => 'refresh',
+				)
+			);
+
+			$wp_customize->add_control(
+				'use_main_site_menu_control',
+				array(
+					'label'      => __( 'Use Main Site Menu', 'uds-wordpress-theme' ),
+					'description'       => __(
+						'<p>If selected, this sub-site will display the navigation menu from the main site of this multi-site network, and not its own main menu.</p>',
+						'uds-wordpress-theme'
+					),
+					'section'    => 'uds_wp_theme_section_header',
+					'settings'   => 'use_main_site_menu',
+					'type'       => 'checkbox',
+					'active_callback' => 'show_use_main_site_nav_input',
+					'priority'   => 50,
+				)
+			);
+		}
+
+		/**
+		 * Re-render the page area when the navigation visibility is toggled on or off.
+		 * We had to use an inline 'render_callback' here in order to use the && operator
+		 * to activate both partial functions. Calling both of those render functions also
+		 * seems to make WordPress use 'refresh' (render the whole page again) no matter
+		 * what setting we use for 'transport' up above - so I set it to refresh.
+		 *
+		 */
 		$wp_customize->selective_refresh->add_partial(
 			'header_navigation_menu',
 			array(
@@ -272,6 +352,65 @@ if ( ! function_exists( 'uds_wp_register_theme_customizer_settings' ) ) {
 			)
 		);
 
+
+		/**
+		 * Alternate Home Icon URL
+		 *
+		 * The default Home URL is taken from WordPress's home_url() function,
+		 * and is not created as a normal WordPress menu item. This textbox
+		 * allows users to override that home URL, if they need a different one.
+		 * This is most useful with sub-sites that want to point back up to a
+		 * main set in a network.
+		 */
+		$wp_customize->add_setting(
+			'alternate_home_url',
+			array(
+				'default'           => '',
+				'capability'        => 'edit_theme_options',
+				'type'              => 'theme_mod',
+				'sanitize_callback' => 'uds_wp_sanitize_nothing',
+				'transport'         => 'postMessage',
+			)
+		);
+
+		$wp_customize->add_control(
+			'alternate_home_url_control',
+			array(
+				'type'				=> 'url',
+				'description'   	=> __( '<p>Customize the Home icon\'s URL.</p>', 'uds-wordpress-theme' ),
+				'label'      		=> __( 'Alternate Home URL', 'uds-wordpress-theme' ),
+				'section'   	 	=> 'uds_wp_theme_section_header',
+				'settings'  		=> 'alternate_home_url',
+				'active_callback'	=> 'show_use_main_site_nav_input',
+				'priority'   		=> 50,
+			)
+		);
+
+		$wp_customize->add_setting(
+			'alternate_home_title',
+			array(
+				'default'           => '',
+				'capability'        => 'edit_theme_options',
+				'type'              => 'theme_mod',
+				'sanitize_callback' => 'uds_wp_sanitize_nothing',
+				'transport'         => 'postMessage',
+			)
+		);
+
+		$wp_customize->add_control(
+			'alternate_home_title_control',
+			array(
+				'type'				=> 'url',
+				'description'   	=> __( '<p>Customize the title for the home icon, which appears when hovering over the Home icon.</p>', 'uds-wordpress-theme' ),
+				'label'      		=> __( 'Alternate Home Title (tooltip)', 'uds-wordpress-theme' ),
+				'section'   	 	=> 'uds_wp_theme_section_header',
+				'settings'  		=> 'alternate_home_title',
+				'active_callback'	=> 'show_use_main_site_nav_input',
+				'priority'   		=> 50,
+			)
+		);
+
+
 		/***********************************************************************
 		 * ASU Global Footer Section
 		 *
@@ -280,7 +419,7 @@ if ( ! function_exists( 'uds_wp_register_theme_customizer_settings' ) ) {
 		$wp_customize->add_section(
 			'uds_wp_theme_section_footer',
 			array(
-				'title'      => __( 'ASU Global Footer', 'pitchfork' ),
+				'title'      => __( 'ASU Global Footer', 'uds-wordpress-theme' ),
 				'priority'   => 30,
 			)
 		);
@@ -302,10 +441,10 @@ if ( ! function_exists( 'uds_wp_register_theme_customizer_settings' ) ) {
 		$wp_customize->add_control(
 			'footer_row_branding',
 			array(
-				'label'      => __( 'Logo and Social Media Row', 'pitchfork' ),
+				'label'      => __( 'Logo and Social Media Row', 'uds-wordpress-theme' ),
 				'description'       => __(
 					'Show or hide the entire row containing the logo and social media icons',
-					'pitchfork'
+					'uds-wordpress-theme'
 				),
 				'section'    => 'uds_wp_theme_section_footer',
 				'settings'   => 'footer_row_branding',
@@ -317,6 +456,37 @@ if ( ! function_exists( 'uds_wp_register_theme_customizer_settings' ) ) {
 				'priority'   => 10,
 			)
 		);
+
+		/**
+		 * Use Main site social media menu?
+		 */
+		if( is_multisite() && ! is_main_site() ) {
+			$wp_customize->add_setting(
+				'use_main_site_social_menu',
+				array(
+					'default'           => false,
+					'capability'        => 'edit_theme_options',
+					'type'              => 'theme_mod',
+					'sanitize_callback' => 'uds_wp_sanitize_nothing',
+					'transport'         => 'refresh',
+				)
+			);
+
+			$wp_customize->add_control(
+				'use_main_site_social_menu_control',
+				array(
+					'label'       => __( 'Use Main Site Social Media Menu', 'uds-wordpress-theme' ),
+					'description' => __(
+						'<p>If selected, this sub-site will display the social media menu from the main site of this multi-site network, and not its own social media menu.</p>',
+						'uds-wordpress-theme'
+					),
+					'section'    => 'uds_wp_theme_section_footer',
+					'settings'   => 'use_main_site_social_menu',
+					'type'       => 'checkbox',
+					'priority'   => 10,
+				)
+			);
+		}
 
 		$wp_customize->selective_refresh->add_partial(
 			'footer_row_branding',
@@ -344,10 +514,10 @@ if ( ! function_exists( 'uds_wp_register_theme_customizer_settings' ) ) {
 		$wp_customize->add_control(
 			'footer_logo_type',
 			array(
-				'label'      => __( 'Footer Logo', 'pitchfork' ),
+				'label'      => __( 'Footer Logo', 'uds-wordpress-theme' ),
 				'description'       => __(
 					'Logo to use in the global footer area. If you do not have a unit logo, you must use the ASU logo.',
-					'pitchfork'
+					'uds-wordpress-theme'
 				),
 				'section'    => 'uds_wp_theme_section_footer',
 				'settings'   => 'footer_logo_type',
@@ -400,10 +570,10 @@ if ( ! function_exists( 'uds_wp_register_theme_customizer_settings' ) ) {
 				$wp_customize,
 				'logo_select',
 				array(
-					'label'             => __( 'Endorsed Logos Presets', 'pitchfork' ),
+					'label'             => __( 'Endorsed Logos Presets', 'uds-wordpress-theme' ),
 					'description'       => __(
 						'Select an endorsed logo to appear in the footer, or \'none\' to provide a link to a different endorsed logo.',
-						'pitchfork'
+						'uds-wordpress-theme'
 					),
 					'section'           => 'uds_wp_theme_section_footer',
 					'settings'          => 'logo_select',
@@ -442,10 +612,10 @@ if ( ! function_exists( 'uds_wp_register_theme_customizer_settings' ) ) {
 		$wp_customize->add_control(
 			'logo_url',
 			array(
-				'label'      => __( 'Unit Endorsed Logo URL', 'pitchfork' ),
+				'label'      => __( 'Unit Endorsed Logo URL', 'uds-wordpress-theme' ),
 				'description'       => __(
 					'If you have chosen \'none\' above, provide a URL to an approved logo. Choosing \'none\' and leaving this field empty will result in the ASU logo being displayed.',
-					'pitchfork'
+					'uds-wordpress-theme'
 				),
 				'section'    => 'uds_wp_theme_section_footer',
 				'settings'   => 'logo_url',
@@ -462,6 +632,46 @@ if ( ! function_exists( 'uds_wp_register_theme_customizer_settings' ) ) {
 				'render_callback' => 'uds_wp_render_footer_logo',
 			)
 		);
+
+
+		/**
+		 * Alternate URL for footer logo.
+		 */
+		$wp_customize->add_setting(
+			'footer_logo_link',
+			array(
+				'default'           => '',
+				'capability'        => 'edit_theme_options',
+				'type'              => 'theme_mod',
+				'sanitize_callback' => 'uds_wp_sanitize_nothing',
+				'transport'         => 'postMessage',
+			)
+		);
+
+		$wp_customize->add_control(
+			'footer_logo_link_control',
+			array(
+				'label'      => __( 'External URL', 'uds-wordpress-theme' ),
+				'description'       => __(
+					'By default the logo links to the home page of the current website. You can link it to a different website by adding a URL here:',
+					'uds-wordpress-theme'
+				),
+				'section'    => 'uds_wp_theme_section_footer',
+				'settings'   => 'footer_logo_link',
+				'active_callback' => 'show_custom_logo_fields',
+				'priority'   => 31,
+			)
+		);
+
+		$wp_customize->selective_refresh->add_partial(
+			'footer_logo_link',
+			array(
+				'selector' => '#endorsed-logo',
+				'container_inclusive' => false,
+				'render_callback' => 'uds_wp_render_footer_logo',
+			)
+		);
+
 
 		/**
 		 * Section Separator
@@ -500,10 +710,10 @@ if ( ! function_exists( 'uds_wp_register_theme_customizer_settings' ) ) {
 		$wp_customize->add_control(
 			'footer_row_actions',
 			array(
-				'label'      => __( 'Information and Menu Row', 'pitchfork' ),
+				'label'      => __( 'Information and Menu Row', 'uds-wordpress-theme' ),
 				'description'       => __(
 					'Show or hide the entire row containing unit information and menus',
-					'pitchfork'
+					'uds-wordpress-theme'
 				),
 				'section'    => 'uds_wp_theme_section_footer',
 				'settings'   => 'footer_row_actions',
@@ -525,6 +735,37 @@ if ( ! function_exists( 'uds_wp_register_theme_customizer_settings' ) ) {
 			)
 		);
 
+		/**
+		 * Use Main site footer menu?
+		 */
+		if( is_multisite() && ! is_main_site() ) {
+			$wp_customize->add_setting(
+				'use_main_site_footer_menu',
+				array(
+					'default'           => false,
+					'capability'        => 'edit_theme_options',
+					'type'              => 'theme_mod',
+					'sanitize_callback' => 'uds_wp_sanitize_nothing',
+					'transport'         => 'refresh',
+				)
+			);
+
+			$wp_customize->add_control(
+				'use_main_site_footer_menu_control',
+				array(
+					'label'      => __( 'Use Main Site Footer Menu', 'uds-wordpress-theme' ),
+					'description'       => __(
+						'<p>If selected, this sub-site will display the footer menu from the main site of this multi-site network, and not its own footer menu.</p>',
+						'uds-wordpress-theme'
+					),
+					'section'    => 'uds_wp_theme_section_footer',
+					'settings'   => 'use_main_site_footer_menu',
+					'type'       => 'checkbox',
+					'priority'   => 50,
+				)
+			);
+		}
+
 
 		/**
 		* Footer Alternate Unit Name Text
@@ -543,10 +784,10 @@ if ( ! function_exists( 'uds_wp_register_theme_customizer_settings' ) ) {
 		$wp_customize->add_control(
 			'footer_unit_name_type',
 			array(
-				'label'      => __( 'Footer Unit Name Type', 'pitchfork' ),
+				'label'      => __( 'Footer Unit Name Type', 'uds-wordpress-theme' ),
 				'description'       => __(
 					'<p>Choose between using the site name, or custom text, beneath the footer logo.</p>',
-					'pitchfork'
+					'uds-wordpress-theme'
 				),
 				'section'    => 'uds_wp_theme_section_footer',
 				'settings'   => 'footer_unit_name_type',
@@ -589,10 +830,10 @@ if ( ! function_exists( 'uds_wp_register_theme_customizer_settings' ) ) {
 		$wp_customize->add_control(
 			'footer_unit_name_text',
 			array(
-				'label'      => __( 'Alternate Text', 'pitchfork' ),
+				'label'      => __( 'Alternate Text', 'uds-wordpress-theme' ),
 				'description'       => __(
 					'Text to use, instead of the site name, beneath the footer logo',
-					'pitchfork'
+					'uds-wordpress-theme'
 				),
 				'section'    => 'uds_wp_theme_section_footer',
 				'settings'   => 'footer_unit_name_text',
@@ -625,11 +866,12 @@ if ( ! function_exists( 'uds_wp_register_theme_customizer_settings' ) ) {
 			)
 		);
 
+
 		$wp_customize->add_control(
 			'contribute_url',
 			array(
-				'label'      => __( 'Contribute button URL', 'pitchfork' ),
-				'description' => __( 'Enter a URL here to show the \'Contribute\' button in the footer', 'pitchfork' ),
+				'label'      => __( 'Contribute button URL', 'uds-wordpress-theme' ),
+				'description' => __( 'Enter a URL here to show the \'Contribute\' button in the footer', 'uds-wordpress-theme' ),
 				'section'    => 'uds_wp_theme_section_footer',
 				'settings'   => 'contribute_url',
 				'priority'   => 100,
@@ -645,6 +887,40 @@ if ( ! function_exists( 'uds_wp_register_theme_customizer_settings' ) ) {
 			)
 		);
 
+
+		/**
+		 * Contribute Button Text
+		 */
+		$wp_customize->add_setting(
+			'contribute_text',
+			array(
+				'default'           => '',
+				'capability'        => 'edit_theme_options',
+				'type'              => 'theme_mod',
+				'sanitize_callback' => 'sanitize_text_field',
+				'transport'         => 'postMessage',
+			)
+		);
+
+		$wp_customize->add_control(
+			'contribute_text',
+			array(
+				'label'      => __( 'Contribute button Text', 'uds-wordpress-theme' ),
+				'description' => __( 'Enter custom text here to replace the default text of \'Contribute\'', 'uds-wordpress-theme' ),
+				'section'    => 'uds_wp_theme_section_footer',
+				'settings'   => 'contribute_text',
+				'priority'   => 101,
+			)
+		);
+
+		$wp_customize->selective_refresh->add_partial(
+			'contribute_text',
+			array(
+				'selector' => '.contribute-wrapper',
+				'container_inclusive' => false,
+				'render_callback' => 'uds_wp_render_contribute_button',
+			)
+		);
 
 		/**
 		 * Contact Us URL
@@ -663,8 +939,8 @@ if ( ! function_exists( 'uds_wp_register_theme_customizer_settings' ) ) {
 		$wp_customize->add_control(
 			'contact_url',
 			array(
-				'label'      => __( 'Contact URL', 'pitchfork' ),
-				'description' => __( 'Enter a URL to a contact page to show a \'Contact Us\' link in the footer', 'pitchfork' ),
+				'label'      => __( 'Contact URL', 'uds-wordpress-theme' ),
+				'description' => __( 'Enter a URL to a contact page to show a \'Contact Us\' link in the footer', 'uds-wordpress-theme' ),
 				'section'    => 'uds_wp_theme_section_footer',
 				'settings'   => 'contact_url',
 				'priority'   => 90,
@@ -683,17 +959,82 @@ if ( ! function_exists( 'uds_wp_register_theme_customizer_settings' ) ) {
 		/***********************************************************************
 		 * 404 Image Section
 		 *
-		 * Contains: button to show 404 page, 404 image
+		 * Contains: button to show 404 page, 404 image, 404 page type.
 		 */
 
 		$wp_customize->add_section(
 			'uds_wp_theme_section_404',
 			array(
-				'title'      => __( '404 Image', 'pitchfork' ),
+				'title'      => __( '404 Page Settings', 'uds-wordpress-theme' ),
 				'priority'   => 30,
 			)
 		);
 
+
+		/**
+		 * 404 page type selection: choose default or custom 404 page.
+		 */
+		$wp_customize->add_setting(
+			'404_page_type',
+			array(
+				'default'           => '',
+				'capability'        => 'edit_theme_options',
+				'type'              => 'theme_mod',
+				'sanitize_callback' => 'uds_wp_sanitize_nothing',
+				'transport'         => 'refresh',
+			)
+		);
+
+		$wp_customize->add_control(
+			'404_page_type_control',
+			array(
+				'label'      => __( '404 Page Type', 'uds-wordpress-theme' ),
+				'description'       => __(
+					'You can use the default 404 page content (and choose an image here), or create a custom page on the website for your 404 content.',
+					'uds-wordpress-theme'
+				),
+				'section'    => 'uds_wp_theme_section_404',
+				'settings'   => '404_page_type',
+				'type'       => 'radio',
+				'choices'    => array(
+					'default'  => 'Default',
+					'custom' => 'Custom',
+				),
+			)
+		);
+
+		/**
+		 * 404 Page name: shows if 'custom' is set. Name of standard page to use for 404 content.
+		 */
+		$wp_customize->add_setting(
+			'404_page_id',
+			array(
+				'default'           => '',
+				'capability'        => 'edit_theme_options',
+				'type'              => 'theme_mod',
+				'sanitize_callback' => 'uds_wp_sanitize_nothing',
+				'transport'         => 'refresh',
+			)
+		);
+
+		$wp_customize->add_control(
+			'404_page_id_control',
+			array(
+				'label'      => __( '404 Page', 'uds-wordpress-theme' ),
+				'description'       => __(
+					'Choose an existing page containing the content you would like to use on your custom 404 page.',
+					'uds-wordpress-theme'
+				),
+				'type'       => 'dropdown-pages',
+				'section'    => 'uds_wp_theme_section_404',
+				'settings'   => '404_page_id',
+				'active_callback' => 'show_404_page_name',
+			)
+		);
+
+		/**
+		 * 404 Image: used only when page type is 'default'.
+		 */
 		$wp_customize->add_setting(
 			'image_404',
 			array(
@@ -702,6 +1043,24 @@ if ( ! function_exists( 'uds_wp_register_theme_customizer_settings' ) ) {
 				'type'              => 'theme_mod',
 				'sanitize_callback' => 'uds_wp_sanitize_nothing',
 				'transport'         => 'refresh',
+			)
+		);
+
+		// Image picker control (created differently, via an instance of a class).
+		$wp_customize->add_control(
+			new WP_Customize_Image_Control(
+				$wp_customize,
+				'image_404',
+				array(
+					'label'      => __( 'Default 404 Image', 'uds-wordpress-theme' ),
+					'description'       => __(
+						'Background image only used on the default 404 page. Supply an image to use as the bg for a large hero. (1900x686).',
+						'uds-wordpress-theme'
+					),
+					'section'    => 'uds_wp_theme_section_404',
+					'settings'   => 'image_404',
+					'active_callback' => 'show_404_image_field',
+				)
 			)
 		);
 
@@ -715,33 +1074,17 @@ if ( ! function_exists( 'uds_wp_register_theme_customizer_settings' ) ) {
 			'not_found_link',
 			array(
 				'section'  => 'uds_wp_theme_section_404',
-				'label'             => __( 'Show 404 Page', 'pitchfork' ),
-				'description'       => __( 'To see your results as you customize, click the button below to load the 404 page now.', 'pitchfork' ),
+				'label'             => __( 'Show 404 Page', 'uds-wordpress-theme' ),
+				'description'       => __( 'To see your results as you customize, click the button below to load the 404 page now.', 'uds-wordpress-theme' ),
 				'settings' => array(),
 				'type' => 'button',
 				'priority' => 1,
 				'input_attrs'  => array(
-					'value' => __( 'Load 404 Page', 'pitchfork' ),
+					'value' => __( 'Load 404 Page', 'uds-wordpress-theme' ),
 					'class' => 'button button-secondary',
 					'onclick' => 'wp.customize.previewer.previewUrl.set( "/oranges" );',
 				),
 				'active_callback' => 'show_404_callback',
-			)
-		);
-
-		$wp_customize->add_control(
-			new WP_Customize_Image_Control(
-				$wp_customize,
-				'image_404',
-				array(
-					'label'      => __( '404 Image', 'pitchfork' ),
-					'description'       => __(
-						'Resize and crop your desired image to approximately 1200px x 500px',
-						'pitchfork'
-					),
-					'section'    => 'uds_wp_theme_section_404',
-					'settings'   => 'image_404',
-				)
 			)
 		);
 
@@ -755,7 +1098,7 @@ if ( ! function_exists( 'uds_wp_register_theme_customizer_settings' ) ) {
 		$wp_customize->add_section(
 			'uds_wp_theme_section_asu_analytics',
 			array(
-				'title'      => __( 'ASU Analytics', 'pitchfork' ),
+				'title'      => __( 'ASU Analytics', 'uds-wordpress-theme' ),
 				'priority'   => 30,
 			)
 		);
@@ -777,10 +1120,10 @@ if ( ! function_exists( 'uds_wp_register_theme_customizer_settings' ) ) {
 		$wp_customize->add_control(
 			'asu_hub_analytics',
 			array(
-				'label'      => __( 'ASU Marketing Hub Analytics', 'pitchfork' ),
+				'label'      => __( 'ASU Marketing Hub Analytics', 'uds-wordpress-theme' ),
 				'description'       => __(
 					'Enable the ASU Marketing Hub\'s analytics package. This must be active on all production ASU web sites.',
-					'pitchfork'
+					'uds-wordpress-theme'
 				),
 				'section'    => 'uds_wp_theme_section_asu_analytics',
 				'settings'   => 'asu_hub_analytics',
@@ -809,10 +1152,10 @@ if ( ! function_exists( 'uds_wp_register_theme_customizer_settings' ) ) {
 		$wp_customize->add_control(
 			'site_gtm_container_id',
 			array(
-				'label'             => __( 'Google Tag Manager container ID', 'pitchfork' ),
+				'label'             => __( 'Google Tag Manager container ID', 'uds-wordpress-theme' ),
 				'description'       => __(
 					'Enter your unit\'s GTM container ID to enable analytics for this website.',
-					'pitchfork'
+					'uds-wordpress-theme'
 				),
 				'section'           => 'uds_wp_theme_section_asu_analytics',
 				'settings'          => 'site_gtm_container_id',
@@ -837,10 +1180,10 @@ if ( ! function_exists( 'uds_wp_register_theme_customizer_settings' ) ) {
 		$wp_customize->add_control(
 			'site_ga_tracking_id',
 			array(
-				'label'             => __( 'Google Analytics Tracking ID', 'pitchfork' ),
+				'label'             => __( 'Google Analytics Tracking ID', 'uds-wordpress-theme' ),
 				'description'       => __(
 					'Your unit\'s Google Analytics Tracking ID',
-					'pitchfork'
+					'uds-wordpress-theme'
 				),
 				'section'           => 'uds_wp_theme_section_asu_analytics',
 				'settings'          => 'site_ga_tracking_id',
@@ -866,10 +1209,10 @@ if ( ! function_exists( 'uds_wp_register_theme_customizer_settings' ) ) {
 		$wp_customize->add_control(
 			'hotjar_site_id',
 			array(
-				'label'             => __( 'Hotjar Site ID', 'pitchfork' ),
+				'label'             => __( 'Hotjar Site ID', 'uds-wordpress-theme' ),
 				'description'       => __(
 					'Your Hotjar Site ID',
-					'pitchfork'
+					'uds-wordpress-theme'
 				),
 				'section'           => 'uds_wp_theme_section_asu_analytics',
 				'settings'          => 'hotjar_site_id',
@@ -889,6 +1232,36 @@ add_action( 'customize_register', 'uds_wp_register_theme_customizer_settings' );
  */
 function show_404_callback() {
 	return ! is_404();
+}
+
+/**
+ * Show or hide the 404 image selector based on the 404 page type value.
+ * If the current value is 'custom', we don't show the image chooser.
+ */
+function show_404_image_field() {
+
+	$page_type = get_theme_mod( '404_page_type' );
+
+	if ( 'custom' === $page_type ) {
+		return false;
+	} else {
+		return true;
+	}
+}
+
+/**
+ * Show or hide the 404 page name input based on the 404 page type value.
+ * If the current value is 'default', we don't show the image chooser.
+ */
+function show_404_page_name() {
+
+	$page_type = get_theme_mod( '404_page_type' );
+
+	if ( 'default' === $page_type ) {
+		return false;
+	} else {
+		return true;
+	}
 }
 
 /**
@@ -921,6 +1294,21 @@ function show_alternate_footer_title_input() {
 	if ( 'default' === $footer_unit_name_type ) {
 		return false;
 	} else {
+		return true;
+	}
+}
+
+/**
+ * Show or Hide the 'Use Main Site Main Menu' checkbox only when the main
+ * menu itself is set to show. We get the value of 'header_navigation_menu'
+ * and show our 'menu thief' checkbox only if the main menu is visible.
+ */
+function show_use_main_site_nav_input() {
+	$main_nav_visible = get_theme_mod( 'header_navigation_menu' );
+
+	if( "disabled" == $main_nav_visible ) {
+		return false;
+	}else{
 		return true;
 	}
 }
