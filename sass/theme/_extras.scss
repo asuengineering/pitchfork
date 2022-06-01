@@ -33,12 +33,12 @@ Replicated in _alignment.scss
 // /* The temporary fix is to overwrite the default behavior with a media query targeting
 // the desktop viewport. (The breakpoint for the header is the XL breakpoint.) */
 
-// @include media-breakpoint-up(xl) {
-// 	.dropdown-pinned {
-// 		overflow: initial;
-// 		position: static;
-// 	}
-// }
+@include media-breakpoint-up(xl) {
+	.dropdown-pinned {
+		overflow: initial;
+		position: static;
+	}
+}
 
 
 /*---------------------------------------------------------------

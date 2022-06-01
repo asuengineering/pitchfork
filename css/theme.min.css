@@ -4445,6 +4445,7 @@ main{padding:0}
 main>*:not(.alignfull):not(.alignwide){max-width:1200px;margin-left:auto;margin-right:auto}
 main>*.alignwide{max-width:1450px;margin-left:auto;margin-right:auto}
 main>*.alignfull{max-width:1920px;margin-left:auto;margin-right:auto}
+.dropdown-pinned{overflow:initial;position:static}
 }@media screen and (max-width:1260px){.uds-card-arrangement>.uds-card-arrangement-card-container.auto-arrangement.four-columns{grid-template-columns:repeat(3,1fr)}
 .uds-image-background-with-cta{padding:3rem}
 }@media(max-width:1259.98px){.table-responsive-xl{display:block;width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}
