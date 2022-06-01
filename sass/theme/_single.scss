@@ -1,0 +1,126 @@
+/*--------------------------------------------------------------
+Extra styles for single.php template. 
+
+- Define margins of content as skinnier than a normal page.
+- Define post header on desktop widths with some additional styles.
+--------------------------------------------------------------*/
+.single {
+    .entry-footer {
+        margin-top: $uds-size-spacing-12;
+        border-top: 3px double $uds-color-base-gray-3;
+        padding-top: $uds-size-spacing-4;
+
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr;
+
+        .cat-links {
+            grid-column: 1;
+        }
+
+        .tags-links {
+            grid-column: 2;
+            text-align: right;
+        }
+    }
+
+    .nav-links {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr;
+
+        margin-top: $uds-size-spacing-6;
+        border-top: 3px double $uds-color-base-gray-3;
+        padding-top: $uds-size-spacing-4;
+        margin-bottom: $uds-size-spacing-12;
+
+        .nav-previous {
+            grid-column: 1;
+
+            &:before {
+                content: 'Previous: ';
+            }
+        }
+
+        .nav-next {
+            grid-column: 2;
+            text-align: right;
+
+            &:before {
+                content: 'Next: ';
+            }
+        }
+    }
+}
+
+/*--------------------------------------------------------------
+Changing default margins to accomidate a less-wide final product.
+--------------------------------------------------------------*/
+
+// Desktop styles.
+@include media-breakpoint-up(lg) {
+
+    .single main article.post {
+        max-width: none;
+    }
+
+	.single main article.post > *:not(.alignfull):not(.alignwide) {
+		max-width: 900px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	
+	.single main article.post > *.alignwide {
+		max-width: 1200px; /* width of the wide blocks */
+		margin-left: auto;
+		margin-right: auto;
+	}
+	
+	.single main article.post > *.alignfull {
+		max-width: 1920px; /* width of the wide blocks */
+		margin-left: auto;
+		margin-right: auto;
+	}
+}
+
+/*--------------------------------------------------------------
+Entry-Header on desktop
+--------------------------------------------------------------*/
+@include media-breakpoint-up(lg) {
+
+    .entry-header {
+        display: grid;
+        grid-template-rows: 1fr auto;
+        grid-template-columns: 2fr 1fr;        
+        gap: 0px;
+        height: 100%;
+
+        padding-top: $uds-size-spacing-6;
+        padding-bottom: $uds-size-spacing-12;
+
+        .entry-title {
+            grid-row: 1;
+            grid-column: 1;
+            align-self: flex-end;
+            padding-bottom: $uds-size-spacing-1;
+            border-bottom: 1px solid $uds-color-base-gray-3;
+        }
+
+        .entry-byline {
+            grid-row: 2;
+            grid-column: 1;
+        }
+
+        .wp-post-image {
+            grid-row: 1 / span 2;
+            grid-column: 2;
+            border: 1px solid $uds-color-base-gray-3;
+        }
+    }
+
+    .entry-header.no-thumbnail {
+        display: grid;
+        grid-template-rows: 1fr auto;
+        grid-template-columns: 1fr;
+    }
+}
