@@ -11,6 +11,11 @@
 			"style": false,
 			"width": false
 		},
+		"spacing": {
+			"units": [ "rem" ],
+			"margin": true,
+			"padding": true
+		},
         "color": {
             "text": false,
 			"background": true,
@@ -310,8 +315,8 @@
 			},
 			"acf/card-foldable": {
 				"spacing": {
-					"units": [ "em" ],
-					"margin": true,
+					"units": [ "rem" ],
+					"margin": [ "top", "bottom" ],
 					"padding": true
 				},
 				"color": {
@@ -340,6 +345,13 @@
                             "name": "ASU Gray 7"
                         }
 					]
+				}
+			},
+			"acf/accordion": {
+				"spacing": {
+					"units": [ "rem" ],
+					"margin": [ "top", "bottom" ],
+					"padding": true
 				}
 			},
 			"acf/banner": {
