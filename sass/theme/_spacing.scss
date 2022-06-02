@@ -6,12 +6,15 @@ break the layout of certain blocks within the editor.
 --------------------------------------------------------------*/
 
 /*--------------------------------------------------------------
-1. core/heading can't have margin-left or margin-right.
+1. core/heading block can't have margin-left or margin-right.
 --------------------------------------------------------------*/
 
-main {
-	h1, h2, h3, h4, h5, h6 {
-        margin-left: auto !important;
-        margin-right: auto !important;
-    }
+main > h1,
+main > h2,
+main > h3,
+main > h4,
+main > h5,
+main > h6 {
+    margin-left: auto !important;
+    margin-right: auto !important;
 }
