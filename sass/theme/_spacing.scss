@@ -1,0 +1,17 @@
+/*--------------------------------------------------------------
+# Contains CSS overrides for spacing controls which could otherwise
+break the layout of certain blocks within the editor.
+
+- core/heading
+--------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+1. core/heading can't have margin-left or margin-right.
+--------------------------------------------------------------*/
+
+main {
+	h1, h2, h3, h4, h5, h6 {
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+}

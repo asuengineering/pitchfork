@@ -13,6 +13,7 @@ $image-assets-path: "/wp-content/themes/pitchfork/src/img/asu-unity";
 // Parials applicable to both theme (FE) and the editor.
 @import 'theme/has-color';
 @import 'theme/alignment';
+@import 'theme/spacing';
 @import 'theme/extras';
 @import 'theme/core-blocks';
 @import 'theme/page';
