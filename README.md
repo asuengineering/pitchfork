@@ -1,56 +1,66 @@
-# Pitchfork - A WordPress theme for Arizona State University
+# Pitchfork Blocks
 
-Pitchfork is a theme for WordPress which contains an implementation of Bootstrap 4 and the ASU Brand Standards. The following assets are linked to or included in the theme:
+A plugin for use with the [Pitchfork theme](https://github.com/asuengineering/pitchfork) for WordPress. 
 
-- ASU Header and Footer, version 4.8
-- Font Awesome Pro, version 5.2
-- Google Font "Roboto", part of the ASU Web Standards.
-- Carbon Fields v3.0, loaded as a part of the theme.
+This plugin adds blocks and block patterns for the block editor consistent with the ASU Unity Design system for web standards. 
 
-The project is a fork from [Understrap](https://understrap.com), which is a popular starter theme for WordPress which combines elements from [_s](https://underscores.me/) by Automattic and [Bootstrap](https://getbootstrap.com/).
+Requires at least: WP 6.0
+Tested up to: 6.0
+Requires PHP: 7.3
+Stable tag: 1.0
+License: GPLv2 or later
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-Use Pitchfork as a parent for your own child theme theme, or fork it proudly and make it your own. 
+**Contributors**
 
-![Sparky's Trident](https://brandguide.asu.edu/sites/default/files/styles/panopoly_image_original/public/asu_brandhq_images_master_pitchfork_0.png?itok=CdnAzLZW)
+- Steve Ryan (ASU Engineering)
+- Walt McConnell, Zainab Alsidiki, Nathan Rollins (ASU Knowledge Enterprise)
+
+## Usage Requirements
+
+- Download the lastest release from Github.
+- Install in the normal WP location for plugins which is typically `/wp-content/plugins`.
+
+**Recommended / Required Additional Plugins**
+
+This plugin contains blocks that are constructed with the use of Advanced Custom Fields Pro. 
+- The ACF Pro plugin is also required by the Pitchfork theme.
+- The theme contains a script which will prompt the user to install this plugin upon theme activation.
+- ASU Engineering provides a licensed copy of this plugin within its standard disstribution of WordPress on the Pantheon hosting platform.
+
+Plugin updates can optionally be managed from the admin dashboard through the use of [Git Updater](https://git-updater.com/). 
+
+
+## Includes
+
+This plugin leverages the following libraries for functionality delivered within certain blocks.
+
+- This plugin loads a copy of the SASS files from the [Bootstrap 4 library](https://github.com/ASU/asu-unity-stack/tree/dev/packages/bootstrap4-theme) within the ASU Unity design kit. It includes only the design tokens for easier SASS references and expects that the theme will load the remainder of the required BS4 files.  
+
+- The breadcrumb block is an ACF wrapper for the [Hybrid Breadcrumbs](https://github.com/themehybrid/hybrid-breadcrumbs) composer-based assset for including breadcrumbs.
+
+- The sidebar block makes use of a custom ACF field group for menu selection which can be found within the [ASU Engineering's GitHub organization](https://github.com/asuengineering/ACF-Menu-Select). 
+
+## Development
+
+- Run `npm install` and `composer install` prior to local development.
+- SASS and JS compile & watch tasks are triggered via WP-Gulp and `npm start` from the project root.
+
+<hr>
 
 ## Release Notes
 
-### Version 0.3 ###
+### Version 1.0
 
-Restructuring the Github repo for the project to not be a direct fork from the original project. It will still be easy enough to pull in the code from the original project on an as-needed basis.
-
-- Also consolidates additional modifications from other active projects which were using the theme in the wild. (Yes, we're building the car and driving it at the same time. Exciting!)
-
-**Version 0.3.1**
-
-- Update Font Awesome to version 5.11.2.
-
-**Version 0.3.2**
-
-- Update ASU Header / Footer to latest version.
-- Updated Bootstrap 4 library to latest version (via Dependabot)
-
-### Version 0.2 ###
-
-- Added JS functions to translate BS4 Navmenu object to ASU global mobile menu.
-- Improvements to mobile menu formatting.
-
-**Version 0.2.1**
-
-- Continued improvement to the product. Minor adjustments.
-
-Previous versions of the theme used the customizer to build the branding elements of the ASU Super Footer. To better align this product with the experiences of other WordPress themes maintained by ASU Engineering, we opted to use the widgetized footer area that was already built into Understrap to deliver the same content. The theme now includes two widgets which allow for the quick addition of ASU branding elements to the super footer.
-
-- The **ASU Endorsed Logo Widget** displays the endorsed logo as well as the text, phone number and contact information for the site.
-- The **ASU Social Media Icons Widget** displays the row of social media icons that traditionally falls below the information under the endorsed logo.
-
-Additional enhancements include:
-
-- Adjustments to multiple parts of the theme to better align it with UnderStrap.
-- The global ASU header and footer elements are now referenced as direct PHP includes. This makes it much easier to update the theme to future versions of the global ASU assets.
-- Changes to `style.css` now makes the theme compatible with [GitHub Updater](https://github.com/afragen/github-updater).
-
-### Version 0.1
-
-- Version 0.1 and related minor releases mark our first example of this theme in production.
-- Older versions of the theme have been moved to a private repository and are no longer distributed within this project's history.
+- Initial deployment of the plugin. v1.0.
+- Includes working versions of the following blocks:
+  - `accordion` / `card-foldable` 
+  - `alert` and `banner` for eassy inclusion on a page. Works as repeatable blocks within the block editor.
+  - `background-section` for easy inclusion of the background patterns from the unity design kit.
+  - `blockquote` which also includes vertical styles corresponding to the "testimonial" element from the design kit.
+  - `breadcrumb` via Hybrid Brreadcrumbs
+  - `card` which can produce UDS cards of arbitrary content in any of the approved formats.
+  - `grid-links` 
+  - `hero` version 2.0 from the design kit. 
+  - `sidebar` 
+  - `subtitle` for use within the hero. 
