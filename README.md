@@ -23,27 +23,25 @@ License URI: https://www.gnu.org/licenses/gpl-2.0.html
 ## Usage Requirements
 
 - Download the lastest release from Github.
-- Install in the normal WP location for plugins which is typically `/wp-content/plugins`.
+- Install in the normal WP location for plugins which is typically `/wp-content/themes`.
 
 **Recommended / Required Additional Plugins**
 
-This plugin contains blocks that are constructed with the use of Advanced Custom Fields Pro. 
-- The ACF Pro plugin is also required by the Pitchfork theme.
+This theme contains options within the header and footer which require the use of Advanced Custom Fields Pro. 
+- The ACF Pro plugin is also required by the Pitchfork plugin that delivers additional blocks found within the Unity kit.
 - The theme contains a script which will prompt the user to install this plugin upon theme activation.
-- ASU Engineering provides a licensed copy of this plugin within its standard disstribution of WordPress on the Pantheon hosting platform.
+- ASU Engineering provides a licensed copy of this plugin within its standard distribution of WordPress on the Pantheon hosting platform.
 
-Plugin updates can optionally be managed from the admin dashboard through the use of [Git Updater](https://git-updater.com/). 
-
+Theme updates can optionally be managed from the admin dashboard through the use of [Git Updater](https://git-updater.com/). 
 
 ## Includes
 
-This plugin leverages the following libraries for functionality delivered within certain blocks.
+This theme leverages the following libraries for functionality delivered within certain blocks.
 
-- This plugin loads a copy of the SASS files from the [Bootstrap 4 library](https://github.com/ASU/asu-unity-stack/tree/dev/packages/bootstrap4-theme) within the ASU Unity design kit. It includes only the design tokens for easier SASS references and expects that the theme will load the remainder of the required BS4 files.  
-
-- The breadcrumb block is an ACF wrapper for the [Hybrid Breadcrumbs](https://github.com/themehybrid/hybrid-breadcrumbs) composer-based assset for including breadcrumbs.
-
-- The sidebar block makes use of a custom ACF field group for menu selection which can be found within the [ASU Engineering's GitHub organization](https://github.com/asuengineering/ACF-Menu-Select). 
+- This theme loads a copy of the distributed CSS, JS and image files from the [Bootstrap 4 library](https://github.com/ASU/asu-unity-stack/tree/dev/packages/bootstrap4-theme) within the ASU Unity design kit. 
+- The header and footer for the theme are the Bootstrap 4 versions of each of those components. 
+- The customizer provides options for enabling the ASU Global Analytics tags required for any site under the `asu.edu` umbrella. 
+- The customizer also provides options for uploading an endorsed logo for inclusion in the global footer area.
 
 ## Development
 
