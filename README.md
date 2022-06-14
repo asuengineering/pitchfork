@@ -8,12 +8,12 @@ A plugin for use with the [Pitchfork theme](https://github.com/asuengineering/pi
 
 This plugin adds blocks and block patterns for the block editor consistent with the ASU Unity Design system for web standards. 
 
-Requires at least: WP 6.0
-Tested up to: 6.0
-Requires PHP: 7.3
-Stable tag: 1.0
-License: GPLv2 or later
-License URI: https://www.gnu.org/licenses/gpl-2.0.html
+Requires at least: WP 6.0  
+Tested up to: 6.0  
+Requires PHP: 7.3  
+Stable tag: 1.0  
+License: GPLv2 or later  
+License URI: https://www.gnu.org/licenses/gpl-2.0.html  
 
 **Contributors**
 
@@ -54,17 +54,23 @@ This plugin leverages the following libraries for functionality delivered within
 
 ## Release Notes
 
+### Version 1.1
+
+- Includes `theme.json` rules for new `content-media-overlap` block.
+- Filters out default labels for archive page titles.
+- Limits scope of a CSS rule only intended for `single.php` 
+
 ### Version 1.0
 
-- Initial deployment of the plugin. v1.0.
-- Includes working versions of the following blocks:
-  - `accordion` / `card-foldable` 
-  - `alert` and `banner` for eassy inclusion on a page. Works as repeatable blocks within the block editor.
-  - `background-section` for easy inclusion of the background patterns from the unity design kit.
-  - `blockquote` which also includes vertical styles corresponding to the "testimonial" element from the design kit.
-  - `breadcrumb` via Hybrid Brreadcrumbs
-  - `card` which can produce UDS cards of arbitrary content in any of the approved formats.
-  - `grid-links` 
-  - `hero` version 2.0 from the design kit. 
-  - `sidebar` 
-  - `subtitle` for use within the hero. 
+- Initial stable deployment of the theme.
+- Includes `theme.json` support of all blocks from accompanying Pitchfork Blocks plugin.
+- Contains native support for color from the ASU palette wherever appropriate.
+- Allows customization of margin/padding around each block as appropriate. 
+- Includes improvments to the following core blocks to support elements of the brand standard:
+  - `paragraph` supports the lead paragraph class.
+  - `headings` include options to highlight an individual word within the text.
+  - `buttons` include options for all supported button sizes and colors.
+  - `list` block allows for the uds-steplist styles for ordered lists. 
+  - `image` allows for captions to be displayed with/without the optional drop shadow.
+  - `separator` allows for a gold bar as an additional `<hr>` style.
+  - `table` now have native ASU styles applied to all table elements by default.
