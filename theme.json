@@ -390,6 +390,18 @@
 					]
 				}
 			},
+			"acf/content-image-overlap": {
+				"spacing": {
+					"units": [ "rem" ],
+					"margin": [ "top", "bottom" ],
+					"padding": false
+				},
+				"color": {
+					"background": false,
+					"text": false,
+					"link": false
+				}
+			},
 			"acf/grid-links": {
 				"spacing": {
 					"units": [ "rem" ],
