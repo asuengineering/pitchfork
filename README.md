@@ -2,11 +2,7 @@
 
 Pitchfork is a theme for WordPress which contains an implementation of the ASU Unity Bootstrap 4 UI kit for the creation of on-brand ASU websites. The theme utilizes the default block editor for WordPress for content creation. It contains styles applied to the native WordPress "core" blocks in order to produce a constent result for use within ASU's web ecosystem.
 
-This theme can (and probably should) be used with an additional plugin called Pitchfork Blocks to add a set of non-native blocks to the block editor. This additiion allows an end user to build virtually any design pattern that can be found within the Unity Design System (UDS).
-
-A plugin for use with the [Pitchfork theme](https://github.com/asuengineering/pitchfork) for WordPress. 
-
-This plugin adds blocks and block patterns for the block editor consistent with the ASU Unity Design system for web standards. 
+This theme can (and probably should) be used with an additional plugin called [Pitchfork Blocks](https://github.com/asuengineering/pitchfork-blocks) to add a set of non-native blocks to the block editor. This additiion allows an end user to build virtually any design pattern that can be found within the Unity Design System (UDS).
 
 Requires at least: WP 6.0  
 Tested up to: 6.0  
