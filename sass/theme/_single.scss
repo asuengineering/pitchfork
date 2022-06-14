@@ -87,40 +87,41 @@ Changing default margins to accomidate a less-wide final product.
 Entry-Header on desktop
 --------------------------------------------------------------*/
 @include media-breakpoint-up(lg) {
+    .single {
+        .entry-header {
+            display: grid;
+            grid-template-rows: 1fr auto;
+            grid-template-columns: 2fr 1fr;        
+            gap: 0px;
+            height: 100%;
 
-    .entry-header {
-        display: grid;
-        grid-template-rows: 1fr auto;
-        grid-template-columns: 2fr 1fr;        
-        gap: 0px;
-        height: 100%;
+            padding-top: $uds-size-spacing-6;
+            padding-bottom: $uds-size-spacing-12;
 
-        padding-top: $uds-size-spacing-6;
-        padding-bottom: $uds-size-spacing-12;
+            .entry-title {
+                grid-row: 1;
+                grid-column: 1;
+                align-self: flex-end;
+                padding-bottom: $uds-size-spacing-1;
+                border-bottom: 1px solid $uds-color-base-gray-3;
+            }
 
-        .entry-title {
-            grid-row: 1;
-            grid-column: 1;
-            align-self: flex-end;
-            padding-bottom: $uds-size-spacing-1;
-            border-bottom: 1px solid $uds-color-base-gray-3;
+            .entry-byline {
+                grid-row: 2;
+                grid-column: 1;
+            }
+
+            .wp-post-image {
+                grid-row: 1 / span 2;
+                grid-column: 2;
+                border: 1px solid $uds-color-base-gray-3;
+            }
         }
 
-        .entry-byline {
-            grid-row: 2;
-            grid-column: 1;
+        .entry-header.no-thumbnail {
+            display: grid;
+            grid-template-rows: 1fr auto;
+            grid-template-columns: 1fr;
         }
-
-        .wp-post-image {
-            grid-row: 1 / span 2;
-            grid-column: 2;
-            border: 1px solid $uds-color-base-gray-3;
-        }
-    }
-
-    .entry-header.no-thumbnail {
-        display: grid;
-        grid-template-rows: 1fr auto;
-        grid-template-columns: 1fr;
     }
 }
