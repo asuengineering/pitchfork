@@ -8,12 +8,12 @@ A plugin for use with the [Pitchfork theme](https://github.com/asuengineering/pi
 
 This plugin adds blocks and block patterns for the block editor consistent with the ASU Unity Design system for web standards. 
 
-Requires at least: WP 6.0
-Tested up to: 6.0
-Requires PHP: 7.3
-Stable tag: 1.0
-License: GPLv2 or later
-License URI: https://www.gnu.org/licenses/gpl-2.0.html
+Requires at least: WP 6.0  
+Tested up to: 6.0  
+Requires PHP: 7.3  
+Stable tag: 1.0  
+License: GPLv2 or later  
+License URI: https://www.gnu.org/licenses/gpl-2.0.html  
 
 **Contributors**
 
