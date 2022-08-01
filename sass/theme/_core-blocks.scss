@@ -119,8 +119,10 @@ a.wp-block-button__link {
     }
 
     &.is-style-drop-shadow {
-        box-shadow: 0rem .5rem 1rem rgba(25,25,25,.2);
         @include uds-figure;
+        img {
+            box-shadow: 0rem .5rem 1rem rgba(25,25,25,.2);
+        }
     }
 
     &.is-style-circular {
