@@ -222,6 +222,41 @@
 					]
 				}
 			},
+			"core/columns": {
+                "border": {
+                    "color": false,
+                    "radius": false,
+                    "style": false,
+                    "width": false
+                },
+				"spacing": {
+					"units": [ "rem" ]
+				},
+				"color": {
+					"palette": [
+						{
+							"slug": "white",
+							"color": "#FFFFFF",
+							"name": "White"
+						},     
+						{
+							"slug": "gray-1",
+							"color": "#FAFAFA",
+							"name": "ASU Gray 1"
+						},
+						{
+							"slug": "gray-2",
+							"color": "#E8E8E8",
+							"name": "ASU Gray 2"
+						},
+                        {
+                            "slug": "gray-7",
+                            "color": "#191919",
+                            "name": "ASU Gray 7"
+                        }
+					]
+				}
+			},
 			"core/column": {
 				"spacing": {
 					"units": [ "%" ]
