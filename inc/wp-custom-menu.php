@@ -20,15 +20,9 @@ if ( ! function_exists( 'uds_wp_get_menu_array' ) ) {
 		$locations = get_nav_menu_locations();
 		if ( isset( $locations[ $menu_name ] ) ) {
 			$menu_object = wp_get_nav_menu_object( $locations[ $menu_name ] );
+			$array_menu  = wp_get_nav_menu_items( $menu_object->term_id );
 
-			// Prevent php notice if there is no menu assigned to the location.
-			if (is_object($menu_object)) {
-				$array_menu  = wp_get_nav_menu_items( $menu_object->term_id );
-			} else {
-				$array_menu = array();
-			}
-			
-			// array_menu will also return false if there are no menu options within the assigned menu.
+			// array_menu will return false if there are no menu options.
 			if ( ! $array_menu ) {
 				$array_menu = array();
 			}
@@ -267,12 +261,12 @@ if ( ! function_exists( 'uds_wp_render_nav_item_link' ) ) {
 	 * @param array  $item_data Array of information about the current top-level nav link.
 	 * @return string            The rendered navigation link
 	 */
-	function uds_wp_render_nav_item_link( $menu_type, $item, $item_data ) {
+	function uds_wp_render_nav_item_link( $menu_type, $item, $item_data = NULL ) {
 		$link = '';
 		$is_cta_button    = $item['cta_button'];
 		$cta_button_color = $item['cta_color'];
 
-		if ( true === $item_data['has_current'] ) {
+		if ( ! is_null( $item_data ) && true === $item_data['has_current'] ) {
 			$active_classname = 'active';
 		} else {
 			$active_classname = '';
