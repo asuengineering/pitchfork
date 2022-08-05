@@ -23,11 +23,11 @@ get_header();
 
 				// Parse through the blocks on the page.
 				// If an acf/hero block is in the #1 position, do nothing.
-				// Otherwise display the post title and other "header" info.
-				
+				// Otherwise display the post title. 
 				$content_blocks = parse_blocks( $post->post_content );
-
-				if ('acf/hero' !== $content_blocks[0]['blockName']) {
+				$first_block_names = array('acf/hero', 'acf/hero-video');
+				
+				if ( ! in_array( $content_blocks[0]['blockName'], $first_block_names )) {
 
 					if ( has_post_thumbnail() ) {
 						echo '<header class="entry-header alignwide">';
