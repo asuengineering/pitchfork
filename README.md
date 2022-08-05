@@ -2,11 +2,7 @@
 
 Pitchfork is a theme for WordPress which contains an implementation of the ASU Unity Bootstrap 4 UI kit for the creation of on-brand ASU websites. The theme utilizes the default block editor for WordPress for content creation. It contains styles applied to the native WordPress "core" blocks in order to produce a constent result for use within ASU's web ecosystem.
 
-This theme can (and probably should) be used with an additional plugin called Pitchfork Blocks to add a set of non-native blocks to the block editor. This additiion allows an end user to build virtually any design pattern that can be found within the Unity Design System (UDS).
-
-A plugin for use with the [Pitchfork theme](https://github.com/asuengineering/pitchfork) for WordPress. 
-
-This plugin adds blocks and block patterns for the block editor consistent with the ASU Unity Design system for web standards. 
+This theme can (and probably should) be used with an additional plugin called [Pitchfork Blocks](https://github.com/asuengineering/pitchfork-blocks) to add a set of non-native blocks to the block editor. This additiion allows an end user to build virtually any design pattern that can be found within the Unity Design System (UDS).
 
 Requires at least: WP 6.0  
 Tested up to: 6.0  
@@ -23,27 +19,25 @@ License URI: https://www.gnu.org/licenses/gpl-2.0.html
 ## Usage Requirements
 
 - Download the lastest release from Github.
-- Install in the normal WP location for plugins which is typically `/wp-content/plugins`.
+- Install in the normal WP location for plugins which is typically `/wp-content/themes`.
 
 **Recommended / Required Additional Plugins**
 
-This plugin contains blocks that are constructed with the use of Advanced Custom Fields Pro. 
-- The ACF Pro plugin is also required by the Pitchfork theme.
+This theme contains options within the header and footer which require the use of Advanced Custom Fields Pro. 
+- The ACF Pro plugin is also required by the Pitchfork plugin that delivers additional blocks found within the Unity kit.
 - The theme contains a script which will prompt the user to install this plugin upon theme activation.
-- ASU Engineering provides a licensed copy of this plugin within its standard disstribution of WordPress on the Pantheon hosting platform.
+- ASU Engineering provides a licensed copy of this plugin within its standard distribution of WordPress on the Pantheon hosting platform.
 
-Plugin updates can optionally be managed from the admin dashboard through the use of [Git Updater](https://git-updater.com/). 
-
+Theme updates can optionally be managed from the admin dashboard through the use of [Git Updater](https://git-updater.com/). 
 
 ## Includes
 
-This plugin leverages the following libraries for functionality delivered within certain blocks.
+This theme leverages the following libraries for functionality delivered within certain blocks.
 
-- This plugin loads a copy of the SASS files from the [Bootstrap 4 library](https://github.com/ASU/asu-unity-stack/tree/dev/packages/bootstrap4-theme) within the ASU Unity design kit. It includes only the design tokens for easier SASS references and expects that the theme will load the remainder of the required BS4 files.  
-
-- The breadcrumb block is an ACF wrapper for the [Hybrid Breadcrumbs](https://github.com/themehybrid/hybrid-breadcrumbs) composer-based assset for including breadcrumbs.
-
-- The sidebar block makes use of a custom ACF field group for menu selection which can be found within the [ASU Engineering's GitHub organization](https://github.com/asuengineering/ACF-Menu-Select). 
+- This theme loads a copy of the distributed CSS, JS and image files from the [Bootstrap 4 library](https://github.com/ASU/asu-unity-stack/tree/dev/packages/bootstrap4-theme) within the ASU Unity design kit. 
+- The header and footer for the theme are the Bootstrap 4 versions of each of those components. 
+- The customizer provides options for enabling the ASU Global Analytics tags required for any site under the `asu.edu` umbrella. 
+- The customizer also provides options for uploading an endorsed logo for inclusion in the global footer area.
 
 ## Development
 
@@ -54,17 +48,23 @@ This plugin leverages the following libraries for functionality delivered within
 
 ## Release Notes
 
+### Version 1.1
+
+- Includes `theme.json` rules for new `content-media-overlap` block.
+- Filters out default labels for archive page titles.
+- Limits scope of a CSS rule only intended for `single.php` 
+
 ### Version 1.0
 
-- Initial deployment of the plugin. v1.0.
-- Includes working versions of the following blocks:
-  - `accordion` / `card-foldable` 
-  - `alert` and `banner` for eassy inclusion on a page. Works as repeatable blocks within the block editor.
-  - `background-section` for easy inclusion of the background patterns from the unity design kit.
-  - `blockquote` which also includes vertical styles corresponding to the "testimonial" element from the design kit.
-  - `breadcrumb` via Hybrid Brreadcrumbs
-  - `card` which can produce UDS cards of arbitrary content in any of the approved formats.
-  - `grid-links` 
-  - `hero` version 2.0 from the design kit. 
-  - `sidebar` 
-  - `subtitle` for use within the hero. 
+- Initial stable deployment of the theme.
+- Includes `theme.json` support of all blocks from accompanying Pitchfork Blocks plugin.
+- Contains native support for color from the ASU palette wherever appropriate.
+- Allows customization of margin/padding around each block as appropriate. 
+- Includes improvments to the following core blocks to support elements of the brand standard:
+  - `paragraph` supports the lead paragraph class.
+  - `headings` include options to highlight an individual word within the text.
+  - `buttons` include options for all supported button sizes and colors.
+  - `list` block allows for the uds-steplist styles for ordered lists. 
+  - `image` allows for captions to be displayed with/without the optional drop shadow.
+  - `separator` allows for a gold bar as an additional `<hr>` style.
+  - `table` now have native ASU styles applied to all table elements by default.
