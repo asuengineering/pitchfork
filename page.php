@@ -25,7 +25,9 @@ get_header();
 			// If an acf/hero block is in the #1 position, do nothing.
 			// Otherwise display the post title. 
 			$content_blocks = parse_blocks( $post->post_content );
-			if ('acf/hero' !== $content_blocks[0]['blockName']) {
+			$first_block_names = array('acf/hero', 'acf/hero-video');
+			
+			if ( ! in_array( $content_blocks[0]['blockName'], $first_block_names )) {
 				the_title( '<div class="page-title"><h1 class="entry-title">', '</h1></div>' );
 			}
 
