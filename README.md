@@ -48,6 +48,13 @@ This theme leverages the following libraries for functionality delivered within 
 
 ## Release Notes
 
+### Version 1.2
+
+- FIX: Resolve PHP notice for missing array value within the global header. 
+- FIX: core/columns block now supports a limited color pallette for background colors.
+- FIX: The drop-shadow style of the core/image block no longer exceeds the margin of the block.
+- FIX: page.php and single.php now support for acf/hero-video as a replacement for the page/post title.
+
 ### Version 1.1
 
 - Includes `theme.json` rules for new `content-media-overlap` block.
