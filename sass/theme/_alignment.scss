@@ -54,3 +54,20 @@ main > *.alignfull {
 	}
 }
 
+
+/*--------------------------------------------------------------
+3. Align left, align right, align center.
+--------------------------------------------------------------*/
+.alignleft {
+	margin-left: calc( ( 100% - 1200px ) / 2 ) !important;
+}
+
+.alignright {
+	margin-right: calc( ( 100% - 1200px ) / 2 ) !important;
+}
+
+.aligncenter {
+	margin-left: auto !important;
+    margin-right: auto !important;
+	max-width: fit-content;
+}
