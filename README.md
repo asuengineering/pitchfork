@@ -48,6 +48,12 @@ This theme leverages the following libraries for functionality delivered within 
 
 ## Release Notes
 
+### Version 1.3
+
+- FIX: Add support for `.alignleft`, `.alignright` and `.aligncenter` classes.
+- FIX: Remove extra bullet point from nested `<ul>` elements in `.uds-list`.
+- FIX: Remove Lavidge tracking code from header. Causes unpredictable results when not enqueued properly.
+
 ### Version 1.2
 
 - FIX: Resolve PHP notice for missing array value within the global header. 
