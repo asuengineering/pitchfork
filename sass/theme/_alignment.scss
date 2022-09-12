@@ -58,14 +58,22 @@ main > *.alignfull {
 // /*--------------------------------------------------------------
 // 3. Align left, align right, align center.
 // --------------------------------------------------------------*/
-// .alignleft {
-// 	float:left;
-//     margin-inline-end: 2rem;
-// 	margin-inline-start: calc( ( 100% - 1200px ) / 2 ) !important;
-// }
 
-// .alignright {
-// 	float:right;
-//     margin-inline-end: calc( ( 100% - 1200px ) / 2 ) !important;
-// 	margin-inline-start: 2rem;
-// }
+.alignleft {
+	display: inline;
+	float: left;
+	margin-right: 1.5em;
+}
+
+.alignright {
+	display: inline;
+	float: right;
+	margin-left: 1.5em;
+}
+
+.aligncenter {
+	clear: both;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
