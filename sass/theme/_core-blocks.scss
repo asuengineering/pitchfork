@@ -65,6 +65,12 @@ a.wp-block-button__link {
 
 .is-style-uds-list {
 	@extend .uds-list;
+
+    // Eliminates duplicate bullet points in nested lists.
+    // Browser provides :marker, UDS-Bootstrap still rolls with :before.
+    & ul li::marker {
+        content: '';
+    }
 }
 
 .is-style-uds-steplist {
