@@ -55,19 +55,17 @@ main > *.alignfull {
 }
 
 
-/*--------------------------------------------------------------
-3. Align left, align right, align center.
---------------------------------------------------------------*/
-.alignleft {
-	margin-left: calc( ( 100% - 1200px ) / 2 ) !important;
-}
+// /*--------------------------------------------------------------
+// 3. Align left, align right, align center.
+// --------------------------------------------------------------*/
+// .alignleft {
+// 	float:left;
+//     margin-inline-end: 2rem;
+// 	margin-inline-start: calc( ( 100% - 1200px ) / 2 ) !important;
+// }
 
-.alignright {
-	margin-right: calc( ( 100% - 1200px ) / 2 ) !important;
-}
-
-.aligncenter {
-	margin-left: auto !important;
-    margin-right: auto !important;
-	max-width: fit-content;
-}
+// .alignright {
+// 	float:right;
+//     margin-inline-end: calc( ( 100% - 1200px ) / 2 ) !important;
+// 	margin-inline-start: 2rem;
+// }
