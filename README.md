@@ -48,6 +48,12 @@ This theme leverages the following libraries for functionality delivered within 
 
 ## Release Notes
 
+### Version 1.4
+
+- ADDED: Global footer now includes the 2023 innovation lockup graphic.
+- ADDED: Updated ASU Bootstrap UI kit to v7.17.12 (latest).
+- ADDED: Added support for Github Updater plugin.
+
 ### Version 1.3
 
 - FIX: Add support for `.alignleft`, `.alignright` and `.aligncenter` classes.
