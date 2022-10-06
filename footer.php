@@ -28,7 +28,7 @@ defined( 'ABSPATH' ) || exit;
 				<div class="col">
 					<div class="d-flex footer-innovation-links">
 						<a class="img-link" href="https://www.asu.edu/rankings">
-						<img src="<?php echo get_template_directory_uri(); ?>/src/img/university-logo/GlobalFooter-No1InnovationLockup.png" alt="Number one in the U.S. for innovation. ASU ahead of MIT and Stanford . - U.S. News and World Report, 7 years, 2016-2022">
+						<img src="<?php echo get_template_directory_uri(); ?>/src/img/university-logo/GlobalFooter-No1InnovationLockup_2023.png" alt="Number one in the U.S. for innovation. ASU ahead of MIT and Stanford . - U.S. News and World Report, 8 years, 2016-2023">
                         
 					</a>
 						<nav class="nav" aria-label="University Services">
