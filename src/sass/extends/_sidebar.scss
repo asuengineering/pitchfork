@@ -4,17 +4,24 @@ Sidebar Navigation
 1. Component Mixins
 2. Sidebar
 -------------------------------------------------------------------*/
+$nav-item-padding-y: 0.7rem;
+$nav-item-min-height: 3rem;
 
 @mixin like-an-h4 {
   font-size: 1rem;
   line-height: 1.5rem;
-  letter-spacing: -0.037rem;
+  letter-spacing: 0;
 }
 
 @mixin like-an-h5 {
   font-size: 1rem;
   line-height: 1rem;
   letter-spacing: -0.015em;
+}
+
+@mixin nav-item-container {
+  padding: $nav-item-padding-y $uds-size-spacing-1;
+  min-height: $nav-item-min-height;
 }
 
 /*------------------------------------------------------------------
@@ -66,7 +73,8 @@ Sidebar Navigation
   }
 
   .nav-link {
-    padding: $uds-size-spacing-2 $uds-size-spacing-1;
+    position: relative;
+    padding: 0 $uds-size-spacing-1;
     color: $uds-color-base-gray-7;
     @include like-an-h4;
 
@@ -86,19 +94,19 @@ Sidebar Navigation
 
     &.is-active {
       text-decoration: none;
-      padding-bottom: 0;
     }
 
     &.is-active:after {
       content: '';
-      position: relative;
-      top: 0.5rem;
+      position: absolute;
       display: block;
-      margin-top: $uds-size-spacing-2;
       height: $uds-size-spacing-1;
       width: 100%;
       background-color: $uds-color-base-gold;
       text-decoration: none;
+      bottom: -0.76rem;
+      left: 50%;
+      transform: translateX(-50%);
     }
 
     &[aria-expanded='true'] svg {
@@ -107,9 +115,12 @@ Sidebar Navigation
   }
 
   > .nav-link-container {
-    padding: $uds-size-spacing-1;
+    @include nav-item-container;
     overflow: hidden;
     color: $uds-color-base-gray-7;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     &:not(:first-child) {
       border-top: 1px solid $uds-color-base-gray-3;
     }
@@ -125,6 +136,10 @@ Sidebar Navigation
     }
 
     .card-header {
+      @include nav-item-container;
+      // Override the min-height to account for the border on .card-foldable
+      min-height: calc(#{$nav-item-min-height} - 1px);
+
       h1,
       h2,
       h3,
@@ -134,7 +149,9 @@ Sidebar Navigation
       }
 
       a {
-        padding: $uds-size-spacing-2 $uds-size-spacing-1;
+        align-items: center;
+        display: flex;
+        justify-content: space-between;
       }
 
       ~ .card-body {
@@ -147,16 +164,14 @@ Sidebar Navigation
     }
 
     .card-body > .nav-link {
-      padding: 0 $uds-size-spacing-5 0 $uds-size-spacing-3;
+      padding: 1rem $uds-size-spacing-5 0 $uds-size-spacing-3;
 
-      &:last-child {
+      &.is-active {
         &:after {
-          top: 1rem;
+          bottom: -1rem;
+          width: calc(100% - #{$uds-size-spacing-5 + $uds-size-spacing-3});
+          transform: translateX(calc(-50% - #{$uds-size-spacing-1}));
         }
-      }
-
-      &:after {
-        margin-top: $uds-size-spacing-1;
       }
 
       + .nav-link {

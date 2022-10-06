@@ -5,7 +5,7 @@
 	"repository": "ahmadawais/WPGulp",
 	"license": "MIT",
 	"devDependencies": {
-		"@asu-design-system/bootstrap4-theme": "^7.2.1",
+		"@asu-design-system/bootstrap4-theme": "^7.17.12",
 		"@asu-design-system/cookie-consent": "2.0.0",
 		"@asu-design-system/design-tokens": "dev",
 		"@babel/core": "^7.0.0",
