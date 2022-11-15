@@ -1890,10 +1890,11 @@ a.text-gold:visited:not(.btn):not(.uds-modal-close-btn):not(a.wp-block-button__l
 .card-foldable .card-header.card-header-icon .card-icon{display:-webkit-box;display:-ms-flexbox;display:flex;margin-left:-0.75rem;-webkit-box-align:start;-ms-flex-align:start;align-items:flex-start}
 .card-foldable .card-header.card-header-icon .card-icon svg{margin-top:2px}
 .card-foldable .card-header:hover{background-color:#e8e8e8}
-.card-foldable .card-header h4,.card-foldable .card-header h5{margin:0}
-.card-foldable .card-header h4 a,.card-foldable .card-header h5 a{padding:.5rem 1.5rem;color:#191919;text-decoration:none;display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:nowrap;flex-wrap:nowrap;-webkit-box-pack:justify;-ms-flex-pack:justify;justify-content:space-between;-webkit-box-align:center;-ms-flex-align:center;align-items:center}
-.card-foldable .card-header h4 a svg.fa-chevron-up,.card-foldable .card-header h5 a svg.fa-chevron-up{margin-left:1.5rem;-webkit-transition-duration:.4s;transition-duration:.4s;-ms-flex-item-align:start;align-self:flex-start}
-.card-foldable .card-header h4 a.collapsed svg.fa-chevron-up,.card-foldable .card-header h4 a.collapsed i.fa-chevron-up,.card-foldable .card-header h5 a.collapsed svg.fa-chevron-up,.card-foldable .card-header h5 a.collapsed i.fa-chevron-up{-webkit-transform:rotate(180deg);transform:rotate(180deg)}
+.card-foldable .card-header h3{font-size:1.25rem}
+.card-foldable .card-header h3,.card-foldable .card-header h4,.card-foldable .card-header h5{margin:0}
+.card-foldable .card-header h3 a,.card-foldable .card-header h4 a,.card-foldable .card-header h5 a{padding:.5rem 1.5rem;color:#191919;text-decoration:none;display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:nowrap;flex-wrap:nowrap;-webkit-box-pack:justify;-ms-flex-pack:justify;justify-content:space-between;-webkit-box-align:center;-ms-flex-align:center;align-items:center}
+.card-foldable .card-header h3 a svg.fa-chevron-up,.card-foldable .card-header h4 a svg.fa-chevron-up,.card-foldable .card-header h5 a svg.fa-chevron-up{margin-left:1.5rem;-webkit-transition-duration:.4s;transition-duration:.4s;-ms-flex-item-align:start;align-self:flex-start}
+.card-foldable .card-header h3 a.collapsed svg.fa-chevron-up,.card-foldable .card-header h3 a.collapsed i.fa-chevron-up,.card-foldable .card-header h4 a.collapsed svg.fa-chevron-up,.card-foldable .card-header h4 a.collapsed i.fa-chevron-up,.card-foldable .card-header h5 a.collapsed svg.fa-chevron-up,.card-foldable .card-header h5 a.collapsed i.fa-chevron-up{-webkit-transform:rotate(180deg);transform:rotate(180deg)}
 .card-foldable .card-header+.card-body{border-top:1px solid #d0d0d0}
 .card-foldable .card-body{background-color:#fafafa}
 .card-foldable .card-body>p:first-child{margin-top:1rem}
@@ -2031,6 +2032,7 @@ div[class^='uds-hero'].has-btn-row .btn-row .btn:last-child,div[class^='uds-hero
 div[class^='uds-hero'].has-btn-row .btn-row .btn:last-child+.btn,div[class^='uds-hero'].has-btn-row .btn-row .uds-modal-close-btn:last-child+.btn,div[class^='uds-hero'].has-btn-row .btn-row a.wp-block-button__link:last-child+.btn,div[class^='uds-hero'].has-btn-row .btn-row .btn:last-child+.uds-modal-close-btn,div[class^='uds-hero'].has-btn-row .btn-row .uds-modal-close-btn:last-child+.uds-modal-close-btn,div[class^='uds-hero'].has-btn-row .btn-row a.wp-block-button__link:last-child+.uds-modal-close-btn,div[class^='uds-hero'].has-btn-row .btn-row .btn:last-child+a.wp-block-button__link,div[class^='uds-hero'].has-btn-row .btn-row .uds-modal-close-btn:last-child+a.wp-block-button__link,div[class^='uds-hero'].has-btn-row .btn-row a.wp-block-button__link:last-child+a.wp-block-button__link{margin-left:0}
 div[class^='uds-hero'].has-btn-row .content{grid-row:5}
 div[class^='uds-hero'].hide-content .content{display:none}
+div[class^='uds-hero'].uds-video-hero video,div[class^='uds-hero'].uds-video-hero .video-hero-controls{display:none}
 div.uds-hero-sm,div.uds-hero-md{min-height:16rem}
 div.uds-hero-lg{min-height:32rem}
 .uds-story-hero{display:grid;grid-template-columns:1rem 1fr 1rem;grid-template-rows:calc(16rem - 4.5rem) 4.5rem auto;gap:0;max-width:1920px;margin:0 auto}
@@ -2400,15 +2402,15 @@ canvas{width:100%;height:auto;position:relative}
 .uds-anchor-menu-sticky{position:fixed;left:0;right:0;top:0}
 .uds-anchor-menu h4{font-size:1rem;padding:0 !important}
 .uds-anchor-menu h4:hover{-webkit-transform:none;transform:none}
-.uds-anchor-menu h4 svg{margin-left:.5rem;-webkit-transform:rotate(0);transform:rotate(0)}
+.uds-anchor-menu h4 svg{margin-left:.5rem;margin-right:.5rem;margin-top:.35rem;-webkit-transform:rotate(0);transform:rotate(0)}
 .uds-anchor-menu h4[aria-expanded='true'] svg,.uds-anchor-menu h4[aria-expanded='true'] i{-webkit-transform:rotate(180deg);transform:rotate(180deg)}
 .uds-anchor-menu .card-body{padding-top:1.5rem}
 .uds-anchor-menu nav{-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column}
-.uds-anchor-menu .nav-link{color:#191919;padding:1.5rem 0;text-align:start;font-weight:400}
+.uds-anchor-menu .nav-link{color:#191919;padding:1.5rem 0;padding-left:.5rem;text-align:start;font-weight:400}
 .uds-anchor-menu .nav-link:not(:last-child){border-bottom:1px solid #d0d0d0}
 .uds-anchor-menu .nav-link:hover,.uds-anchor-menu .nav-link.active{margin-bottom:0;border-bottom:.5rem solid #ffc627}
 .uds-anchor-menu .nav-link:visited{color:#191919}
-.uds-anchor-menu .nav-link svg{width:2rem !important;margin-right:.5rem}
+.uds-anchor-menu .nav-link svg{width:2rem !important;margin-right:.5rem;margin-left:-0.5rem}
 .uds-card-image-and-content{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column}
 .uds-card-image-and-content-image-container{background-size:cover;background-position:top;display:-webkit-box;display:-ms-flexbox;display:flex;height:512px;position:relative;width:100%}
 .uds-card-image-and-content-content-container{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;position:relative}
@@ -2439,12 +2441,12 @@ canvas{width:100%;height:auto;position:relative}
 .uds-image-background-with-cta-container>span{color:#fafafa;font:normal normal bold 2.5rem Arial;-webkit-box-flex:1;-ms-flex:1;flex:1;max-width:784px}
 .uds-table,.wp-block-table{border:1px solid #e8e8e8;overflow-x:scroll}
 .uds-table>table,.wp-block-table>table{width:100%}
-.uds-table>table th,.wp-block-table>table th,.uds-table>table td,.wp-block-table>table td{-webkit-box-sizing:border-box;box-sizing:border-box;font-size:1rem;text-align:left;padding:1rem}
+.uds-table>table th,.wp-block-table>table th,.uds-table>table td,.wp-block-table>table td{-webkit-box-sizing:border-box;box-sizing:border-box;font-size:1rem;text-align:left;padding:1rem;max-width:700px}
 .uds-table>table tr :nth-child(n+1),.wp-block-table>table tr :nth-child(n+1){-webkit-box-sizing:border-box;box-sizing:border-box}
 .uds-table>table tr :first-child,.wp-block-table>table tr :first-child{-webkit-box-sizing:border-box;box-sizing:border-box}
 .uds-table>table>thead>tr:first-child th,.wp-block-table>table>thead>tr:first-child th{background-color:#d0d0d0}
 .uds-table>table tbody tr th,.wp-block-table>table tbody tr th,.uds-table>table tbody tr td,.wp-block-table>table tbody tr td{background-color:white}
-.uds-table>table tbody tr th p,.wp-block-table>table tbody tr th p,.uds-table>table tbody tr td p,.wp-block-table>table tbody tr td p{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;margin-bottom:0}
+.uds-table>table tbody tr th p,.wp-block-table>table tbody tr th p,.uds-table>table tbody tr td p,.wp-block-table>table tbody tr td p{margin-bottom:0}
 .uds-table>table tbody tr:nth-child(2n) th,.wp-block-table>table tbody tr:nth-child(2n) th,.uds-table>table tbody tr:nth-child(2n) td,.wp-block-table>table tbody tr:nth-child(2n) td{background-color:#fafafa}
 .uds-table>table tbody tr:hover th,.wp-block-table>table tbody tr:hover th,.uds-table>table tbody tr:hover td,.wp-block-table>table tbody tr:hover td,.uds-table>table tbody tr:focus th,.wp-block-table>table tbody tr:focus th,.uds-table>table tbody tr:focus td,.wp-block-table>table tbody tr:focus td{background-color:#e8e8e8}
 .uds-table>table tbody tr>th.normal,.wp-block-table>table tbody tr>th.normal{font-weight:normal}
@@ -3938,6 +3940,13 @@ div.uds-hero-lg{height:42.75rem}
 .card-foldable.desktop-disable-lg .collapsing{position:relative;height:unset !important;overflow:hidden}
 div[class^='uds-hero']{grid-template-columns:1fr minmax(0,940px) 1fr}
 div[class^='uds-hero'] h1,div[class^='uds-hero'] [role='doc-subtitle'],div[class^='uds-hero'] a.btn,div[class^='uds-hero'] a.uds-modal-close-btn,div[class^='uds-hero'] a.wp-block-button__link,div[class^='uds-hero'] .content,div[class^='uds-hero'] .btn-row{max-width:calc(940px - 34%)}
+div[class^='uds-hero'].uds-video-hero .hero{display:none}
+div[class^='uds-hero'].uds-video-hero.uds-video-hero video{display:block;grid-row:1 / span 6;grid-column:1 / span 3;z-index:30;height:100%;min-height:100%;position:absolute;top:0;left:50%;-webkit-transform:translateX(-50%);transform:translateX(-50%);width:100%;-o-object-fit:cover;object-fit:cover}
+div[class^='uds-hero'].uds-video-hero .video-hero-controls{display:block;position:relative;z-index:40;grid-column:2;grid-row:6;align-self:end;justify-self:flex-end;top:-3rem}
+div[class^='uds-hero'].uds-video-hero .video-hero-controls .btn-circle-large{width:56px !important;height:56px !important;font-size:16px !important;opacity:.3 !important}
+div[class^='uds-hero'].uds-video-hero .video-hero-controls .btn-circle-large:hover{opacity:1 !important;cursor:pointer;-webkit-transform:none;transform:none}
+div[class^='uds-hero'].uds-video-hero .video-hero-controls .btn-circle-large .svg-inline--fa.fa-w-14{margin-left:0 !important}
+div[class^='uds-hero'].uds-video-hero .video-hero-controls #playHeroVid{display:none}
 .uds-full-width .uds-content-align{max-width:940px}
 .uds-grid-links.three-columns,.uds-grid-links.four-columns{grid-template-columns:repeat(3,1fr)}
 .uds-anchor-menu.uds-anchor-menu-expanded-lg{border-bottom:1px solid #d0d0d0}

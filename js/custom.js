@@ -1,7 +1,8 @@
 "use strict";
 
 // Cookie consent form initialization.
-window.addEventListener("DOMContentLoaded", function (event) {// AsuCookieConsent.init();
+window.addEventListener("DOMContentLoaded", function (event) {
+  // AsuCookieConsent.init();
 });
 "use strict";
 

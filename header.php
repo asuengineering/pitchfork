@@ -74,7 +74,7 @@ if ( ! empty( $c_options['hotjar_site_id'] ) ) {
 		include get_template_directory() . '/inc/analytics/hotjar-tracking-code.php';
 	}
 	?>
-	
+
 </head>
 
 <body <?php body_class(); ?> <?php pitchfork_body_attributes(); ?> id="back_to_top">
@@ -128,7 +128,7 @@ if ( ! empty( $c_options['hotjar_site_id'] ) ) {
 							<a class="navbar-brand" href="https://www.asu.edu">
 								<img class="vert" src="<?php echo get_template_directory_uri(); ?>/src/img/asu-unity/asu-logo/asu-university-vert-maroongold.png" alt="Arizona State University" />
 								<img class="horiz" src="<?php echo get_template_directory_uri(); ?>/src/img/asu-unity/asu-logo/asu-university-horiz-maroongold.png" alt="Arizona State University" />
-							</a>  
+							</a>
 
 							<button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#menubar" aria-controls="menubar" aria-expanded="false" aria-label="Toggle navigation">
 								<span title="Open mobile menu" class="fa fa-bars"></span>
@@ -153,11 +153,11 @@ if ( ! empty( $c_options['hotjar_site_id'] ) ) {
 
 								</div><!-- .end .title -->
 
-								<div class="collapse navbar-collapse w-100 justify-content-between" id="menubar">
+								<div class="collapse navbar-collapse w-100" id="menubar">
 
 									<?php uds_wp_render_main_nav_menu(); ?>
 
-									<div class="navbar-mobile-footer">
+									<div class="navbar-mobile-footer pinned">
 										<form class="form-inline navbar-mobile-search" action="https://search.asu.edu/search" method="get" name="gs">
 											<input class="form-control" type="search" name="q" aria-label="Search" placeholder="Search ASU">
 											<input name="site" value="default_collection" type="hidden">
