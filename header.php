@@ -173,7 +173,7 @@ if ( ! empty( $c_options['hotjar_site_id'] ) ) {
 											<a class="nav-link" href="https://my.asu.edu">My ASU</a>
 											<a class="nav-link" href="https://asu.edu/about/colleges-and-schools">Colleges and Schools</a>
 											<div class="nav-link login-status">
-												Sparky<a class="signout" href="https://webapp4.asu.edu/myasu/Signout">Sign Out</a>
+												<a class="signin" href="https://my.asu.edu">Sign In</a>
 											</div>
 										</div>
 									</div>
