@@ -4497,7 +4497,6 @@ main{padding:0}
 main>*:not(.alignfull):not(.alignwide){max-width:1200px;margin-left:auto;margin-right:auto}
 main>*.alignwide{max-width:1450px;margin-left:auto;margin-right:auto}
 main>*.alignfull{max-width:1920px;margin-left:auto;margin-right:auto}
-.dropdown-pinned{overflow:initial;position:static}
 }@media screen and (max-width:1260px){.uds-card-arrangement>.uds-card-arrangement-card-container.auto-arrangement.four-columns{grid-template-columns:repeat(3,1fr)}
 .uds-image-background-with-cta{padding:3rem}
 }@media(max-width:1259.98px){.table-responsive-xl{display:block;width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}
@@ -4505,6 +4504,7 @@ main>*.alignfull{max-width:1920px;margin-left:auto;margin-right:auto}
 .navbar-expand-xl>.container,.navbar-expand-xl>.container-fluid,.navbar-expand-xl>.container-sm,.navbar-expand-xl>.container-md,.navbar-expand-xl>.container-lg,.navbar-expand-xl>.container-xl{padding-right:0;padding-left:0}
 #asu-header+div,#asu-header+main{-webkit-transition:.5s cubic-bezier(0.19,1,0.19,1);transition:.5s cubic-bezier(0.19,1,0.19,1);margin-top:110px}
 .uds-anchor-menu h4{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-pack:justify;-ms-flex-pack:justify;justify-content:space-between}
+#wpadminbar+#asu-header.fixed-top .header-content-container{overflow-y:scroll;overflow-x:hidden;min-height:calc(100vh - 316px);max-height:calc(100vh - 316px);margin-bottom:50px}
 }@media screen and (max-width:992px){#calendar .calendar-grid{padding-left:0;padding-right:0;text-align:center}
 #calendar .calendar-grid .heading{border-bottom:1px solid #747474;padding-bottom:.5rem}
 #calendar .calendar-grid .heading.desktop{display:none}

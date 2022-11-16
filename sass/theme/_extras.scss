@@ -1,16 +1,5 @@
 /*--------------------------------------------------------------
-1. Max width 1920px, align center
-Replicated in _alignment.scss
---------------------------------------------------------------*/
-
-// main > * {
-// 	margin-left: auto;
-// 	margin-right: auto;
-// 	max-width: 1920px;
-// }
-
-/*--------------------------------------------------------------
-2. Header title underline styles
+1. Header title underline styles
 --------------------------------------------------------------*/
 
 .title .subdomain-name a {
@@ -22,27 +11,8 @@ Replicated in _alignment.scss
 	text-decoration: underline;
 }
 
-/*--------------------------------------------------------------
-3. BUG-FIX: .dropdown-pinned class appears at the wrong breakpoint.
---------------------------------------------------------------*/
-
-// /* The included JS file for the global header accidently applies the .dropdown-pinned
-// class to body tag when the menu is being displayed at the desktop viewport. This class
-// is only meant to be applied to the screen when the mobile menu is being displayed. */
-
-// /* The temporary fix is to overwrite the default behavior with a media query targeting
-// the desktop viewport. (The breakpoint for the header is the XL breakpoint.) */
-
-@include media-breakpoint-up(xl) {
-	.dropdown-pinned {
-		overflow: initial;
-		position: static;
-	}
-}
-
-
 /*---------------------------------------------------------------
- Fix Alert Close button
+ 2. Fix Alert Close button
  To use the existing Javascript in Bootstrap to close alerts, you
  need to use the class 'alert-dismissible'. However, that class
  has some strong opinions on where buttons go. Here we override
@@ -72,7 +42,7 @@ Replicated in _alignment.scss
 }
 
 /*---------------------------------------------------------------
- Adjust position of icon and close button on XS
+ 3. Adjust position of icon and close button on XS
 
  Margins were being applied to both the icon and close button
  on XS, essentially to maximize the room available for text, but
@@ -99,29 +69,12 @@ Replicated in _alignment.scss
 	}
 }
 
-/*--------------------------------------------------------------
-Fixes an issue with a gap between the header and the block that immediately follows.
-** Problem not present in Pitchfork
---------------------------------------------------------------*/
-// // Desktop
-// @include media-breakpoint-up(xl) {
-// 	#asu-header + div,
-// 	#asu-header + main {
-// 	@include transition;
-// 	margin-top: 144px;
-// 	}
-// }
-
-// @include media-breakpoint-down(lg) {
-// 	#asu-header + div,
-// 	#asu-header + main {
-// 		@include transition;
-// 		margin-top: 113px;
-// 	}
-// }
 
 /*--------------------------------------------------------------
-Allow admin bar to set above grey bar in header when logged in.
+4. Adjustments for WP admin bar.
+
+- Allow admin bar to set above grey bar in header when logged in.
+- Adjust height of expanded dropdown within mobile.
 --------------------------------------------------------------*/
 #wpadminbar + #asu-header.fixed-top {
 	top: 32px !important;
@@ -142,87 +95,32 @@ Allow admin bar to set above grey bar in header when logged in.
 	}
 }
 
-/*--------------------------------------------------------------
-Fix content alignment issues between header/content/footer
-Moved to alignment.scss and implemented in Bootstrap 4 library.
---------------------------------------------------------------*/
-
-// #header-main .navbar,
-// #footer-columns.container {
-// 	padding-left: 12px;
-// 	padding-right: 12px;
-// }
-
-// @media (max-width: 991.98px) {
-// 	#footer-innovation .footer-innovation-links .nav {
-// 		order:2;
-// 		padding: 0 ;
-// 	}
-
-// 	#footer-innovation .footer-innovation-links .img-link{
-// 		order:1;
-// 	}
-
-// 	#footer-colophon .nav{
-// 		padding: 0;
-// 	}
-// }
-
-// @media (max-width: 806px) {
-// 	.container-fluid{
-// 		padding-left: 0;
-// 		padding-right: 0;
-// 	}
-// }
-
-// footer .menu-social-media-container a.nav-link:last-of-type{
-// 	padding-right: 0;
-// }
-
-// footer .menu-social-media-container a.nav-link:first-of-type{
-// 	padding-left: 0;
-// }
-
-// footer #wrapper-footer-innovation .img-link{
-// 	margin-right: 0;
-// }
-
-// .uds-hero-container,
-// .container {
-// 	.highlight-gold, .highlight-white, .highlight-black{
-// 		box-shadow: 0 0 0 #ffc627, 0 0 0 #ffc627;
-// 			padding-left: 0.15em;
-// 			padding-right: 0.15em;
-// 	}
-// }
+// The height of the admin bar also interferes with a calc value within #menubar .header-content-container.
+// Redefine calc value if the admin bar is present. 270px + 46px of additional height.
+@include media-breakpoint-down(lg) {
+	#wpadminbar + #asu-header.fixed-top .header-content-container {
+		overflow-y: scroll;
+		overflow-x: hidden;
+		min-height: calc(100vh - 316px);
+		max-height: calc(100vh - 316px);
+		margin-bottom: 50px;
+	}
+}
 
 /*--------------------------------------------------------------
-Add scope for modal window block.
+5. Pagination formatting fix.
+- Span tag produces zero padding from default WP.
 --------------------------------------------------------------*/
 
-// .uds-modal{
-// 	z-index: 1050;
-// 	position: fixed;
-// }
-
-
-/*--------------------------------------------------------------
-BUG: Story hero layout breaks with oversized images.
---------------------------------------------------------------*/
-// .uds-story-hero .hero {
-// 	width: 100%;
-//     max-height: 100%;
-// }
-
-// Pagination formatting fix. Span tag produces zero padding from default WP.
 .pagination {
 	span.page-link {
 		padding: $uds-size-spacing-1 12px;
 	}
 }
 
-
-// 404 error page 
+/*--------------------------------------------------------------
+6. 404 Error page fixes
+--------------------------------------------------------------*/
 .error404 div[class^='uds-hero'] .search-form-inline {
 
 	position: relative;
@@ -244,7 +142,9 @@ BUG: Story hero layout breaks with oversized images.
 	}
 }
 
-// Border and spacing for index.php site title display.
+/*--------------------------------------------------------------
+7. Border and spacing for index.php site title display.
+--------------------------------------------------------------*/
 .home .index-title {
 	padding-bottom: $uds-size-spacing-2;
 	border-bottom: 1px solid $uds-color-base-gray-3;
