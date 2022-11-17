@@ -14,7 +14,43 @@
 		"spacing": {
 			"units": [ "rem" ],
 			"margin": true,
-			"padding": true
+			"padding": true,
+			"blockGap": "2rem",
+			"spacingScale": {
+				"steps": 0
+			},
+			"spacingSizes": [
+				{
+					"name": "UDS Size 1",
+					"size": "0.5rem",
+					"slug": "uds-size-1"
+				},
+				{
+					"name": "UDS Size 2",
+					"size": "1rem",
+					"slug": "uds-size-2"
+				},
+				{
+					"name": "UDS Size 4",
+					"size": "2rem",
+					"slug": "uds-size-4"
+				},
+				{
+					"name": "UDS Size 6",
+					"size": "3rem",
+					"slug": "uds-size-6"
+				},
+				{
+					"name": "UDS Size 8",
+					"size": "4rem",
+					"slug": "uds-size-8"
+				},
+				{
+					"name": "UDS Size 12",
+					"size": "6rem",
+					"slug": "uds-size-12"
+				}
+			]
 		},
         "color": {
             "text": false,
@@ -56,7 +92,7 @@
 					"slug": "white",
 					"color": "#FFFFFF",
 					"name": "White"
-				},                
+				},
                 {
 					"slug": "gray-1",
 					"color": "#FAFAFA",
@@ -238,7 +274,7 @@
 							"slug": "white",
 							"color": "#FFFFFF",
 							"name": "White"
-						},     
+						},
 						{
 							"slug": "gray-1",
 							"color": "#FAFAFA",
@@ -267,7 +303,7 @@
 							"slug": "white",
 							"color": "#FFFFFF",
 							"name": "White"
-						},     
+						},
 						{
 							"slug": "gray-1",
 							"color": "#FAFAFA",
