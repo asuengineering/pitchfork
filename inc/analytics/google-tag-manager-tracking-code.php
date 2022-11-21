@@ -5,7 +5,9 @@
  * @package uds-wordpress-theme
  */
 
-$site_gtm_container_id = get_theme_mod( 'site_gtm_container_id' );
+// Retrieve additional settings from ACF theme options page.
+$site_gtm_container_id = '';
+$site_gtm_container_id = get_field('pitchfork_options_gtm_container', 'option');
 
 if ( $site_gtm_container_id && '' !== $site_gtm_container_id ) : ?>
 

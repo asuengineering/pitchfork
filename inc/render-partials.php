@@ -127,9 +127,11 @@ function uds_wp_render_navbar_container() {
  * whether or not to draw the main navigation menu.
  */
 function uds_wp_render_main_nav_menu() {
-
 	// We need access to the $wp object. Standard warning about using 'global'!
 	global $wp;
+
+
+
 
 	// get our setting and initialize some variables.
 	$nav_menu_enabled = get_theme_mod( 'header_navigation_menu' );
@@ -139,33 +141,59 @@ function uds_wp_render_main_nav_menu() {
 
 	// if nav menu is enabled, render it.
 	if ( 'enabled' === $nav_menu_enabled ) { ?>
-		<div class="header-content-container">
-			<div class="navbar-nav">
 
-			<?php
-			// draw the home icon, and set it active if we are on the home page.
-			if ( $we_are_on_the_homepage ) {
-				$home_icon_class .= ' active';
+		<div class="navbar-nav">
+
+		<?php
+		// draw the home icon, and set it active if we are on the home page.
+		if ( $we_are_on_the_homepage ) {
+			$home_icon_class .= ' active';
+		}
+		?>
+
+		<?php
+			// Determine which URL to use for the Home icon.
+			$home_url = home_url();
+			$alt_home_url = trim( get_theme_mod( 'alternate_home_url' ) );
+
+			if( ! empty( $alt_home_url ) ) {
+				// If we have a value in the box, set $home_url to that value.
+				$home_url = $alt_home_url;
 			}
-			?>
 
-			<a class="nav-link <?php echo $home_icon_class; ?>" href="<?php echo esc_url( home_url() ); ?>">
-				<span class="d-xl-none">Home</span>
-				<span title="Home" class="fas fa-fw fa-home"></span>
-			</a>
+			// Determine which title attribute to use for the Home title (aka 'tooltip').
+			// Default to the UDS 2.0 standard using the 'Site Name' value from Wordpress settings.
+			$home_title = get_bloginfo( 'name' ) . ' home';
+			$alt_home_title = trim( get_theme_mod( 'alternate_home_title' ) );
+
+			if( ! empty( $alt_home_title ) ) {
+				// If we have a value in the box, set $home_title to that value.
+				$home_title = $alt_home_title;
+			}
+		?>
+
+		<a class="nav-link <?php echo $home_icon_class; ?>" href="<?php echo esc_url( $home_url ); ?>">
+			<span class="d-xl-none">Home</span>
+			<span title="<?php echo $home_title; ?>" class="fas fa-fw fa-home"></span>
+		</a>
 
 
-			<?php
-			// render the actual menu items.
-			include get_template_directory() . '/template-parts/asu-navigation-menu.php';
-			?>
+		<?php
+		// render the actual menu items.
 
-			</div>
+		// If we are not the main site, and we want to use a parent menu,
+		if( is_multisite() && ! is_main_site() && true === get_theme_mod( 'use_main_site_menu' ) ) {
+			// Switch our database context to the 'main' blog of our multisite.
+			switch_to_blog( get_main_site_id() );
+		}
+
+		include get_template_directory() . '/asu-navigation-menu.php';
+		?>
+
 		</div>
-
 		<form class="navbar-site-buttons form-inline">
 			<?php
-			if ( $cta_menu_btns ) {
+			if ( isset( $cta_menu_btns ) && ! empty( $cta_menu_btns ) ) {
 				foreach ( $cta_menu_btns as $cta_menu_btn ) {
 					echo $cta_menu_btn;
 				}
@@ -173,6 +201,14 @@ function uds_wp_render_main_nav_menu() {
 			?>
 		</form>
 		<?php
+	}
+
+	/**
+	 * Because we may have switched blog IDs earlier, switch back to the current
+	 * blog, just in case.
+	 */
+	if( is_multisite() && ms_is_switched() ) {
+		restore_current_blog();
 	}
 }
 
@@ -187,6 +223,7 @@ function uds_wp_render_footer_logo() {
 	$logo_type = get_theme_mod( 'footer_logo_type' );
 	$logo_select = get_theme_mod( 'logo_select' );
 	$logo_url = get_theme_mod( 'logo_url' );
+    $logo_link = get_theme_mod( 'footer_logo_link' )? get_theme_mod( 'footer_logo_link' ):home_url( '/' );
 	$logo_template = '<a href="%3$s"><img src="%1$s" alt="%2$s" /></a>';
 
 	if ( $logo_type && 'asu' === $logo_type ) {
@@ -212,9 +249,9 @@ function uds_wp_render_footer_logo() {
 			echo wp_kses(
 				sprintf(
 					$logo_template,
-					get_template_directory_uri() . '/src/img/endorsed-logo/' . $filename,
+					get_template_directory_uri() . '/img/endorsed-logo/' . $filename,
 					get_bloginfo( 'name' ) . ' Logo',
-					home_url( '/' )
+					$logo_link
 				),
 				wp_kses_allowed_html( 'post' )
 			);
@@ -246,11 +283,12 @@ if ( ! function_exists( 'uds_wp_render_contribute_button' ) ) {
 	 */
 	function uds_wp_render_contribute_button() {
 		$contribute_url = get_theme_mod( 'contribute_url' );
-		$contribute_template = '<p class="contribute-button"><a href="%s" type="button" class="btn btn-gold">Contribute</a></p>';
+		$contribute_text = get_theme_mod( 'contribute_text' ) ? get_theme_mod( 'contribute_text' ) : 'Contribute';
+		$contribute_template = '<p class="contribute-button"><a href="%1$s" type="button" class="btn btn-gold">%2$s</a></p>';
 
 		// Do we have a contribute?
 		if ( $contribute_url && '' !== $contribute_url ) {
-			echo wp_kses( sprintf( $contribute_template, $contribute_url ), wp_kses_allowed_html( 'post' ) );
+			echo wp_kses( sprintf( $contribute_template, $contribute_url, $contribute_text ), wp_kses_allowed_html( 'post' ) );
 		}
 	}
 }
@@ -277,6 +315,13 @@ function uds_wp_render_footer_branding_row() {
 					<div class="social-media-wrapper">
 						<?php
 						if ( has_nav_menu( 'social-media' ) ) {
+
+							// If we are not the main site, and we want to use a parent menu,
+							if( is_multisite() && ! is_main_site() && true === get_theme_mod( 'use_main_site_social_menu' ) ) {
+								// Switch our database context to the 'main' blog of our multisite.
+								switch_to_blog( get_main_site_id() );
+							}
+
 							wp_nav_menu(
 								array(
 									'theme_location'  => 'social-media',
@@ -289,6 +334,14 @@ function uds_wp_render_footer_branding_row() {
 								)
 							);
 						}
+
+							/**
+							 * Because we may have switched blog IDs earlier, switch back to the current
+							 * blog, just in case.
+							 */
+							if( is_multisite() && ms_is_switched() ) {
+								restore_current_blog();
+							}
 						?>
 					</div>
 				</div>
@@ -325,6 +378,12 @@ function uds_wp_render_contact_link() {
 function uds_wp_render_footer_action_row() {
 	$action_row_status = get_theme_mod( 'footer_row_actions' );
 
+	// If we are not the main site, and we want to use a parent menu,
+	if( is_multisite() && ! is_main_site() && true === get_theme_mod( 'use_main_site_footer_menu' ) ) {
+		// Switch our database context to the 'main' blog of our multisite.
+		switch_to_blog( get_main_site_id() );
+	}
+
 	if ( 'enabled' === $action_row_status ) {
 		?>
 		<nav aria-label="Footer">
@@ -341,12 +400,21 @@ function uds_wp_render_footer_action_row() {
 							<?php uds_wp_render_contribute_button(); ?>
 						</div>
 					</div>
-					<?php include get_template_directory() . '/template-parts/asu-footer-menu.php'; ?>
+					<?php include get_template_directory() . '/asu-footer-menu.php'; ?>
 				</div> <!-- row -->
 			</div> <!-- footer-columns -->
 		</nav>
 		<?php
 	}
+
+	/**
+	 * Because we may have switched blog IDs earlier, switch back to the current
+	 * blog, just in case.
+	 */
+	if( is_multisite() && ms_is_switched() ) {
+		restore_current_blog();
+	}
+
 }
 
 /**
@@ -358,7 +426,7 @@ function uds_wp_render_asu_footer_logo() {
 	echo wp_kses(
 		sprintf(
 			$logo_template,
-			get_template_directory_uri() . '/src/img/university-logo/ASU_University_2_Horiz_RGB_White_150ppi.png',
+			get_template_directory_uri() . '/img/asu-logo/asu_university_horiz_rgb_white_150.png',
 			get_bloginfo( 'name' ) . ' Logo',
 			'https://asu.edu'
 		),

@@ -10,36 +10,32 @@
 // Exit if accessed directly.
 defined( 'ABSPATH' ) || exit;
 
-$c_options              = array();
-$asu_hub_analytics     = 'disabled';
-$site_gtm_container_id = '';
-$site_ga_tracking_id   = '';
-$hotjar_site_id        = '';
-$nav_menu_enabled      = '';
-
-// retrieve settings from the theme mods entry in the options database table.
+// Retrieve settings from the theme mods entry in the options database table.
+$c_options = array();
 $c_options = get_theme_mods();
 
 // Is navigation menu enabled?
+$nav_menu_enabled = '';
 if ( ! empty( $c_options['header_navigation_menu'] ) ) {
 	$nav_menu_enabled = $c_options['header_navigation_menu'];
 }
 
-// Do we have an asu_hub_analytics setting?
-if ( ! empty( $c_options['asu_hub_analytics'] ) ) {
-	$asu_hub_analytics = $c_options['asu_hub_analytics'];
-}
-// Do we have a site_gtm_container_id setting?
-if ( ! empty( $c_options['site_gtm_container_id'] ) ) {
-	$site_gtm_container_id = $c_options['site_gtm_container_id'];
-}
-// Do we have a site_ga_tracking_id setting?
-if ( ! empty( $c_options['site_ga_tracking_id'] ) ) {
-	$site_ga_tracking_id = $c_options['site_ga_tracking_id'];
-}
-// Do we have an hotjar_site_id setting?
-if ( ! empty( $c_options['hotjar_site_id'] ) ) {
-	$hotjar_site_id = $c_options['hotjar_site_id'];
+// Retrieve additional settings from ACF theme options page.
+$site_gtm_container_id = '';
+$site_ga_tracking_id   = '';
+$hotjar_site_id        = '';
+
+$site_gtm_container_id = get_field('pitchfork_options_gtm_container', 'option');
+$site_ga_tracking_id   = get_field('pitchfork_options_ga_tracking', 'option');
+$hotjar_site_id        = get_field('pitchfork_options_hotjar_site_id', 'option');
+
+
+// Set ASU analytics option to enabled/disabled based on the URL for the site.
+// Check of the active domain name. Enable as long as is within asu.edu
+$siteurl = get_site_url();
+$asu_hub_analytics = 'enabled';
+if ( strpos ( $siteurl, 'asu.edu') === false ) {
+	$asu_hub_analytics = 'disabled';
 }
 ?>
 
@@ -55,7 +51,7 @@ if ( ! empty( $c_options['hotjar_site_id'] ) ) {
 	<?php
 
 	// ASU Hub Analytics.
-	if ( ! empty( $asu_hub_analytics ) && 'enabled' === $asu_hub_analytics ) {
+	if ( 'enabled' === $asu_hub_analytics ) {
 		include get_template_directory() . '/inc/analytics/asu-hub-analytics-tracking-code.php';
 	}
 

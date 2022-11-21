@@ -5,7 +5,9 @@
  * @package uds-wordpress-theme
  */
 
-$hotjar_site_id = get_theme_mod( 'hotjar_site_id' );
+// Retrieve additional settings from ACF theme options page.
+$hotjar_site_id        = '';
+$hotjar_site_id        = get_field('pitchfork_options_hotjar_site_id', 'option');
 
 if ( $hotjar_site_id && '' !== $hotjar_site_id ) : ?>
 	<!-- Hotjar Tracking Code -->

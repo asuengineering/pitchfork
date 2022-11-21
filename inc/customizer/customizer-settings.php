@@ -45,6 +45,42 @@ if ( ! function_exists( 'uds_wp_register_theme_customizer_settings' ) ) {
 			}
 		}
 
+		if ( ! class_exists( 'Prefix_Arbitrary_Content' ) ) {
+
+			/**
+			 * Custom control for arbitrary HTML without an actual setting.
+			 * Used in conjunction with ACF options panel to render a message to the user
+			 * about a setting that may have been enabled elsewhere.
+			 * https://gist.github.com/devinsays/f0ed4a4d52b5f5a72e7b#file-custom-content-php
+			 */
+			class Prefix_Arbitrary_Content extends WP_Customize_Control {
+
+				// Whitelist content parameter
+				public $content = '';
+
+				/**
+				 * Render the control's content.
+				 *
+				 * Allows the content to be overriden without having to rewrite the wrapper.
+				 *
+				 * @since   1.0.0
+				 * @return  void
+				 */
+				public function render_content() {
+					if ( isset( $this->label ) ) {
+						echo '<span class="customize-control-title">' . $this->label . '</span>';
+					}
+					if ( isset( $this->content ) ) {
+						echo $this->content;
+					}
+					if ( isset( $this->description ) ) {
+						echo '<span class="description customize-control-description">' . $this->description . '</span>';
+					}
+				}
+			}
+		}
+
+
 		// Remove default sections and controls we do not need/want.
 		$wp_customize->remove_section( 'background_image' );
 		$wp_customize->remove_section( 'colors' );
@@ -259,10 +295,32 @@ if ( ! function_exists( 'uds_wp_register_theme_customizer_settings' ) ) {
 		$wp_customize->add_section(
 			'uds_wp_theme_section_header',
 			array(
-				'title'      => __( 'ASU Global Header', 'uds-wordpress-theme' ),
+				'title'      => __( 'ASU Header', 'uds-wordpress-theme' ),
 				'priority'   => 30,
 			)
 		);
+
+		/**
+		 * Enhanced multisite notice: We're using the root site menu.
+		 */
+
+		$enhanced_multisite_nav = false;
+		$enhanced_multisite_nav = get_field('pitchfork_options_root_nav', 'option');
+
+		if ( $enhanced_multisite_nav ) {
+			$wp_customize->add_setting( 'enhanced_multisite_notice_header', array() );
+
+			$wp_customize->add_control(new Prefix_Arbitrary_Content(
+				$wp_customize,
+				'enhanced_multisite_notice_header',
+				array(
+					'section' => 'uds_wp_theme_section_header',
+					'priority' => 30,
+					'label' => __( 'Enhanced Multisite: Header', 'pitchfork' ),
+					'content' => __( 'This site will use the main navigation from the root site.', 'pitchfork' ) . '</p>',
+				)
+			));
+		};
 
 		/**
 		 * Main navigtion menu on/off
@@ -297,37 +355,39 @@ if ( ! function_exists( 'uds_wp_register_theme_customizer_settings' ) ) {
 			)
 		);
 
+
 		/**
 		 * Use Parent menu?
+		 * Old control for reference.
 		 */
-		if( is_multisite() && ! is_main_site() ) {
-			$wp_customize->add_setting(
-				'use_main_site_menu',
-				array(
-					'default'           => false,
-					'capability'        => 'edit_theme_options',
-					'type'              => 'theme_mod',
-					'sanitize_callback' => 'uds_wp_sanitize_nothing',
-					'transport'         => 'refresh',
-				)
-			);
+		// if( is_multisite() && ! is_main_site() ) {
+		// 	$wp_customize->add_setting(
+		// 		'use_main_site_menu',
+		// 		array(
+		// 			'default'           => false,
+		// 			'capability'        => 'edit_theme_options',
+		// 			'type'              => 'theme_mod',
+		// 			'sanitize_callback' => 'uds_wp_sanitize_nothing',
+		// 			'transport'         => 'refresh',
+		// 		)
+		// 	);
 
-			$wp_customize->add_control(
-				'use_main_site_menu_control',
-				array(
-					'label'      => __( 'Use Main Site Menu', 'uds-wordpress-theme' ),
-					'description'       => __(
-						'<p>If selected, this sub-site will display the navigation menu from the main site of this multi-site network, and not its own main menu.</p>',
-						'uds-wordpress-theme'
-					),
-					'section'    => 'uds_wp_theme_section_header',
-					'settings'   => 'use_main_site_menu',
-					'type'       => 'checkbox',
-					'active_callback' => 'show_use_main_site_nav_input',
-					'priority'   => 50,
-				)
-			);
-		}
+		// 	$wp_customize->add_control(
+		// 		'use_main_site_menu_control',
+		// 		array(
+		// 			'label'      => __( 'Use Main Site Menu', 'uds-wordpress-theme' ),
+		// 			'description'       => __(
+		// 				'<p>If selected, this sub-site will display the navigation menu from the main site of this multi-site network, and not its own main menu.</p>',
+		// 				'uds-wordpress-theme'
+		// 			),
+		// 			'section'    => 'uds_wp_theme_section_header',
+		// 			'settings'   => 'use_main_site_menu',
+		// 			'type'       => 'checkbox',
+		// 			'active_callback' => 'show_use_main_site_nav_input',
+		// 			'priority'   => 50,
+		// 		)
+		// 	);
+		// }
 
 		/**
 		 * Re-render the page area when the navigation visibility is toggled on or off.
@@ -362,53 +422,53 @@ if ( ! function_exists( 'uds_wp_register_theme_customizer_settings' ) ) {
 		 * This is most useful with sub-sites that want to point back up to a
 		 * main set in a network.
 		 */
-		$wp_customize->add_setting(
-			'alternate_home_url',
-			array(
-				'default'           => '',
-				'capability'        => 'edit_theme_options',
-				'type'              => 'theme_mod',
-				'sanitize_callback' => 'uds_wp_sanitize_nothing',
-				'transport'         => 'postMessage',
-			)
-		);
+		// $wp_customize->add_setting(
+		// 	'alternate_home_url',
+		// 	array(
+		// 		'default'           => '',
+		// 		'capability'        => 'edit_theme_options',
+		// 		'type'              => 'theme_mod',
+		// 		'sanitize_callback' => 'uds_wp_sanitize_nothing',
+		// 		'transport'         => 'postMessage',
+		// 	)
+		// );
 
-		$wp_customize->add_control(
-			'alternate_home_url_control',
-			array(
-				'type'				=> 'url',
-				'description'   	=> __( '<p>Customize the Home icon\'s URL.</p>', 'uds-wordpress-theme' ),
-				'label'      		=> __( 'Alternate Home URL', 'uds-wordpress-theme' ),
-				'section'   	 	=> 'uds_wp_theme_section_header',
-				'settings'  		=> 'alternate_home_url',
-				'active_callback'	=> 'show_use_main_site_nav_input',
-				'priority'   		=> 50,
-			)
-		);
+		// $wp_customize->add_control(
+		// 	'alternate_home_url_control',
+		// 	array(
+		// 		'type'				=> 'url',
+		// 		'description'   	=> __( '<p>Customize the Home icon\'s URL.</p>', 'uds-wordpress-theme' ),
+		// 		'label'      		=> __( 'Alternate Home URL', 'uds-wordpress-theme' ),
+		// 		'section'   	 	=> 'uds_wp_theme_section_header',
+		// 		'settings'  		=> 'alternate_home_url',
+		// 		'active_callback'	=> 'show_use_main_site_nav_input',
+		// 		'priority'   		=> 50,
+		// 	)
+		// );
 
-		$wp_customize->add_setting(
-			'alternate_home_title',
-			array(
-				'default'           => '',
-				'capability'        => 'edit_theme_options',
-				'type'              => 'theme_mod',
-				'sanitize_callback' => 'uds_wp_sanitize_nothing',
-				'transport'         => 'postMessage',
-			)
-		);
+		// $wp_customize->add_setting(
+		// 	'alternate_home_title',
+		// 	array(
+		// 		'default'           => '',
+		// 		'capability'        => 'edit_theme_options',
+		// 		'type'              => 'theme_mod',
+		// 		'sanitize_callback' => 'uds_wp_sanitize_nothing',
+		// 		'transport'         => 'postMessage',
+		// 	)
+		// );
 
-		$wp_customize->add_control(
-			'alternate_home_title_control',
-			array(
-				'type'				=> 'url',
-				'description'   	=> __( '<p>Customize the title for the home icon, which appears when hovering over the Home icon.</p>', 'uds-wordpress-theme' ),
-				'label'      		=> __( 'Alternate Home Title (tooltip)', 'uds-wordpress-theme' ),
-				'section'   	 	=> 'uds_wp_theme_section_header',
-				'settings'  		=> 'alternate_home_title',
-				'active_callback'	=> 'show_use_main_site_nav_input',
-				'priority'   		=> 50,
-			)
-		);
+		// $wp_customize->add_control(
+		// 	'alternate_home_title_control',
+		// 	array(
+		// 		'type'				=> 'url',
+		// 		'description'   	=> __( '<p>Customize the title for the home icon, which appears when hovering over the Home icon.</p>', 'uds-wordpress-theme' ),
+		// 		'label'      		=> __( 'Alternate Home Title (tooltip)', 'uds-wordpress-theme' ),
+		// 		'section'   	 	=> 'uds_wp_theme_section_header',
+		// 		'settings'  		=> 'alternate_home_title',
+		// 		'active_callback'	=> 'show_use_main_site_nav_input',
+		// 		'priority'   		=> 50,
+		// 	)
+		// );
 
 
 		/***********************************************************************
@@ -417,12 +477,34 @@ if ( ! function_exists( 'uds_wp_register_theme_customizer_settings' ) ) {
 		 * Contains: logo+social row toggle, footer logo, social media menu
 		 */
 		$wp_customize->add_section(
-			'uds_wp_theme_section_footer',
+			'uds_wp_theme_section_endorsed_logo',
 			array(
-				'title'      => __( 'ASU Global Footer', 'uds-wordpress-theme' ),
+				'title'      => __( 'ASU Footer: Endorsed Logo', 'uds-wordpress-theme' ),
 				'priority'   => 30,
 			)
 		);
+
+		/**
+		 * Enhanced multisite notice: We're using the root site social media menu.
+		 */
+
+		$enhanced_multisite_social = false;
+		$enhanced_multisite_social = get_field('pitchfork_options_root_social', 'option');
+
+		if ( $enhanced_multisite_social ) {
+			$wp_customize->add_setting( 'enhanced_multisite_notice_social', array() );
+
+			$wp_customize->add_control(new Prefix_Arbitrary_Content(
+				$wp_customize,
+				'enhanced_multisite_notice_social',
+				array(
+					'section' => 'uds_wp_theme_section_endorsed_logo',
+					'priority' => 10,
+					'label' => __( 'Enhanced Multisite: Social Icons', 'pitchfork' ),
+					'content' => __( 'This site will use the social media icons from the root site.', 'pitchfork' ) . '</p>',
+				)
+			));
+		}
 
 		/**
 		 * Unit logo+social toggle
@@ -446,47 +528,47 @@ if ( ! function_exists( 'uds_wp_register_theme_customizer_settings' ) ) {
 					'Show or hide the entire row containing the logo and social media icons',
 					'uds-wordpress-theme'
 				),
-				'section'    => 'uds_wp_theme_section_footer',
+				'section'    => 'uds_wp_theme_section_endorsed_logo',
 				'settings'   => 'footer_row_branding',
 				'type'       => 'radio',
 				'choices'    => array(
 					'enabled'  => 'Show',
 					'disabled' => 'Hide',
 				),
-				'priority'   => 10,
+				'priority'   => 15,
 			)
 		);
 
 		/**
 		 * Use Main site social media menu?
 		 */
-		if( is_multisite() && ! is_main_site() ) {
-			$wp_customize->add_setting(
-				'use_main_site_social_menu',
-				array(
-					'default'           => false,
-					'capability'        => 'edit_theme_options',
-					'type'              => 'theme_mod',
-					'sanitize_callback' => 'uds_wp_sanitize_nothing',
-					'transport'         => 'refresh',
-				)
-			);
+		// if( is_multisite() && ! is_main_site() ) {
+		// 	$wp_customize->add_setting(
+		// 		'use_main_site_social_menu',
+		// 		array(
+		// 			'default'           => false,
+		// 			'capability'        => 'edit_theme_options',
+		// 			'type'              => 'theme_mod',
+		// 			'sanitize_callback' => 'uds_wp_sanitize_nothing',
+		// 			'transport'         => 'refresh',
+		// 		)
+		// 	);
 
-			$wp_customize->add_control(
-				'use_main_site_social_menu_control',
-				array(
-					'label'       => __( 'Use Main Site Social Media Menu', 'uds-wordpress-theme' ),
-					'description' => __(
-						'<p>If selected, this sub-site will display the social media menu from the main site of this multi-site network, and not its own social media menu.</p>',
-						'uds-wordpress-theme'
-					),
-					'section'    => 'uds_wp_theme_section_footer',
-					'settings'   => 'use_main_site_social_menu',
-					'type'       => 'checkbox',
-					'priority'   => 10,
-				)
-			);
-		}
+		// 	$wp_customize->add_control(
+		// 		'use_main_site_social_menu_control',
+		// 		array(
+		// 			'label'       => __( 'Use Main Site Social Media Menu', 'uds-wordpress-theme' ),
+		// 			'description' => __(
+		// 				'<p>If selected, this sub-site will display the social media menu from the main site of this multi-site network, and not its own social media menu.</p>',
+		// 				'uds-wordpress-theme'
+		// 			),
+		// 			'section'    => 'uds_wp_theme_section_footer',
+		// 			'settings'   => 'use_main_site_social_menu',
+		// 			'type'       => 'checkbox',
+		// 			'priority'   => 10,
+		// 		)
+		// 	);
+		// }
 
 		$wp_customize->selective_refresh->add_partial(
 			'footer_row_branding',
@@ -503,7 +585,7 @@ if ( ! function_exists( 'uds_wp_register_theme_customizer_settings' ) ) {
 		$wp_customize->add_setting(
 			'footer_logo_type',
 			array(
-				'default'           => 'enabled',
+				'default'           => 'custom',
 				'capability'        => 'edit_theme_options',
 				'type'              => 'theme_mod',
 				'sanitize_callback' => 'uds_wp_sanitize_nothing',
@@ -519,7 +601,7 @@ if ( ! function_exists( 'uds_wp_register_theme_customizer_settings' ) ) {
 					'Logo to use in the global footer area. If you do not have a unit logo, you must use the ASU logo.',
 					'uds-wordpress-theme'
 				),
-				'section'    => 'uds_wp_theme_section_footer',
+				'section'    => 'uds_wp_theme_section_endorsed_logo',
 				'settings'   => 'footer_logo_type',
 				'type'       => 'radio',
 				'choices'    => array(
@@ -575,7 +657,7 @@ if ( ! function_exists( 'uds_wp_register_theme_customizer_settings' ) ) {
 						'Select an endorsed logo to appear in the footer, or \'none\' to provide a link to a different endorsed logo.',
 						'uds-wordpress-theme'
 					),
-					'section'           => 'uds_wp_theme_section_footer',
+					'section'           => 'uds_wp_theme_section_endorsed_logo',
 					'settings'          => 'logo_select',
 					'type'              => 'select',
 					'sanitize_callback' => 'uds_wp_sanitize_select',
@@ -617,7 +699,7 @@ if ( ! function_exists( 'uds_wp_register_theme_customizer_settings' ) ) {
 					'If you have chosen \'none\' above, provide a URL to an approved logo. Choosing \'none\' and leaving this field empty will result in the ASU logo being displayed.',
 					'uds-wordpress-theme'
 				),
-				'section'    => 'uds_wp_theme_section_footer',
+				'section'    => 'uds_wp_theme_section_endorsed_logo',
 				'settings'   => 'logo_url',
 				'active_callback' => 'show_custom_logo_fields',
 				'priority'   => 30,
@@ -656,7 +738,7 @@ if ( ! function_exists( 'uds_wp_register_theme_customizer_settings' ) ) {
 					'By default the logo links to the home page of the current website. You can link it to a different website by adding a URL here:',
 					'uds-wordpress-theme'
 				),
-				'section'    => 'uds_wp_theme_section_footer',
+				'section'    => 'uds_wp_theme_section_endorsed_logo',
 				'settings'   => 'footer_logo_link',
 				'active_callback' => 'show_custom_logo_fields',
 				'priority'   => 31,
@@ -673,25 +755,40 @@ if ( ! function_exists( 'uds_wp_register_theme_customizer_settings' ) ) {
 		);
 
 
-		/**
-		 * Section Separator
+		/***********************************************************************
+		 * ASU Information and Menu Row Section
+		 *
+		 * Contains: Site information (1st column, footer) + footer links
 		 */
-		$wp_customize->add_setting(
-			'separator-control',
+		$wp_customize->add_section(
+			'uds_wp_theme_section_footer',
 			array(
-				'sanitize_callback' => 'uds_wp_sanitize_nothing',
+				'title'      => __( 'ASU Footer: Site Info and Links', 'uds-wordpress-theme' ),
+				'priority'   => 30,
 			)
 		);
-		$wp_customize->add_control(
-			new Prefix_Separator_Control(
+
+		/**
+		 * Enhanced multisite notice: We're using the root site footer links menu.
+		 */
+
+		$enhanced_multisite_footer = false;
+		$enhanced_multisite_footer = get_field('pitchfork_options_root_footer', 'option');
+
+		if ( $enhanced_multisite_footer ) {
+			$wp_customize->add_setting( 'enhanced_multisite_notice_footer', array() );
+
+			$wp_customize->add_control(new Prefix_Arbitrary_Content(
 				$wp_customize,
-				'separator-control',
+				'enhanced_multisite_notice_footer',
 				array(
 					'section' => 'uds_wp_theme_section_footer',
-					'priority' => 40,
+					'priority' => 10,
+					'label' => __( 'Enhanced Multisite: Footer', 'pitchfork' ),
+					'content' => __( 'This site will use the link list from the root site.', 'pitchfork' ) . '</p>',
 				)
-			)
-		);
+			));
+		}
 
 		/**
 		 * Footer Action Row toggle setting
@@ -738,33 +835,33 @@ if ( ! function_exists( 'uds_wp_register_theme_customizer_settings' ) ) {
 		/**
 		 * Use Main site footer menu?
 		 */
-		if( is_multisite() && ! is_main_site() ) {
-			$wp_customize->add_setting(
-				'use_main_site_footer_menu',
-				array(
-					'default'           => false,
-					'capability'        => 'edit_theme_options',
-					'type'              => 'theme_mod',
-					'sanitize_callback' => 'uds_wp_sanitize_nothing',
-					'transport'         => 'refresh',
-				)
-			);
+		// if( is_multisite() && ! is_main_site() ) {
+		// 	$wp_customize->add_setting(
+		// 		'use_main_site_footer_menu',
+		// 		array(
+		// 			'default'           => false,
+		// 			'capability'        => 'edit_theme_options',
+		// 			'type'              => 'theme_mod',
+		// 			'sanitize_callback' => 'uds_wp_sanitize_nothing',
+		// 			'transport'         => 'refresh',
+		// 		)
+		// 	);
 
-			$wp_customize->add_control(
-				'use_main_site_footer_menu_control',
-				array(
-					'label'      => __( 'Use Main Site Footer Menu', 'uds-wordpress-theme' ),
-					'description'       => __(
-						'<p>If selected, this sub-site will display the footer menu from the main site of this multi-site network, and not its own footer menu.</p>',
-						'uds-wordpress-theme'
-					),
-					'section'    => 'uds_wp_theme_section_footer',
-					'settings'   => 'use_main_site_footer_menu',
-					'type'       => 'checkbox',
-					'priority'   => 50,
-				)
-			);
-		}
+		// 	$wp_customize->add_control(
+		// 		'use_main_site_footer_menu_control',
+		// 		array(
+		// 			'label'      => __( 'Use Main Site Footer Menu', 'uds-wordpress-theme' ),
+		// 			'description'       => __(
+		// 				'<p>If selected, this sub-site will display the footer menu from the main site of this multi-site network, and not its own footer menu.</p>',
+		// 				'uds-wordpress-theme'
+		// 			),
+		// 			'section'    => 'uds_wp_theme_section_footer',
+		// 			'settings'   => 'use_main_site_footer_menu',
+		// 			'type'       => 'checkbox',
+		// 			'priority'   => 50,
+		// 		)
+		// 	);
+		// }
 
 
 		/**
@@ -1095,131 +1192,131 @@ if ( ! function_exists( 'uds_wp_register_theme_customizer_settings' ) ) {
 		 * and Hotjar settings.
 		 */
 
-		$wp_customize->add_section(
-			'uds_wp_theme_section_asu_analytics',
-			array(
-				'title'      => __( 'ASU Analytics', 'uds-wordpress-theme' ),
-				'priority'   => 30,
-			)
-		);
+	// 	$wp_customize->add_section(
+	// 		'uds_wp_theme_section_asu_analytics',
+	// 		array(
+	// 			'title'      => __( 'ASU Analytics', 'uds-wordpress-theme' ),
+	// 			'priority'   => 30,
+	// 		)
+	// 	);
 
-		/**
-		 * ASU Marketing Hub Analytics Manager
-		 */
-		$wp_customize->add_setting(
-			'asu_hub_analytics',
-			array(
-				'default'           => 'disabled',
-				'capability'        => 'edit_theme_options',
-				'type'              => 'theme_mod',
-				'sanitize_callback' => 'uds_wp_sanitize_nothing',
-				'transport'         => 'refresh',
-			)
-		);
+	// 	/**
+	// 	 * ASU Marketing Hub Analytics Manager
+	// 	 */
+	// 	$wp_customize->add_setting(
+	// 		'asu_hub_analytics',
+	// 		array(
+	// 			'default'           => 'disabled',
+	// 			'capability'        => 'edit_theme_options',
+	// 			'type'              => 'theme_mod',
+	// 			'sanitize_callback' => 'uds_wp_sanitize_nothing',
+	// 			'transport'         => 'refresh',
+	// 		)
+	// 	);
 
-		$wp_customize->add_control(
-			'asu_hub_analytics',
-			array(
-				'label'      => __( 'ASU Marketing Hub Analytics', 'uds-wordpress-theme' ),
-				'description'       => __(
-					'Enable the ASU Marketing Hub\'s analytics package. This must be active on all production ASU web sites.',
-					'uds-wordpress-theme'
-				),
-				'section'    => 'uds_wp_theme_section_asu_analytics',
-				'settings'   => 'asu_hub_analytics',
-				'type'       => 'radio',
-				'choices'    => array(
-					'enabled'  => 'enabled',
-					'disabled' => 'disabled',
-				),
-			)
-		);
+	// 	$wp_customize->add_control(
+	// 		'asu_hub_analytics',
+	// 		array(
+	// 			'label'      => __( 'ASU Marketing Hub Analytics', 'uds-wordpress-theme' ),
+	// 			'description'       => __(
+	// 				'Enable the ASU Marketing Hub\'s analytics package. This must be active on all production ASU web sites.',
+	// 				'uds-wordpress-theme'
+	// 			),
+	// 			'section'    => 'uds_wp_theme_section_asu_analytics',
+	// 			'settings'   => 'asu_hub_analytics',
+	// 			'type'       => 'radio',
+	// 			'choices'    => array(
+	// 				'enabled'  => 'enabled',
+	// 				'disabled' => 'disabled',
+	// 			),
+	// 		)
+	// 	);
 
-		/**
-		 * Site Google Tag Manager
-		 */
-		$wp_customize->add_setting(
-			// 'uds_wp_theme_options[site_gtm_container_id]',
-			'site_gtm_container_id',
-			array(
-				'capability'        => 'edit_theme_options',
-				'type'              => 'theme_mod',
-				'sanitize_callback' => 'uds_wp_sanitize_nothing',
-				'transport'         => 'refresh',
-			)
-		);
+	// 	/**
+	// 	 * Site Google Tag Manager
+	// 	 */
+	// 	$wp_customize->add_setting(
+	// 		// 'uds_wp_theme_options[site_gtm_container_id]',
+	// 		'site_gtm_container_id',
+	// 		array(
+	// 			'capability'        => 'edit_theme_options',
+	// 			'type'              => 'theme_mod',
+	// 			'sanitize_callback' => 'uds_wp_sanitize_nothing',
+	// 			'transport'         => 'refresh',
+	// 		)
+	// 	);
 
-		$wp_customize->add_control(
-			'site_gtm_container_id',
-			array(
-				'label'             => __( 'Google Tag Manager container ID', 'uds-wordpress-theme' ),
-				'description'       => __(
-					'Enter your unit\'s GTM container ID to enable analytics for this website.',
-					'uds-wordpress-theme'
-				),
-				'section'           => 'uds_wp_theme_section_asu_analytics',
-				'settings'          => 'site_gtm_container_id',
-				'type'              => 'input',
-				'sanitize_callback' => 'uds_wp_sanitize_nothing',
-			)
-		);
+	// 	$wp_customize->add_control(
+	// 		'site_gtm_container_id',
+	// 		array(
+	// 			'label'             => __( 'Google Tag Manager container ID', 'uds-wordpress-theme' ),
+	// 			'description'       => __(
+	// 				'Enter your unit\'s GTM container ID to enable analytics for this website.',
+	// 				'uds-wordpress-theme'
+	// 			),
+	// 			'section'           => 'uds_wp_theme_section_asu_analytics',
+	// 			'settings'          => 'site_gtm_container_id',
+	// 			'type'              => 'input',
+	// 			'sanitize_callback' => 'uds_wp_sanitize_nothing',
+	// 		)
+	// 	);
 
-		/**
-		 * Site Google Analytics
-		 */
-		$wp_customize->add_setting(
-			'site_ga_tracking_id',
-			array(
-				'capability'        => 'edit_theme_options',
-				'type'              => 'theme_mod',
-				'sanitize_callback' => 'uds_wp_sanitize_nothing',
-				'transport'         => 'refresh',
-			)
-		);
+	// 	/**
+	// 	 * Site Google Analytics
+	// 	 */
+	// 	$wp_customize->add_setting(
+	// 		'site_ga_tracking_id',
+	// 		array(
+	// 			'capability'        => 'edit_theme_options',
+	// 			'type'              => 'theme_mod',
+	// 			'sanitize_callback' => 'uds_wp_sanitize_nothing',
+	// 			'transport'         => 'refresh',
+	// 		)
+	// 	);
 
-		$wp_customize->add_control(
-			'site_ga_tracking_id',
-			array(
-				'label'             => __( 'Google Analytics Tracking ID', 'uds-wordpress-theme' ),
-				'description'       => __(
-					'Your unit\'s Google Analytics Tracking ID',
-					'uds-wordpress-theme'
-				),
-				'section'           => 'uds_wp_theme_section_asu_analytics',
-				'settings'          => 'site_ga_tracking_id',
-				'type'              => 'input',
-				'sanitize_callback' => 'uds_wp_sanitize_nothing',
-			)
-		);
+	// 	$wp_customize->add_control(
+	// 		'site_ga_tracking_id',
+	// 		array(
+	// 			'label'             => __( 'Google Analytics Tracking ID', 'uds-wordpress-theme' ),
+	// 			'description'       => __(
+	// 				'Your unit\'s Google Analytics Tracking ID',
+	// 				'uds-wordpress-theme'
+	// 			),
+	// 			'section'           => 'uds_wp_theme_section_asu_analytics',
+	// 			'settings'          => 'site_ga_tracking_id',
+	// 			'type'              => 'input',
+	// 			'sanitize_callback' => 'uds_wp_sanitize_nothing',
+	// 		)
+	// 	);
 
-		/**
-		 * Hotjar Analytics
-		 */
-		$wp_customize->add_setting(
-			// 'uds_wp_theme_options[hotjar_site_id]',
-			'hotjar_site_id',
-			array(
-				'capability'        => 'edit_theme_options',
-				'type'              => 'theme_mod',
-				'sanitize_callback' => 'uds_wp_sanitize_nothing',
-				'transport'         => 'refresh',
-			)
-		);
+	// 	/**
+	// 	 * Hotjar Analytics
+	// 	 */
+	// 	$wp_customize->add_setting(
+	// 		// 'uds_wp_theme_options[hotjar_site_id]',
+	// 		'hotjar_site_id',
+	// 		array(
+	// 			'capability'        => 'edit_theme_options',
+	// 			'type'              => 'theme_mod',
+	// 			'sanitize_callback' => 'uds_wp_sanitize_nothing',
+	// 			'transport'         => 'refresh',
+	// 		)
+	// 	);
 
-		$wp_customize->add_control(
-			'hotjar_site_id',
-			array(
-				'label'             => __( 'Hotjar Site ID', 'uds-wordpress-theme' ),
-				'description'       => __(
-					'Your Hotjar Site ID',
-					'uds-wordpress-theme'
-				),
-				'section'           => 'uds_wp_theme_section_asu_analytics',
-				'settings'          => 'hotjar_site_id',
-				'type'              => 'option',
-				'sanitize_callback' => 'uds_wp_sanitize_nothing',
-			)
-		);
+	// 	$wp_customize->add_control(
+	// 		'hotjar_site_id',
+	// 		array(
+	// 			'label'             => __( 'Hotjar Site ID', 'uds-wordpress-theme' ),
+	// 			'description'       => __(
+	// 				'Your Hotjar Site ID',
+	// 				'uds-wordpress-theme'
+	// 			),
+	// 			'section'           => 'uds_wp_theme_section_asu_analytics',
+	// 			'settings'          => 'hotjar_site_id',
+	// 			'type'              => 'option',
+	// 			'sanitize_callback' => 'uds_wp_sanitize_nothing',
+	// 		)
+	// 	);
 	}
 } // End of if function_exists( 'uds_wp_register_theme_customizer_settings' ).
 add_action( 'customize_register', 'uds_wp_register_theme_customizer_settings' );
@@ -1273,10 +1370,10 @@ function show_custom_logo_fields() {
 
 	$logo_type = get_theme_mod( 'footer_logo_type' );
 
-	if ( 'asu' === $logo_type ) {
-		return false;
-	} else {
+	if ( 'custom' === $logo_type ) {
 		return true;
+	} else {
+		return false;
 	}
 }
 
