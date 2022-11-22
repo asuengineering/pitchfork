@@ -60,7 +60,7 @@ foreach ( $menu_items as $item ) :
 		case 'single':
 		if (!$is_cta_button ){
 			echo uds_wp_render_nav_item_link( 'single', $item, $item_data );
-		}else {
+		} else {
 				$cta_menu_btns[]=uds_wp_render_nav_item_link( 'single', $item, $item_data );
 		}
 			break;

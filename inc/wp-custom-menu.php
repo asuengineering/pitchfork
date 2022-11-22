@@ -276,7 +276,7 @@ if ( ! function_exists( 'uds_wp_render_nav_item_link' ) ) {
 
 			case 'children':
 			case 'grandchildren':
-				$template = '<a class="nav-link" href="%1$s" id="%2$s-one-col" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				$template = '<a class="nav-link" href="%1$s" id="%2$s-one-col" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-ga-header="%3$s" data-ga-header-event="collapse" data-ga-header-type="click">
 			%3$s
 			<span class="fa fa-chevron-down"></span>
 			</a>';
@@ -296,7 +296,7 @@ if ( ! function_exists( 'uds_wp_render_nav_item_link' ) ) {
 					$new_tab_text = 'rel="noopener noreferer"';
 				}
 
-				$template = '<a class="nav-link %1$s" %5$s href="%2$s" title="%3$s">%3$s%4$s</a>';
+				$template = '<a class="nav-link %1$s" %5$s href="%2$s" title="%3$s" data-ga-header="%3$s">%3$s%4$s</a>';
 				$link     = wp_kses( sprintf( $template, $active_classname, $item['url'], $item['title'], $external_link_text, $new_tab_text ), wp_kses_allowed_html( 'post' ) );
 				if ( $is_cta_button ) {
 					$link = uds_wp_render_nav_cta_button( $cta_button_color, $item );
@@ -319,7 +319,7 @@ if ( ! function_exists( 'uds_wp_render_nav_cta_button' ) ) {
 	function uds_wp_render_nav_cta_button( $cta_color, $item ) {
 		$button = '';
 
-		$template = '<a href="%1$s" class="btn btn-sm btn-%2$s">%3$s</a>';
+		$template = '<a href="%1$s" class="btn btn-sm btn-%2$s" data-ga-header="%3$s">%3$s</a>';
 		$button   = wp_kses( sprintf( $template, $item['url'], $cta_color, $item['title'] ), wp_kses_allowed_html( 'post' ) );
 		return $button;
 	}
