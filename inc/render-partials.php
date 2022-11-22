@@ -130,14 +130,14 @@ function uds_wp_render_main_nav_menu() {
 	// We need access to the $wp object. Standard warning about using 'global'!
 	global $wp;
 
-
-
-
 	// get our setting and initialize some variables.
 	$nav_menu_enabled = get_theme_mod( 'header_navigation_menu' );
 	$current_url = add_query_arg( $wp->query_string, '', home_url( $wp->request ) );
 	$we_are_on_the_homepage = ( home_url() === $current_url );
 	$home_icon_class = 'nav-link-home';
+
+	$multisite_enhance = false;
+	$multisite_enhance = get_field('pitchfork_options_enhanced_multisite', 'option');
 
 	// if nav menu is enabled, render it.
 	if ( 'enabled' === $nav_menu_enabled ) { ?>
@@ -154,21 +154,23 @@ function uds_wp_render_main_nav_menu() {
 		<?php
 			// Determine which URL to use for the Home icon.
 			$home_url = home_url();
-			$alt_home_url = trim( get_theme_mod( 'alternate_home_url' ) );
-
-			if( ! empty( $alt_home_url ) ) {
-				// If we have a value in the box, set $home_url to that value.
-				$home_url = $alt_home_url;
-			}
-
-			// Determine which title attribute to use for the Home title (aka 'tooltip').
-			// Default to the UDS 2.0 standard using the 'Site Name' value from Wordpress settings.
 			$home_title = get_bloginfo( 'name' ) . ' home';
-			$alt_home_title = trim( get_theme_mod( 'alternate_home_title' ) );
 
-			if( ! empty( $alt_home_title ) ) {
-				// If we have a value in the box, set $home_title to that value.
-				$home_title = $alt_home_title;
+			// Modify home URL & title if multisite enhancements are enabled.
+			if ( (is_multisite() ) && ( $multisite_enhance ) ) {
+
+				// Values are options created by ACF. Use either get_field or get_option to retrieve.
+				$alt_home_url   = trim( get_field( 'pitchfork_options_home_icon_link', 'option' ) );
+				$alt_home_title = trim( get_field( 'pitchfork_options_home_icon_tooltip', 'option' ) );
+
+				// If the option has a value, attempt to use it.
+				if ( ! empty( $alt_home_url ) ) {
+					$home_url = $alt_home_url;
+				}
+
+				if ( ! empty( $alt_home_title ) ) {
+					$home_title = $alt_home_title;
+				}
 			}
 		?>
 
@@ -179,15 +181,16 @@ function uds_wp_render_main_nav_menu() {
 
 
 		<?php
-		// render the actual menu items.
-
-		// If we are not the main site, and we want to use a parent menu,
-		if( is_multisite() && ! is_main_site() && true === get_theme_mod( 'use_main_site_menu' ) ) {
+		// Multisite enhancements check. Do we want to use the "main site" menu?
+		$multisite_enhance_nav = false;
+		$multisite_enhance_nav = get_field('pitchfork_options_root_nav', 'option');
+		if( (is_multisite()) && ( $multisite_enhance ) && ( $multisite_enhance_nav ) ) {
 			// Switch our database context to the 'main' blog of our multisite.
 			switch_to_blog( get_main_site_id() );
 		}
 
-		include get_template_directory() . '/asu-navigation-menu.php';
+		// Render the menu items.
+		include get_template_directory() . '/template-parts/asu-navigation-menu.php';
 		?>
 
 		</div>
@@ -249,7 +252,7 @@ function uds_wp_render_footer_logo() {
 			echo wp_kses(
 				sprintf(
 					$logo_template,
-					get_template_directory_uri() . '/img/endorsed-logo/' . $filename,
+					get_template_directory_uri() . '/src/img/endorsed-logo/' . $filename,
 					get_bloginfo( 'name' ) . ' Logo',
 					$logo_link
 				),
@@ -302,6 +305,12 @@ if ( ! function_exists( 'uds_wp_render_contribute_button' ) ) {
 function uds_wp_render_footer_branding_row() {
 	$row_status = get_theme_mod( 'footer_row_branding' );
 
+	$multisite_enhance = false;
+	$multisite_enhance = get_field('pitchfork_options_enhanced_multisite', 'option');
+
+	$multisite_enhance_social = false;
+	$multisite_enhance_social = get_field('pitchfork_options_root_social', 'option');
+
 	if ( 'enabled' === $row_status ) {
 		?>
 		<div class="container" id="endorsed-footer">
@@ -314,26 +323,26 @@ function uds_wp_render_footer_branding_row() {
 				<div class="col-md" id="social-media">
 					<div class="social-media-wrapper">
 						<?php
-						if ( has_nav_menu( 'social-media' ) ) {
 
-							// If we are not the main site, and we want to use a parent menu,
-							if( is_multisite() && ! is_main_site() && true === get_theme_mod( 'use_main_site_social_menu' ) ) {
+							// Enhanced multisite check. Do we want to use the "root" social media menu?
+							if( (is_multisite()) && ( $multisite_enhance ) && ( $multisite_enhance_social ) ) {
 								// Switch our database context to the 'main' blog of our multisite.
 								switch_to_blog( get_main_site_id() );
 							}
 
-							wp_nav_menu(
-								array(
-									'theme_location'  => 'social-media',
-									// 'container' => 'div',
-									// 'container_class' => 'col-md',
-									// 'container_id' => 'social-media',
-									'menu_class'  => '',
-									'items_wrap' => '<nav aria-label="Social Media" class="nav">%3$s</nav>',
-									'walker' => new WP_Social_Media_Walker(),
-								)
-							);
-						}
+							if ( has_nav_menu( 'social-media' ) ) {
+								wp_nav_menu(
+									array(
+										'theme_location'  => 'social-media',
+										// 'container' => 'div',
+										// 'container_class' => 'col-md',
+										// 'container_id' => 'social-media',
+										'menu_class'  => '',
+										'items_wrap' => '<nav aria-label="Social Media" class="nav">%3$s</nav>',
+										'walker' => new WP_Social_Media_Walker(),
+									)
+								);
+							}
 
 							/**
 							 * Because we may have switched blog IDs earlier, switch back to the current
@@ -378,8 +387,14 @@ function uds_wp_render_contact_link() {
 function uds_wp_render_footer_action_row() {
 	$action_row_status = get_theme_mod( 'footer_row_actions' );
 
-	// If we are not the main site, and we want to use a parent menu,
-	if( is_multisite() && ! is_main_site() && true === get_theme_mod( 'use_main_site_footer_menu' ) ) {
+	$multisite_enhance = false;
+	$multisite_enhance = get_field('pitchfork_options_enhanced_multisite', 'option');
+
+	$multisite_enhance_footer = false;
+	$multisite_enhance_footer = get_field('pitchfork_options_root_footer', 'option');
+
+	// Enhanced multisite check. Do we want to use the "root" footer links menu?
+	if( (is_multisite()) && ( $multisite_enhance ) && ( $multisite_enhance_footer ) ) {
 		// Switch our database context to the 'main' blog of our multisite.
 		switch_to_blog( get_main_site_id() );
 	}
@@ -400,7 +415,7 @@ function uds_wp_render_footer_action_row() {
 							<?php uds_wp_render_contribute_button(); ?>
 						</div>
 					</div>
-					<?php include get_template_directory() . '/asu-footer-menu.php'; ?>
+					<?php include get_template_directory() . '/template-parts/asu-footer-menu.php'; ?>
 				</div> <!-- row -->
 			</div> <!-- footer-columns -->
 		</nav>
@@ -426,7 +441,7 @@ function uds_wp_render_asu_footer_logo() {
 	echo wp_kses(
 		sprintf(
 			$logo_template,
-			get_template_directory_uri() . '/img/asu-logo/asu_university_horiz_rgb_white_150.png',
+			get_template_directory_uri() . '/src/img/university-logo/ASU_University_2_Horiz_RGB_White_150ppi.png',
 			get_bloginfo( 'name' ) . ' Logo',
 			'https://asu.edu'
 		),
