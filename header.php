@@ -119,7 +119,7 @@ if ( strpos ( $siteurl, 'asu.edu') === false ) {
 			<div class="container-xl">
 				<div class="row">
 					<div id="header-main" class="col-12">
-						<nav class="navbar navbar-expand-xl" aria-label="Main">
+						<div class="navbar navbar-expand-xl">
 
 							<a class="navbar-brand" href="https://www.asu.edu">
 								<img class="vert" src="<?php echo get_template_directory_uri(); ?>/src/img/asu-unity/asu-logo/asu-university-vert-maroongold.png" alt="Arizona State University" />
@@ -149,9 +149,11 @@ if ( strpos ( $siteurl, 'asu.edu') === false ) {
 
 								</div><!-- .end .title -->
 
-								<div class="collapse navbar-collapse w-100" id="menubar">
+								<div class="collapse navbar-collapse w-100 justify-content-between" id="menubar">
 
-									<?php uds_wp_render_main_nav_menu(); ?>
+									<div class="header-content-container">
+										<?php uds_wp_render_main_nav_menu(); ?>
+									</div>
 
 									<div class="navbar-mobile-footer pinned">
 										<form class="form-inline navbar-mobile-search" action="https://search.asu.edu/search" method="get" name="gs">
@@ -173,11 +175,10 @@ if ( strpos ( $siteurl, 'asu.edu') === false ) {
 											</div>
 										</div>
 									</div>
-
 								</div>
 							</div>
 
-						</nav>
+						</div>
 					</div>
 				</div>
 			</div>

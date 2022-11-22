@@ -142,7 +142,7 @@ function uds_wp_render_main_nav_menu() {
 	// if nav menu is enabled, render it.
 	if ( 'enabled' === $nav_menu_enabled ) { ?>
 
-		<div class="navbar-nav">
+		<nav class="navbar-nav" aria-label="Main">
 
 		<?php
 		// draw the home icon, and set it active if we are on the home page.
@@ -193,7 +193,7 @@ function uds_wp_render_main_nav_menu() {
 		include get_template_directory() . '/template-parts/asu-navigation-menu.php';
 		?>
 
-		</div>
+		</nav>
 		<form class="navbar-site-buttons form-inline">
 			<?php
 			if ( isset( $cta_menu_btns ) && ! empty( $cta_menu_btns ) ) {
