@@ -92,14 +92,14 @@ if ( strpos ( $siteurl, 'asu.edu') === false ) {
 						<nav class="nav" aria-label="Top">
 							<a class="nav-link sr-only sr-only-focusable" href="#skip-to-content">Skip to Content</a>
 							<a class="nav-link sr-only sr-only-focusable" href="https://asu.edu/accessibility/feedback?a11yref=unity-design-system">Report an accessibility problem</a>
-							<a class="nav-link" href="https://asu.edu">ASU Home</a>
-							<a class="nav-link" href="https://my.asu.edu">My ASU</a>
-							<a class="nav-link" href="https://asu.edu/about/colleges-and-schools">Colleges and Schools</a>
+							<a class="nav-link" href="https://asu.edu" data-ga-header-section="topbar" data-ga-header="asu home">ASU Home</a>
+							<a class="nav-link" href="https://my.asu.edu" data-ga-header-section="topbar" data-ga-header="my asu">My ASU</a>
+							<a class="nav-link" href="https://asu.edu/about/colleges-and-schools" data-ga-header-section="topbar" data-ga-header="colleges and schools">Colleges and Schools</a>
 							<div class="nav-link login-status">
-								<a class="signin" href="https://my.asu.edu">Sign In</a>
+								<a class="signin" href="https://my.asu.edu" data-ga-header-section="topbar" data-ga-header="sign in">Sign In</a>
 							</div>
 							<form class="form-inline" action="https://search.asu.edu/search" method="get" name="gs">
-								<input class="form-control" type="search" name="q" aria-labelledby="header-top-search" required>
+								<input class="form-control" type="search" name="q" aria-labelledby="header-top-search" required data-ga-input-header-event="search">
 								<label id="header-top-search">Search ASU</label>
 								<input name="site" value="default_collection" type="hidden">
 								<input name="sort" value="date:D:L:d1" type="hidden">
@@ -121,12 +121,12 @@ if ( strpos ( $siteurl, 'asu.edu') === false ) {
 					<div id="header-main" class="col-12">
 						<div class="navbar navbar-expand-xl">
 
-							<a class="navbar-brand" href="https://www.asu.edu">
+							<a class="navbar-brand" href="https://www.asu.edu" data-ga-header="asu logo">
 								<img class="vert" src="<?php echo get_template_directory_uri(); ?>/src/img/asu-unity/asu-logo/asu-university-vert-maroongold.png" alt="Arizona State University" />
 								<img class="horiz" src="<?php echo get_template_directory_uri(); ?>/src/img/asu-unity/asu-logo/asu-university-horiz-maroongold.png" alt="Arizona State University" />
 							</a>
 
-							<button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#menubar" aria-controls="menubar" aria-expanded="false" aria-label="Toggle navigation">
+							<button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#menubar" aria-controls="menubar" aria-expanded="false" aria-label="Toggle navigation" data-ga-header-event="collapse" data-ga-header-type="click" data-ga-header="menu button label">
 								<span title="Open mobile menu" class="fa fa-bars"></span>
 								<span title="Close mobile menu" class="fa-stack">
 									<i class="fa fa-circle fa-stack-2x"></i>
@@ -167,11 +167,11 @@ if ( strpos ( $siteurl, 'asu.edu') === false ) {
 											<input name="proxystylesheet" value="asu_frontend" type="hidden">
 										</form>
 										<div class="nav-grid">
-											<a class="nav-link" href="https://asu.edu">ASU Home</a>
-											<a class="nav-link" href="https://my.asu.edu">My ASU</a>
-											<a class="nav-link" href="https://asu.edu/about/colleges-and-schools">Colleges and Schools</a>
+											<a class="nav-link" href="https://asu.edu" data-ga-header-section="topbar" data-ga-header="asu home">ASU Home</a>
+											<a class="nav-link" href="https://my.asu.edu" data-ga-header-section="topbar" data-ga-header="my asu">My ASU</a>
+											<a class="nav-link" href="https://asu.edu/about/colleges-and-schools" data-ga-header-section="topbar" data-ga-header="colleges and schools">Colleges and Schools</a>
 											<div class="nav-link login-status">
-												<a class="signin" href="https://my.asu.edu">Sign In</a>
+												<a class="signin" href="https://my.asu.edu" data-ga-header-section="topbar" data-ga-header="sign in">Sign In</a>
 											</div>
 										</div>
 									</div>

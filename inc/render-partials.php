@@ -51,7 +51,7 @@ function uds_wp_render_parent_unit_name() {
 	if ( ! empty( $parent_unit_name ) ) {
 		// If there is a unit name, do we need a link as well?
 		if ( ! empty( $parent_unit_link ) ) {
-			$parent_string = '<a class="unit-name" href="' . $parent_unit_link . '">' . $parent_unit_name . '</a>';
+			$parent_string = '<a class="unit-name" href="' . $parent_unit_link . '" data-ga-header="Parent unit name">' . $parent_unit_name . '</a>';
 		} else {
 			// There is no link entered but we want to still produce the unit name.
 			// The following option is undocumented within UDS-Boostrap, but it works.
@@ -84,7 +84,7 @@ function uds_wp_render_subdomain_name() {
 	}
 
 	$title_string = '';
-	$title_link = '<a href="' . get_bloginfo( 'url' ) . '" class="subdomain-link">' . $site_name . '</a>';
+	$title_link = '<a href="' . get_bloginfo( 'url' ) . '" class="subdomain-link" data-ga-header="Subdomain name">' . $site_name . '</a>';
 
 	// If a link is indicated, include the markup. Otherwise, just the site name.
 	if ( $sitename_is_linked ) {
@@ -174,7 +174,7 @@ function uds_wp_render_main_nav_menu() {
 			}
 		?>
 
-		<a class="nav-link <?php echo $home_icon_class; ?>" href="<?php echo esc_url( $home_url ); ?>">
+		<a class="nav-link <?php echo $home_icon_class; ?>" href="<?php echo esc_url( $home_url ); ?>" data-ga-header="home button">
 			<span class="d-xl-none">Home</span>
 			<span title="<?php echo $home_title; ?>" class="fas fa-fw fa-home"></span>
 		</a>
