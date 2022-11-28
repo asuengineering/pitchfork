@@ -1,0 +1,103 @@
+{
+    "key": "group_637bcbd96a775",
+    "title": "UDS: Options - Analytics",
+    "fields": [
+        {
+            "key": "field_637bcbd970818",
+            "label": "",
+            "name": "",
+            "aria-label": "",
+            "type": "message",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "<strong><span style=\"color:red;\">Note: <\/span>This site will automatically submit data to ASU's GTM container whenever the associated domain name is within the *.asu.edu namespace.<\/strong><br>The options below allow this site to be connected to additional supported services.",
+            "new_lines": "wpautop",
+            "esc_html": 0
+        },
+        {
+            "key": "field_637bcbd970800",
+            "label": "Google Tag Manager ID",
+            "name": "pitchfork_options_gtm_container",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Enter a second GTM container ID to enable reporting to a separate analytics account for this website.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "33",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_637bcbd970807",
+            "label": "Google Analytics Tracking ID",
+            "name": "pitchfork_options_ga_tracking",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Your unit's Google Analytics Tracking ID.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "33",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_637bcbd970812",
+            "label": "Hotjar Site ID",
+            "name": "pitchfork_options_hotjar_site_id",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Your Hotjar Site ID",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "33",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "pitchfork-settings"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "Quickly add additional supported tracking codes to your site.",
+    "show_in_rest": 0,
+    "modified": 1669058941
+}

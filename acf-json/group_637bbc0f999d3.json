@@ -1,0 +1,187 @@
+{
+    "key": "group_637bbc0f999d3",
+    "title": "UDS: Options - Multisite",
+    "fields": [
+        {
+            "key": "field_637bbc3025316",
+            "label": "Enable enhanced multisite?",
+            "name": "pitchfork_options_enhanced_multisite",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "Enhanced multisite allows for subsites in a multisite installation to behave as if they were all a part of one big site.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui_on_text": "Enabled",
+            "ui_off_text": "Disabled",
+            "ui": 1
+        },
+        {
+            "key": "field_637bbcda25317",
+            "label": "Use the \"root\" site main navigation?",
+            "name": "pitchfork_options_root_nav",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "Check this box if the main navigation for the site should be set as the \"root\" site's main navigation.",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_637bbc3025316",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "33",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui_on_text": "",
+            "ui_off_text": "",
+            "ui": 1
+        },
+        {
+            "key": "field_637bbee92531b",
+            "label": "Use the \"root\" site social media menu?",
+            "name": "pitchfork_options_root_social",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "Should we use the \"root\" site's social media menu in the footer of this site?",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_637bbc3025316",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "33",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui_on_text": "",
+            "ui_off_text": "",
+            "ui": 1
+        },
+        {
+            "key": "field_637bc06d2531c",
+            "label": "Use the \"root\" site footer menu?",
+            "name": "pitchfork_options_root_footer",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "Use the set of links in the footer of the \"root\" site instead of this site's footer menu?",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_637bbc3025316",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "33",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui_on_text": "",
+            "ui_off_text": "",
+            "ui": 1
+        },
+        {
+            "key": "field_637bbd7b25318",
+            "label": "Home icon link",
+            "name": "pitchfork_options_home_icon_link",
+            "aria-label": "",
+            "type": "url",
+            "instructions": "Customize the link for the home icon. <br\/> Typically points back to the \"root\" site's home URL.",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_637bbc3025316",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "66",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": ""
+        },
+        {
+            "key": "field_637bbe2e25319",
+            "label": "Home icon tooltip",
+            "name": "pitchfork_options_home_icon_tooltip",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Tooltip for the home icon.<\/br>Typically refers to the \"root\" site page title.",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_637bbc3025316",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "33",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "pitchfork-settings"
+            },
+            {
+                "param": "current_user_role",
+                "operator": "==",
+                "value": "super_admin"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "Options to allow subsites in a multisite install to inherit settings from the root.",
+    "show_in_rest": 0,
+    "modified": 1669059142
+}
