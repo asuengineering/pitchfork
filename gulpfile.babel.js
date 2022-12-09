@@ -415,10 +415,12 @@ gulp.task(
 
 /**
  * Copy Assets from node_modules.
- * 
+ *
  * Does the following:
  * 1. Copies files from bootstrap4-theme to /src
- * 2. Copies files from cookie-consent to /src
+ * 2. Copies files from component-cookie-consent to /src
+ * 3. Copies files from component-header to /src
+ *
  *
  */
 
@@ -450,15 +452,15 @@ gulp.task("upboot", function (done) {
 		.src(paths.node + "/@asu-design-system/bootstrap4-theme/src/scss/**/*.scss")
 		.pipe(gulp.dest(paths.dev + "/sass"));
 
-	// Copy Preact files from NPM
-	gulp
-		.src(paths.node + "/preact/dist/*.js")
-		.pipe(gulp.dest(paths.dev + "/preact/js"));
-
 	// Copy UDS cookie-consent JS files
 	gulp
 		.src(paths.node + "/@asu-design-system/cookie-consent/dist/*.js")
 		.pipe(gulp.dest(paths.dev + "/cookie-consent/js"));
+
+	// Copy UDS cookie-consent JS files
+	gulp
+	.src(paths.node + "/@asu-design-system/component-header/dist/**/*")
+		.pipe(gulp.dest(paths.dev + "/uds-header/js"));
 
 	done();
 });

@@ -1,12 +1,13 @@
 {
-	"name": "your-project",
-	"description": "A WPGulp based project.",
+	"name": "pitchfork-theme",
+	"description": "An ASU Engineering project, powered by WPGulp.",
 	"version": "0.0.1",
-	"repository": "ahmadawais/WPGulp",
+	"repository": "asuengineering/pitchfork",
 	"license": "MIT",
 	"devDependencies": {
 		"@asu-design-system/bootstrap4-theme": "^7.19.4",
-		"@asu-design-system/cookie-consent": "2.0.0",
+    "@asu-design-system/component-cookie-consent": "^1.1.0",
+    "@asu-design-system/component-header": "^1.8.1",
 		"@asu-design-system/design-tokens": "dev",
 		"@babel/core": "^7.0.0",
 		"@babel/preset-env": "^7.12.1",
@@ -49,7 +50,6 @@
 		"cache-clear": "gulp clearCache"
 	},
 	"dependencies": {
-		"bootstrap": "^4.6.0",
-		"preact": "^10.5.15"
+		"bootstrap": "^4.6.0"
 	}
 }
