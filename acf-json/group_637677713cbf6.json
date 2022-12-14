@@ -1,0 +1,90 @@
+{
+    "key": "group_637677713cbf6",
+    "title": "UDS Header: Menu settings",
+    "fields": [
+        {
+            "key": "field_63767771955c5",
+            "label": "Animate site title",
+            "name": "animate_title",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "Animate the site title when navigating between ASU domains?",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "30",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 1,
+            "ui_on_text": "",
+            "ui_off_text": "",
+            "ui": 1
+        },
+        {
+            "key": "field_637804e0dfb23",
+            "label": "Expand on hover",
+            "name": "expand_on_hover",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "Trigger dropdown menus with a mouse hover instead of a click. (Desktop only.)",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "30",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui_on_text": "Hover",
+            "ui_off_text": "Click",
+            "ui": 1
+        },
+        {
+            "key": "field_6376bb6a09455",
+            "label": "Mobile menu breakpoint",
+            "name": "mobile_menu_breakpoint",
+            "aria-label": "",
+            "type": "radio",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "30",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "Lg": "Large (960px)",
+                "Xl": "Extra Large (1400px)"
+            },
+            "default_value": "Lg",
+            "return_format": "value",
+            "allow_null": 0,
+            "other_choice": 0,
+            "layout": "vertical",
+            "save_other_choice": 0
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "pitchfork-settings"
+            }
+        ]
+    ],
+    "menu_order": 35,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "Animate the site title. Set the mobile breakpoint for the menu.",
+    "show_in_rest": 0,
+    "modified": 1670962457
+}

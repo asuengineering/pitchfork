@@ -24,21 +24,28 @@ function pitchfork_enqueue_scripts() {
 	$bs_js_version = $theme_version . '.' . filemtime( get_template_directory() . '/src/js/bootstrap.bundle.min.js' );
 	wp_enqueue_script( 'bootstrap-bundle', get_template_directory_uri() . '/src/js/bootstrap.bundle.min.js', array( 'jquery' ), $bs_js_version );
 
-	// Global header support script.
-	$header_version = $theme_version . '.' . filemtime( get_template_directory() . '/src/js/global-header.js' );
-	wp_enqueue_script( 'global-header', get_template_directory_uri() . '/src/js/global-header.js', array( 'jquery', 'bootstrap-bundle' ), $header_version, false );
+	// Component header and support script.
+	$uds_header_vendor_version = $theme_version . '.' . filemtime( get_template_directory() . '/src/uds-header/js/vendor.umd.js' );
+	wp_enqueue_script( 'uds-header-vendor', get_template_directory_uri() . '/src/uds-header/js/vendor.umd.js', array( 'wp-element', 'wp-components' ), $uds_header_vendor_version, true );
+
+	$uds_header_version = $theme_version . '.' . filemtime( get_template_directory() . '/src/uds-header/js/asuHeader.umd.js' );
+	wp_enqueue_script( 'uds-header', get_template_directory_uri() . '/src/uds-header/js/asuHeader.umd.js', array( 'wp-element', 'wp-components' ), $uds_header_version, true );
 
 	// Custom scripts from the theme.
 	$custom_js_version = $theme_version . '.' . filemtime( get_template_directory() . '/js/custom.min.js' );
-	wp_enqueue_script( 'custom', get_template_directory_uri() . '/js/custom.min.js', array( 'jquery', 'bootstrap-bundle' ), $custom_js_version, false );
+	wp_enqueue_script( 'pitchfork-custom', get_template_directory_uri() . '/js/custom.min.js', array( 'jquery', 'bootstrap-bundle' ), $custom_js_version, true );
 
 	// Cookie consent scripts.
 	// wp_enqueue_script ( 'cookie-consent-preact', get_template_directory_uri() . '/src/preact/js/preact.min.js', array(), null, false );
 	// wp_enqueue_script ( 'cookie-consent', get_template_directory_uri() . '/src/cookie-consent/js/cookie-consent.min.js', array('cookie-consent-preact'), null, false );
-	
+
 	// Font Awesome. Kit distributed by ASU Engineering.
 	wp_enqueue_script ( 'font-awesome-kit', 'https://kit.fontawesome.com/51b562cd96.js', array(), null, false );
 	wp_script_add_data( 'font-awesome-kit', 'crossorigin', 'anonymous' );
+
+
+	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 }
 add_action( 'wp_enqueue_scripts', 'pitchfork_enqueue_scripts' );
@@ -52,11 +59,6 @@ function pitchfork_enqueue_admin_scripts() {
 	// Get the theme data.
 	$the_theme     = wp_get_theme();
 	$theme_version = $the_theme->get( 'Version' );
-
-	// Don't enqueue these scripts here directly. Impacts the admin "frame" within Gutenberg among other things.
-	// Instead, declare support for CSS styles in the editor area, add the file there.
-	// $css_version = $theme_version . '.' . filemtime( get_template_directory() . '/css/theme.min.css' );
-	// wp_enqueue_style( 'pitchfork-styles', get_template_directory_uri() . '/css/theme.min.css', array(), $css_version );
 
 	// SASS fixes specifically for the admin area. (Gutenberg).
 	$admin_css_version = $theme_version . '.' . filemtime( get_template_directory() . '/css/admin.min.css' );

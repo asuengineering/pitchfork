@@ -15,6 +15,10 @@ require get_template_directory() . '/inc/after-setup-theme.php';
 // Enqueue scripts and styles.
 require get_template_directory() . '/inc/enqueue-scripts.php';
 
+// Localize script and "walker" functions for component header.
+require get_template_directory() . '/inc/wp-custom-menu.php';
+require get_template_directory() . '/inc/header-localize-script.php';
+
 // Add favicons, anti iFrame hijacking and other improvements.
 require get_template_directory() . '/inc/header-additions.php';
 
@@ -44,9 +48,6 @@ require get_template_directory() . '/inc/template-functions.php';
 
 // Custom template tags for this theme.
 require get_template_directory() . '/inc/template-tags.php';
-
-// Load ASU WordPress nav walker.
-require get_template_directory() . '/inc/wp-custom-menu.php';
 
 // Load ASU WordPres pagination function.
 require get_template_directory() . '/inc/pagination.php';
