@@ -170,7 +170,12 @@
             {
                 "param": "current_user_role",
                 "operator": "==",
-                "value": "super_admin"
+                "value": "administrator"
+            },
+            {
+                "param": "is_multisite",
+                "operator": "==",
+                "value": "1"
             }
         ]
     ],
@@ -183,5 +188,5 @@
     "active": true,
     "description": "Options to allow subsites in a multisite install to inherit settings from the root.",
     "show_in_rest": 0,
-    "modified": 1669059142
+    "modified": 1671040901
 }

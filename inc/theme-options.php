@@ -4,11 +4,12 @@
  *
  * @package pitchfork
  * @author ASU Engineering
- *
- * Creates a theme options page with a handful of controls which
- * should be limited to an admin or super-admin
  */
 
+ /**
+ * Creates a theme options page with a handful of controls which
+ * should be limited to an admin or super-admin.
+ */
 
 if( function_exists('acf_add_options_page') ) {
 
@@ -28,4 +29,18 @@ if( function_exists('acf_add_options_page') ) {
     ));
 
 }
+
+/**
+ * Add custom location rule to ACF to enable checking if the site is multisite.
+ */
+add_action('acf/init', 'pitchfork_init_multisite_location_rule');
+function pitchfork_init_multisite_location_rule() {
+
+    // Check function exists, then include and register the custom location type class.
+    if( function_exists('acf_register_location_type') ) {
+        include_once( get_template_directory() . '/inc/class-acf-add-multisite-location.php' );
+        acf_register_location_type( 'Pitchfork_ACF_Location_Is_Multisite' );
+    }
+}
+
 
