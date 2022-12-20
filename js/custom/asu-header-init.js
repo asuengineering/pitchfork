@@ -207,11 +207,10 @@ const exampleNavTree = [{
 	}]]
   }];
 
-console.log(udsHeaderVars.altNavTree);
+console.log(udsHeaderVars.navTree);
 console.log(exampleNavTree);
 
   window.addEventListener("DOMContentLoaded", event => {
-	console.log(udsHeaderVars.navTree);
 	AsuHeader.initGlobalHeader({
 	  targetSelector: "#header-container",
 	  props: {
@@ -219,8 +218,7 @@ console.log(exampleNavTree);
 		logoutLink: udsHeaderVars.logoutLink,
 		loginLink: udsHeaderVars.loginLink,
 		userName: udsHeaderVars.userName,
-		navTree: udsHeaderVars.altNavTree,
-		// navTree: udsHeaderVars.navTree,
+		navTree: udsHeaderVars.navTree,
 		// navTree: exampleNavTree,
 		title: udsHeaderVars.title,
 		logo: udsHeaderVars.logo,

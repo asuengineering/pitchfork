@@ -208,10 +208,9 @@ var exampleNavTree = [{
     text: "Directory Admin Tools"
   }]]
 }];
-console.log(udsHeaderVars.altNavTree);
+console.log(udsHeaderVars.navTree);
 console.log(exampleNavTree);
 window.addEventListener("DOMContentLoaded", function (event) {
-  console.log(udsHeaderVars.navTree);
   AsuHeader.initGlobalHeader({
     targetSelector: "#header-container",
     props: {
@@ -219,8 +218,7 @@ window.addEventListener("DOMContentLoaded", function (event) {
       logoutLink: udsHeaderVars.logoutLink,
       loginLink: udsHeaderVars.loginLink,
       userName: udsHeaderVars.userName,
-      navTree: udsHeaderVars.altNavTree,
-      // navTree: udsHeaderVars.navTree,
+      navTree: udsHeaderVars.navTree,
       // navTree: exampleNavTree,
       title: udsHeaderVars.title,
       logo: udsHeaderVars.logo,

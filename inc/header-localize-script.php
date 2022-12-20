@@ -10,15 +10,48 @@ if ( ! function_exists( 'pitchfork_localize_component_header_script' ) ) {
 
 	function pitchfork_localize_component_header_script() {
 
-		$parent_org_name = get_theme_mod( 'parent_unit_name' );
-		$parent_org_link = get_theme_mod( 'parent_unit_link' );
-
 		// load current user status
 		global $current_user;
 
-		$menu_name   = 'primary';
+		/**
+		 * UDS Header: Menu settings
+		 * ACF options defined in options page located at options-general.php?page=pitchfork-settings
+		 */
+		$animate_title = get_field('animate_title', 'option');
+		$expand_on_hover = get_field('expand_on_hover', 'option');
+		$mobile_menu_breakpoint = get_field('mobile_menu_breakpoint', 'option');
 
-		$alt_menu_items = wp_nav_menu([
+		/**
+		 * UDS Header: Logo settings
+		 * Same options location as above. Both overrides are "opt-in" by design.
+		 *
+		 * Get each logo field. If checked, build formatted array, add to object - in enqueue, pull in from object
+		 */
+		if(get_field('asu_logo_override', 'option')) {
+			$asu_logo_override_array =
+			[
+				'alt' => get_field('asu_logo_override_alt_text', 'option'),        // default: 'Arizona State University'
+				'src' => get_field('asu_logo_override_url', 'option'),        // default: 'arizona-state-university-logo-vertical.png'
+				'mobileSrc' => get_field('asu_logo_override_mobile_logo_url', 'option'),  // default: 'arizona-state-university-logo.png'
+				'brandLink' => get_field('asu_logo_override_link', 'option'),  // default: 'https://asu.edu'
+			];
+		}
+		$show_partner_logo = get_field('add_partner_logo', 'option');
+		if(get_field('add_partner_logo', 'option')) {
+			$add_partner_logo_array =
+			[
+				'alt' => get_field('partner_logo_alt_text', 'option'),        // default: 'Arizona State University'
+				'src' => get_field('partner_logo_url', 'option'),        // default: 'arizona-state-university-logo-vertical.png'
+				'mobileSrc' => get_field('partner_logo_mobile_url', 'option'),  // default: 'arizona-state-university-logo.png'
+				'brandLink' => get_field('partner_logo_link', 'option'),  // default: 'https://asu.edu'
+			];
+		}
+
+		$parent_org_name = get_theme_mod( 'parent_unit_name' );
+		$parent_org_link = get_theme_mod( 'parent_unit_link' );
+
+		// Build navTree / mobileNavTree props using walker class.
+		$menu_items = wp_nav_menu([
 			'theme_location' => 'primary',
 			'walker' => new Pitchfork_React_Header(),
 			'echo' => false,
@@ -26,42 +59,38 @@ if ( ! function_exists( 'pitchfork_localize_component_header_script' ) ) {
 			'items_wrap' => '%3$s' // See: wp_nav_menu codex for why. Returns empty string.
 		]);
 
-		$alt_menu_items = maybe_unserialize($alt_menu_items);
-		do_action('qm/debug', $alt_menu_items);
+		$menu_items = maybe_unserialize($menu_items);
+		// do_action('qm/debug', $menu_items);
 
-		echo '<script>console.log("enqueue animate title")</script>';
-		echo '<script>console.log('.json_encode($menu_items['animate-title']).')</script>';
+		// Build top level CTA buttons with separate walker class.
 
 		$localized_array = 	array(
 			'loggedIn' => is_user_logged_in(),
 			'loginLink' => site_url() . '/wp-admin',
 			'logoutLink' => wp_logout_url(),
 			'userName' => $current_user->user_login,
-			'altNavTree' => $alt_menu_items,
-			'navTree' => $menu_items['nav-items'],
-			'mobileNavTree' => $menu_items['nav-items'], // define an alternate navigation menu for mobile view
-			'expandOnHover' => $menu_items['expand-on-hover'],
-			'baseUrl' => '/', // this could be very important for subfolder multisites where the menu base url (e.g. Home) must point to the current subsite, not the root.
-			'logo' => $menu_items['logo-override'],
-			// // [
-			// // 	'alt' => 'alt text',        // default: 'Arizona State University'
-			// // 	'src' => '/wp-content/uploads/2022/11/US-Navy-logo.jpg',        // default: 'arizona-state-university-logo-vertical.png'
-			// // 	'mobileSrc' => '/wp-content/uploads/2022/11/US-Navy-logo.jpg',  // default: 'arizona-state-university-logo.png'
-			// // 	'brandLink' => 'https://asu.edu',  // default: 'https://asu.edu'
-			// // ],
-			'isPartner' => $menu_items['show-partner-logo'],
-			'partnerLogo' => $menu_items['partner-logo'],
+			'navTree' => $menu_items,
+			'mobileNavTree' => $menu_items,
+			'expandOnHover' => $expand_on_hover,
+			'baseUrl' => '/',
+			'logo' => $logo_override,
+				// // [
+				// // 	'alt' => 'alt text',        // default: 'Arizona State University'
+				// // 	'src' => '/wp-content/uploads/2022/11/US-Navy-logo.jpg',        // default: 'arizona-state-university-logo-vertical.png'
+				// // 	'mobileSrc' => '/wp-content/uploads/2022/11/US-Navy-logo.jpg',  // default: 'arizona-state-university-logo.png'
+				// // 	'brandLink' => 'https://asu.edu',  // default: 'https://asu.edu'
+				// // ],
+			'isPartner' => $show_partner_logo,
+			'partnerLogo' => $partner_logo,
 			'title' => get_bloginfo(),
-			'animateTitle' => $menu_items['animate-title'],
+			'animateTitle' => $animate_title,
 			'parentOrg' => $parent_org_name,
 			'parentOrgUrl' => $parent_org_link,
-			// 'breakpoint' => $menu_items['mobile-menu-breakpoint'],
-			// 'buttons' => $menu_items['cta-buttons'],
+			'breakpoint' => $mobile_menu_breakpoint,
+				// 'buttons' => $cta_buttons,
 		);
 
 		// do_action( 'qm/debug', $localized_array );
-
-		// wp_die( var_dump( $menu_items ) );
 
 		// pass WordPress PHP variables to the uds-header-scripts script we enqueued above
 		// These variables are props for the header React component
@@ -69,32 +98,6 @@ if ( ! function_exists( 'pitchfork_localize_component_header_script' ) ) {
 			'pitchfork-custom', // the handle of the script to pass our variables
 			'udsHeaderVars', // object name to access our PHP variables from in our script
 			$localized_array
-			// register an array of variables we would like to use in our script
-			// array(
-			// 	'loggedIn' => is_user_logged_in(),
-			// 	'loginLink' => site_url() . '/wp-admin',
-			// 	'logoutLink' => wp_logout_url(),
-			// 	'userName' => $current_user->user_login,
-			// 	'navTree' => $menu_items['nav-items'],
-			// 	'mobileNavTree' => $menu_items['nav-items'], // define an alternate navigation menu for mobile view
-			// 	'expandOnHover' => $menu_items['expand-on-hover'],
-			// 	'baseUrl' => '/', // this could be very important for subfolder multisites where the menu base url (e.g. Home) must point to the current subsite, not the root.
-			// 	'logo' => $menu_items['logo-override'],
-			// 	// [
-			// 	// 	'alt' => 'alt text',        // default: 'Arizona State University'
-			// 	// 	'src' => '/wp-content/uploads/2022/11/US-Navy-logo.jpg',        // default: 'arizona-state-university-logo-vertical.png'
-			// 	// 	'mobileSrc' => '/wp-content/uploads/2022/11/US-Navy-logo.jpg',  // default: 'arizona-state-university-logo.png'
-			// 	// 	'brandLink' => 'https://asu.edu',  // default: 'https://asu.edu'
-			// 	// ],
-			// 	'isPartner' => $menu_items['show-partner-logo'],
-			// 	'partnerLogo' => $menu_items['partner-logo'],
-			// 	'title' => get_bloginfo(),
-			// 	'animateTitle' => $menu_items['animate-title'],
-			// 	'parentOrg' => $parent_org_name,
-			// 	'parentOrgUrl' => $parent_org_link,
-			// 	'breakpoint' => $menu_items['mobile-menu-breakpoint'],
-			// 	'buttons' => $menu_items['cta-buttons'],
-			// )
 		);
 	}
 }
