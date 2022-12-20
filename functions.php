@@ -22,9 +22,10 @@ require get_template_directory() . '/inc/header-localize-script.php';
 // Add favicons, anti iFrame hijacking and other improvements.
 require get_template_directory() . '/inc/header-additions.php';
 
-// Add nav walker classese for main menu and social media icons.
-require get_template_directory() . '/inc/class-bootstrap-walker-nav-menu.php';
+// Add nav walker classes for main menu and social media icons.
+// require get_template_directory() . '/inc/class-bootstrap-walker-nav-menu.php';
 require get_template_directory() . '/inc/class-wp-social-media-walker.php';
+require get_template_directory() . '/inc/class-unity-react-nav-walker.php';
 
 // Theme options page includes controls for the theme's multisite behavior and analytics.
 require get_template_directory() . '/inc/theme-options.php';

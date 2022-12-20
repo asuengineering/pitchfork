@@ -1,25 +1,5 @@
 "use strict";
 
-// Cookie consent form initialization.
-window.addEventListener("DOMContentLoaded", function (event) {
-  // AsuCookieConsent.init();
-});
-"use strict";
-
-// Toggles visibility of ACF controls within a menu object in menu.php
-jQuery(document).ready(function ($) {
-  $('ul.menu.ui-sortable li.menu-item-depth-0').each(function () {
-    if ($(this).next().hasClass('menu-item-depth-1')) {
-      $(this).find('.menu-item-settings .acf-menu-item-fields .acf-field-true-false').each(function () {
-        if ($(this).attr('data-name') == 'menu_cta_button') {
-          $(this).hide();
-        }
-      });
-    }
-  });
-});
-"use strict";
-
 // udsHeaderVars are set in inc/enqueue.php
 var exampleNavTree = [{
   href: "/",
@@ -101,6 +81,10 @@ var exampleNavTree = [{
   }, {
     href: "https://www.asu.edu/?feature=academics",
     text: "Ut at vehicula neque"
+  }, {
+    href: "https://www.asu.edu/?feature=academics",
+    text: "Ut at vehicula neque",
+    type: "button"
   }, {
     href: "https://www.asu.edu/?feature=athletics",
     type: "button",
@@ -224,8 +208,10 @@ var exampleNavTree = [{
     text: "Directory Admin Tools"
   }]]
 }];
+console.log(udsHeaderVars.altNavTree);
+console.log(exampleNavTree);
 window.addEventListener("DOMContentLoaded", function (event) {
-  console.log(udsHeaderVars);
+  console.log(udsHeaderVars.navTree);
   AsuHeader.initGlobalHeader({
     targetSelector: "#header-container",
     props: {
@@ -233,7 +219,8 @@ window.addEventListener("DOMContentLoaded", function (event) {
       logoutLink: udsHeaderVars.logoutLink,
       loginLink: udsHeaderVars.loginLink,
       userName: udsHeaderVars.userName,
-      navTree: udsHeaderVars.navTree,
+      navTree: udsHeaderVars.altNavTree,
+      // navTree: udsHeaderVars.navTree,
       // navTree: exampleNavTree,
       title: udsHeaderVars.title,
       logo: udsHeaderVars.logo,
@@ -245,6 +232,26 @@ window.addEventListener("DOMContentLoaded", function (event) {
       parentOrgUrl: udsHeaderVars.parentOrgUrl,
       breakpoint: udsHeaderVars.breakpoint,
       buttons: udsHeaderVars.buttons
+    }
+  });
+});
+"use strict";
+
+// Cookie consent form initialization.
+window.addEventListener("DOMContentLoaded", function (event) {
+  // AsuCookieConsent.init();
+});
+"use strict";
+
+// Toggles visibility of ACF controls within a menu object in menu.php
+jQuery(document).ready(function ($) {
+  $('ul.menu.ui-sortable li.menu-item-depth-0').each(function () {
+    if ($(this).next().hasClass('menu-item-depth-1')) {
+      $(this).find('.menu-item-settings .acf-menu-item-fields .acf-field-true-false').each(function () {
+        if ($(this).attr('data-name') == 'menu_cta_button') {
+          $(this).hide();
+        }
+      });
     }
   });
 });

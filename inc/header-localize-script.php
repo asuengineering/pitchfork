@@ -17,7 +17,18 @@ if ( ! function_exists( 'pitchfork_localize_component_header_script' ) ) {
 		global $current_user;
 
 		$menu_name   = 'primary';
-		$menu_items  = uds_react_get_menu_formatted_array( $menu_name );
+
+		$alt_menu_items = wp_nav_menu([
+			'theme_location' => 'primary',
+			'walker' => new Pitchfork_React_Header(),
+			'echo' => false,
+			'container' => '',
+			'items_wrap' => '%3$s' // See: wp_nav_menu codex for why. Returns empty string.
+		]);
+
+		$alt_menu_items = maybe_unserialize($alt_menu_items);
+		do_action('qm/debug', $alt_menu_items);
+
 		echo '<script>console.log("enqueue animate title")</script>';
 		echo '<script>console.log('.json_encode($menu_items['animate-title']).')</script>';
 
@@ -26,6 +37,7 @@ if ( ! function_exists( 'pitchfork_localize_component_header_script' ) ) {
 			'loginLink' => site_url() . '/wp-admin',
 			'logoutLink' => wp_logout_url(),
 			'userName' => $current_user->user_login,
+			'altNavTree' => $alt_menu_items,
 			'navTree' => $menu_items['nav-items'],
 			'mobileNavTree' => $menu_items['nav-items'], // define an alternate navigation menu for mobile view
 			'expandOnHover' => $menu_items['expand-on-hover'],
@@ -43,8 +55,8 @@ if ( ! function_exists( 'pitchfork_localize_component_header_script' ) ) {
 			'animateTitle' => $menu_items['animate-title'],
 			'parentOrg' => $parent_org_name,
 			'parentOrgUrl' => $parent_org_link,
-			'breakpoint' => $menu_items['mobile-menu-breakpoint'],
-			'buttons' => $menu_items['cta-buttons'],
+			// 'breakpoint' => $menu_items['mobile-menu-breakpoint'],
+			// 'buttons' => $menu_items['cta-buttons'],
 		);
 
 		// do_action( 'qm/debug', $localized_array );

@@ -77,8 +77,12 @@ const exampleNavTree = [{
 	  href: "https://www.asu.edu/?feature=research",
 	  text: "Maecenas quam elit"
 	}, {
+		href: "https://www.asu.edu/?feature=academics",
+		text: "Ut at vehicula neque"
+	}, {
 	  href: "https://www.asu.edu/?feature=academics",
-	  text: "Ut at vehicula neque"
+	  text: "Ut at vehicula neque",
+	  type: "button"
 	}, {
 	  href: "https://www.asu.edu/?feature=athletics",
 	  type: "button",
@@ -202,8 +206,12 @@ const exampleNavTree = [{
 	  text: "Directory Admin Tools"
 	}]]
   }];
+
+console.log(udsHeaderVars.altNavTree);
+console.log(exampleNavTree);
+
   window.addEventListener("DOMContentLoaded", event => {
-	console.log(udsHeaderVars);
+	console.log(udsHeaderVars.navTree);
 	AsuHeader.initGlobalHeader({
 	  targetSelector: "#header-container",
 	  props: {
@@ -211,7 +219,8 @@ const exampleNavTree = [{
 		logoutLink: udsHeaderVars.logoutLink,
 		loginLink: udsHeaderVars.loginLink,
 		userName: udsHeaderVars.userName,
-		navTree: udsHeaderVars.navTree,
+		navTree: udsHeaderVars.altNavTree,
+		// navTree: udsHeaderVars.navTree,
 		// navTree: exampleNavTree,
 		title: udsHeaderVars.title,
 		logo: udsHeaderVars.logo,

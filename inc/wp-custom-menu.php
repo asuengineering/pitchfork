@@ -18,8 +18,6 @@ if ( ! function_exists( 'uds_react_get_menu_formatted_array' ) ) {
 	function uds_react_get_menu_formatted_array( $menu_name ) {
 
 		$mobile_menu_breakpoint = get_field('mobile_menu_breakpoint', 'option');
-		do_action('qm/debug', '-- Mobile Break -- ');
-		do_action('qm/debug', $mobile_menu_breakpoint);
 
 		$current_uri = null;
 
@@ -46,8 +44,6 @@ if ( ! function_exists( 'uds_react_get_menu_formatted_array' ) ) {
 			$animate_title = get_field('animate_title', 'option');
 			$expand_on_hover = get_field('expand_on_hover', 'option');
 			$mobile_menu_breakpoint = get_field('mobile_menu_breakpoint', 'option');
-
-			do_action('qm/debug', $mobile_menu_breakpoint);
 
 			/**
 			 * UDS Header: Logo settings
@@ -119,7 +115,7 @@ if ( ! function_exists( 'uds_react_get_menu_formatted_array' ) ) {
 						array_push( $cta_buttons, $temp_cta ); // pushing all items. Could be fewer.
 						unset( $pre_menu[ $m->ID ] );
 					} else {
-						do_action( 'qm/debug', 'Found menu item: ' . $pre_menu[ $m->ID ]['text'] );
+						// do_action( 'qm/debug', 'Found menu item: ' . $pre_menu[ $m->ID ]['text'] );
 						$pre_menu[ $m->ID ]['ID']          = $m->ID;
 						$pre_menu[ $m->ID ]['href']        = $m->url;
 						$pre_menu[ $m->ID ]['has_current'] = false;
@@ -237,9 +233,9 @@ if ( ! function_exists( 'uds_react_get_menu_formatted_array' ) ) {
 			  */
 						$middle_menu = $dropdown[ $m->menu_item_parent ];
 
-						do_action('qm/debug', $middle_menu->ID['ID']);
-						do_action('qm/debug', $middle_menu['ID']);
-						do_action('qm/debug', $our_array_menu );
+						// do_action('qm/debug', $middle_menu->ID['ID']);
+						// do_action('qm/debug', $middle_menu['ID']);
+						// do_action('qm/debug', $our_array_menu );
 
 			 if( ! in_array([ $middle_menu->ID ]['ID'], $our_array_menu) ) {
 			   $middle_menu_column = array();
