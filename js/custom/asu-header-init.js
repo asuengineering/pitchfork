@@ -207,8 +207,8 @@ const exampleNavTree = [{
 	}]]
   }];
 
-console.log(udsHeaderVars.navTree);
-console.log(exampleNavTree);
+// console.log(udsHeaderVars.navTree);
+// console.log(exampleNavTree);
 
   window.addEventListener("DOMContentLoaded", event => {
 	AsuHeader.initGlobalHeader({

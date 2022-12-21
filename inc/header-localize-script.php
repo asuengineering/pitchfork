@@ -16,10 +16,17 @@ if ( ! function_exists( 'pitchfork_localize_component_header_script' ) ) {
 		/**
 		 * UDS Header: Menu settings
 		 * ACF options defined in options page located at options-general.php?page=pitchfork-settings
+		 *
+		 * Handles situations in which ACF fields have not been set by exclusively setting default options.
 		 */
+
 		$animate_title = get_field('animate_title', 'option');
 		$expand_on_hover = get_field('expand_on_hover', 'option');
+
 		$mobile_menu_breakpoint = get_field('mobile_menu_breakpoint', 'option');
+		if (empty($mobile_menu_breakpoint )) {
+			$mobile_menu_breakpoint = 'Lg';
+		}
 
 		/**
 		 * UDS Header: Logo settings
@@ -50,14 +57,21 @@ if ( ! function_exists( 'pitchfork_localize_component_header_script' ) ) {
 		$parent_org_name = get_theme_mod( 'parent_unit_name' );
 		$parent_org_link = get_theme_mod( 'parent_unit_link' );
 
+
+
 		// Build navTree / mobileNavTree props using walker class.
-		$menu_items = wp_nav_menu([
-			'theme_location' => 'primary',
-			'walker' => new Pitchfork_React_Header(),
-			'echo' => false,
-			'container' => '',
-			'items_wrap' => '%3$s' // See: wp_nav_menu codex for why. Returns empty string.
-		]);
+		if ( has_nav_menu('primary')) {
+			$menu_items = wp_nav_menu([
+				'theme_location' => 'primary',
+				'walker' => new Pitchfork_React_Header(),
+				'echo' => false,
+				'container' => '',
+				'items_wrap' => '%3$s' // See: wp_nav_menu codex for why. Returns empty string.
+			]);
+		} else {
+			$menu_items = array();
+		}
+
 
 		$menu_items = maybe_unserialize($menu_items);
 		// do_action('qm/debug', $menu_items);
