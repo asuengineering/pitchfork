@@ -1,18 +1,6 @@
-/*--------------------------------------------------------------
-1. Header title underline styles
---------------------------------------------------------------*/
-
-.title .subdomain-name a {
-	color: #191919;
-	text-decoration: none;
-}
-
-.title .subdomain-name a:hover {
-	text-decoration: underline;
-}
 
 /*---------------------------------------------------------------
- 2. Fix Alert Close button
+ 1. Fix Alert Close button
  To use the existing Javascript in Bootstrap to close alerts, you
  need to use the class 'alert-dismissible'. However, that class
  has some strong opinions on where buttons go. Here we override
@@ -42,7 +30,7 @@
 }
 
 /*---------------------------------------------------------------
- 3. Adjust position of icon and close button on XS
+ 2. Adjust position of icon and close button on XS
 
  Margins were being applied to both the icon and close button
  on XS, essentially to maximize the room available for text, but
@@ -71,19 +59,13 @@
 
 
 /*--------------------------------------------------------------
-4. Adjustments for WP admin bar.
+3. Adjustments for WP admin bar.
 
 - Allow admin bar to set above grey bar in header when logged in.
 - Adjust height of expanded dropdown within mobile.
 --------------------------------------------------------------*/
-#wpadminbar + #asu-header.fixed-top {
+#wpadminbar + #header-container #asuHeader {
 	top: 32px !important;
-}
-
-@include media-breakpoint-down(sm) {
-	#wpadminbar + #asu-header.fixed-top {
-		top: 46px !important;
-	}
 }
 
 // The admin bar is not at a fixed position on mobile.
@@ -95,20 +77,8 @@
 	}
 }
 
-// The height of the admin bar also interferes with a calc value within #menubar .header-content-container.
-// Redefine calc value if the admin bar is present. 270px + 46px of additional height.
-@include media-breakpoint-down(lg) {
-	#wpadminbar + #asu-header.fixed-top .header-content-container {
-		overflow-y: scroll;
-		overflow-x: hidden;
-		min-height: calc(100vh - 316px);
-		max-height: calc(100vh - 316px);
-		margin-bottom: 50px;
-	}
-}
-
 /*--------------------------------------------------------------
-5. Pagination formatting fix.
+4. Pagination formatting fix.
 - Span tag produces zero padding from default WP.
 --------------------------------------------------------------*/
 
@@ -119,7 +89,7 @@
 }
 
 /*--------------------------------------------------------------
-6. 404 Error page fixes
+5. 404 Error page fixes
 --------------------------------------------------------------*/
 .error404 div[class^='uds-hero'] .search-form-inline {
 
@@ -143,7 +113,7 @@
 }
 
 /*--------------------------------------------------------------
-7. Border and spacing for index.php site title display.
+6. Border and spacing for index.php site title display.
 --------------------------------------------------------------*/
 .home .index-title {
 	padding-bottom: $uds-size-spacing-2;

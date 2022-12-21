@@ -2527,13 +2527,11 @@ main>*.alignfull{margin-left:-2rem;margin-right:-2rem}
 .alignright{display:inline;float:right;margin-left:1.5em}
 .aligncenter{clear:both;display:block;margin-left:auto;margin-right:auto}
 main>h1,main>h2,main>h3,main>h4,main>h5,main>h6{margin-left:auto !important;margin-right:auto !important}
-.title .subdomain-name a{color:#191919;text-decoration:none}
-.title .subdomain-name a:hover{text-decoration:underline}
 .alert-dismissible{padding-right:1rem}
 .alert-dismissible .close{position:relative}
 .alert-icon{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;-webkit-box-align:start;-ms-flex-align:start;align-items:flex-start}
 .alert-close{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column;-webkit-box-pack:start;-ms-flex-pack:start;justify-content:flex-start;-webkit-box-align:end;-ms-flex-align:end;align-items:flex-end}
-#wpadminbar+#asu-header.fixed-top{top:32px !important}
+#wpadminbar+#header-container #asuHeader{top:32px !important}
 .pagination span.page-link{padding:.5rem 12px}
 .error404 div[class^='uds-hero'] .search-form-inline{position:relative}
 .error404 div[class^='uds-hero'] .search-form-inline input[type='search']{width:300px}
@@ -4504,7 +4502,6 @@ main>*.alignfull{max-width:1920px;margin-left:auto;margin-right:auto}
 .navbar-expand-xl>.container,.navbar-expand-xl>.container-fluid,.navbar-expand-xl>.container-sm,.navbar-expand-xl>.container-md,.navbar-expand-xl>.container-lg,.navbar-expand-xl>.container-xl{padding-right:0;padding-left:0}
 #asu-header+div,#asu-header+main{-webkit-transition:.5s cubic-bezier(0.19,1,0.19,1);transition:.5s cubic-bezier(0.19,1,0.19,1);margin-top:110px}
 .uds-anchor-menu h4{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-pack:justify;-ms-flex-pack:justify;justify-content:space-between}
-#wpadminbar+#asu-header.fixed-top .header-content-container{overflow-y:scroll;overflow-x:hidden;min-height:calc(100vh - 316px);max-height:calc(100vh - 316px);margin-bottom:50px}
 }@media screen and (max-width:992px){#calendar .calendar-grid{padding-left:0;padding-right:0;text-align:center}
 #calendar .calendar-grid .heading{border-bottom:1px solid #747474;padding-bottom:.5rem}
 #calendar .calendar-grid .heading.desktop{display:none}
@@ -4588,7 +4585,6 @@ div.uds-hero-lg .hero{max-height:32rem}
 .uds-blockquote{padding:2rem}
 .uds-blockquote.no-cite.with-image{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column;-webkit-box-align:center;-ms-flex-align:center;align-items:center}
 .uds-blockquote.no-cite.with-image blockquote,.uds-blockquote.no-cite.with-image h3{text-align:center}
-#wpadminbar+#asu-header.fixed-top{top:46px !important}
 }@media screen and (max-width:600px){#wpadminbar{position:fixed}
 }@media(max-width:577px){h1,h1.article,.h1,.h1.article{font-size:2.25rem;line-height:2.5rem;letter-spacing:-0.078rem}
 h2,.h2{font-size:2rem;line-height:2.125rem;letter-spacing:-0.07rem}

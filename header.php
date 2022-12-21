@@ -84,7 +84,6 @@ if ( strpos ( $siteurl, 'asu.edu') === false ) {
 	}
 	?>
 
-	<div id="cookie-consent-container"></div>
 	<div id="header-container"></div>
 
 	<?php

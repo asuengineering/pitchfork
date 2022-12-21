@@ -62,6 +62,8 @@ defined( 'ABSPATH' ) || exit;
 	</div> <!-- wrapper-footer-colophon -->
 </footer>
 
+<div id="cookie-consent-container"></div>
+
 <?php wp_footer(); ?>
 
 </body>
