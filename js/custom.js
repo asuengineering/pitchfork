@@ -207,7 +207,9 @@ var exampleNavTree = [{
     href: "https://campus.asu.edu/west/",
     text: "Directory Admin Tools"
   }]]
-}]; // console.log(udsHeaderVars.navTree);
+}];
+
+// console.log(udsHeaderVars.navTree);
 // console.log(exampleNavTree);
 
 window.addEventListener("DOMContentLoaded", function (event) {
@@ -236,7 +238,8 @@ window.addEventListener("DOMContentLoaded", function (event) {
 "use strict";
 
 // Cookie consent form initialization.
-window.addEventListener("DOMContentLoaded", function (event) {// AsuCookieConsent.init();
+window.addEventListener("DOMContentLoaded", function (event) {
+  // AsuCookieConsent.init();
 });
 "use strict";
 

@@ -95,7 +95,6 @@ if ( ! class_exists('Pitchfork_React_Header') ) {
 				// Check for the presence of children.
 				if ( $args->walker->has_children ) {
 					$entry->items = array();
-
 				}
 
 				// All good. Push this to the main array.
