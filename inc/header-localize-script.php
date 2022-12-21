@@ -57,27 +57,39 @@ if ( ! function_exists( 'pitchfork_localize_component_header_script' ) ) {
 		$parent_org_name = get_theme_mod( 'parent_unit_name' );
 		$parent_org_link = get_theme_mod( 'parent_unit_link' );
 
-
-
 		// Build navTree / mobileNavTree props using walker class.
 		if ( has_nav_menu('primary')) {
 			$menu_items = wp_nav_menu([
 				'theme_location' => 'primary',
-				'walker' => new Pitchfork_React_Header(),
+				'walker' => new Pitchfork_React_Header_Navtree(),
 				'echo' => false,
 				'container' => '',
-				'items_wrap' => '%3$s' // See: wp_nav_menu codex for why. Returns empty string.
+				'items_wrap' => '%3$s', // See: wp_nav_menu codex for why. Returns empty string.
 			]);
 		} else {
 			$menu_items = array();
 		}
 
+		// Build ctaButton prop using walker class.
+		if ( has_nav_menu('primary')) {
+			$cta_buttons = wp_nav_menu([
+				'theme_location' => 'primary',
+				'walker' => new Pitchfork_React_Header_CTAButtons(),
+				'echo' => false,
+				'container' => '',
+				'items_wrap' => '%3$s', // See: wp_nav_menu codex for why. Returns empty string.
+				'depth' => 1,
+			]);
+		} else {
+			$cta_buttons = array();
+		}
 
 		$menu_items = maybe_unserialize($menu_items);
+		$cta_buttons = maybe_unserialize($cta_buttons);
 		// do_action('qm/debug', $menu_items);
+		do_action('qm/debug', $cta_buttons);
 
-		// Build top level CTA buttons with separate walker class.
-
+		// Prep localized array items for wp_localize_script below.
 		$localized_array = 	array(
 			'loggedIn' => is_user_logged_in(),
 			'loginLink' => site_url() . '/wp-admin',
@@ -103,7 +115,7 @@ if ( ! function_exists( 'pitchfork_localize_component_header_script' ) ) {
 			'parentOrg' => $parent_org_name,
 			'parentOrgUrl' => $parent_org_link,
 			'breakpoint' => $mobile_menu_breakpoint,
-				// 'buttons' => $cta_buttons,
+			'buttons' => $cta_buttons,
 		);
 
 		// do_action( 'qm/debug', $localized_array );

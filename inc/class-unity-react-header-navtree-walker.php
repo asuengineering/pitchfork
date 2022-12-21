@@ -1,19 +1,18 @@
 <?php
 /**
- * Pitchfork Nav Walker, extends native Nav Walker.
+ * Pitchfork Unity Header, Nav Walker, NavTree (prop)
+ * Extends native Nav Walker.
  *
- * Native nav walker returns a string. Goal here is to provide a string
- * to be json_encoded to produce the correct object for the react header.
- *
- *
+ * Returns a serialized array to be included in the navTree and mobileNavTree
+ * props for the ASU React Header.
  *
  * @package Pitchfork
  *
  */
 
-if ( ! class_exists('Pitchfork_React_Header') ) {
+if ( ! class_exists('Pitchfork_React_Header_Navtree') ) {
 
-    class Pitchfork_React_Header extends Walker_Nav_Menu {
+    class Pitchfork_React_Header_Navtree extends Walker_Nav_Menu {
 
 		function start_lvl( &$output, $depth = 0, $args = null ) {
 			$output .= '';
@@ -62,8 +61,6 @@ if ( ! class_exists('Pitchfork_React_Header') ) {
 			$entry->target = $item->target;
 			$entry->title = $item->attr_title;
 			$entry->exIcon = $exIcon;
-
-			// $prop[] = $entry;
 
 			/**
 			 * Depth 0: First level
@@ -172,7 +169,7 @@ if ( ! class_exists('Pitchfork_React_Header') ) {
 
 			// Convert $prop back to a string so it can be passed to the next iteration of start_el.
 			$output = maybe_serialize($prop);
-			do_action('qm/debug', $prop);
+			// do_action('qm/debug', $prop);
 
         }
 
