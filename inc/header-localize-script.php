@@ -30,7 +30,7 @@ if ( ! function_exists( 'pitchfork_localize_component_header_script' ) ) {
 		if(get_field('asu_logo_override', 'option')) {
 			$asu_logo_override_array =
 			[
-				'alt' => get_field('asu_logo_override_alt_text', 'option'),        // default: 'Arizona State University'
+				'alt' => get_field('asu_logo_override_alt_text', 'option'),   // default: 'Arizona State University'
 				'src' => get_field('asu_logo_override_url', 'option'),        // default: 'arizona-state-university-logo-vertical.png'
 				'mobileSrc' => get_field('asu_logo_override_mobile_logo_url', 'option'),  // default: 'arizona-state-university-logo.png'
 				'brandLink' => get_field('asu_logo_override_link', 'option'),  // default: 'https://asu.edu'

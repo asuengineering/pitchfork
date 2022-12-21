@@ -1,6 +1,6 @@
 {
     "key": "group_637677713cbf6",
-    "title": "UDS Header: Menu settings",
+    "title": "UDS: Header - Menu settings",
     "fields": [
         {
             "key": "field_63767771955c5",
@@ -86,5 +86,5 @@
     "active": true,
     "description": "Animate the site title. Set the mobile breakpoint for the menu.",
     "show_in_rest": 0,
-    "modified": 1670962457
+    "modified": 1671640927
 }

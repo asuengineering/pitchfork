@@ -1,6 +1,6 @@
 {
     "key": "group_63780a409ecb6",
-    "title": "UDS Header: Logo settings",
+    "title": "UDS: Header - Logo settings",
     "fields": [
         {
             "key": "field_63780a41d42d6",
@@ -285,5 +285,5 @@
     "active": true,
     "description": "Display an ASU Partner Logo lockup. Replace the ASU Logo with an alternative.",
     "show_in_rest": 0,
-    "modified": 1671038305
+    "modified": 1671640940
 }

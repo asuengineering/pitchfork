@@ -1,11 +1,12 @@
 {
     "key": "group_5f3345f93ac4c",
-    "title": "UDS: Menu CTA Buttons",
+    "title": "UDS: Header - Menu Item Options",
     "fields": [
         {
             "key": "field_5f334612ad385",
             "label": "CTA Button",
             "name": "menu_cta_button",
+            "aria-label": "",
             "type": "true_false",
             "instructions": "",
             "required": 0,
@@ -25,6 +26,7 @@
             "key": "field_5f337fdca3842",
             "label": "CTA Button Color",
             "name": "menu_cta_button_color",
+            "aria-label": "",
             "type": "select",
             "instructions": "",
             "required": 0,
@@ -38,7 +40,7 @@
                 ]
             ],
             "wrapper": {
-                "width": "60",
+                "width": "40",
                 "class": "",
                 "id": ""
             },
@@ -49,12 +51,32 @@
                 "maroon": "Maroon"
             },
             "default_value": "dark",
-            "allow_null": 0,
-            "multiple": 0,
-            "ui": 0,
             "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "ui": 0,
             "ajax": 0,
             "placeholder": ""
+        },
+        {
+            "key": "field_6063588fd9346",
+            "label": "Show External Link Icon?",
+            "name": "menu_external_link",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 1,
+            "ui_on_text": "",
+            "ui_off_text": ""
         }
     ],
     "location": [
@@ -73,6 +95,7 @@
     "instruction_placement": "label",
     "hide_on_screen": "",
     "active": true,
-    "description": "Fields for customizing Call to Action buttons that appear in the main navigation menu.",
-    "modified": 1617127069
+    "description": "Fields for creating CTA buttons that appear in the main navigation menu.",
+    "show_in_rest": 0,
+    "modified": 1671641025
 }
