@@ -73,15 +73,17 @@ if ( ! function_exists( 'pitchfork_localize_component_header_script' ) ) {
 			'mobileNavTree' => $menu_items,
 			'expandOnHover' => $expand_on_hover,
 			'baseUrl' => '/',
-			'logo' => $logo_override,
+			'logo' => false,
+			// 'logo' => $logo_override,
 				// // [
 				// // 	'alt' => 'alt text',        // default: 'Arizona State University'
 				// // 	'src' => '/wp-content/uploads/2022/11/US-Navy-logo.jpg',        // default: 'arizona-state-university-logo-vertical.png'
 				// // 	'mobileSrc' => '/wp-content/uploads/2022/11/US-Navy-logo.jpg',  // default: 'arizona-state-university-logo.png'
 				// // 	'brandLink' => 'https://asu.edu',  // default: 'https://asu.edu'
 				// // ],
-			'isPartner' => $show_partner_logo,
-			'partnerLogo' => $partner_logo,
+			'isPartner' => false,
+			// 'isPartner' => $show_partner_logo,
+			// 'partnerLogo' => $partner_logo,
 			'title' => get_bloginfo(),
 			'animateTitle' => $animate_title,
 			'parentOrg' => $parent_org_name,
