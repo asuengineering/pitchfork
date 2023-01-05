@@ -163,45 +163,45 @@ if ( ! function_exists( 'uds_wp_register_theme_customizer_settings' ) ) {
 			)
 		);
 
-		/**
-		 * Alternate 'Display' Name for the Site
-		 */
-		$wp_customize->add_setting(
-			'site_display_name',
-			array(
-				'default'           => '',
-				'capability'        => 'edit_theme_options',
-				'type'              => 'theme_mod',
-				'sanitize_callback' => 'uds_wp_sanitize_nothing',
-				'transport'         => 'postMessage',
-			)
-		);
+		// /**
+		//  * Alternate 'Display' Name for the Site
+		//  */
+		// $wp_customize->add_setting(
+		// 	'site_display_name',
+		// 	array(
+		// 		'default'           => '',
+		// 		'capability'        => 'edit_theme_options',
+		// 		'type'              => 'theme_mod',
+		// 		'sanitize_callback' => 'uds_wp_sanitize_nothing',
+		// 		'transport'         => 'postMessage',
+		// 	)
+		// );
 
-		$wp_customize->add_control(
-			'site_display_name_control',
-			array(
-				'description' => __( '<p>To display a site title other than the one listed above, enter an alternate title here.</p>', 'uds-wordpress-theme' ),
-				'label'       => __( 'Site Display Name', 'uds-wordpress-theme' ),
-				'section'     => 'title_tagline',
-				'settings'    => 'site_display_name',
-				'priority'    => 20,
-			)
-		);
+		// $wp_customize->add_control(
+		// 	'site_display_name_control',
+		// 	array(
+		// 		'description' => __( '<p>To display a site title other than the one listed above, enter an alternate title here.</p>', 'uds-wordpress-theme' ),
+		// 		'label'       => __( 'Site Display Name', 'uds-wordpress-theme' ),
+		// 		'section'     => 'title_tagline',
+		// 		'settings'    => 'site_display_name',
+		// 		'priority'    => 20,
+		// 	)
+		// );
 
-		$wp_customize->selective_refresh->add_partial(
-			'site_display_name',
-			array(
-				'selector'        => '.navbar-container',
-				'container_inclusive' => false,
-				'render_callback' => function() {
-					return (
-						uds_wp_render_title_wrapper()
-						&&
-						uds_wp_render_subdomain_name()
-					);
-				},
-			)
-		);
+		// $wp_customize->selective_refresh->add_partial(
+		// 	'site_display_name',
+		// 	array(
+		// 		'selector'        => '.navbar-container',
+		// 		'container_inclusive' => false,
+		// 		'render_callback' => function() {
+		// 			return (
+		// 				uds_wp_render_title_wrapper()
+		// 				&&
+		// 				uds_wp_render_subdomain_name()
+		// 			);
+		// 		},
+		// 	)
+		// );
 
 		/**
 		 * Parent unit name
@@ -289,71 +289,71 @@ if ( ! function_exists( 'uds_wp_register_theme_customizer_settings' ) ) {
 		 * Contains: main navigation menu toggle
 		 */
 
-		/**
-		 * Create the section
-		 */
-		$wp_customize->add_section(
-			'uds_wp_theme_section_header',
-			array(
-				'title'      => __( 'ASU Header', 'uds-wordpress-theme' ),
-				'priority'   => 30,
-			)
-		);
+		// /**
+		//  * Create the section
+		//  */
+		// $wp_customize->add_section(
+		// 	'uds_wp_theme_section_header',
+		// 	array(
+		// 		'title'      => __( 'ASU Header', 'uds-wordpress-theme' ),
+		// 		'priority'   => 30,
+		// 	)
+		// );
 
-		/**
-		 * Enhanced multisite notice: We're using the root site menu.
-		 */
+		// /**
+		//  * Enhanced multisite notice: We're using the root site menu.
+		//  */
 
-		$enhanced_multisite_nav = false;
-		$enhanced_multisite_nav = get_field('pitchfork_options_root_nav', 'option');
+		// $enhanced_multisite_nav = false;
+		// $enhanced_multisite_nav = get_field('pitchfork_options_root_nav', 'option');
 
-		if ( $enhanced_multisite_nav ) {
-			$wp_customize->add_setting( 'enhanced_multisite_notice_header', array() );
+		// if ( $enhanced_multisite_nav ) {
+		// 	$wp_customize->add_setting( 'enhanced_multisite_notice_header', array() );
 
-			$wp_customize->add_control(new Prefix_Arbitrary_Content(
-				$wp_customize,
-				'enhanced_multisite_notice_header',
-				array(
-					'section' => 'uds_wp_theme_section_header',
-					'priority' => 30,
-					'label' => __( 'Enhanced Multisite: Header', 'pitchfork' ),
-					'content' => __( 'This site will use the main navigation from the root site.', 'pitchfork' ) . '</p>',
-				)
-			));
-		};
+		// 	$wp_customize->add_control(new Prefix_Arbitrary_Content(
+		// 		$wp_customize,
+		// 		'enhanced_multisite_notice_header',
+		// 		array(
+		// 			'section' => 'uds_wp_theme_section_header',
+		// 			'priority' => 30,
+		// 			'label' => __( 'Enhanced Multisite: Header', 'pitchfork' ),
+		// 			'content' => __( 'This site will use the main navigation from the root site.', 'pitchfork' ) . '</p>',
+		// 		)
+		// 	));
+		// };
 
-		/**
-		 * Main navigtion menu on/off
-		 */
-		$wp_customize->add_setting(
-			'header_navigation_menu',
-			array(
-				'default'           => 'enabled',
-				'capability'        => 'edit_theme_options',
-				'type'              => 'theme_mod',
-				'sanitize_callback' => 'uds_wp_sanitize_nothing',
-				'transport'         => 'refresh',
-			)
-		);
+		// /**
+		//  * Main navigtion menu on/off
+		//  */
+		// $wp_customize->add_setting(
+		// 	'header_navigation_menu',
+		// 	array(
+		// 		'default'           => 'enabled',
+		// 		'capability'        => 'edit_theme_options',
+		// 		'type'              => 'theme_mod',
+		// 		'sanitize_callback' => 'uds_wp_sanitize_nothing',
+		// 		'transport'         => 'refresh',
+		// 	)
+		// );
 
-		$wp_customize->add_control(
-			'header_navigation_menu',
-			array(
-				'label'      => __( 'Main Navigation Menu', 'uds-wordpress-theme' ),
-				'description'       => __(
-					'<p>Show or hide the main navigation menu. Hiding this is <b>only</b> approved for Landing Page sites.</p>',
-					'uds-wordpress-theme'
-				),
-				'section'    => 'uds_wp_theme_section_header',
-				'settings'   => 'header_navigation_menu',
-				'type'       => 'radio',
-				'choices'    => array(
-					'enabled'  => 'Show',
-					'disabled' => 'Hide',
-				),
-				'priority'   => 50,
-			)
-		);
+		// $wp_customize->add_control(
+		// 	'header_navigation_menu',
+		// 	array(
+		// 		'label'      => __( 'Main Navigation Menu', 'uds-wordpress-theme' ),
+		// 		'description'       => __(
+		// 			'<p>Show or hide the main navigation menu. Hiding this is <b>only</b> approved for Landing Page sites.</p>',
+		// 			'uds-wordpress-theme'
+		// 		),
+		// 		'section'    => 'uds_wp_theme_section_header',
+		// 		'settings'   => 'header_navigation_menu',
+		// 		'type'       => 'radio',
+		// 		'choices'    => array(
+		// 			'enabled'  => 'Show',
+		// 			'disabled' => 'Hide',
+		// 		),
+		// 		'priority'   => 50,
+		// 	)
+		// );
 
 
 		/**
@@ -397,20 +397,20 @@ if ( ! function_exists( 'uds_wp_register_theme_customizer_settings' ) ) {
 		 * what setting we use for 'transport' up above - so I set it to refresh.
 		 *
 		 */
-		$wp_customize->selective_refresh->add_partial(
-			'header_navigation_menu',
-			array(
-				'selector'            => '#menubar',
-				'container_inclusive' => false,
-				'render_callback' => function() {
-					return (
-						uds_wp_render_navbar_container()
-						&&
-						uds_wp_render_main_nav_menu()
-					);
-				},
-			)
-		);
+		// $wp_customize->selective_refresh->add_partial(
+		// 	'header_navigation_menu',
+		// 	array(
+		// 		'selector'            => '#menubar',
+		// 		'container_inclusive' => false,
+		// 		'render_callback' => function() {
+		// 			return (
+		// 				uds_wp_render_navbar_container()
+		// 				&&
+		// 				uds_wp_render_main_nav_menu()
+		// 			);
+		// 		},
+		// 	)
+		// );
 
 
 		/**
