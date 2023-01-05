@@ -70,6 +70,15 @@ if ( ! function_exists( 'pitchfork_localize_component_header_script' ) ) {
 			$menu_items = array();
 		}
 
+		// Expected return from nav walker is a serialized array. But if the array is empty/error,
+		// is_seralized() should return false. Explictly return an empty array if so.
+		// Handles the use case where the menu is only composed of CTA buttons.
+		if ( is_serialized( $menu_items )) {
+			$menu_items = maybe_unserialize($menu_items);
+		} else {
+			$menu_items = array();
+		}
+
 		// Build ctaButton prop using walker class.
 		if ( has_nav_menu('primary')) {
 			$cta_buttons = wp_nav_menu([
@@ -84,9 +93,12 @@ if ( ! function_exists( 'pitchfork_localize_component_header_script' ) ) {
 			$cta_buttons = array();
 		}
 
-		$menu_items = maybe_unserialize($menu_items);
+		// If there are no CTA buttons defined in the menu, the CTA walker explicitly returns a
+		// serlizized empty array. Shouldn't be any need to further check is_serialized().
+
 		$cta_buttons = maybe_unserialize($cta_buttons);
-		// do_action('qm/debug', $menu_items);
+
+		do_action('qm/debug', $menu_items);
 		do_action('qm/debug', $cta_buttons);
 
 		// Prep localized array items for wp_localize_script below.
