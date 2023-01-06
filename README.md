@@ -1,8 +1,8 @@
 # Pitchfork - A WordPress theme for Arizona State University
 
-Pitchfork is a theme for WordPress which contains an implementation of the ASU Unity Bootstrap 4 UI kit for the creation of on-brand ASU websites. The theme utilizes the default block editor for WordPress for content creation. It contains styles applied to the native WordPress "core" blocks in order to produce a constent result for use within ASU's web ecosystem.
+Pitchfork is a theme for WordPress which contains an implementation of the ASU Unity Bootstrap 4 UI kit for the creation of on-brand ASU websites. The theme utilizes the default block editor for WordPress for content creation. It contains styles applied to the native WordPress "core" blocks in order to produce a consistent result for use within ASU's web ecosystem.
 
-This theme can (and probably should) be used with an additional plugin called [Pitchfork Blocks](https://github.com/asuengineering/pitchfork-blocks) to add a set of non-native blocks to the block editor. This additiion allows an end user to build virtually any design pattern that can be found within the Unity Design System (UDS).
+This theme can (and probably should) be used with an additional plugin called [Pitchfork Blocks](https://github.com/asuengineering/pitchfork-blocks) to add a set of non-native blocks to the block editor. This addition allows an end user to build virtually any design pattern that can be found within the Unity Design System (UDS).
 
 Requires at least: WP 6.0
 Tested up to: 6.0
@@ -14,7 +14,7 @@ License URI: https://www.gnu.org/licenses/gpl-2.0.html
 **Contributors**
 
 - Steve Ryan (ASU Engineering)
-- Walt McConnell, Zainab Alsidiki, Nathan Rollins (ASU Knowledge Enterprise)
+- Walt McConnell, Zainab Alsidiki, John Cox, Nathan Rollins (ASU Knowledge Enterprise)
 
 ## Usage Requirements
 
@@ -28,7 +28,7 @@ This theme contains options within the header and footer which require the use o
 - The theme contains a script which will prompt the user to install this plugin upon theme activation.
 - ASU Engineering provides a licensed copy of this plugin within its standard distribution of WordPress on the Pantheon hosting platform.
 
-Theme updates can optionally be managed from the admin dashboard through the use of [Git Updater](https://git-updater.com/).
+Theme updates can optionally be managed from the admin dashboard through the use of [WP Pusher](https://wppusher.com/).
 
 ## Includes
 
@@ -48,6 +48,23 @@ This theme leverages the following libraries for functionality delivered within 
 
 ## Release Notes
 
+### Version 1.6
+
+A fast-follower release from the previous milestone, Pitchfork v1.6 now incorporates the `component-header` elements from the Unity Design system.
+
+- ADDED: Support for blockGap and spacingSizes within `theme.json`. Default sizes are consistent with Unity Design system standards for spacing and margins.
+
+- ADDED: Global header now supports several new configurations and options.
+  - "Empty" navigation and CTA only navigation options now supported.
+  - Option provided for overriding the breakpoint at which the mobile menu is displayed. Default is still the `lg` breakpoint at ~ 960px.
+  - Option provided to animate the site title when switching between ASU domains. Enabled by default.
+  - Option provided to expand the menu links on a mouse hover when viewing the site on a desktop resolution. Feature disabled by default.
+
+- CHANGED: Separated panels in the customizer related to the global footer "endorsed logo" and "site links" areas.
+
+- REMOVED: Removed panels and options from the customizer which are no longer necessary to configure the site properly.
+
+
 ### Version 1.5
 
 The previous version of the Pitchfork theme (v1.4) introduced a bug into the mobile version of the header in which the links from the main navigation would not scroll correctly within the dropdown menu. This important update addresses this issue and adds improvements to the remainder of the controls for the header.
@@ -57,14 +74,12 @@ The previous version of the Pitchfork theme (v1.4) introduced a bug into the mob
 - FIX: Corrected markup for the global header.
   - Mobile menu now expands to the height of the device in all circumstances.
   - Mobile menu scrolls normally when the navigation links exceed the height of the dropdown window.
-- ADD: Introduced a new theme options menu specifically for multsite installations.
+- ADD: Introduced a new theme options menu specifically for multisite installations.
   - Relocated controls for inheriting root site main navigation and other properties to new theme options panel.
-  - Multisite enhancemend controls (above) are now only visible for users with `super-admin` privileges.
+  - Multisite enhancement controls (above) are now only visible for users with `super-admin` privileges.
   - Relocated controls for adding additional tracking codes to theme options panel instead of customizer.
   - New URL is within the settings menu at  `/wp-admin/options-general.php?page=pitchfork-settings`
 - ADD: Global header now includes ASU GA data-layer attributes.
-
-
 
 ### Version 1.4
 
@@ -81,7 +96,7 @@ The previous version of the Pitchfork theme (v1.4) introduced a bug into the mob
 ### Version 1.2
 
 - FIX: Resolve PHP notice for missing array value within the global header.
-- FIX: core/columns block now supports a limited color pallette for background colors.
+- FIX: core/columns block now supports a limited color palette for background colors.
 - FIX: The drop-shadow style of the core/image block no longer exceeds the margin of the block.
 - FIX: page.php and single.php now support for acf/hero-video as a replacement for the page/post title.
 
@@ -94,10 +109,10 @@ The previous version of the Pitchfork theme (v1.4) introduced a bug into the mob
 ### Version 1.0
 
 - Initial stable deployment of the theme.
-- Includes `theme.json` support of all blocks from accompanying Pitchfork Blocks plugin.
+- Includes `theme.json` support for all blocks from the accompanying Pitchfork Blocks plugin.
 - Contains native support for color from the ASU palette wherever appropriate.
 - Allows customization of margin/padding around each block as appropriate.
-- Includes improvments to the following core blocks to support elements of the brand standard:
+- Includes improvements to the following core blocks to support elements of the brand standard:
   - `paragraph` supports the lead paragraph class.
   - `headings` include options to highlight an individual word within the text.
   - `buttons` include options for all supported button sizes and colors.
