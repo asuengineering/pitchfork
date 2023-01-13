@@ -115,7 +115,6 @@ if ( ! function_exists( 'uds_react_get_menu_formatted_array' ) ) {
 						array_push( $cta_buttons, $temp_cta ); // pushing all items. Could be fewer.
 						unset( $pre_menu[ $m->ID ] );
 					} else {
-						// do_action( 'qm/debug', 'Found menu item: ' . $pre_menu[ $m->ID ]['text'] );
 						$pre_menu[ $m->ID ]['ID']          = $m->ID;
 						$pre_menu[ $m->ID ]['href']        = $m->url;
 						$pre_menu[ $m->ID ]['has_current'] = false;
@@ -232,10 +231,6 @@ if ( ! function_exists( 'uds_react_get_menu_formatted_array' ) ) {
 			  *	of $menu in step 2. column headers are children of the top menu, menu items are children of column headers
 			  */
 						$middle_menu = $dropdown[ $m->menu_item_parent ];
-
-						// do_action('qm/debug', $middle_menu->ID['ID']);
-						// do_action('qm/debug', $middle_menu['ID']);
-						// do_action('qm/debug', $our_array_menu );
 
 			 if( ! in_array([ $middle_menu->ID ]['ID'], $our_array_menu) ) {
 			   $middle_menu_column = array();

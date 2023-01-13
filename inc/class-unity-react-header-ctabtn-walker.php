@@ -89,7 +89,6 @@ if ( ! class_exists('Pitchfork_React_Header_CTAButtons') ) {
 
 			// Convert $prop back to a string so it can be passed to the next iteration of start_el.
 			$output = maybe_serialize($prop);
-			// do_action('qm/debug', $prop);
 
         }
 

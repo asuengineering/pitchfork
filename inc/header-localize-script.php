@@ -98,9 +98,6 @@ if ( ! function_exists( 'pitchfork_localize_component_header_script' ) ) {
 
 		$cta_buttons = maybe_unserialize($cta_buttons);
 
-		do_action('qm/debug', $menu_items);
-		do_action('qm/debug', $cta_buttons);
-
 		// Prep localized array items for wp_localize_script below.
 		$localized_array = 	array(
 			'loggedIn' => is_user_logged_in(),
@@ -129,8 +126,6 @@ if ( ! function_exists( 'pitchfork_localize_component_header_script' ) ) {
 			'breakpoint' => $mobile_menu_breakpoint,
 			'buttons' => $cta_buttons,
 		);
-
-		// do_action( 'qm/debug', $localized_array );
 
 		// pass WordPress PHP variables to the uds-header-scripts script we enqueued above
 		// These variables are props for the header React component
