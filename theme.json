@@ -514,7 +514,7 @@
 					"link": false,
 					"palette": [
 						{
-							"slug": "white",
+							"slug": "fill-white",
 							"color": "#FFFFFF",
 							"name": "White"
 						},
