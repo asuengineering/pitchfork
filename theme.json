@@ -501,6 +501,30 @@
                         }
 					]
 				}
+			},
+			"acf/profile-manual": {
+				"spacing": {
+					"units": [ "rem" ],
+					"margin": [ "top", "bottom" ],
+					"padding": false
+				},
+				"color": {
+					"background": true,
+					"text": false,
+					"link": false,
+					"palette": [
+						{
+							"slug": "white",
+							"color": "#FFFFFF",
+							"name": "White"
+						},
+                        {
+                            "slug": "fill",
+                            "color": "#E8E8E8",
+                            "name": "ASU Gray 2"
+                        }
+					]
+				}
 			}
         }
     }
