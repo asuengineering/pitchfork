@@ -48,6 +48,11 @@ This theme leverages the following libraries for functionality delivered within 
 
 ## Release Notes
 
+### Version 1.6.1
+- FIXED: A CSS selector using `:has()` was being used to set the margin top for the new global header. That CSS rule is unsupported by Firefox and older versions of Safari. Used JS to remove wrapper around header element and rewrote the rule to use CSS adjacent siblings again to handle scrolled state.
+- ADDED: Support for incoming `acf/profile-manual` block was added to `theme.json`
+- REMOVED: Removed references to Query Monitor plugin intended for debugging the new header.
+
 ### Version 1.6
 
 A fast-follower release from the previous milestone, Pitchfork v1.6 now incorporates the `component-header` elements from the Unity Design system.
