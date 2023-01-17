@@ -64,24 +64,35 @@ flowing under header when rendered.
 
 - Also contains adjustments for WP admin bar to set above grey bar when logged in.
 --------------------------------------------------------------*/
-#wpadminbar + #header-container #asuHeader {
+
+#wpadminbar + #asuHeader {
 	top: 32px !important;
 }
 
-#header-container:has(#asuHeader) + main {
+/**
+When :has() has greater support, these rules will suffice.
+For now, a little bit of JS to unwrap the header wrapper allows :scrolled: to be an adjacent sibling again.
+*/
+
+// #header-container:has(#asuHeader) + main {
+// 	margin-top: 135px;
+// 	// Actual measurement is btw 139px and 140px. Allows for margin of error.
+// }
+
+// #header-container:has(#asuHeader.scrolled) + main {
+// 	margin-top: 90px;
+// 	// Actual measurement is btw 93px and 94px. Allows for margin of error.
+// }
+
+#asuHeader + main {
 	margin-top: 135px;
 	// Actual measurement is btw 139px and 140px. Allows for margin of error.
 }
 
-#header-container:has(#asuHeader.scrolled) + main {
+#asuHeader.scrolled + main {
 	margin-top: 90px;
 	// Actual measurement is btw 93px and 94px. Allows for margin of error.
 }
-
-// Apparently rules like the following aren't really needed?
-// #wpadminbar + #header-container:has(#asuHeader) + main {}
-
-// Add rules for mobile menu too.
 
 // The admin bar is not at a fixed position on mobile.
 // But, since the header is still fixed, the admin bar will overlap the header.

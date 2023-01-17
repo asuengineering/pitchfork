@@ -8,8 +8,8 @@ jQuery(document).ready(function($){
                     $(this).hide();
                 }
             });
-    
+
         }
     });
-    
+
 });
