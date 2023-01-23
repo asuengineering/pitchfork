@@ -524,7 +524,7 @@
 			"acf/profile-manual": {
 				"spacing": {
 					"units": [ "rem" ],
-					"margin": [ "top", "bottom" ],
+					"margin": true,
 					"padding": false
 				},
 				"color": {
