@@ -341,6 +341,13 @@
 					"palette": []
 				}
 			},
+			"core/spacer": {
+				"spacing": {
+					"units": [ "rem" ],
+					"margin": false,
+					"padding": false
+				}
+			},
 			"acf/accordion": {
 				"spacing": {
 					"units": [ "rem" ],
@@ -500,6 +507,18 @@
                             "name": "ASU Gold"
                         }
 					]
+				}
+			},
+			"acf/profiles": {
+				"spacing": {
+					"units": [ "rem" ],
+					"margin": true,
+					"padding": false
+				},
+				"color": {
+					"background": false,
+					"text": false,
+					"link": false
 				}
 			},
 			"acf/profile-manual": {
