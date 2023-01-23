@@ -27,7 +27,7 @@ if ( ! function_exists( 'pitchfork_unregister_native_blocks' ) ) {
 		$registered_blocks = WP_Block_Type_Registry::get_instance()->get_all_registered();
 
 		// Removing native blocks from the "text" category.
-		
+
 		unset( $registered_blocks['core/pullquote'] );
 		unset( $registered_blocks['core/quote'] );
 		unset( $registered_blocks['core/preformatted'] );
@@ -56,6 +56,18 @@ if ( ! function_exists( 'pitchfork_remove_core_patterns' ) ) {
 	add_action( 'after_setup_theme', 'pitchfork_remove_core_patterns' );
 }
 
+// Add block patterns for Pitchfork
+if ( function_exists( 'register_block_pattern_category' ) ) {
+	register_block_pattern_category(
+		'pitchfork-directory',
+		array( 'label' => __( 'Pitchfork: Directory', 'pitchfork' ) )
+	);
+
+	register_block_pattern_category(
+		'pitchfork-cards',
+		array( 'label' => __( 'Pitchfork: Cards', 'pitchfork' ) )
+	);
+}
 
 if ( ! function_exists( 'pitchfork_gutenberg_css' ) ) {
 	/**
@@ -77,7 +89,7 @@ add_action( 'after_setup_theme', 'pitchfork_gutenberg_css' );
  */
 function pitchfork_theme_support_block_editor_opt_in() {
 
-	// This is still in expirimental-theme.json, but not an actual theme.json 
+	// This is still in expirimental-theme.json, but not an actual theme.json
 	add_theme_support( 'responsive-embeds' );
 
 	// Reminder: Lots of other theme options moved to theme.json.
@@ -91,16 +103,16 @@ add_action( 'after_setup_theme', 'pitchfork_theme_support_block_editor_opt_in' )
  * With the use of the separate core assets filter, we can easily deregister
  * block styles from individual core blocks with the deregister_style hook.
  * Ref: https://github.com/WordPress/gutenberg/issues/32051#issuecomment-1058964416
- * 
+ *
  * Affects front end only, not block editor screens.
  * Ref: https://developer.wordpress.org/reference/functions/wp_should_load_separate_core_block_assets/
  *
  * @return void
  */
-function pitchfork_remove_core_wp_block_styles() { 
-    wp_deregister_style( 'wp-block-button' );   
-	wp_deregister_style( 'wp-block-image' ); 
-	wp_deregister_style( 'wp-block-separator' ); 
+function pitchfork_remove_core_wp_block_styles() {
+    wp_deregister_style( 'wp-block-button' );
+	wp_deregister_style( 'wp-block-image' );
+	wp_deregister_style( 'wp-block-separator' );
 }
-add_filter( 'should_load_separate_core_block_assets', '__return_true' ); 
+add_filter( 'should_load_separate_core_block_assets', '__return_true' );
 add_action( 'wp_enqueue_scripts', 'pitchfork_remove_core_wp_block_styles', 100 );
