@@ -29,7 +29,7 @@ if ( ! class_exists('Pitchfork_React_Header_Navtree') ) {
 
 			if ( empty($output)) {
 				$start_navTree = new stdClass();
-				$start_navTree->href = '/';
+				$start_navTree->href = get_home_url();
 				$start_navTree->text = 'Home';
 				$start_navTree->type = 'icon-home';
 				$start_navTree->selected = true;
