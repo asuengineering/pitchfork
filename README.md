@@ -48,6 +48,19 @@ This theme leverages the following libraries for functionality delivered within 
 
 ## Release Notes
 
+### Version 1.7
+- ADD: Support for `acf/profiles` block added to `theme.json`
+- ADD: Created block pattern categories for **Pitchfork: Directory** and **Pitchfork: Cards**
+- ADD: Created 5 new directory patterns and two new card patterns for the pattern library.
+- FIX: Prevented empty paragraph tag produced by the Edit Page link from displaying above the footer.
+- FIX: Home icon in nav bar always pointed to the root domain due to a hard coded `/` in nav walker script. Changed to reference `get_home_URL()` to allow the home icon in subsites within a multisite to point to their individual home pages.
+
+**Documentation:**
+
+- ADD: https://wordpress.asu.edu/pitchfork/docs/profiles-block/
+- ADD: https://wordpress.asu.edu/pitchfork/docs/profile-block-manual/
+- ADD: https://wordpress.asu.edu/pitchfork/docs/block-patterns/
+
 ### Version 1.6.1
 - FIXED: A CSS selector using `:has()` was being used to set the margin top for the new global header. That CSS rule is unsupported by Firefox and older versions of Safari. Used JS to remove wrapper around header element and rewrote the rule to use CSS adjacent siblings again to handle scrolled state.
 - ADDED: Support for incoming `acf/profile-manual` block was added to `theme.json`
