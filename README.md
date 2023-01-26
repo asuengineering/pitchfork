@@ -48,6 +48,11 @@ This theme leverages the following libraries for functionality delivered within 
 
 ## Release Notes
 
+### Version 1.7.1 (Bug fix)
+A previous attempt to prevent site content from scrolling under the header inadvertantly caused click events mapped to the navbar to stop firing. The result was that all dropdown menus stopped functioning.
+
+- FIX: Added JS event monitor to attach `.scrolled` class to header and rewrote CSS appropriately for proper top margin on the `<main>` element. Removed previous attempt to `unwrap()` #asuHeader to restore mapped click events for dropdowns.
+
 ### Version 1.7
 - ADD: Support for `acf/profiles` block added to `theme.json`
 - ADD: Created block pattern categories for **Pitchfork: Directory** and **Pitchfork: Cards**
