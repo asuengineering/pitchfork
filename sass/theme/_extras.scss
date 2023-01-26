@@ -65,13 +65,14 @@ flowing under header when rendered.
 - Also contains adjustments for WP admin bar to set above grey bar when logged in.
 --------------------------------------------------------------*/
 
-#wpadminbar + #asuHeader {
+#wpadminbar+#header-container #asuHeader {
 	top: 32px !important;
 }
 
 /**
 When :has() has greater support, these rules will suffice.
-For now, a little bit of JS to unwrap the header wrapper allows :scrolled: to be an adjacent sibling again.
+For now, a little bit of JS to add the scroll event to the header wrapper
+allows :scrolled: to be an adjacent sibling again.
 */
 
 // #header-container:has(#asuHeader) + main {
@@ -84,12 +85,12 @@ For now, a little bit of JS to unwrap the header wrapper allows :scrolled: to be
 // 	// Actual measurement is btw 93px and 94px. Allows for margin of error.
 // }
 
-#asuHeader + main {
+#header-container + main {
 	margin-top: 135px;
 	// Actual measurement is btw 139px and 140px. Allows for margin of error.
 }
 
-#asuHeader.scrolled + main {
+#header-container.scrolled + main {
 	margin-top: 90px;
 	// Actual measurement is btw 93px and 94px. Allows for margin of error.
 }

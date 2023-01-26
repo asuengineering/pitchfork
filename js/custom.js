@@ -259,5 +259,24 @@ jQuery(document).ready(function ($) {
 
 // Remove outer wrapper from react element to allow #asuHeader.scrolled to act as adjacent sibling.
 jQuery(document).ready(function ($) {
-  $('#asuHeader').unwrap();
+  // Adding "scrolled" event listener to header wrapper to make CSS rule for margin-top easier.
+  $(window).on('scroll', function (e) {
+    if ($(window).scrollTop() == 0) {
+      $('#header-container').removeClass();
+    } else {
+      $('#header-container').addClass('scrolled');
+    }
+  });
+});
+"use strict";
+
+// Adding "scrolled" event listener to header wrapper to make CSS rule for adjacent siblings easier.
+jQuery(document).ready(function ($) {
+  $(window).on('scroll', function (e) {
+    if ($(window).scrollTop() == 0) {
+      $('#header-container').removeClass();
+    } else {
+      $('#header-container').addClass('scrolled');
+    }
+  });
 });

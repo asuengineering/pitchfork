@@ -2531,9 +2531,9 @@ main>h1,main>h2,main>h3,main>h4,main>h5,main>h6{margin-left:auto !important;marg
 .alert-dismissible .close{position:relative}
 .alert-icon{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;-webkit-box-align:start;-ms-flex-align:start;align-items:flex-start}
 .alert-close{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column;-webkit-box-pack:start;-ms-flex-pack:start;justify-content:flex-start;-webkit-box-align:end;-ms-flex-align:end;align-items:flex-end}
-#wpadminbar+#asuHeader{top:32px !important}
-#asuHeader+main{margin-top:135px}
-#asuHeader.scrolled+main{margin-top:90px}
+#wpadminbar+#header-container #asuHeader{top:32px !important}
+#header-container+main{margin-top:135px}
+#header-container.scrolled+main{margin-top:90px}
 .pagination span.page-link{padding:.5rem 12px}
 .error404 div[class^='uds-hero'] .search-form-inline{position:relative}
 .error404 div[class^='uds-hero'] .search-form-inline input[type='search']{width:300px}
