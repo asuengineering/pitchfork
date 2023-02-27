@@ -32,8 +32,13 @@ if ( ! class_exists('Pitchfork_React_Header_Navtree') ) {
 				$start_navTree->href = get_home_url();
 				$start_navTree->text = 'Home';
 				$start_navTree->type = 'icon-home';
-				$start_navTree->selected = true;
-				$start_navTree->class = 'test-class';
+
+				// There is not normally a menu item associated with the home page, but the
+				// home icon can still be underlined if we are on the home page.
+				// Use is_front_page() and assign selected class to home icon if true.
+				if (is_front_page()) {
+					$start_navTree->selected = true;
+				}
 
 				$prop = array();
 				$prop[] = $start_navTree;
@@ -86,9 +91,14 @@ if ( ! class_exists('Pitchfork_React_Header_Navtree') ) {
 					return;
 				}
 
-				// Check for the presence of children.
+				// Check for the presence of children. Add array wrapper for future depth.
 				if ( $args->walker->has_children ) {
 					$entry->items = array();
+				}
+
+				// Add active menu class if $item is the current menu item or is the current item's ancestor.
+				if ( ( $item->current ) || ( $item->current_item_ancestor ) ) {
+					$entry->selected = true;
 				}
 
 				// All good. Push this to the main array.
