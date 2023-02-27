@@ -1,18 +1,20 @@
 {
-    "$schema": "https://schemas.wp.org/trunk/theme.json",
-    "version":2,
-    "settings": {
-        "layout": {
-            "contentSize": "1200px"
-        },
-        "border": {
+	"$schema": "https://schemas.wp.org/trunk/theme.json",
+	"version": 2,
+	"settings": {
+		"layout": {
+			"contentSize": "1200px"
+		},
+		"border": {
 			"color": false,
 			"radius": false,
 			"style": false,
 			"width": false
 		},
 		"spacing": {
-			"units": [ "rem" ],
+			"units": [
+				"rem"
+			],
 			"margin": true,
 			"padding": true,
 			"blockGap": "2rem",
@@ -52,10 +54,11 @@
 				}
 			]
 		},
-        "color": {
-            "text": false,
+		"color": {
+			"text": false,
 			"background": true,
 			"link": false,
+			"gradients": [],
 			"custom": false,
 			"customDuotone": false,
 			"customGradient": false,
@@ -73,65 +76,65 @@
 					"color": "#FFC627",
 					"name": "ASU Gold"
 				},
-                {
+				{
 					"slug": "asu-blue",
 					"color": "#00A3E0",
 					"name": "ASU Blue"
 				},
-                {
+				{
 					"slug": "asu-green",
 					"color": "#78BE20",
 					"name": "ASU Green"
 				},
-                {
+				{
 					"slug": "asu-orange",
 					"color": "#FF7F32",
 					"name": "ASU Orange"
 				},
-                {
+				{
 					"slug": "white",
 					"color": "#FFFFFF",
 					"name": "White"
 				},
-                {
+				{
 					"slug": "gray-1",
 					"color": "#FAFAFA",
 					"name": "ASU Gray 1"
 				},
-                {
+				{
 					"slug": "gray-2",
 					"color": "#E8E8E8",
 					"name": "ASU Gray 2"
 				},
-                {
+				{
 					"slug": "gray-3",
 					"color": "#D0D0D0",
 					"name": "ASU Gray 3"
 				},
-                {
+				{
 					"slug": "gray-4",
 					"color": "#BFBFBF",
 					"name": "ASU Gray 4"
 				},
-                {
+				{
 					"slug": "gray-5",
 					"color": "#747474",
 					"name": "ASU Gray 5"
 				},
-                {
+				{
 					"slug": "gray-6",
 					"color": "#484848",
 					"name": "ASU Gray 6"
 				},
-                {
+				{
 					"slug": "gray-7",
 					"color": "#191919",
 					"name": "ASU Gray 7"
 				}
 			]
 		},
-        "typography": {
-            "customFontSize": false,
+		"typography": {
+			"customFontSize": false,
 			"fontStyle": false,
 			"fontWeight": false,
 			"letterSpacing": false,
@@ -141,64 +144,64 @@
 			"dropCap": false,
 			"fontSizes": [],
 			"fontFamilies": []
-        },
-        "blocks": {
-            "core/heading": {
-                "border": {
-                    "color": false,
-                    "radius": false,
-                    "style": false,
-                    "width": false
-                },
+		},
+		"blocks": {
+			"core/heading": {
+				"border": {
+					"color": false,
+					"radius": false,
+					"style": false,
+					"width": false
+				},
 				"color": {
 					"background": false,
 					"text": true,
 					"palette": [
-                        {
-                            "slug": "gray-7",
-                            "color": "#191919",
-                            "name": "ASU Gray 7"
-                        },
+						{
+							"slug": "gray-7",
+							"color": "#191919",
+							"name": "ASU Gray 7"
+						},
 						{
 							"slug": "white",
 							"color": "#FFFFFF",
 							"name": "White"
 						},
 						{
-                            "slug": "asu-gold",
-                            "color": "#FFC627",
-                            "name": "ASU Gold"
-                        }
+							"slug": "asu-gold",
+							"color": "#FFC627",
+							"name": "ASU Gold"
+						}
 					]
 				}
 			},
 			"core/paragraph": {
-                "border": {
-                    "color": false,
-                    "radius": false,
-                    "style": false,
-                    "width": false
-                },
+				"border": {
+					"color": false,
+					"radius": false,
+					"style": false,
+					"width": false
+				},
 				"color": {
 					"background": false,
 					"text": true,
 					"link": true,
 					"palette": [
 						{
-                            "slug": "gray-7",
-                            "color": "#191919",
-                            "name": "ASU Gray 7"
-                        },
+							"slug": "gray-7",
+							"color": "#191919",
+							"name": "ASU Gray 7"
+						},
 						{
 							"slug": "white",
 							"color": "#FFFFFF",
 							"name": "White"
 						},
 						{
-                            "slug": "asu-gold",
-                            "color": "#FFC627",
-                            "name": "ASU Gold"
-                        }
+							"slug": "asu-gold",
+							"color": "#FFC627",
+							"name": "ASU Gold"
+						}
 					]
 				}
 			},
@@ -209,64 +212,66 @@
 					"link": true,
 					"palette": [
 						{
-                            "slug": "gray-7",
-                            "color": "#191919",
-                            "name": "ASU Gray 7"
-                        },
+							"slug": "gray-7",
+							"color": "#191919",
+							"name": "ASU Gray 7"
+						},
 						{
 							"slug": "white",
 							"color": "#FFFFFF",
 							"name": "White"
 						},
 						{
-                            "slug": "asu-gold",
-                            "color": "#FFC627",
-                            "name": "ASU Gold"
-                        }
+							"slug": "asu-gold",
+							"color": "#FFC627",
+							"name": "ASU Gold"
+						}
 					]
 				}
 			},
 			"core/button": {
-                "border": {
-                    "color": false,
-                    "radius": false,
-                    "style": false,
-                    "width": false
-                },
+				"border": {
+					"color": false,
+					"radius": false,
+					"style": false,
+					"width": false
+				},
 				"color": {
 					"palette": [
 						{
-                            "slug": "asu-maroon",
-                            "color": "#8C1D40",
-                            "name": "ASU Maroon"
-                        },
-                        {
-                            "slug": "asu-gold",
-                            "color": "#FFC627",
-                            "name": "ASU Gold"
-                        },
-                        {
-                            "slug": "gray-4",
-                            "color": "#BFBFBF",
-                            "name": "ASU Gray 4"
-                        },
-                        {
-                            "slug": "gray-7",
-                            "color": "#191919",
-                            "name": "ASU Gray 7"
-                        }
+							"slug": "asu-maroon",
+							"color": "#8C1D40",
+							"name": "ASU Maroon"
+						},
+						{
+							"slug": "asu-gold",
+							"color": "#FFC627",
+							"name": "ASU Gold"
+						},
+						{
+							"slug": "gray-4",
+							"color": "#BFBFBF",
+							"name": "ASU Gray 4"
+						},
+						{
+							"slug": "gray-7",
+							"color": "#191919",
+							"name": "ASU Gray 7"
+						}
 					]
 				}
 			},
 			"core/columns": {
-                "border": {
-                    "color": false,
-                    "radius": false,
-                    "style": false,
-                    "width": false
-                },
+				"border": {
+					"color": false,
+					"radius": false,
+					"style": false,
+					"width": false
+				},
 				"spacing": {
-					"units": [ "rem" ]
+					"units": [
+						"rem"
+					]
 				},
 				"color": {
 					"palette": [
@@ -285,17 +290,19 @@
 							"color": "#E8E8E8",
 							"name": "ASU Gray 2"
 						},
-                        {
-                            "slug": "gray-7",
-                            "color": "#191919",
-                            "name": "ASU Gray 7"
-                        }
+						{
+							"slug": "gray-7",
+							"color": "#191919",
+							"name": "ASU Gray 7"
+						}
 					]
 				}
 			},
 			"core/column": {
 				"spacing": {
-					"units": [ "%" ]
+					"units": [
+						"%"
+					]
 				},
 				"color": {
 					"palette": [
@@ -314,11 +321,11 @@
 							"color": "#E8E8E8",
 							"name": "ASU Gray 2"
 						},
-                        {
-                            "slug": "gray-7",
-                            "color": "#191919",
-                            "name": "ASU Gray 7"
-                        }
+						{
+							"slug": "gray-7",
+							"color": "#191919",
+							"name": "ASU Gray 7"
+						}
 					]
 				}
 			},
@@ -343,36 +350,58 @@
 			},
 			"core/spacer": {
 				"spacing": {
-					"units": [ "rem" ],
+					"units": [
+						"rem"
+					],
 					"margin": false,
 					"padding": false
 				}
 			},
 			"acf/accordion": {
 				"spacing": {
-					"units": [ "rem" ],
-					"margin": [ "top", "bottom" ],
+					"units": [
+						"rem"
+					],
+					"margin": [
+						"top",
+						"bottom"
+					],
 					"padding": true
 				}
 			},
 			"acf/alert": {
 				"spacing": {
-					"units": [ "rem" ],
-					"margin": [ "top", "bottom" ],
+					"units": [
+						"rem"
+					],
+					"margin": [
+						"top",
+						"bottom"
+					],
 					"padding": false
 				}
 			},
 			"acf/background-section": {
 				"spacing": {
-					"units": [ "rem" ],
-					"margin": [ "top", "bottom" ],
+					"units": [
+						"rem"
+					],
+					"margin": [
+						"top",
+						"bottom"
+					],
 					"padding": false
 				}
 			},
 			"acf/banner": {
 				"spacing": {
-					"units": [ "rem" ],
-					"margin": [ "top", "bottom" ],
+					"units": [
+						"rem"
+					],
+					"margin": [
+						"top",
+						"bottom"
+					],
 					"padding": false
 				},
 				"color": {
@@ -400,11 +429,11 @@
 							"color": "#E8E8E8",
 							"name": "ASU Gray 2"
 						},
-                        {
-                            "slug": "black",
-                            "color": "#191919",
-                            "name": "ASU Gray 7"
-                        }
+						{
+							"slug": "black",
+							"color": "#191919",
+							"name": "ASU Gray 7"
+						}
 					]
 				}
 			},
@@ -419,25 +448,35 @@
 							"color": "#FFFFFF",
 							"name": "White"
 						},
-                        {
-                            "slug": "gray-7",
-                            "color": "#191919",
-                            "name": "ASU Gray 7"
-                        }
+						{
+							"slug": "gray-7",
+							"color": "#191919",
+							"name": "ASU Gray 7"
+						}
 					]
 				}
 			},
 			"acf/uds-card": {
 				"spacing": {
-					"units": [ "rem" ],
-					"margin": [ "top", "bottom" ],
+					"units": [
+						"rem"
+					],
+					"margin": [
+						"top",
+						"bottom"
+					],
 					"padding": false
 				}
 			},
 			"acf/card-foldable": {
 				"spacing": {
-					"units": [ "rem" ],
-					"margin": [ "top", "bottom" ],
+					"units": [
+						"rem"
+					],
+					"margin": [
+						"top",
+						"bottom"
+					],
 					"padding": false
 				},
 				"color": {
@@ -446,32 +485,37 @@
 					"link": false,
 					"palette": [
 						{
-                            "slug": "gold",
-                            "color": "#FFC627",
-                            "name": "ASU Gold"
-                        },
+							"slug": "gold",
+							"color": "#FFC627",
+							"name": "ASU Gold"
+						},
 						{
-                            "slug": "maroon",
-                            "color": "#8C1D40",
-                            "name": "ASU Maroon"
-                        },
-                        {
-                            "slug": "gray",
-                            "color": "#BFBFBF",
-                            "name": "ASU Gray 4"
-                        },
-                        {
-                            "slug": "dark",
-                            "color": "#191919",
-                            "name": "ASU Gray 7"
-                        }
+							"slug": "maroon",
+							"color": "#8C1D40",
+							"name": "ASU Maroon"
+						},
+						{
+							"slug": "gray",
+							"color": "#BFBFBF",
+							"name": "ASU Gray 4"
+						},
+						{
+							"slug": "dark",
+							"color": "#191919",
+							"name": "ASU Gray 7"
+						}
 					]
 				}
 			},
 			"acf/content-image-overlap": {
 				"spacing": {
-					"units": [ "rem" ],
-					"margin": [ "top", "bottom" ],
+					"units": [
+						"rem"
+					],
+					"margin": [
+						"top",
+						"bottom"
+					],
 					"padding": false
 				},
 				"color": {
@@ -482,8 +526,13 @@
 			},
 			"acf/grid-links": {
 				"spacing": {
-					"units": [ "rem" ],
-					"margin": [ "top", "bottom" ],
+					"units": [
+						"rem"
+					],
+					"margin": [
+						"top",
+						"bottom"
+					],
 					"padding": true
 				},
 				"color": {
@@ -496,22 +545,24 @@
 							"color": "#FFFFFF",
 							"name": "White"
 						},
-                        {
-                            "slug": "gray-7",
-                            "color": "#191919",
-                            "name": "ASU Gray 7"
-                        },
-                        {
-                            "slug": "gold",
-                            "color": "#FFC627",
-                            "name": "ASU Gold"
-                        }
+						{
+							"slug": "gray-7",
+							"color": "#191919",
+							"name": "ASU Gray 7"
+						},
+						{
+							"slug": "gold",
+							"color": "#FFC627",
+							"name": "ASU Gold"
+						}
 					]
 				}
 			},
 			"acf/profiles": {
 				"spacing": {
-					"units": [ "rem" ],
+					"units": [
+						"rem"
+					],
 					"margin": true,
 					"padding": false
 				},
@@ -523,7 +574,9 @@
 			},
 			"acf/profile-manual": {
 				"spacing": {
-					"units": [ "rem" ],
+					"units": [
+						"rem"
+					],
 					"margin": true,
 					"padding": false
 				},
@@ -537,14 +590,14 @@
 							"color": "#FFFFFF",
 							"name": "White"
 						},
-                        {
-                            "slug": "fill",
-                            "color": "#E8E8E8",
-                            "name": "ASU Gray 2"
-                        }
+						{
+							"slug": "fill",
+							"color": "#E8E8E8",
+							"name": "ASU Gray 2"
+						}
 					]
 				}
 			}
-        }
-    }
+		}
+	}
 }
