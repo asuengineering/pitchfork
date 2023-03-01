@@ -2544,13 +2544,16 @@ main>h1,main>h2,main>h3,main>h4,main>h5,main>h6{margin-left:auto !important;marg
 .wp-block-image.is-style-plain figcaption{margin-top:1rem}
 .wp-block-image.is-style-uds-figure img{border:1px solid #d0d0d0}
 .wp-block-image.is-style-uds-figure figcaption{border:1px solid #d0d0d0;border-top:0;opacity:1;background:#fff 0 0 no-repeat padding-box;padding:.75rem;font-size:.75rem;margin-top:0;margin-bottom:0}
+.wp-block-image.is-style-drop-shadow{-webkit-box-shadow:0 .5rem 1rem rgba(25,25,25,0.2);box-shadow:0 .5rem 1rem rgba(25,25,25,0.2)}
 .wp-block-image.is-style-drop-shadow img{border:1px solid #d0d0d0}
 .wp-block-image.is-style-drop-shadow figcaption{border:1px solid #d0d0d0;border-top:0;opacity:1;background:#fff 0 0 no-repeat padding-box;padding:.75rem;font-size:.75rem;margin-top:0;margin-bottom:0}
-.wp-block-image.is-style-drop-shadow img{-webkit-box-shadow:0 .5rem 1rem rgba(25,25,25,0.2);box-shadow:0 .5rem 1rem rgba(25,25,25,0.2)}
+.wp-block-image.is-style-drop-shadow figcaption{-webkit-box-shadow:0 .5rem 1rem rgba(25,25,25,0.2);box-shadow:0 .5rem 1rem rgba(25,25,25,0.2)}
 .wp-block-image.is-style-circular img{border:1px solid #d0d0d0}
 .wp-block-image.is-style-circular figcaption{border:1px solid #d0d0d0;border-top:0;opacity:1;background:#fff 0 0 no-repeat padding-box;padding:.75rem;font-size:.75rem;margin-top:0;margin-bottom:0}
 .wp-block-image.is-style-circular img{border:0;border-radius:100%;-o-object-fit:cover;object-fit:cover;aspect-ratio:1 / 1}
 .wp-block-image.is-style-circular figcaption{border:0;text-align:center}
+.wp-block-image.aligncenter,.wp-block-image .aligncenter,.wp-block-image.alignleft,.wp-block-image .alignleft,.wp-block-image.alignright,.wp-block-image .alignright{display:table}
+.wp-block-image.aligncenter>figcaption,.wp-block-image .aligncenter>figcaption,.wp-block-image.alignleft>figcaption,.wp-block-image .alignleft>figcaption,.wp-block-image.alignright>figcaption,.wp-block-image .alignright>figcaption{display:table-caption;caption-side:bottom}
 .wp-block-separator.is-style-default{border-top:0;height:1px;margin:3rem 0;background-color:#d0d0d0}
 .wp-block-separator.is-style-copy-divider{background-color:transparent}
 .wp-block-separator.is-style-copy-divider:after{content:'';height:.5rem;background-color:#ffc627;max-width:16rem;width:100%;position:absolute}

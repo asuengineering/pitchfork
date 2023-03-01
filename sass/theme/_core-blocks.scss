@@ -14,49 +14,52 @@
 
 // Lead Paragraph
 p.is-style-lead {
-    @extend .lead;
+	@extend .lead;
 }
 
 
 /*--------------------------------------------------------------
 2. core/button. Add styles from UDS-Bootstrap manually.
-See: /inc/blocks:93 for explination. 
+See: /inc/blocks:93 for explination.
 --------------------------------------------------------------*/
 
 // Base class, applied at the <a> tag level.
 a.wp-block-button__link {
-    @extend .btn;
-    @extend .btn-maroon;
-    // Default size should be .md
+	@extend .btn;
+	@extend .btn-maroon;
+	// Default size should be .md
 }
 
-// Size modifiers 
+// Size modifiers
 .wp-block-button.is-style-uds-sm a.wp-block-button__link {
-    @extend .btn-sm;
+	@extend .btn-sm;
 }
 
 .wp-block-button.is-style-uds-md a.wp-block-button__link {
-    @extend .btn-md;
+	@extend .btn-md;
 }
 
 .wp-block-button.is-style-uds-lg a.wp-block-button__link {
-    @extend .btn-lg;
+	@extend .btn-lg;
 }
 
 // Color modifiers
 a.wp-block-button__link {
-    &.has-asu-maroon-background-color {
-        @extend .btn-maroon;
-    }
-    &.has-asu-gold-background-color {
-        @extend .btn-gold;
-    }
-    &.has-gray-4-background-color {
-        @extend .btn-gray;
-    }
-    &.has-gray-7-background-color {
-        @extend .btn-dark;
-    }
+	&.has-asu-maroon-background-color {
+		@extend .btn-maroon;
+	}
+
+	&.has-asu-gold-background-color {
+		@extend .btn-gold;
+	}
+
+	&.has-gray-4-background-color {
+		@extend .btn-gray;
+	}
+
+	&.has-gray-7-background-color {
+		@extend .btn-dark;
+	}
 }
 
 /*--------------------------------------------------------------
@@ -66,93 +69,118 @@ a.wp-block-button__link {
 .is-style-uds-list {
 	@extend .uds-list;
 
-    // Eliminates duplicate bullet points in nested lists.
-    // Browser provides :marker, UDS-Bootstrap still rolls with :before.
-    & ul li::marker {
-        content: '';
-    }
+	// Eliminates duplicate bullet points in nested lists.
+	// Browser provides :marker, UDS-Bootstrap still rolls with :before.
+	& ul li::marker {
+		content: '';
+	}
 }
 
 .is-style-uds-steplist {
 	@extend .uds-list;
-    @extend .uds-steplist;
+	@extend .uds-steplist;
 }
 
 .is-style-uds-steplist-maroon {
 	@extend .uds-list;
-    @extend .uds-steplist;
-    @extend .uds-steplist-maroon;
+	@extend .uds-steplist;
+	@extend .uds-steplist-maroon;
 }
 
 .is-style-uds-steplist-gold {
 	@extend .uds-list;
-    @extend .uds-steplist;
-    @extend .uds-steplist-gold;
+	@extend .uds-steplist;
+	@extend .uds-steplist-gold;
 }
 
 /*--------------------------------------------------------------
 4. core/image
 --------------------------------------------------------------*/
 @mixin uds-figure {
-    img {
-        border: 1px solid $uds-color-base-gray-3;
-    }
-    
-    figcaption {
-        border: 1px solid $uds-color-base-gray-3;
-        border-top: none;
-        opacity: 1;
-        background: #fff 0% 0% no-repeat padding-box;
-        padding: 0.75rem;
-        font-size: .75rem;
-        
-        // Default WP figcaption adds margin.
-        margin-top: 0;
-        margin-bottom: 0;
-    }
+	img {
+		border: 1px solid $uds-color-base-gray-3;
+	}
+
+	figcaption {
+		border: 1px solid $uds-color-base-gray-3;
+		border-top: none;
+		opacity: 1;
+		background: #fff 0% 0% no-repeat padding-box;
+		padding: 0.75rem;
+		font-size: .75rem;
+
+		// Default WP figcaption adds margin.
+		margin-top: 0;
+		margin-bottom: 0;
+	}
 }
 
 .wp-block-image {
 
-    &.is-style-plain {
-        figcaption {
-            margin-top: $uds-size-spacing-2;
-        }
-    }
+	&.is-style-plain {
+		figcaption {
+			margin-top: $uds-size-spacing-2;
+		}
+	}
 
-    &.is-style-uds-figure {
-        @include uds-figure;
-    }
+	&.is-style-uds-figure {
+		@include uds-figure;
+	}
 
-    &.is-style-drop-shadow {
-        @include uds-figure;
-        img {
-            box-shadow: 0rem .5rem 1rem rgba(25,25,25,.2);
-        }
-    }
+	&.is-style-drop-shadow {
+		@include uds-figure;
+		box-shadow: 0rem .5rem 1rem rgba(25, 25, 25, .2);
 
-    &.is-style-circular {
-        @include uds-figure;
+		figcaption {
+			box-shadow: 0rem .5rem 1rem rgba(25, 25, 25, .2);
+		}
+	}
 
-        img {
-            border: none;
-            border-radius: 100%;
-            object-fit: cover;
-            aspect-ratio: 1 / 1;
-        }
+	&.is-style-circular {
+		@include uds-figure;
 
-        figcaption {
-            border: none;
-            text-align:center;
-        }
-    }
+		img {
+			border: none;
+			border-radius: 100%;
+			object-fit: cover;
+			aspect-ratio: 1 / 1;
+		}
+
+		figcaption {
+			border: none;
+			text-align: center;
+		}
+	}
+}
+
+
+// Image alignment classes prevent caption from extending beyond the width
+// of the <img> element within the <figure>. Taken from the 2023 theme.
+
+.wp-block-image.aligncenter,
+.wp-block-image .aligncenter,
+.wp-block-image.alignleft,
+.wp-block-image .alignleft,
+.wp-block-image.alignright,
+.wp-block-image .alignright {
+	display: table;
+}
+
+.wp-block-image.aligncenter>figcaption,
+.wp-block-image .aligncenter>figcaption,
+.wp-block-image.alignleft>figcaption,
+.wp-block-image .alignleft>figcaption,
+.wp-block-image.alignright>figcaption,
+.wp-block-image .alignright>figcaption {
+	display: table-caption;
+	caption-side: bottom;
 }
 
 /*--------------------------------------------------------------
 4. core/table
 --------------------------------------------------------------*/
 .wp-block-table {
-    @extend .uds-table;
+	@extend .uds-table;
 }
 
 
@@ -161,27 +189,27 @@ a.wp-block-button__link {
 --------------------------------------------------------------*/
 .wp-block-separator {
 
-    &.is-style-default {
-        // The default UDS styles are directly applied to the HR element.
-        border-top: 0;
-        height: 1px;
-        margin: 3rem 0;
-        background-color: #d0d0d0;
-    }
+	&.is-style-default {
+		// The default UDS styles are directly applied to the HR element.
+		border-top: 0;
+		height: 1px;
+		margin: 3rem 0;
+		background-color: #d0d0d0;
+	}
 
-    &.is-style-copy-divider {
+	&.is-style-copy-divider {
 
-        // Cancels out styles applied to <hr> by UDS Boostrap 4
-        background-color: transparent;
-        
-        // Applies gold bar style to psudo-element to avoid the use of max-width in the definition.
-        &:after {
-            content: '';
-            height: 0.5rem;
-            background-color: #ffc627;
-            max-width: 16rem;
-            width:100%;
-            position: absolute;
-        }
-    }
+		// Cancels out styles applied to <hr> by UDS Boostrap 4
+		background-color: transparent;
+
+		// Applies gold bar style to psudo-element to avoid the use of max-width in the definition.
+		&:after {
+			content: '';
+			height: 0.5rem;
+			background-color: #ffc627;
+			max-width: 16rem;
+			width: 100%;
+			position: absolute;
+		}
+	}
 }

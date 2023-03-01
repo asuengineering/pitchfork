@@ -3,12 +3,12 @@
 --------------------------------------------------------------*/
 
 main {
-	padding:0 2rem;
+	padding: 0 2rem;
 }
 
 @include media-breakpoint-up(xl) {
 	main {
-		padding:0;
+		padding: 0;
 	}
 }
 
@@ -17,17 +17,17 @@ main {
 --------------------------------------------------------------*/
 
 // Mobile styles.
-main > *:not(.alignfull):not(.alignwide){
+main>*:not(.alignfull):not(.alignwide) {
 	margin-left: auto;
 	margin-right: auto;
 }
 
-main > *.alignwide {
+main>*.alignwide {
 	margin-left: -1rem;
 	margin-right: -1rem;
 }
 
-main > *.alignfull {
+main>*.alignfull {
 	margin-left: -2rem;
 	margin-right: -2rem;
 }
@@ -35,20 +35,22 @@ main > *.alignfull {
 
 // Desktop styles.
 @include media-breakpoint-up(xl) {
-	main > *:not(.alignfull):not(.alignwide) {
+	main>*:not(.alignfull):not(.alignwide) {
 		max-width: 1200px;
 		margin-left: auto;
 		margin-right: auto;
 	}
-	
-	main > *.alignwide {
-		max-width: 1450px; /* width of the wide blocks */
+
+	main>*.alignwide {
+		max-width: 1450px;
+		/* width of the wide blocks */
 		margin-left: auto;
 		margin-right: auto;
 	}
-	
-	main > *.alignfull {
-		max-width: 1920px; /* width of the wide blocks */
+
+	main>*.alignfull {
+		max-width: 1920px;
+		/* width of the wide blocks */
 		margin-left: auto;
 		margin-right: auto;
 	}
