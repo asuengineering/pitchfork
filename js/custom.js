@@ -243,6 +243,18 @@ window.addEventListener("DOMContentLoaded", function (event) {
 });
 "use strict";
 
+// Adding "scrolled" event listener to header wrapper to make CSS rule for adjacent siblings easier.
+jQuery(document).ready(function ($) {
+  $(window).on('scroll', function (e) {
+    if ($(window).scrollTop() == 0) {
+      $('#header-container').removeClass();
+    } else {
+      $('#header-container').addClass('scrolled');
+    }
+  });
+});
+"use strict";
+
 // Toggles visibility of ACF controls within a menu object in menu.php
 jQuery(document).ready(function ($) {
   $('ul.menu.ui-sortable li.menu-item-depth-0').each(function () {
@@ -252,31 +264,6 @@ jQuery(document).ready(function ($) {
           $(this).hide();
         }
       });
-    }
-  });
-});
-"use strict";
-
-// Remove outer wrapper from react element to allow #asuHeader.scrolled to act as adjacent sibling.
-jQuery(document).ready(function ($) {
-  // Adding "scrolled" event listener to header wrapper to make CSS rule for margin-top easier.
-  $(window).on('scroll', function (e) {
-    if ($(window).scrollTop() == 0) {
-      $('#header-container').removeClass();
-    } else {
-      $('#header-container').addClass('scrolled');
-    }
-  });
-});
-"use strict";
-
-// Adding "scrolled" event listener to header wrapper to make CSS rule for adjacent siblings easier.
-jQuery(document).ready(function ($) {
-  $(window).on('scroll', function (e) {
-    if ($(window).scrollTop() == 0) {
-      $('#header-container').removeClass();
-    } else {
-      $('#header-container').addClass('scrolled');
     }
   });
 });
