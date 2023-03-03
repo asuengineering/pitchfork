@@ -146,6 +146,38 @@
 			"fontFamilies": []
 		},
 		"blocks": {
+			"core/post-title": {
+				"spacing": {
+					"margin": true,
+					"padding": true
+				},
+				"color": {
+					"background": true,
+					"text": false,
+					"palette": [
+						{
+							"slug": "gray-1",
+							"color": "#FAFAFA",
+							"name": "ASU Gray 1"
+						},
+						{
+							"slug": "gray-2",
+							"color": "#E8E8E8",
+							"name": "ASU Gray 2"
+						},
+						{
+							"slug": "gray-3",
+							"color": "#D0D0D0",
+							"name": "ASU Gray 3"
+						},
+						{
+							"slug": "gray-4",
+							"color": "#BFBFBF",
+							"name": "ASU Gray 4"
+						}
+					]
+				}
+			},
 			"core/heading": {
 				"border": {
 					"color": false,
@@ -596,6 +628,20 @@
 							"name": "ASU Gray 2"
 						}
 					]
+				}
+			}
+		}
+	},
+	"styles": {
+		"blocks": {
+			"core/post-title": {
+				"spacing": {
+					"padding": {
+						"top": "0",
+						"right": "0",
+						"bottom": "0",
+						"left": "0"
+					}
 				}
 			}
 		}
