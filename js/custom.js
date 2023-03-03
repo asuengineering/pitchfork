@@ -223,6 +223,7 @@ window.addEventListener("DOMContentLoaded", function (event) {
       navTree: udsHeaderVars.navTree,
       // navTree: exampleNavTree,
       title: udsHeaderVars.title,
+      baseUrl: udsHeaderVars.baseUrl,
       logo: udsHeaderVars.logo,
       isPartner: udsHeaderVars.isPartner,
       partnerLogo: udsHeaderVars.partnerLogo,

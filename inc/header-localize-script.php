@@ -107,7 +107,7 @@ if ( ! function_exists( 'pitchfork_localize_component_header_script' ) ) {
 			'navTree' => $menu_items,
 			'mobileNavTree' => $menu_items,
 			'expandOnHover' => $expand_on_hover,
-			'baseUrl' => '/',
+			'baseUrl' => site_url(),
 			'logo' => false,
 			// 'logo' => $logo_override,
 				// // [
