@@ -1,0 +1,56 @@
+name: Bug Report
+description: Create a bug report for an ASU Engineering product
+title: "[Bug]: "
+labels: ["bug", "triage"]
+assignees:
+  - SteveRyan-ASU
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to fill out this bug report!
+  - type: textarea
+    id: expected-behavior
+    attributes:
+      label: Expected Behavior
+      description: What were you trying to do when the bug occured? (If the admin page has a URL that's helpful.)
+    validations:
+      required: true
+  - type: textarea
+    id: actual-behavior
+    attributes:
+      label: Actual Behavior
+      description: Yes, we know it didn't work. What visible effects did the bug have? Errors in the console? A broken block? A forever spinning wheel of doom? Locusts and frogs raining from the sky?
+    validations:
+      required: true
+  - type: input
+    id: website
+    attributes:
+      label: Which site were you working on when you encountered the bug?
+      description: (Please provide a valid URL.)
+    validations:
+      required: true
+  - type: input
+    id: additional-locations
+    attributes:
+      label: Have you encoutered this bug when using a different web site?
+      description: If you have, please provide additional details or additional URLs.
+    validations:
+      required: no
+  - type: checkboxes
+    id: browsers
+    attributes:
+      label: What browsers are you seeing the problem on? (Did you test it using more than one browser?)
+      multiple: true
+      options:
+        - Firefox
+        - Chrome
+        - Safari
+        - Microsoft Edge
+  - type: input
+    id: browser-details
+    attributes:
+      label: What browser version are you using?
+      description: The best way to relay this information is to visit https://www.whatsmybrowser.org/ in a new browser tab using the same browser that you were using when you experienced the problem. Copy and paste the provided URL here.
+    validations:
+      required: false
