@@ -11,7 +11,6 @@ Cards - Table of Contents
 8. Checkbox Stacked Cards
 9. Checkbox Inline Cards
 10. Checkbox Inline Cards
-11. Generic Header Image Overlay
 -------------------------------------------------------------------*/
 
 .row-spaced {
@@ -31,6 +30,10 @@ Cards - Table of Contents
   height: $uds-component-card-basic-height-percent;
   display: $uds-component-card-basic-display;
   flex-direction: $uds-component-card-basic-flex-direction;
+
+  &.borderless {
+    border-color: transparent;
+  }
 }
 
 .card-hover:hover {
