@@ -24,28 +24,23 @@ function pitchfork_enqueue_scripts() {
 	$bs_js_version = $theme_version . '.' . filemtime( get_template_directory() . '/src/js/bootstrap.bundle.min.js' );
 	wp_enqueue_script( 'bootstrap-bundle', get_template_directory_uri() . '/src/js/bootstrap.bundle.min.js', array( 'jquery' ), $bs_js_version );
 
-	// Component header and support script.
-	$uds_header_vendor_version = $theme_version . '.' . filemtime( get_template_directory() . '/src/uds-header/js/vendor.umd.js' );
-	wp_enqueue_script( 'uds-header-vendor', get_template_directory_uri() . '/src/uds-header/js/vendor.umd.js', array( 'wp-element', 'wp-components' ), $uds_header_vendor_version, true );
+	// Component header, footer and cookie consent.
+	wp_enqueue_script ( 'component-header-vendor', get_stylesheet_directory_uri() . '/src/component-header/js/vendor.umd.js', array( 'wp-element', 'wp-components' ), null, false );
+	wp_enqueue_script ( 'component-header', get_stylesheet_directory_uri() . '/src/component-header/js/asuHeader.umd.js', array( 'wp-element', 'wp-components' ), null, false );
 
-	$uds_header_version = $theme_version . '.' . filemtime( get_template_directory() . '/src/uds-header/js/asuHeader.umd.js' );
-	wp_enqueue_script( 'uds-header', get_template_directory_uri() . '/src/uds-header/js/asuHeader.umd.js', array( 'wp-element', 'wp-components' ), $uds_header_version, true );
+	wp_enqueue_script ( 'component-footer-vendor', get_stylesheet_directory_uri() . '/src/component-footer/js/vendor.umd.js', array( 'wp-element', 'wp-components' ), null, false );
+	wp_enqueue_script ( 'component-footer', get_stylesheet_directory_uri() . '/src/component-footer/js/asuFooter.umd.js', array( 'wp-element', 'wp-components' ), null, false );
 
-	// Custom scripts from the theme.
+	wp_enqueue_script ( 'component-cookie-vendor', get_stylesheet_directory_uri() . '/src/component-cookie-consent/js/vendor.umd.js', array( 'wp-element', 'wp-components' ), null, false );
+	wp_enqueue_script ( 'component-cookie', get_stylesheet_directory_uri() . '/src/component-cookie-consent/js/asuCookieConsent.umd.js', array( 'wp-element', 'wp-components' ), null, false );
+
+	// Custom scripts from the theme. Includes init files for above components.
 	$custom_js_version = $theme_version . '.' . filemtime( get_template_directory() . '/js/custom.min.js' );
 	wp_enqueue_script( 'pitchfork-custom', get_template_directory_uri() . '/js/custom.min.js', array( 'jquery', 'bootstrap-bundle' ), $custom_js_version, true );
 
-	// Cookie consent scripts.
-	// wp_enqueue_script ( 'cookie-consent-preact', get_template_directory_uri() . '/src/preact/js/preact.min.js', array(), null, false );
-	// wp_enqueue_script ( 'cookie-consent', get_template_directory_uri() . '/src/cookie-consent/js/cookie-consent.min.js', array('cookie-consent-preact'), null, false );
-
-	// Font Awesome. Kit distributed by ASU Engineering.
+	// Font Awesome. Kit licensed and distributed by ASU Engineering for use with this theme.
 	wp_enqueue_script ( 'font-awesome-kit', 'https://kit.fontawesome.com/51b562cd96.js', array(), null, false );
 	wp_script_add_data( 'font-awesome-kit', 'crossorigin', 'anonymous' );
-
-
-	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 }
 add_action( 'wp_enqueue_scripts', 'pitchfork_enqueue_scripts' );
