@@ -417,7 +417,7 @@ gulp.task(
  * Copy Assets from node_modules.
  *
  * Does the following:
- * 1. Copies files from bootstrap4-theme to /src
+ * 1. Copies files from bootstrap4-theme to various places within /src
  * 2. Copies files from component-cookie-consent to /src
  * 3. Copies files from component-header to /src
  * 4. Copies files from component-footer to /src
