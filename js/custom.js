@@ -232,7 +232,9 @@ window.addEventListener("DOMContentLoaded", function (event) {
       parentOrg: udsHeaderVars.parentOrg,
       parentOrgUrl: udsHeaderVars.parentOrgUrl,
       breakpoint: udsHeaderVars.breakpoint,
-      buttons: udsHeaderVars.buttons
+      buttons: udsHeaderVars.buttons,
+      searchUrl: udsHeaderVars.searchUrl,
+      site: udsHeaderVars.site
     }
   });
 });
