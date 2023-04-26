@@ -238,9 +238,14 @@ window.addEventListener("DOMContentLoaded", function (event) {
 });
 "use strict";
 
-// Cookie consent form initialization.
 window.addEventListener("DOMContentLoaded", function (event) {
-  // AsuCookieConsent.init();
+  AsuCookieConsent.initCookieConsent({
+    targetSelector: "#cookie-consent-container",
+    props: {
+      enableCookieConsent: true,
+      expirationTime: 90 // Number of days to expire the consent
+    }
+  });
 });
 "use strict";
 
@@ -265,6 +270,29 @@ jQuery(document).ready(function ($) {
           $(this).hide();
         }
       });
+    }
+  });
+});
+"use strict";
+
+// console.log(udsFooterVars);
+
+window.addEventListener("DOMContentLoaded", function (event) {
+  AsuFooter.initASUFooter({
+    targetSelector: "#asu-react-footer",
+    props: {
+      // contact: udsFooterVars
+    }
+  });
+});
+"use strict";
+
+window.addEventListener("DOMContentLoaded", function (event) {
+  AsuCookieConsent.initCookieConsent({
+    targetSelector: "#cookieConsentContainer",
+    props: {
+      enableCookieConsent: true,
+      expirationTime: 90 // Number of days to expire the consent
     }
   });
 });
