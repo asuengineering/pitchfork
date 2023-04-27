@@ -1,5 +1,17 @@
 "use strict";
 
+// console.log(udsFooterVars);
+
+window.addEventListener("DOMContentLoaded", function (event) {
+  AsuFooter.initASUFooter({
+    targetSelector: "#asu-react-footer",
+    props: {
+      // contact: udsFooterVars
+    }
+  });
+});
+"use strict";
+
 // udsHeaderVars are set in inc/enqueue.php
 var exampleNavTree = [{
   href: "/",
@@ -272,29 +284,6 @@ jQuery(document).ready(function ($) {
           $(this).hide();
         }
       });
-    }
-  });
-});
-"use strict";
-
-// console.log(udsFooterVars);
-
-window.addEventListener("DOMContentLoaded", function (event) {
-  AsuFooter.initASUFooter({
-    targetSelector: "#asu-react-footer",
-    props: {
-      // contact: udsFooterVars
-    }
-  });
-});
-"use strict";
-
-window.addEventListener("DOMContentLoaded", function (event) {
-  AsuCookieConsent.initCookieConsent({
-    targetSelector: "#cookieConsentContainer",
-    props: {
-      enableCookieConsent: true,
-      expirationTime: 90 // Number of days to expire the consent
     }
   });
 });
