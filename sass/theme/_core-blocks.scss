@@ -151,6 +151,17 @@ a.wp-block-button__link {
 			text-align: center;
 		}
 	}
+
+	/**
+	 * Style the anchor tag so that the focus is visible on a linked image.
+	 * Display block is OK here. The align-* classes set the alignment directly
+	 * on the <img> tag, effectively overriding any display property here.
+	 **/
+	a {
+		display: block;
+		width: auto;
+		height: auto;
+	}
 }
 
 
