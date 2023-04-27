@@ -54,9 +54,6 @@ if ( ! function_exists( 'pitchfork_localize_component_header_script' ) ) {
 			];
 		}
 
-		$parent_org_name = get_theme_mod( 'parent_unit_name' );
-		$parent_org_link = get_theme_mod( 'parent_unit_link' );
-
 		// Build navTree / mobileNavTree props using walker class.
 		if ( has_nav_menu('primary')) {
 			$menu_items = wp_nav_menu([
@@ -95,7 +92,6 @@ if ( ! function_exists( 'pitchfork_localize_component_header_script' ) ) {
 
 		// If there are no CTA buttons defined in the menu, the CTA walker explicitly returns a
 		// serlizized empty array. Shouldn't be any need to further check is_serialized().
-
 		$cta_buttons = maybe_unserialize($cta_buttons);
 
 		// Parse domain name from site_url() function to include within Search prop.
@@ -124,13 +120,22 @@ if ( ! function_exists( 'pitchfork_localize_component_header_script' ) ) {
 			// 'partnerLogo' => $partner_logo,
 			'title' => get_bloginfo(),
 			'animateTitle' => $animate_title,
-			'parentOrg' => $parent_org_name,
-			'parentOrgUrl' => $parent_org_link,
 			'breakpoint' => $mobile_menu_breakpoint,
 			'buttons' => $cta_buttons,
 			'searchUrl' => 'https://search.asu.edu/search',
 			'site' => $searchDomain,
 		);
+
+		// Add the parent org name and URL.
+		// Don't pass the props unless both are present within the customzier.
+
+		$parent_org_name = get_theme_mod( 'parent_unit_name' );
+		$parent_org_link = get_theme_mod( 'parent_unit_link' );
+
+		if ( (! empty( $parent_org_name ) ) && (! empty( $parent_org_link ) ) ) {
+			$localized_array['parentOrg'] = $parent_org_name;
+			$localized_array['parentOrgUrl'] = $parent_org_link;
+		}
 
 		// pass WordPress PHP variables to the uds-header-scripts script we enqueued above
 		// These variables are props for the header React component
