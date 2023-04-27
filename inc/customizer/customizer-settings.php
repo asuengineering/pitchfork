@@ -125,43 +125,43 @@ if ( ! function_exists( 'uds_wp_register_theme_customizer_settings' ) ) {
 		/**
 		 * Site Name as a link checkbox
 		 */
-		$wp_customize->add_setting(
-			'sitename_as_link',
-			array(
-				'default'           => false,
-				'capability'        => 'edit_theme_options',
-				'type'              => 'theme_mod',
-				'sanitize_callback' => 'uds_wp_sanitize_nothing',
-				'transport'         => 'postMessage',
-			)
-		);
+		// $wp_customize->add_setting(
+		// 	'sitename_as_link',
+		// 	array(
+		// 		'default'           => false,
+		// 		'capability'        => 'edit_theme_options',
+		// 		'type'              => 'theme_mod',
+		// 		'sanitize_callback' => 'uds_wp_sanitize_nothing',
+		// 		'transport'         => 'postMessage',
+		// 	)
+		// );
 
-		$wp_customize->add_control(
-			'sitename_as_link_control',
-			array(
-				'description' => __( '<p>Determines if the site name in the header is also a link to the root (home page) of your site.</p>', 'uds-wordpress-theme' ),
-				'label'       => __( 'Make title a link', 'uds-wordpress-theme' ),
-				'section'     => 'title_tagline',
-				'type'        => 'checkbox',
-				'settings'    => 'sitename_as_link',
-				'priority'    => 15,
-			)
-		);
+		// $wp_customize->add_control(
+		// 	'sitename_as_link_control',
+		// 	array(
+		// 		'description' => __( '<p>Determines if the site name in the header is also a link to the root (home page) of your site.</p>', 'uds-wordpress-theme' ),
+		// 		'label'       => __( 'Make title a link', 'uds-wordpress-theme' ),
+		// 		'section'     => 'title_tagline',
+		// 		'type'        => 'checkbox',
+		// 		'settings'    => 'sitename_as_link',
+		// 		'priority'    => 15,
+		// 	)
+		// );
 
-		$wp_customize->selective_refresh->add_partial(
-			'sitename_as_link_control',
-			array(
-				'selector'        => '.navbar-container',
-				'container_inclusive' => false,
-				'render_callback' => function() {
-					return (
-						uds_wp_render_title_wrapper()
-						&&
-						uds_wp_render_subdomain_name()
-					);
-				},
-			)
-		);
+		// $wp_customize->selective_refresh->add_partial(
+		// 	'sitename_as_link_control',
+		// 	array(
+		// 		'selector'        => '.navbar-container',
+		// 		'container_inclusive' => false,
+		// 		'render_callback' => function() {
+		// 			return (
+		// 				uds_wp_render_title_wrapper()
+		// 				&&
+		// 				uds_wp_render_subdomain_name()
+		// 			);
+		// 		},
+		// 	)
+		// );
 
 		// /**
 		//  * Alternate 'Display' Name for the Site
@@ -260,7 +260,7 @@ if ( ! function_exists( 'uds_wp_register_theme_customizer_settings' ) ) {
 		$wp_customize->add_control(
 			'parent_unit_link',
 			array(
-				'description'       => __( '<p>To make the Parent Unit a link, provide the URL here.</p>', 'uds-wordpress-theme' ),
+				'description'       => __( '<p>The parent unit will not be displayed unless there is both a name and a URL present.</p>', 'uds-wordpress-theme' ),
 				'label'      => __( 'Parent Unit URL', 'uds-wordpress-theme' ),
 				'section'    => 'title_tagline',
 				'settings'   => 'parent_unit_link',
