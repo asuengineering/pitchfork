@@ -108,16 +108,7 @@ if ( ! function_exists( 'pitchfork_localize_component_header_script' ) ) {
 			'expandOnHover' => $expand_on_hover,
 			'baseUrl' => site_url(),
 			'logo' => false,
-			// 'logo' => $logo_override,
-				// // [
-				// // 	'alt' => 'alt text',        // default: 'Arizona State University'
-				// // 	'src' => '/wp-content/uploads/2022/11/US-Navy-logo.jpg',        // default: 'arizona-state-university-logo-vertical.png'
-				// // 	'mobileSrc' => '/wp-content/uploads/2022/11/US-Navy-logo.jpg',  // default: 'arizona-state-university-logo.png'
-				// // 	'brandLink' => 'https://asu.edu',  // default: 'https://asu.edu'
-				// // ],
 			'isPartner' => false,
-			// 'isPartner' => $show_partner_logo,
-			// 'partnerLogo' => $partner_logo,
 			'title' => get_bloginfo(),
 			'animateTitle' => $animate_title,
 			'breakpoint' => $mobile_menu_breakpoint,
@@ -125,6 +116,21 @@ if ( ! function_exists( 'pitchfork_localize_component_header_script' ) ) {
 			'searchUrl' => 'https://search.asu.edu/search',
 			'site' => $searchDomain,
 		);
+
+		/**
+		 * TODO: Add support for logo and partner logo settings.
+		 * Replace props for logo and partner with schema below.
+		 *
+		 * 	'logo' => $logo_override,
+		 *  [
+		 *      'alt' => 'alt text',        // default: 'Arizona State University'
+		 *      'src' => '/wp-content/uploads/2022/11/US-Navy-logo.jpg',        // default: 'arizona-state-university-logo-vertical.png'
+		 *      'mobileSrc' => '/wp-content/uploads/2022/11/US-Navy-logo.jpg',  // default: 'arizona-state-university-logo.png'
+		 *      'brandLink' => 'https://asu.edu',  // default: 'https://asu.edu'
+		 *  ],
+		 *  'isPartner' => $show_partner_logo,
+		 *  'partnerLogo' => $partner_logo,
+		 **/
 
 		// Add the parent org name and URL.
 		// Don't pass the props unless both are present within the customzier.
