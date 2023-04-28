@@ -27,7 +27,7 @@ var exampleNavTree = [{
     text: "Mauris viverra, sem nec"
   }, {
     href: "https://www.asu.edu/?feature=academics",
-    text: "Academics"
+    text: "Academic"
   }, {
     href: "https://www.asu.edu/?feature=research",
     text: "Research"
