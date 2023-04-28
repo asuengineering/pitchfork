@@ -5,6 +5,17 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+### Version 1.9
+
+This release was a maintenance update of the theme, primarily to update all package references to the old `@asu-design-system` with new references to `@asu` (https://github.com/orgs/ASU/packages).
+
+- ADDED: Added back the temporarily disabled cookie consent banner. Functioning normally based on new code provided within `@asu/component-cookie-consent`
+- ADDED: Added partial support for `@asu/component-footer`. Specifically, the gold and gray bars at the bottom of the page are now updated via the React component.
+- FIX: Site search via the "universal" grey bar in the header wasn't working correctly. Addressed by supplying the correct props to an updated component from `@asu/component-header`.
+- CHANGE: Parent site will no longer appear unless both the parent name and parent URL are specified in the customizer. The `@asu/component-header` doesn't support an option for providing only a parent site name.
+- CHANGE: The option to link/unlink the site title in the header was also removed from the customizer. This configuration is also not supported by `@asu/component-header`.
+- FIX: The focus outline for a linked image was not displaying correctly. Added additional CSS rules to address the issue.
+
 ### Version 1.8
 
 - FIX: The gold underline in the header was not applied to the current page if it was a listed element in the navigation. Also, the gold underline for the home icon was always present no matter what page was viewed. Both errors addressed.
