@@ -5,6 +5,10 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+### Version 1.9.1 (Bug Fix)
+
+FIX: Previous release used a reference to `get_stylesheet_directory_uri()` to enqueue assets from the theme. This function works correctly for when there is no child theme active. But, this results in assets not being loaded correctly when a child theme is present. Changed references to `get_template_directory_uri()` to force the assets to enqueue from the parent theme instead.
+
 ### Version 1.9
 
 This release was a maintenance update of the theme, primarily to update all package references to the old `@asu-design-system` with new references to `@asu` (https://github.com/orgs/ASU/packages).
