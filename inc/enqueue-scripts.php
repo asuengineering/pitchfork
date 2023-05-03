@@ -25,14 +25,14 @@ function pitchfork_enqueue_scripts() {
 	wp_enqueue_script( 'bootstrap-bundle', get_template_directory_uri() . '/src/js/bootstrap.bundle.min.js', array( 'jquery' ), $bs_js_version );
 
 	// Component header, footer and cookie consent.
-	wp_enqueue_script ( 'component-header-vendor', get_stylesheet_directory_uri() . '/src/component-header/js/vendor.umd.js', array( 'wp-element', 'wp-components' ), null, false );
-	wp_enqueue_script ( 'component-header', get_stylesheet_directory_uri() . '/src/component-header/js/asuHeader.umd.js', array( 'wp-element', 'wp-components' ), null, false );
+	wp_enqueue_script ( 'component-header-vendor', get_template_directory_uri()  . '/src/component-header/js/vendor.umd.js', array( 'wp-element', 'wp-components' ), null, false );
+	wp_enqueue_script ( 'component-header', get_template_directory_uri()  . '/src/component-header/js/asuHeader.umd.js', array( 'wp-element', 'wp-components' ), null, false );
 
-	wp_enqueue_script ( 'component-footer-vendor', get_stylesheet_directory_uri() . '/src/component-footer/js/vendor.umd.js', array( 'wp-element', 'wp-components' ), null, false );
-	wp_enqueue_script ( 'component-footer', get_stylesheet_directory_uri() . '/src/component-footer/js/asuFooter.umd.js', array( 'wp-element', 'wp-components' ), null, false );
+	wp_enqueue_script ( 'component-footer-vendor', get_template_directory_uri()  . '/src/component-footer/js/vendor.umd.js', array( 'wp-element', 'wp-components' ), null, false );
+	wp_enqueue_script ( 'component-footer', get_template_directory_uri()  . '/src/component-footer/js/asuFooter.umd.js', array( 'wp-element', 'wp-components' ), null, false );
 
-	wp_enqueue_script ( 'component-cookie-vendor', get_stylesheet_directory_uri() . '/src/component-cookie-consent/js/vendor.umd.js', array( 'wp-element', 'wp-components' ), null, false );
-	wp_enqueue_script ( 'component-cookie', get_stylesheet_directory_uri() . '/src/component-cookie-consent/js/asuCookieConsent.umd.js', array( 'wp-element', 'wp-components' ), null, false );
+	wp_enqueue_script ( 'component-cookie-vendor', get_template_directory_uri()  . '/src/component-cookie-consent/js/vendor.umd.js', array( 'wp-element', 'wp-components' ), null, false );
+	wp_enqueue_script ( 'component-cookie', get_template_directory_uri()  . '/src/component-cookie-consent/js/asuCookieConsent.umd.js', array( 'wp-element', 'wp-components' ), null, false );
 
 	// Custom scripts from the theme. Includes init files for above components.
 	$custom_js_version = $theme_version . '.' . filemtime( get_template_directory() . '/js/custom.min.js' );
