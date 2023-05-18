@@ -5,6 +5,10 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+### Version 1.9.2
+
+- ADD: Support for the new `acf/profile-data` block within [Pitchfork People](https://github.com/asuengineering/pitchfork-people) was added to `theme.json`.
+
 ### Version 1.9.1 (Bug Fix)
 
 FIX: Previous release used a reference to `get_stylesheet_directory_uri()` to enqueue assets from the theme. This function works correctly for when there is no child theme active. But, this results in assets not being loaded correctly when a child theme is present. Changed references to `get_template_directory_uri()` to force the assets to enqueue from the parent theme instead.
@@ -13,8 +17,8 @@ FIX: Previous release used a reference to `get_stylesheet_directory_uri()` to en
 
 This release was a maintenance update of the theme, primarily to update all package references to the old `@asu-design-system` with new references to `@asu` (https://github.com/orgs/ASU/packages).
 
-- ADDED: Added back the temporarily disabled cookie consent banner. Functioning normally based on new code provided within `@asu/component-cookie-consent`
-- ADDED: Added partial support for `@asu/component-footer`. Specifically, the gold and gray bars at the bottom of the page are now updated via the React component.
+- ADD: Added back the temporarily disabled cookie consent banner. Functioning normally based on new code provided within `@asu/component-cookie-consent`
+- ADD: Added partial support for `@asu/component-footer`. Specifically, the gold and gray bars at the bottom of the page are now updated via the React component.
 - FIX: Site search via the "universal" grey bar in the header wasn't working correctly. Addressed by supplying the correct props to an updated component from `@asu/component-header`.
 - CHANGE: Parent site will no longer appear unless both the parent name and parent URL are specified in the customizer. The `@asu/component-header` doesn't support an option for providing only a parent site name.
 - CHANGE: The option to link/unlink the site title in the header was also removed from the customizer. This configuration is also not supported by `@asu/component-header`.
