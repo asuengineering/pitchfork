@@ -8,6 +8,7 @@
 4. Hero, Desktop
 5. Story Hero, Mobile
 6. Story Hero, Desktop
+7. Hero, Degree Pages
 --------------------------------------------------------------*/
 
 /*--------------------------------------------------------------
@@ -26,7 +27,7 @@ $uds-hero-gradient-overlay: linear-gradient(
 
 @mixin like-h3 {
   font-size: $uds-size-font-xl;
-  letter-spacing: $uds-component-heading-three-letter-spacing;
+  letter-spacing: -0.0525rem;
   font-weight: 700;
 }
 
@@ -53,16 +54,15 @@ $uds-hero-gradient-overlay: linear-gradient(
 --------------------------------------------------------------*/
 @include media-breakpoint-down(sm) {
   // Styles to handle the size of the buttons on mobile in the hero
-  div[class^='uds-hero'] {
+  div[class^="uds-hero"] {
     .btn {
-      font-size: $uds-component-button-medium-font-size;
-      padding: $uds-component-button-padding-y-medium
-        $uds-component-button-padding-x-medium;
+      font-size: 0.875rem;
+      padding: 0.5rem 1rem;
     }
   }
 }
 
-div[class^='uds-hero'] {
+div[class^="uds-hero"] {
   display: grid;
   grid-template-columns: $uds-size-spacing-4 1fr $uds-size-spacing-4;
   grid-template-rows: 1fr repeat(3, auto) $uds-size-spacing-6;
@@ -75,7 +75,7 @@ div[class^='uds-hero'] {
 
   // Column alignment for decendent items
   h1,
-  [role='doc-subtitle'],
+  [role="doc-subtitle"],
   a.btn,
   .content,
   .btn-row {
@@ -92,7 +92,7 @@ div[class^='uds-hero'] {
     object-fit: cover;
   }
 
-  [role='doc-subtitle'] {
+  [role="doc-subtitle"] {
     @include like-h3;
     display: inline-block;
     grid-row: 2;
@@ -101,12 +101,15 @@ div[class^='uds-hero'] {
     .highlight-white {
       @include like-h3-highlight-white;
     }
+
     .highlight-black {
       @include like-h3-highlight-black;
     }
+
     .highlight-gold {
       @include like-h3-highlight-gold;
     }
+
     span {
       box-decoration-break: clone;
       -webkit-box-decoration-break: clone;
@@ -117,6 +120,7 @@ div[class^='uds-hero'] {
   h1 {
     grid-row: 3;
     margin: 0;
+
     span {
       margin-left: 0.15em;
     }
@@ -129,9 +133,9 @@ div[class^='uds-hero'] {
 
   .content {
     grid-row: 4;
-    font-size: $uds-component-heroes-uds-hero-uds-hero-container-p-font-size;
-    letter-spacing: $uds-component-heading-three-letter-spacing;
-    line-height: $uds-component-heading-three-line-height;
+    font-size: $uds-size-font-xl;
+    letter-spacing: -0.0525rem;
+    line-height: 1.75rem;
     font-weight: $uds-font-weight-bold;
   }
 
@@ -170,7 +174,7 @@ div[class^='uds-hero'] {
 
   // General styles for brackground overlay
   .hero-overlay {
-    content: '';
+    content: "";
     height: 100%;
     width: 100%;
     background-image: $uds-hero-gradient-overlay;
@@ -228,6 +232,7 @@ div.uds-hero-md {
   height: 21rem;
   // by design, the hero-md has no content on mobile, change grid template rows and hide .content
   grid-template-rows: 1fr auto auto 3rem;
+
   .content {
     display: none;
   }
@@ -292,12 +297,13 @@ div.uds-hero-lg {
 3. Hero, Tablet
 --------------------------------------------------------------*/
 @include media-breakpoint-up(md) {
-  div[class^='uds-hero'] {
+  div[class^="uds-hero"] {
     grid-template-columns: 1fr minmax(0, 700px) 1fr;
+    margin-bottom: 0;
 
     // Column alignment for decendent items
     h1,
-    [role='doc-subtitle'],
+    [role="doc-subtitle"],
     a.btn,
     .content,
     .btn-row {
@@ -312,7 +318,7 @@ div.uds-hero-lg {
 
     .content {
       grid-row: 4;
-      font-size: $uds-component-heroes-uds-hero-uds-hero-container-p-font-size;
+      font-size: $uds-size-font-xl;
       font-weight: $uds-font-weight-bold;
       line-height: 1.75rem;
       margin-bottom: 2rem;
@@ -352,6 +358,7 @@ div.uds-hero-lg {
       top: 14.5rem;
     }
   }
+
   div.uds-hero-md {
     height: $uds-size-spacing-64;
     // TODO; remove this, it's a fallback for buttons without has-btn-row
@@ -397,6 +404,7 @@ div.uds-hero-lg {
       .content {
         grid-row: 4;
       }
+
       .btn-row {
         position: static;
         grid-row: 5;
@@ -414,18 +422,22 @@ div.uds-hero-lg {
       margin-bottom: $uds-size-spacing-4;
     }
   }
+
+  div.uds-hero-lg.uds-video-hero.has-btn-row .hero-overlay {
+    height: 100%;
+  }
 }
 
 /*--------------------------------------------------------------
 4. Hero, Desktop
 --------------------------------------------------------------*/
 @include media-breakpoint-up(lg) {
-  div[class^='uds-hero'] {
+  div[class^="uds-hero"] {
     grid-template-columns: 1fr minmax(0, 940px) 1fr;
 
     // Column alignment for decendent items
     h1,
-    [role='doc-subtitle'],
+    [role="doc-subtitle"],
     a.btn,
     .content,
     .btn-row {
@@ -435,27 +447,30 @@ div.uds-hero-lg {
 }
 
 @include media-breakpoint-up(xl) {
-  div[class^='uds-hero'] {
+  div[class^="uds-hero"] {
     grid-template-columns: 1fr minmax(0, 1200px) 1fr;
 
     // Column alignment for decendent items
     h1,
-    [role='doc-subtitle'],
+    [role="doc-subtitle"],
     a.btn,
     .content,
     .btn-row {
       max-width: calc(1200px - 34%);
     }
   }
+
   div.uds-hero-lg {
     height: 42.75rem;
 
     &.uds-video-hero {
       position: relative;
       overflow: hidden;
+
       &:after {
         display: none;
       }
+
       .hero {
         display: none;
       }
@@ -577,5 +592,15 @@ div.uds-hero-lg {
 @include media-breakpoint-up(xl) {
   .uds-story-hero {
     grid-template-columns: 1fr calc(1200px + 12px + 12px) 1fr;
+  }
+}
+
+/*--------------------------------------------------------------
+7. Hero, Degree Pages
+--------------------------------------------------------------*/
+#degreeListingPageContainer,
+#degreeDetailPageContainer {
+  div[class^="uds-hero"] {
+    margin-bottom: 0;
   }
 }

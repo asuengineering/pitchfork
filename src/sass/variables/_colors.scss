@@ -13,7 +13,7 @@ $gray-7: $uds-color-base-gray-7;
 $body-color: $uds-color-base-gray-7;
 
 $grays: ();
-// stylelint-disable-next-line scss/dollar-variable-default
+
 $grays: map-merge(
   (
     '1': $gray-1,
@@ -64,7 +64,7 @@ $success: $uds-color-alerts-success;
 $info: $uds-color-alerts-info;
 
 $theme-colors: ();
-// stylelint-disable-next-line scss/dollar-variable-default
+
 $theme-colors: map-merge(
   (
     'gold': $gold,
@@ -101,7 +101,7 @@ $link-hover-decoration: none;
 
 :focus {
   outline: 0;
-  box-shadow: 0 0 8px #00baff !important;
+  box-shadow: 0 0 8px $uds-color-base-bluefocus !important;
 }
 
 // Darken percentage for links with `.text-*` class (e.g. `.text-success`)

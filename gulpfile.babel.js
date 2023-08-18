@@ -434,17 +434,17 @@ gulp.task("upboot", function (done) {
 	// Copy UDS image files to /img at root level.
 	// Accomodates default setting for image paths from shipped Bootstrap CSS.
 	gulp
-		.src(paths.node + "/@asu/bootstrap4-theme/dist/img/**/*")
+		.src(paths.node + "/@asu/unity-bootstrap-theme/dist/img/**/*")
 		.pipe(gulp.dest(paths.dev + "/img/asu-unity"));
 
 	// Copy distributed JS packages from Bootstrap (co-located within the ASU Bootstrap-4 theme).
 	gulp
-		.src(paths.node + "/@asu/bootstrap4-theme/dist/js/*.js")
+		.src(paths.node + "/@asu/unity-bootstrap-theme/dist/js/*.js")
 		.pipe(gulp.dest(paths.dev + "/js"));
 
 	// Copy UDS SCSS files
 	gulp
-		.src(paths.node + "/@asu/bootstrap4-theme/src/scss/**/*.scss")
+		.src(paths.node + "/@asu/unity-bootstrap-theme/src/scss/**/*.scss")
 		.pipe(gulp.dest(paths.dev + "/sass"));
 
 	// Copy UDS cookie-consent JS files
