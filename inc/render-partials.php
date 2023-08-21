@@ -252,7 +252,7 @@ function uds_wp_render_footer_logo() {
 			echo wp_kses(
 				sprintf(
 					$logo_template,
-					get_template_directory_uri() . '/src/img/endorsed-logo/' . $filename,
+					get_template_directory_uri() . '/src/endorsed-logos/' . $filename,
 					get_bloginfo( 'name' ) . ' Logo',
 					$logo_link
 				),
