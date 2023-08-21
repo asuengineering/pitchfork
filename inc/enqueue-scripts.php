@@ -17,12 +17,12 @@ function pitchfork_enqueue_scripts() {
 	$theme_version = $the_theme->get( 'Version' );
 
 	// Compiled SASS from ASU Boostrap + theme modifications.
-	$css_version = $theme_version . '.' . filemtime( get_template_directory() . '/css/theme.min.css' );
-	wp_enqueue_style( 'pitchfork-styles', get_template_directory_uri() . '/css/theme.min.css', array(), $css_version );
+	$css_version = $theme_version . '.' . filemtime( get_template_directory() . '/dist/css/theme.css' );
+	wp_enqueue_style( 'pitchfork-styles', get_template_directory_uri() . '/dist/css/theme.css', array(), $css_version );
 
 	// Jquery + Bootstrap Bundle with PopperJS.
-	$bs_js_version = $theme_version . '.' . filemtime( get_template_directory() . '/src/js/bootstrap.bundle.min.js' );
-	wp_enqueue_script( 'bootstrap-bundle', get_template_directory_uri() . '/src/js/bootstrap.bundle.min.js', array( 'jquery' ), $bs_js_version );
+	$bs_js_version = $theme_version . '.' . filemtime( get_template_directory() . '/src/unity-bootstrap-theme/js/bootstrap.bundle.min.js' );
+	wp_enqueue_script( 'bootstrap-bundle', get_template_directory_uri() . '/src/unity-bootstrap-theme/js/bootstrap.bundle.min.js', array(), $bs_js_version );
 
 	// Component header, footer and cookie consent.
 	wp_enqueue_script ( 'component-header-vendor', get_template_directory_uri()  . '/src/component-header/js/vendor.umd.js', array( 'wp-element', 'wp-components' ), null, false );
@@ -35,8 +35,8 @@ function pitchfork_enqueue_scripts() {
 	wp_enqueue_script ( 'component-cookie', get_template_directory_uri()  . '/src/component-cookie-consent/js/asuCookieConsent.umd.js', array( 'wp-element', 'wp-components' ), null, false );
 
 	// Custom scripts from the theme. Includes init files for above components.
-	$custom_js_version = $theme_version . '.' . filemtime( get_template_directory() . '/js/custom.min.js' );
-	wp_enqueue_script( 'pitchfork-custom', get_template_directory_uri() . '/js/custom.min.js', array( 'jquery', 'bootstrap-bundle' ), $custom_js_version, true );
+	$custom_js_version = $theme_version . '.' . filemtime( get_template_directory() . '/dist/js/custom.min.js' );
+	wp_enqueue_script( 'pitchfork-custom', get_template_directory_uri() . '/dist/js/custom.min.js', array( 'bootstrap-bundle' ), $custom_js_version, true );
 
 	// Font Awesome. Kit licensed and distributed by ASU Engineering for use with this theme.
 	wp_enqueue_script ( 'font-awesome-kit', 'https://kit.fontawesome.com/51b562cd96.js', array(), null, false );
