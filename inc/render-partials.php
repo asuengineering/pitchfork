@@ -441,7 +441,7 @@ function uds_wp_render_asu_footer_logo() {
 	echo wp_kses(
 		sprintf(
 			$logo_template,
-			get_template_directory_uri() . '/src/img/university-logo/ASU_University_2_Horiz_RGB_White_150ppi.png',
+			get_template_directory_uri() . '/src/unity-bootstrap-theme/img/asu-logo/asu-university-horiz-white.png',
 			get_bloginfo( 'name' ) . ' Logo',
 			'https://asu.edu'
 		),
