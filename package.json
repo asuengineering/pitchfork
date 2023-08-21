@@ -50,6 +50,7 @@
     "cache-clear": "gulp clearCache"
   },
   "dependencies": {
-    "bootstrap": "^4.6.0"
+    "bootstrap": "^5.2.3",
+    "gulp-wp": "^0.6.6"
   }
 }
