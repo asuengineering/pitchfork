@@ -4,10 +4,11 @@ Loads UDS-Bootstrap-4 and appends additional styles as needed.
 --------------------------------------------------------------*/
 
 // Override image base path for theme css
-$image-assets-path: "/wp-content/themes/pitchfork/src/img/asu-unity";
+$image-assets-path: "/wp-content/themes/pitchfork/src/unity-bootstrap-theme/img";
 
 // Import Bootstrap.
-@import "../src/unity-bootstrap-theme/unity-bootstrap-theme";
+@import "../unity-bootstrap-theme/unity-bootstrap-theme.bundle";
+
 
 // Parials applicable to both theme (FE) and the editor.
 @import 'theme/has-color';
