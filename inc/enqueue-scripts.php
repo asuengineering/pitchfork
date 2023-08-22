@@ -56,20 +56,20 @@ function pitchfork_enqueue_admin_scripts() {
 	$theme_version = $the_theme->get( 'Version' );
 
 	// SASS fixes specifically for the admin area. (Gutenberg).
-	$admin_css_version = $theme_version . '.' . filemtime( get_template_directory() . '/css/admin.min.css' );
-	wp_enqueue_style( 'pitchfork-admin-styles', get_template_directory_uri() . '/css/admin.min.css', array(), $admin_css_version );
+	$admin_css_version = $theme_version . '.' . filemtime( get_template_directory() . '/dist/css/admin.css' );
+	wp_enqueue_style( 'pitchfork-admin-styles', get_template_directory_uri() . '/dist/css/admin.css', array(), $admin_css_version );
 
 	// Jquery + Bootstrap Bundle with PopperJS.
-	$bs_js_version = $theme_version . '.' . filemtime( get_template_directory() . '/src/js/bootstrap.bundle.min.js' );
-	wp_enqueue_script( 'bootstrap-bundle', get_template_directory_uri() . '/src/js/bootstrap.bundle.min.js', array( 'jquery' ), $bs_js_version );
+	$bs_js_version = $theme_version . '.' . filemtime( get_template_directory() . '/src/unity-bootstrap-theme/js/bootstrap.bundle.min.js' );
+	wp_enqueue_script( 'bootstrap-bundle', get_template_directory_uri() . '/src/unity-bootstrap-theme/js/bootstrap.bundle.min.js', array(), $bs_js_version );
 
 	// Font Awesome. Kit distributed by ASU Engineering.
 	wp_enqueue_script ( 'font-awesome-kit', 'https://kit.fontawesome.com/51b562cd96.js', array(), null, false );
 	wp_script_add_data( 'font-awesome-kit', 'crossorigin', 'anonymous' );
 
 	// Applying heading highlight classes to core/headings block.
-	$js_heading_highlights = $theme_version . '.' . filemtime( get_template_directory() . '/js/heading-highlights.js' );
-	wp_enqueue_script( 'uds-heading-highlights', get_template_directory_uri() . '/js/heading-highlights.js', array( 'wp-rich-text', 'wp-element', 'wp-editor' ), $js_heading_highlights );
+	$js_heading_highlights = $theme_version . '.' . filemtime( get_template_directory() . '/dist/js/heading-highlights.js' );
+	wp_enqueue_script( 'uds-heading-highlights', get_template_directory_uri() . '/dist/js/heading-highlights.js', array( 'wp-rich-text', 'wp-element', 'wp-editor' ), $js_heading_highlights );
 
 }
 add_action( 'admin_enqueue_scripts', 'pitchfork_enqueue_admin_scripts' );
@@ -84,7 +84,7 @@ function pitchfork_enqueue_block_scripts() {
 	$theme_version = $the_theme->get( 'Version' );
 
 	// Block modifications.
-	$blocks_js_version = $theme_version . '.' . filemtime( get_template_directory() . '/js/block-variations.js' );
-	wp_enqueue_script( 'pitchfork-block-mods', get_template_directory_uri() . '/js/block-variations.js',  array( 'wp-blocks', 'wp-dom' ), $blocks_js_version , true );
+	$blocks_js_version = $theme_version . '.' . filemtime( get_template_directory() . '/dist/js/block-variations.js' );
+	wp_enqueue_script( 'pitchfork-block-mods', get_template_directory_uri() . '/dist/js/block-variations.js',  array( 'wp-blocks', 'wp-dom' ), $blocks_js_version , true );
 }
 add_action( 'enqueue_block_editor_assets', 'pitchfork_enqueue_block_scripts' );
