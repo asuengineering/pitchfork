@@ -38,6 +38,9 @@ function pitchfork_enqueue_scripts() {
 	$custom_js_version = $theme_version . '.' . filemtime( get_template_directory() . '/dist/js/custom.js' );
 	wp_enqueue_script( 'pitchfork-custom', get_template_directory_uri() . '/dist/js/custom.js', array('bootstrap-bundle'), $custom_js_version, true );
 
+	// Data layer events monitoring
+	wp_enqueue_script ( 'pitchfork-data-layer', get_template_directory_uri()  . '/src/unity-bootstrap-theme/js/data-layer.js', array( 'wp-element', 'wp-components' ), null, false );
+
 	// Font Awesome. Kit licensed and distributed by ASU Engineering for use with this theme.
 	wp_enqueue_script ( 'font-awesome-kit', 'https://kit.fontawesome.com/51b562cd96.js', array(), null, false );
 	wp_script_add_data( 'font-awesome-kit', 'crossorigin', 'anonymous' );
