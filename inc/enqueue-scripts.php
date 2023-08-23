@@ -74,15 +74,3 @@ function pitchfork_enqueue_block_editor_assets() {
 	wp_enqueue_script( 'pitchfork-block-mods', get_template_directory_uri() . '/dist/js/block-variations.js',  array( 'wp-blocks', 'wp-dom' ), $blocks_js_version , true );
 }
 add_action( 'enqueue_block_assets', 'pitchfork_enqueue_block_editor_assets' );
-
-/**
- * Register/enqueue scripts for the block editor.
- */
-// function pitchfork_enqueue_block_scripts() {
-
-// 	// Get the theme data.
-// 	$the_theme     = wp_get_theme();
-// 	$theme_version = $the_theme->get( 'Version' );
-
-// }
-// add_action( 'enqueue_block_editor_assets', 'pitchfork_enqueue_block_scripts' );
