@@ -4,6 +4,12 @@ const gulp = require('gulp');
 const gulpWP = require('gulp-wp')(gulp);
 
 /**
+ * Alter default task to omit POT generation step.
+ * DEFAULT: gulp.task('default', gulp.parallel('compile-sass', 'compile-js', 'generate-pot'));
+*/
+gulp.task('default', gulp.parallel('compile-sass', 'compile-js'));
+
+/**
  * Copy assets from node_modules.
  * Run: gulp upboot
  *
