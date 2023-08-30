@@ -57,6 +57,9 @@ require get_template_directory() . '/inc/pagination.php';
 // Remove support for a couple of the native WordPress blocks.
 require get_template_directory() . '/inc/blocks.php';
 
+// Filter HTML output to add data-layer attributes
+require get_template_directory() . '/inc/data-layer-filters.php';
+
 // Might be temporary. Remove duotone SVG from <body>.
 remove_action( 'wp_body_open', 'wp_global_styles_render_svg_filters' );
 
