@@ -212,6 +212,7 @@ a.wp-block-button__link {
 
 		// Cancels out styles applied to <hr> by UDS Boostrap 4
 		background-color: transparent;
+		height: $uds-size-spacing-2;
 
 		// Applies gold bar style to psudo-element to avoid the use of max-width in the definition.
 		&:after {
