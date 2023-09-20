@@ -13,29 +13,13 @@
  */
 
 
-// add_filter( 'the_content', 'pitchfork_add_data_layer_attributes', 1 );
-
-// function pitchfork_add_data_layer_attributes( $content ) {
-
-//     // Limited to only page and archive page output. No posts for now.
-//     if ( is_page() || is_archive() ) {
-// 		// do_action('qm/debug', $content);
-
-// 		$core_button = new WP_HTML_Tag_Processor( $content );
-
-// 		if ( $core_button->next_tag( array( 'class_name' => 'wp-element-button') ) ) {
-// 			do_action('qm/debug', $core_button);
-// 			$core_button->add_class( 'steve-is-awesome' );
-// 		}
-
-// 	}
-
-// 	$updated = $core_button->get_updated_html();
-// 	do_action('qm/debug', $updated);
-// 	return $updated;
-
-// }
-
+/**
+ * Adds data layer elements for every button block on the page.
+ *
+ * 20-Sept-2023: We're not quite ready for this one yet.
+ * We will likely want to do this on a conditional basis. Keeping around as a working example.
+ * Uncomment the render_block filter to enable.
+ */
 function pitchfork_datalayer_core_button( $block_content, $block ) {
     if ( ! $block_content || $block['blockName'] !== 'core/button' ) {
         return $block_content;
@@ -55,5 +39,41 @@ function pitchfork_datalayer_core_button( $block_content, $block ) {
 
     return $processor->get_updated_html();
 }
+// add_filter( 'render_block', 'pitchfork_datalayer_core_button', 10, 2 );
 
-add_filter( 'render_block', 'pitchfork_datalayer_core_button', 10, 2 );
+
+/**
+ * Add missing classes to core/group or core/buttons blocks that are
+ * found within an acf/hero, acf/hero-video or related parent block.
+ */
+function pitchfork_add_missing_classes_to_hero( $block_content, $block ) {
+
+	$tested_blocks = array('acf/hero', 'acf/hero-video');
+
+    if ( ! $block_content || ! in_array($block['blockName'], $tested_blocks) ) {
+        return $block_content;
+    }
+
+	// Process group block first, then button block.
+	// Two calls to the processor just in case the inner blocks happen to be out of the normal order.
+
+    $group_processor = new WP_HTML_Tag_Processor( $block_content );
+
+	if ( $group_processor->next_tag( array( 'class_name' => 'wp-block-group' ) ) ) {
+		$group_processor->add_class( 'content' );
+	}
+
+	$button_processor = new WP_HTML_Tag_Processor( $group_processor->get_updated_html() );
+
+	if ( $button_processor->next_tag( array( 'class_name' => 'wp-block-buttons' ) ) ) {
+		$button_processor->add_class( 'btn-row' );
+	}
+
+    return $button_processor->get_updated_html();
+}
+add_filter( 'render_block', 'pitchfork_add_missing_classes_to_hero', 10, 2 );
+
+
+
+
+
