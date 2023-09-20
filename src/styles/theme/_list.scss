@@ -1,0 +1,114 @@
+/*--------------------------------------------------------------
+# Style mods for core list block.
+
+1. is-style-uds-steplist-{color}
+Consumes the styles straight from Unity Bootstrap via @extend rules.
+
+2. is-style-uds-list
+- Borrows ideas from Unity Bootstrap, but is independently maintained.
+- Focuses on styling ::marker rather than :before
+- Core WP functionality includes manipulation of more modern ::marker element
+
+--------------------------------------------------------------*/
+
+.is-style-uds-steplist {
+	@extend .uds-list;
+	@extend .uds-steplist;
+}
+
+.is-style-uds-steplist-maroon {
+	@extend .uds-list;
+	@extend .uds-steplist;
+	@extend .uds-steplist-maroon;
+}
+
+.is-style-uds-steplist-gold {
+	@extend .uds-list;
+	@extend .uds-steplist;
+	@extend .uds-steplist-gold;
+}
+
+/*--------------------------------------------------------------
+2. is-style-uds-list
+--------------------------------------------------------------*/
+
+@mixin uds-alt-list-spacing {
+	max-width: 43.75rem;
+	padding: 0 0 3rem 2rem;
+
+	li {
+		margin-bottom: 1rem;
+
+		&:last-of-type {
+			margin-bottom: 0rem;
+		}
+	}
+}
+
+@mixin uds-alt-list-styles {
+
+	li::marker {
+		font-size: 1.5rem; // Changed from orig of 2rem.
+		vertical-align: middle;
+		line-height: 1.5rem;
+		padding-right: 1.25rem;
+		margin-left: -2rem;
+	}
+
+	ol,
+	ul {
+		padding: 1rem 1.5rem 0rem;
+	}
+}
+
+// General UL rules.
+ul.is-style-uds-list {
+	@include uds-alt-list-spacing;
+	@include uds-alt-list-styles;
+
+	ul ul {
+		list-style-type: disc;
+	}
+
+	ul ul ul {
+		list-style-type: circle;
+	}
+}
+
+// General OL rules.
+ol.is-style-uds-list {
+
+	@include uds-alt-list-spacing;
+	// Tweak the mix-in's left padding due to OL's needing more space for double
+	// and triple digits. Not supported: > 3 digits.
+	padding-left: $uds-size-spacing-6;
+
+	li ol {
+		padding: 1rem 1.5rem 0rem;
+	}
+
+	li:before {
+		line-height: 1.5rem;
+		padding-right: 1rem;
+		margin-left: -1.9rem;
+	}
+
+	// Adjust indent for double digits.
+	li:nth-of-type(9)~li:before {
+		margin-left: -2.4rem;
+	}
+
+	// Adjust indent for triple digits.
+	li:nth-of-type(99)~li:before {
+		margin-left: -2.9rem;
+	}
+
+	ol {
+		list-style-type: lower-alpha;
+	}
+
+	ol ol {
+		list-style-type: lower-roman;
+	}
+
+}
