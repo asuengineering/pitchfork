@@ -1,4 +1,3 @@
-
 /*---------------------------------------------------------------
  1. Fix Alert Close button
  To use the existing Javascript in Bootstrap to close alerts, you
@@ -9,6 +8,7 @@
 .alert-dismissible {
 	//Remove alert-dismissible's 4rem right padding in favor of UDS 1rem.
 	padding-right: $uds-size-spacing-2;
+
 	& .close {
 		//Remove alert-dismissible's absolute button positioning.
 		position: relative;
@@ -38,10 +38,12 @@
  different lines - nothing was aligned at all.
 ---------------------------------------------------------------*/
 @media screen and (max-width: $uds-breakpoint-lg) {
+
 	// Ensure some extra space between the content and the close button
 	.alert .alert-content {
 		margin-right: $uds-size-spacing-2;
 	}
+
 	// remove the 1rem top margin that is added to the icon on mobile.
 	.alert .alert-icon svg {
 		margin-top: 0 !important;
@@ -85,12 +87,12 @@ allows :scrolled: to be an adjacent sibling again.
 // 	// Actual measurement is btw 93px and 94px. Allows for margin of error.
 // }
 
-#header-container + main {
+#header-container+main {
 	margin-top: 135px;
 	// Actual measurement is btw 139px and 140px. Allows for margin of error.
 }
 
-#header-container.scrolled + main {
+#header-container.scrolled+main {
 	margin-top: 90px;
 	// Actual measurement is btw 93px and 94px. Allows for margin of error.
 }
@@ -127,7 +129,7 @@ allows :scrolled: to be an adjacent sibling again.
 
 		+label {
 			display: block;
-			position:absolute;
+			position: absolute;
 			left: 12px;
 			top: 6px;
 			color: $uds-color-base-gray-5;
