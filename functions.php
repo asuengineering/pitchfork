@@ -60,6 +60,9 @@ require get_template_directory() . '/inc/blocks.php';
 // Filter HTML output to add data-layer attributes
 require get_template_directory() . '/inc/data-layer-filters.php';
 
+// Define explicit load and save point for ACF JSON files.
+get_template_directory_uri()  . 'inc/acf-config.php';
+
 // Might be temporary. Remove duotone SVG from <body>.
 remove_action( 'wp_body_open', 'wp_global_styles_render_svg_filters' );
 
