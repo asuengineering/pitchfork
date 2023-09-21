@@ -159,7 +159,7 @@ function uds_wp_render_main_nav_menu() {
 			// Modify home URL & title if multisite enhancements are enabled.
 			if ( (is_multisite() ) && ( $multisite_enhance ) ) {
 
-				// Values are options created by ACF. Use either get_field or get_option to retrieve.
+				// Values are options created by ACF. Use get_option to retrieve.
 				$alt_home_url   = trim( get_option('options_pitchfork_options_home_icon_link') );
 				$alt_home_title = trim( get_option('options_pitchfork_options_home_icon_tooltip') );
 
