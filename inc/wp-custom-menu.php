@@ -17,7 +17,7 @@ if ( ! function_exists( 'uds_react_get_menu_formatted_array' ) ) {
 	 */
 	function uds_react_get_menu_formatted_array( $menu_name ) {
 
-		$mobile_menu_breakpoint = get_field('mobile_menu_breakpoint', 'option');
+		$mobile_menu_breakpoint = get_option('options_mobile_menu_breakpoint');
 
 		$current_uri = null;
 
@@ -41,9 +41,9 @@ if ( ! function_exists( 'uds_react_get_menu_formatted_array' ) ) {
 			 * UDS Header: Menu settings
 			 * ACF options defined in options page located at options-general.php?page=pitchfork-settings
 			 */
-			$animate_title = get_field('animate_title', 'option');
-			$expand_on_hover = get_field('expand_on_hover', 'option');
-			$mobile_menu_breakpoint = get_field('mobile_menu_breakpoint', 'option');
+			$animate_title = get_option('options_animate_title');
+			$expand_on_hover = get_option('options_expand_on_hover');
+			$mobile_menu_breakpoint = get_option('options_mobile_menu_breakpoint');
 
 			/**
 			 * UDS Header: Logo settings
@@ -51,23 +51,23 @@ if ( ! function_exists( 'uds_react_get_menu_formatted_array' ) ) {
 			 *
 			 * Get each logo field. If checked, build formatted array, add to object - in enqueue, pull in from object
 			 */
-			if(get_field('asu_logo_override', 'option')) {
+			if(get_option('options_asu_logo_override')) {
 				$asu_logo_override_array =
 				[
-					'alt' => get_field('asu_logo_override_alt_text', 'option'),        // default: 'Arizona State University'
-					'src' => get_field('asu_logo_override_url', 'option'),        // default: 'arizona-state-university-logo-vertical.png'
-					'mobileSrc' => get_field('asu_logo_override_mobile_logo_url', 'option'),  // default: 'arizona-state-university-logo.png'
-					'brandLink' => get_field('asu_logo_override_link', 'option'),  // default: 'https://asu.edu'
+					'alt' => get_option('options_asu_logo_override_alt_text'),        // default: 'Arizona State University'
+					'src' => get_option('options_asu_logo_override_url'),        // default: 'arizona-state-university-logo-vertical.png'
+					'mobileSrc' => get_option('options_asu_logo_override_mobile_logo_url'),  // default: 'arizona-state-university-logo.png'
+					'brandLink' => get_option('options_asu_logo_override_link'),  // default: 'https://asu.edu'
 				];
 			}
-			$show_partner_logo = get_field('add_partner_logo', 'option');
-			if(get_field('add_partner_logo', 'option')) {
+			$show_partner_logo = get_option('options_add_partner_logo');
+			if(get_option('options_add_partner_logo')) {
 				$add_partner_logo_array =
 				[
-					'alt' => get_field('partner_logo_alt_text', 'option'),        // default: 'Arizona State University'
-					'src' => get_field('partner_logo_url', 'option'),        // default: 'arizona-state-university-logo-vertical.png'
-					'mobileSrc' => get_field('partner_logo_mobile_url', 'option'),  // default: 'arizona-state-university-logo.png'
-					'brandLink' => get_field('partner_logo_link', 'option'),  // default: 'https://asu.edu'
+					'alt' => get_option('options_partner_logo_alt_text'),        // default: 'Arizona State University'
+					'src' => get_option('options_partner_logo_url'),        // default: 'arizona-state-university-logo-vertical.png'
+					'mobileSrc' => get_option('options_partner_logo_mobile_url'),  // default: 'arizona-state-university-logo.png'
+					'brandLink' => get_option('options_partner_logo_link'),  // default: 'https://asu.edu'
 				];
 			}
 
@@ -95,15 +95,15 @@ if ( ! function_exists( 'uds_react_get_menu_formatted_array' ) ) {
 
 					$pre_menu[ $m->ID ]                  = array();
 					//CTA boolean from ACF. Buttons need cta_button=TRUE and type=button. Set in WP admin menu area
-					$pre_menu[ $m->ID ]['cta_button']    = get_field( 'menu_cta_button', $m );
+					$pre_menu[ $m->ID ]['cta_button']    = get_post_meta( $m->ID, 'menu_cta_button', true );
 					$pre_menu[ $m->ID ]['text']          = $m->title;
 
 					// If this is a CTA button, push it onto our top-level CTA button array.
 					// Remove it from this array and skip any further processing of this item.
 					if ( $pre_menu[ $m->ID ]['cta_button'] ) {
 						//button color from WP admin menu builder - dropdown field
-			 			$pre_menu[ $m->ID ]['cta_color'] = get_field( 'menu_cta_button_color', $m );
-						$cta_target_link = get_field('menu_target_blank', $m);
+						$pre_menu[ $m->ID ]['cta_color'] = get_post_meta( $m->ID, 'menu_cta_button_color', true );
+						$cta_target_link = get_post_meta( $m->ID, 'menu_target_blank', true );
 
 						$temp_cta = array();
 						$temp_cta['href']  = $m->url;
@@ -153,16 +153,14 @@ if ( ! function_exists( 'uds_react_get_menu_formatted_array' ) ) {
 
 					$dropdown[ $m->ID ]                = array();
 					$dropdown[ $m->ID ]['ID']          = $m->ID;
-					$dropdown[ $m->ID ]['type']        = get_field( 'uds_menu_item_type', $m );
+					$dropdown[ $m->ID ]['type']        = get_post_meta( $m->ID, 'uds_menu_item_type', true );
 					$dropdown[ $m->ID ]['text']        = $m->title;
 					$dropdown[ $m->ID ]['href']        = $m->url;
 					$dropdown[ $m->ID ]['has_current'] = false;
 					$dropdown[ $m->ID ]['parent']      = $m->menu_item_parent;
 					$dropdown[ $m->ID ]['items']       = array();
-					$dropdown[ $m->ID ]['cta_button']  = get_field( 'menu_cta_button', $m );
-					$dropdown[ $m->ID ]['cta_color'] = get_field( 'menu_cta_button_color', $m );
-
-
+					$dropdown[ $m->ID ]['cta_button']  = get_post_meta( $m->ID, 'menu_cta_button', true );
+					$dropdown[ $m->ID ]['cta_color']   = get_post_meta( $m->ID, 'menu_cta_button_color', true );
 
 					// The menu link can be relative or absolute.
 					// Format menu link and remove absolute base url from link
@@ -207,8 +205,8 @@ if ( ! function_exists( 'uds_react_get_menu_formatted_array' ) ) {
 
 					$column[ $m->ID ]                = array();
 					$column[ $m->ID ]['ID']          = $m->ID;
-					$column[ $m->ID ]['type']        = get_field( 'uds_menu_item_type', $m );
-					$column[ $m->ID ]['cta_color'] = get_field( 'menu_cta_button_color', $m );
+					$column[ $m->ID ]['type']        = get_post_meta( $m->ID, 'uds_menu_item_type', true );
+					$column[ $m->ID ]['cta_color'] 	 = get_post_meta( $m->ID, 'menu_cta_button_color', true );
 					$column[ $m->ID ]['text']        = $m->title;
 					$column[ $m->ID ]['href']        = $m->url;
 					$column[ $m->ID ]['has_current'] = false;
@@ -406,10 +404,10 @@ if ( ! function_exists( 'uds_wp_get_menu_array' ) ) {
 					$menu[ $m->ID ]['order']         = $m->menu_order;
 					$menu[ $m->ID ]['title']         = $m->title;
 					$menu[ $m->ID ]['url']           = $m->url;
-					$menu[ $m->ID ]['cta_button']    = get_field( 'menu_cta_button', $m );
-					$menu[ $m->ID ]['cta_color']     = get_field( 'menu_cta_button_color', $m );
-					$menu[ $m->ID ]['external_link'] = get_field( 'menu_external_link', $m );
-					$menu[ $m->ID ]['target_blank'] = get_field( 'menu_target_blank', $m );
+					$menu[ $m->ID ]['cta_button']    = get_post_meta( $m->ID, 'menu_cta_button', true );
+					$menu[ $m->ID ]['cta_color']     = get_post_meta( $m->ID, 'menu_cta_button_color', true );
+					$menu[ $m->ID ]['external_link'] = get_post_meta( $m->ID, 'menu_external_link', true );
+					$menu[ $m->ID ]['target_blank']  = get_post_meta( $m->ID, 'menu_target_blank', true );
 					$menu[ $m->ID ]['parent']        = $m->menu_item_parent;
 					$menu[ $m->ID ]['children']      = array();
 				}
@@ -432,10 +430,10 @@ if ( ! function_exists( 'uds_wp_get_menu_array' ) ) {
 					$dropdown[ $m->ID ]['order']         = $m->menu_order;
 					$dropdown[ $m->ID ]['title']         = $m->title;
 					$dropdown[ $m->ID ]['url']           = $m->url;
-					$dropdown[ $m->ID ]['cta_button']    = get_field( 'menu_cta_button', $m );
-					$dropdown[ $m->ID ]['cta_color']     = get_field( 'menu_cta_button_color', $m );
-					$dropdown[ $m->ID ]['external_link'] = get_field( 'menu_external_link', $m );
-					$dropdown[ $m->ID ]['target_blank'] = get_field( 'menu_target_blank', $m );
+					$dropdown[ $m->ID ]['cta_button']    = get_post_meta( $m->ID, 'menu_cta_button', true );
+					$dropdown[ $m->ID ]['cta_color']     = get_post_meta( $m->ID, 'menu_cta_button_color', true );
+					$dropdown[ $m->ID ]['external_link'] = get_post_meta( $m->ID, 'menu_external_link', true );
+					$dropdown[ $m->ID ]['target_blank']  = get_post_meta( $m->ID, 'menu_target_blank', true );
 					$dropdown[ $m->ID ]['parent']        = $m->menu_item_parent;
 					$dropdown[ $m->ID ]['children']      = array();
 
@@ -461,10 +459,10 @@ if ( ! function_exists( 'uds_wp_get_menu_array' ) ) {
 					$column[ $m->ID ]['order']         = $m->menu_order;
 					$column[ $m->ID ]['title']         = $m->title;
 					$column[ $m->ID ]['url']           = $m->url;
-					$column[ $m->ID ]['cta_button']    = get_field( 'menu_cta_button', $m );
-					$column[ $m->ID ]['cta_color']     = get_field( 'menu_cta_button_color', $m );
-					$column[ $m->ID ]['external_link'] = get_field( 'menu_external_link', $m );
-					$column[ $m->ID ]['target_blank'] = get_field( 'menu_target_blank', $m );
+					$column[ $m->ID ]['cta_button']    = get_post_meta( $m->ID, 'menu_cta_button', true );
+					$column[ $m->ID ]['cta_color']     = get_post_meta( $m->ID, 'menu_cta_button_color', true );
+					$column[ $m->ID ]['external_link'] = get_post_meta( $m->ID, 'menu_external_link', true );
+					$column[ $m->ID ]['target_blank']  = get_post_meta( $m->ID, 'menu_target_blank', true );
 
 					/**
 					 * Add this item's data as a child to the $dropdown array we created in step 2.

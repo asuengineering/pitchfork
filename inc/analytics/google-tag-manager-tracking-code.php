@@ -7,7 +7,7 @@
 
 // Retrieve additional settings from ACF theme options page.
 $site_gtm_container_id = '';
-$site_gtm_container_id = get_field('pitchfork_options_gtm_container', 'option');
+$site_gtm_container_id = get_option('options_pitchfork_options_gtm_container');
 
 if ( $site_gtm_container_id && '' !== $site_gtm_container_id ) : ?>
 

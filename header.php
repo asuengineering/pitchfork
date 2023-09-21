@@ -25,9 +25,9 @@ $site_gtm_container_id = '';
 $site_ga_tracking_id   = '';
 $hotjar_site_id        = '';
 
-$site_gtm_container_id = get_field('pitchfork_options_gtm_container', 'option');
-$site_ga_tracking_id   = get_field('pitchfork_options_ga_tracking', 'option');
-$hotjar_site_id        = get_field('pitchfork_options_hotjar_site_id', 'option');
+$site_gtm_container_id = get_option('options_pitchfork_options_gtm_container');
+$site_ga_tracking_id   = get_option('options_pitchfork_options_ga_tracking');
+$hotjar_site_id        = get_option('options_pitchfork_options_hotjar_site_id');
 
 
 // Set ASU analytics option to enabled/disabled based on the URL for the site.

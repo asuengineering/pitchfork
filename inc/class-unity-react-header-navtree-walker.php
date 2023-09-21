@@ -51,9 +51,9 @@ if ( ! class_exists('Pitchfork_React_Header_Navtree') ) {
 			$isCTA = false;
 			$exIcon = false;
 
-			$isCTA = get_field('menu_cta_button', $item);
-			$btnColor = get_field('menu_cta_button_color', $item);
-			$exIcon = get_field('menu_external_link', $item);
+			$isCTA = get_post_meta( $item->ID, 'menu_cta_button', true );
+			$btnColor = get_post_meta( $item->ID, 'menu_cta_button_color', true );
+			$exIcon = get_post_meta( $item->ID, 'menu_external_link', true );
 
 			// Create $entry object from $item data. Prep to insert into the correct place.
 			$entry = new stdClass();

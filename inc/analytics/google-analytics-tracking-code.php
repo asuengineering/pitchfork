@@ -7,7 +7,7 @@
 
 // Retrieve additional settings from ACF theme options page.
 $site_ga_tracking_id   = '';
-$site_ga_tracking_id   = get_field('pitchfork_options_ga_tracking', 'option');
+$site_ga_tracking_id   = get_option('options_pitchfork_options_ga_tracking');
 
 if ( $site_ga_tracking_id && '' !== $site_ga_tracking_id ) : ?>
 

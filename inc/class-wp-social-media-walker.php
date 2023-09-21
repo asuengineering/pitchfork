@@ -73,7 +73,7 @@ if ( ! class_exists( 'WP_Social_Media_Walker' ) ) {
 
 			// Get ACF dropdown setting for FA icon class.
 			$icon = '';
-			$icon = get_field('menu_social_media_icon', $item->ID);
+			$icon = get_post_meta( $item->ID, 'menu_social_media_icon', true );
 
 			if ('fa-square' == $icon) {
 				$icon = 'fas ' . $icon;

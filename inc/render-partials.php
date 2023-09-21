@@ -137,7 +137,7 @@ function uds_wp_render_main_nav_menu() {
 	$home_icon_class = 'nav-link-home';
 
 	$multisite_enhance = false;
-	$multisite_enhance = get_field('pitchfork_options_enhanced_multisite', 'option');
+	$multisite_enhance = get_option('options_pitchfork_options_enhanced_multisite');
 
 	// if nav menu is enabled, render it.
 	if ( 'enabled' === $nav_menu_enabled ) { ?>
@@ -160,8 +160,8 @@ function uds_wp_render_main_nav_menu() {
 			if ( (is_multisite() ) && ( $multisite_enhance ) ) {
 
 				// Values are options created by ACF. Use either get_field or get_option to retrieve.
-				$alt_home_url   = trim( get_field( 'pitchfork_options_home_icon_link', 'option' ) );
-				$alt_home_title = trim( get_field( 'pitchfork_options_home_icon_tooltip', 'option' ) );
+				$alt_home_url   = trim( get_option('options_pitchfork_options_home_icon_link') );
+				$alt_home_title = trim( get_option('options_pitchfork_options_home_icon_tooltip') );
 
 				// If the option has a value, attempt to use it.
 				if ( ! empty( $alt_home_url ) ) {
@@ -183,7 +183,7 @@ function uds_wp_render_main_nav_menu() {
 		<?php
 		// Multisite enhancements check. Do we want to use the "main site" menu?
 		$multisite_enhance_nav = false;
-		$multisite_enhance_nav = get_field('pitchfork_options_root_nav', 'option');
+		$multisite_enhance_nav = get_option('options_pitchfork_options_root_nav');
 		if( (is_multisite()) && ( $multisite_enhance ) && ( $multisite_enhance_nav ) ) {
 			// Switch our database context to the 'main' blog of our multisite.
 			switch_to_blog( get_main_site_id() );
@@ -306,10 +306,10 @@ function uds_wp_render_footer_branding_row() {
 	$row_status = get_theme_mod( 'footer_row_branding' );
 
 	$multisite_enhance = false;
-	$multisite_enhance = get_field('pitchfork_options_enhanced_multisite', 'option');
+	$multisite_enhance = get_option('options_pitchfork_options_enhanced_multisite');
 
 	$multisite_enhance_social = false;
-	$multisite_enhance_social = get_field('pitchfork_options_root_social', 'option');
+	$multisite_enhance_social = get_option('options_pitchfork_options_root_social');
 
 	if ( 'enabled' === $row_status ) {
 		?>
@@ -388,10 +388,10 @@ function uds_wp_render_footer_action_row() {
 	$action_row_status = get_theme_mod( 'footer_row_actions' );
 
 	$multisite_enhance = false;
-	$multisite_enhance = get_field('pitchfork_options_enhanced_multisite', 'option');
+	$multisite_enhance = get_option('options_pitchfork_options_enhanced_multisite');
 
 	$multisite_enhance_footer = false;
-	$multisite_enhance_footer = get_field('pitchfork_options_root_footer', 'option');
+	$multisite_enhance_footer = get_option('options_pitchfork_options_root_footer');
 
 	// Enhanced multisite check. Do we want to use the "root" footer links menu?
 	if( (is_multisite()) && ( $multisite_enhance ) && ( $multisite_enhance_footer ) ) {

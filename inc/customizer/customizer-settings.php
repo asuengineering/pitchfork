@@ -220,7 +220,7 @@ if ( ! function_exists( 'uds_wp_register_theme_customizer_settings' ) ) {
 		 */
 
 		$enhanced_multisite_social = false;
-		$enhanced_multisite_social = get_field('pitchfork_options_root_social', 'option');
+		$enhanced_multisite_social = get_option('options_pitchfork_options_root_social');
 
 		if ( $enhanced_multisite_social ) {
 			$wp_customize->add_setting( 'enhanced_multisite_notice_social', array() );
@@ -473,7 +473,7 @@ if ( ! function_exists( 'uds_wp_register_theme_customizer_settings' ) ) {
 		 */
 
 		$enhanced_multisite_footer = false;
-		$enhanced_multisite_footer = get_field('pitchfork_options_root_footer', 'option');
+		$enhanced_multisite_footer = get_option('options_pitchfork_options_root_footer');
 
 		if ( $enhanced_multisite_footer ) {
 			$wp_customize->add_setting( 'enhanced_multisite_notice_footer', array() );
