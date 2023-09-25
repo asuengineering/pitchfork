@@ -5,6 +5,30 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+### Version 2.0
+
+This version updates its references to the Unity Design system from the deprecated `@asu/bootstrap-4-theme` package to the current `@asu/unity-bootstrap-theme` package. Plugins that still rely on markup from the older package will need to be updated correspondingly with this release.
+
+**Unity Design Kit**
+
+- CHANGE: Unity Bootstrap package references are updated.
+- FIX: Address formatting issue with gold divider style of `core/divider` block.
+- FIX: Altered markup for the UDS List style of the `core/lists` blocks. Markup recommended by Unity project still focuses its styling and formatting on the `:before` element instead of the more current `:marker` element for both unordered and ordered lists. Added styles within the theme to support `:marker` while Unity project catches up.
+- FIX: Support for the `start` and `type` properties of lists which are now a part of the WordPress UI are also now supported by the UDS List style of the `core/lists` block.
+
+**Data Layer**
+
+- ADD: Added support for logging user interactions to the ASU GA4 data layer object.
+  - UI elements with the appropriate markup will be logged automatically
+  - Events and clicks associated with the global header are also captured automatically.
+- UNRELEASED: Staged additional script within `inc/data-layer-filters` which would add `data-ga` tags to all button blocks within the context of the page. Pending evaluation of approach and possible addition of a UI layer to allow these elements to be named individually.
+
+**Additional technical changes**
+
+- CHANGE: A new build process was incorporated into the theme. Developers should see [Gulp WP](https://github.com/BlackbirdDigital/gulp-wp) for additional details. Build and compilation process still begins with `npm start`.
+- FIX: Removed the possibility of fatal PHP errors which occur when the theme is activated without the Advanced Custom Fields plugin. The root cause of most of those errors is a call to the missing `get_field` function provided by the plugin. All references to `get_field` were replaced with other native WordPress functions (`get_option`, `get_post_meta`) to prevent the error from occuring.
+- ADD: The theme now defines an explicit save and load point for any ACF-JSON configuration files in use by the theme.
+
 ### Version 1.9.2
 
 - ADD: Support for the new `acf/profile-data` block within [Pitchfork People](https://github.com/asuengineering/pitchfork-people) was added to `theme.json`.
