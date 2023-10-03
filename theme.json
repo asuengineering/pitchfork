@@ -423,6 +423,54 @@
 						"bottom"
 					],
 					"padding": false
+				},
+				"color": {
+					"background": true,
+					"text": false,
+					"link": false,
+					"custom": false,
+					"palette": [
+						{
+							"slug": "white",
+							"color": "#FFFFFF",
+							"name": "White"
+						},
+						{
+							"slug": "gray-1",
+							"color": "#FAFAFA",
+							"name": "ASU Gray 1"
+						},
+						{
+							"slug": "gray-2",
+							"color": "#E8E8E8",
+							"name": "ASU Gray 2"
+						},
+						{
+							"slug": "gray-3",
+							"color": "#D0D0D0",
+							"name": "ASU Gray 3"
+						},
+						{
+							"slug": "gray-4",
+							"color": "#BFBFBF",
+							"name": "ASU Gray 4"
+						},
+						{
+							"slug": "gray-5",
+							"color": "#747474",
+							"name": "ASU Gray 5"
+						},
+						{
+							"slug": "gray-6",
+							"color": "#484848",
+							"name": "ASU Gray 6"
+						},
+						{
+							"slug": "gray-7",
+							"color": "#191919",
+							"name": "ASU Gray 7"
+						}
+					]
 				}
 			},
 			"acf/banner": {
