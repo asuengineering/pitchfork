@@ -42,3 +42,19 @@ if ( ! function_exists( 'pitchfork_custom_archive_title' ) ) {
 	}
 }
 add_filter( 'get_the_archive_title', 'pitchfork_custom_archive_title' );
+
+// Redirect author archive pages by default. Override with child theme if desired.
+if (! function_exists( 'pitchfork_redirect_author_archive_pages') ) {
+
+	function pitchfork_redirect_author_archive_pages() {
+		global $wp_query;
+
+		if ( is_author() ) {
+			// Redirect to homepage, set status to 301 permenant redirect.
+			// Function defaults to 302 temporary redirect.
+			wp_redirect(get_option('home'), 301);
+			exit;
+		}
+	}
+	add_action( 'template_redirect', 'pitchfork_redirect_author_archive_pages' );
+}
