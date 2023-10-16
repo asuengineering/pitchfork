@@ -5,6 +5,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+### Version 2.0.1
+
+ADD: Package updates from `@asu` to include the "repeatedly #1" innovation footer graphic.
+FIX: Footer menu now uses markup for BS5 accordions in mobile presentation. When paired with the Pitchfork Blocks plugin, these accordions will now also emit events tracked by the ASU GA4 data layer.
+FIX: Author archive pages are now redirected to the home page of the site by default. Function can be easily overridden by a child theme if desired for an individual application.
+
 ### Version 2.0
 
 This version updates its references to the Unity Design system from the deprecated `@asu/bootstrap-4-theme` package to the current `@asu/unity-bootstrap-theme` package. Plugins that still rely on markup from the older package will need to be updated correspondingly with this release.
