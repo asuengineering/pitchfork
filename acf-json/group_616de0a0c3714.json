@@ -6,6 +6,7 @@
             "key": "field_616de0a8fcc66",
             "label": "menu_social_media_icon",
             "name": "menu_social_media_icon",
+            "aria-label": "",
             "type": "select",
             "instructions": "Which icons should be use for this link?",
             "required": 1,
@@ -27,15 +28,15 @@
                 "fa-researchgate": "ResearchGate",
                 "fa-snapchat-square": "Snaphcat",
                 "fa-tumblr-square": "Tumblr",
-                "fa-twitter-square": "Twitter",
                 "fa-vimeo-square": "Vimeo",
+                "fa-square-x-twitter": "X (formerly Twitter)",
                 "fa-youtube-square": "YouTube"
             },
             "default_value": "fa-square",
-            "allow_null": 0,
-            "multiple": 0,
-            "ui": 0,
             "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "ui": 0,
             "ajax": 0,
             "placeholder": ""
         }
@@ -57,5 +58,6 @@
     "hide_on_screen": "",
     "active": true,
     "description": "Creates select box with pre-filled FA icon choices for the social media menu.",
-    "modified": 1634592912
+    "show_in_rest": 0,
+    "modified": 1697563162
 }

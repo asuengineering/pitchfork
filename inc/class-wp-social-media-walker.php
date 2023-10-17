@@ -81,6 +81,11 @@ if ( ! class_exists( 'WP_Social_Media_Walker' ) ) {
 				$icon = 'fab ' . $icon;
 			}
 
+			// Temporary fix for X (formerly Twitter) icon rebranding
+			if ('fa-square-twitter' == $icon) {
+				$icon = 'fa-brands fa-square-x-twitter';
+			}
+
 			$item_output = $args->before
 				. "<a id='menu-item-$item->ID' $class_names $attributes ><span class='$icon'>"
 				. '</span></a> '

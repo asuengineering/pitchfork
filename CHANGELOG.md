@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Version 2.0.1
 
 - ADD: Package updates from `@asu` to include the "repeatedly #1" innovation footer graphic.
+- FIX: The icon for the service formerly known as Twitter in the endorsed footer section was updated to the new brand icon. (Long live X!)
 - FIX: Footer menu now uses markup for BS5 accordions in mobile presentation. When paired with the Pitchfork Blocks plugin, these accordions will now also emit events tracked by the ASU GA4 data layer.
 - FIX: Author archive pages are now redirected to the home page of the site by default. Function can be easily overridden by a child theme if desired for an individual application.
 
