@@ -11,6 +11,9 @@
 // @codingStandardsIgnoreStart
 ?>
 <!-- Google Tag Manager ASU Universal-->
+<script>
+window.dataLayer = window.dataLayer || [];
+</script>
 <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-KDWN8Z" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <script>
 	(function(w, d, s, l, i) {
