@@ -2,12 +2,15 @@
 1. Mobile style includes a 2rem padding-left/right
 --------------------------------------------------------------*/
 
-main {
+main,
+article {
 	padding: 0 2rem;
 }
 
 @include media-breakpoint-up(xl) {
-	main {
+
+	main,
+	article {
 		padding: 0;
 	}
 }
@@ -17,17 +20,20 @@ main {
 --------------------------------------------------------------*/
 
 // Mobile styles.
-main>*:not(.alignfull):not(.alignwide) {
+main>*:not(.alignfull):not(.alignwide),
+article>*:not(.alignfull):not(.alignwide) {
 	margin-left: auto;
 	margin-right: auto;
 }
 
-main>*.alignwide {
+main>*.alignwide,
+article>*.alignwide {
 	margin-left: -1rem;
 	margin-right: -1rem;
 }
 
-main>*.alignfull {
+main>*.alignfull,
+article>*.alignfull {
 	margin-left: -2rem;
 	margin-right: -2rem;
 }
@@ -35,24 +41,34 @@ main>*.alignfull {
 
 // Desktop styles.
 @include media-breakpoint-up(xl) {
-	main>*:not(.alignfull):not(.alignwide) {
-		max-width: 1200px;
-		margin-left: auto;
-		margin-right: auto;
+
+	main,
+	article {
+		&>*:not(.alignfull):not(.alignwide) {
+			max-width: 1200px;
+			margin-left: auto;
+			margin-right: auto;
+		}
 	}
 
-	main>*.alignwide {
-		max-width: 1450px;
-		/* width of the wide blocks */
-		margin-left: auto;
-		margin-right: auto;
+	main,
+	article {
+		&>*.alignwide {
+			max-width: 1450px;
+			/* width of the wide blocks */
+			margin-left: auto;
+			margin-right: auto;
+		}
 	}
 
-	main>*.alignfull {
-		max-width: 1920px;
-		/* width of the wide blocks */
-		margin-left: auto;
-		margin-right: auto;
+	main,
+	article {
+		&>*.alignfull {
+			max-width: 1920px;
+			/* width of the wide blocks */
+			margin-left: auto;
+			margin-right: auto;
+		}
 	}
 }
 
