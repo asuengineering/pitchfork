@@ -1,0 +1,131 @@
+/*--------------------------------------------------------------
+Extra styles for single-feature.php template.
+--------------------------------------------------------------*/
+
+.post-template-single-feature {
+
+	.entry-header {
+		color: $uds-color-base-white;
+		background-color: #AF674B; // ASU Copper
+		color: #ffffff;
+
+		a {
+			color: $uds-color-base-white;
+
+			&:visited {
+				color: $uds-color-base-white;
+			}
+		}
+
+		.wrap {
+			max-width: 1200px;
+			margin-left: auto;
+			margin-right: auto;
+			padding: 0 2rem;
+		}
+
+		.entry-title {
+			padding-top: 2rem;
+		}
+
+		.entry-subtitle {
+			padding-top: 1rem;
+
+			// Like an h3 on mobile
+			@extend .h3;
+		}
+
+		.post-meta {
+			display: flex;
+			flex-direction: column;
+
+			// margin-top: something
+
+			.attribution {
+				display: grid;
+				grid-template-columns: 60px auto;
+				grid-template-rows: repeat(2, 1fr);
+				column-gap: 1rem;
+				align-items: center;
+
+				.avatar {
+					grid-column: 1;
+					grid-row: 1 / span 2;
+					border-radius: 50%;
+					width: 60px;
+					height: 60px;
+				}
+
+				.entry-byline {
+					grid-column: 2;
+					grid-row: 1;
+					margin-bottom: 0;
+				}
+
+				.entry-dateline {
+					grid-column: 2;
+					grid-row: 2;
+
+					.posted-on {
+						display: block;
+					}
+				}
+			}
+		}
+	}
+}
+
+/*--------------------------------------------------------------
+Desktop
+--------------------------------------------------------------*/
+@include media-breakpoint-up(lg) {
+
+	.post-template-single-feature {
+
+		.entry-header {
+
+			padding-bottom: 20rem;
+
+			.wrap {
+				padding: 0;
+			}
+
+			.entry-title {
+				padding-top: 4rem;
+			}
+
+			.entry-subtitle {
+				padding-top: 2rem;
+			}
+
+			.post-meta {
+				display: flex;
+				flex-direction: row;
+				justify-content: space-between;
+				align-items: center;
+
+				margin-top: 3rem;
+
+				.attribution {
+					// Like a .lead paragraph
+					font-size: 1.25rem;
+					font-weight: 300;
+				}
+
+				.entry-dateline {
+					.posted-on {
+						display: block;
+
+						&::after {
+							// content: &centerdot;
+						}
+					}
+				}
+			}
+		}
+
+		.wp-post-image {
+			margin-top: -16rem;
+		}
+	}
+}
