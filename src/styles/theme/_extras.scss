@@ -61,41 +61,39 @@
 
 
 /*--------------------------------------------------------------
-3. Adjustments to <main> element top margin. Prevents content from
+3. Adjustments to <main> and <article> element top margin. Prevents content from
 flowing under header when rendered.
 
 - Also contains adjustments for WP admin bar to set above grey bar when logged in.
 --------------------------------------------------------------*/
 
 #wpadminbar+#header-container #asuHeader {
-	top: 32px !important;
+	top: 46px !important;
 }
 
-/**
-When :has() has greater support, these rules will suffice.
-For now, a little bit of JS to add the scroll event to the header wrapper
-allows :scrolled: to be an adjacent sibling again.
-*/
-
-// #header-container:has(#asuHeader) + main {
-// 	margin-top: 135px;
-// 	// Actual measurement is btw 139px and 140px. Allows for margin of error.
-// }
-
-// #header-container:has(#asuHeader.scrolled) + main {
-// 	margin-top: 90px;
-// 	// Actual measurement is btw 93px and 94px. Allows for margin of error.
-// }
-
-#header-container+main {
-	margin-top: 135px;
-	// Actual measurement is btw 139px and 140px. Allows for margin of error.
+#header-container+main,
+#header-container+article {
+	margin-top: 117px;
+	// Measurement of mobile header height is 117px (Nov-2023)
+	// Mobile header no longer changes height with scroll.
 }
 
-#header-container.scrolled+main {
-	margin-top: 90px;
-	// Actual measurement is btw 93px and 94px. Allows for margin of error.
+@include media-breakpoint-up(lg) {
+
+	#header-container+main,
+	#header-container+article {
+		margin-top: 140px;
+		// Measurement of desktop header height is 140px (Nov-2023)
+	}
+
+	#header-container.scrolled+main,
+	#header-container.scrolled+article {
+		margin-top: 90px;
+		// Scrolled desktop header height is 90px (Nov-2023)
+	}
 }
+
+
 
 // The admin bar is not at a fixed position on mobile.
 // But, since the header is still fixed, the admin bar will overlap the header.
