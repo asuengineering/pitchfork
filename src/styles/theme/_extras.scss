@@ -68,7 +68,14 @@ flowing under header when rendered.
 --------------------------------------------------------------*/
 
 #wpadminbar+#header-container #asuHeader {
-	top: 46px !important;
+	top: 32px !important;
+}
+
+// Breakpoint size/rule taken from WP core styles for admin bar.
+@media screen and (max-width: 782px) {
+	#wpadminbar+#header-container #asuHeader {
+		top: 46px !important;
+	}
 }
 
 #header-container+main,

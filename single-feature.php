@@ -81,9 +81,11 @@ get_header();
 
 			echo '</wrap></header>';
 
-			echo '<section class="post-image">' . get_the_post_thumbnail($post_id, 'medium_large', array( 'class' => 'img-fluid' )) . '</section>';
+			echo '<section class="post-image alignwide">' . get_the_post_thumbnail($post_id, 'full', array( 'class' => 'img-fluid' )) . '</section>';
 
+			echo '<section class="content">';
 			the_content();
+			echo '</section>';
 
 			echo '<footer class="entry-footer default-max-width">';
 				pitchfork_entry_footer();

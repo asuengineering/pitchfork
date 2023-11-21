@@ -60,6 +60,36 @@ if ( ! function_exists( 'pitchfork_posted_on' ) ) :
 	}
 endif;
 
+// Displays only the original post date, ignoring any update date/times strings.
+if ( ! function_exists( 'pitchfork_posted_originally' ) ) :
+	/**
+	 * Prints HTML with meta information for the current post-date/time.
+	 */
+	function pitchfork_posted_originally() {
+		$time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
+		// if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
+		// 	$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time> (Last updated: <time class="updated" datetime="%3$s">%4$s</time>)';
+		// }
+
+		$time_string = sprintf(
+			$time_string,
+			esc_attr( get_the_date( DATE_W3C ) ),
+			esc_html( get_the_date() ),
+			esc_attr( get_the_modified_date( DATE_W3C ) ),
+			esc_html( get_the_modified_date() )
+		);
+
+		$posted_on = sprintf(
+			/* translators: %s: post date. */
+			esc_html_x( '%s', 'post date', 'pitchfork' ),
+			$time_string
+		);
+
+		echo '<span class="posted-on">' . $posted_on . '</span>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+
+	}
+endif;
+
 
 
 if ( ! function_exists( 'pitchfork_posted_by' ) ) :
@@ -86,11 +116,11 @@ if ( ! function_exists( 'pitchfork_entry_footer' ) ) :
 		 // Hide category and tag text for pages.
 		if ( 'post' === get_post_type() ) {
 			/* translators: used between list items, there is a space after the comma */
-			$categories_list = get_the_category_list( esc_html__( ' ', 'pitchfork' ) );
-			if ( $categories_list ) {
-				/* translators: 1: list of categories. */
-				printf( '<span class="cat-links me-1">Categorized: ' . esc_html__( '%1$s', 'pitchfork' ) . '</span>', $categories_list ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-			}
+			// $categories_list = get_the_category_list( esc_html__( ' ', 'pitchfork' ) );
+			// if ( $categories_list ) {
+			// 	/* translators: 1: list of categories. */
+			// 	printf( '<span class="cat-links me-1">Categorized: ' . esc_html__( '%1$s', 'pitchfork' ) . '</span>', $categories_list ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+			// }
 
 			/* translators: used between list items, there is a space after the comma */
 			$tags_list = get_the_tag_list( '', esc_html_x( ' ', 'list item separator', 'pitchfork' ) );
@@ -105,7 +135,7 @@ endif;
 
 
 // Print the next and previous posts navigation.
-if ( ! function_exists( 'pitchfork_the_post_navigation' ) ) {   
+if ( ! function_exists( 'pitchfork_the_post_navigation' ) ) {
 	/**
 	 * Pitchfork_the_post_navigation
 	 *
