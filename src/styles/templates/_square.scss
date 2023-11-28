@@ -1,0 +1,209 @@
+/*--------------------------------------------------------------
+Extra styles for single-feature.php template.
+--------------------------------------------------------------*/
+
+.post-template-single-square {
+
+	.entry-header {
+		display: flex;
+		flex-direction: column;
+
+		color: $uds-color-base-white;
+		background-color: #af674b; // ASU Copper
+		color: #ffffff;
+
+		position: relative;
+
+		margin-left: -2rem;
+		margin-right: -2rem;
+
+		.title-wrap,
+		.avatar-wrap,
+		.entry-byline,
+		.entry-dateline {
+			padding: 0 2rem;
+		}
+
+		.title-wrap a {
+			text-decoration: none;
+			color: #ffffff;
+		}
+
+		.avatar-wrap {
+			.avatar {
+				border-radius: 50%;
+				width: 60px;
+				height: 60px;
+			}
+		}
+
+		.entry-dateline {
+			margin-bottom: 2rem;
+		}
+	}
+
+	.entry-footer,
+	.post-navigation {
+		margin: 2rem 0;
+	}
+}
+
+/*--------------------------------------------------------------
+Desktop
+--------------------------------------------------------------*/
+@include media-breakpoint-up(lg) {
+
+	.post-template-single-square {
+
+		.entry-header {
+			color: $uds-color-base-white;
+			background-color: #af674b; // ASU Copper
+			color: #ffffff;
+
+			display: grid;
+			grid-template-columns: 550px 1fr 1fr;
+			grid-template-rows: auto 60px auto;
+
+			margin-left: auto;
+			margin-right: auto;
+
+			a {
+				color: $uds-color-base-white;
+
+				&:visited {
+					color: $uds-color-base-white;
+				}
+			}
+
+			.wp-post-image {
+				grid-column: 1;
+				grid-row: 1 / span 3;
+			}
+
+			.title-wrap {
+				grid-column: 2 / span 2;
+				grid-row: 1;
+				padding: 2rem;
+			}
+
+			.avatar-wrap {
+				position: relative;
+				grid-column: 2 / span 2;
+				grid-row: 2;
+				padding-left: 2rem;
+
+				&:before {
+					content: '';
+					position: absolute;
+					top: 50%;
+					left: calc(2rem + 80px);
+					border-top: 1px solid #ffffff;
+					background: #ffffff;
+					width: 100%;
+					transform: translateY(-50%);
+				}
+			}
+
+			.entry-byline {
+				grid-column: 2;
+				grid-row: 3;
+				padding: 2rem 0 0 3rem;
+				margin-bottom: 0;
+
+				span {
+					display: block;
+				}
+
+				font-size: 1.25rem;
+				font-weight: 300;
+			}
+
+			.entry-dateline {
+				grid-column: 3;
+				grid-row: 3;
+
+				padding: 2rem;
+
+				.posted-on {
+					display: block;
+				}
+
+				font-size: 1.25rem;
+				font-weight: 300;
+			}
+
+		}
+	}
+
+	.content {
+		font-size: 22px;
+		line-height: 1.3;
+
+		margin: 4rem auto;
+		padding-right: 16rem;
+	}
+}
+
+
+/*--------------------------------------------------------------
+Alignment within this specific template
+--------------------------------------------------------------*/
+
+// // Mobile styles.
+// .post-template-single-square {
+
+// 	main>*:not(.alignfull):not(.alignwide),
+// 	article>*:not(.alignfull):not(.alignwide) {
+// 		margin-left: auto;
+// 		margin-right: auto;
+// 	}
+
+// 	main>*.alignwide,
+// 	article>*.alignwide {
+// 		margin-left: -1rem;
+// 		margin-right: -1rem;
+// 	}
+
+// 	main>*.alignfull,
+// 	article>*.alignfull {
+// 		margin-left: -2rem;
+// 		margin-right: -2rem;
+// 	}
+// }
+
+
+// // Desktop styles.
+// @include media-breakpoint-up(xl) {
+
+// 	.post-template-single-feature {
+
+// 		main,
+// 		article {
+// 			&>*:not(.alignfull):not(.alignwide) {
+// 				max-width: 900px;
+// 				margin-left: auto;
+// 				margin-right: auto;
+// 			}
+// 		}
+
+// 		main,
+// 		article {
+// 			&>*.alignwide {
+// 				max-width: 1200px;
+// 				/* width of the wide blocks */
+// 				margin-left: auto;
+// 				margin-right: auto;
+// 			}
+// 		}
+
+// 		main,
+// 		article {
+// 			&>*.alignfull {
+// 				max-width: 1920px;
+// 				/* width of the wide blocks */
+// 				margin-left: auto;
+// 				margin-right: auto;
+// 			}
+// 		}
+// 	}
+// }
