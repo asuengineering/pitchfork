@@ -34,7 +34,7 @@ if (! empty($menu_items)) {
 							$is_target_blank    = $child['target_blank'];
 							// Add external link icon if it has been requested. Using extra-small size here.
 							$footer_link = '<a class="nav-link" href="%1$s" title="%2$s">%2$s%3$s</a>';
-							$footer_external = get_post_meta( $child->ID, 'menu_external_link', true );
+							$footer_external = get_post_meta( $child['ID'], 'menu_external_link', true );
 							if ( $footer_external ) {
 								if ( $is_target_blank ) {
 									$is_target_blank = 'target=_blank';
