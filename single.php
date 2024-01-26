@@ -1,10 +1,12 @@
 <?php
 /**
- * The default template for displaying all single posts. 
- * References content-single for formatting of info within the loop.
+ *
+ * The default template for displaying single posts.
+ * Inspired by a discarded design for Inner Circle that was deemed too complicated for stories of that nature.
  *
  * @package pitchfork
  */
+
 
 // Exit if accessed directly.
 defined( 'ABSPATH' ) || exit;
@@ -12,58 +14,67 @@ defined( 'ABSPATH' ) || exit;
 get_header();
 ?>
 
-	<main id="skip-to-content">
-		<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+	<article id="skip-to-content post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-		<?php
+	<?php
 
-			while ( have_posts() ) {
+		while ( have_posts() ) {
 
-				the_post();
+			the_post();
 
-				// Parse through the blocks on the page.
-				// If an acf/hero block is in the #1 position, do nothing.
-				// Otherwise display the post title. 
-				$content_blocks = parse_blocks( $post->post_content );
-				$first_block_names = array('acf/hero', 'acf/hero-video');
-				
-				if ( ! in_array( $content_blocks[0]['blockName'], $first_block_names )) {
+			echo '<header class="entry-header">';
 
-					if ( has_post_thumbnail() ) {
-						echo '<header class="entry-header alignwide">';
-						the_post_thumbnail('medium_large', array( 'class' => 'img-fluid' ));
-					} else {
-						echo '<header class="entry-header no-thumbnail">';
-					}
-					
-					the_title( '<h1 class="entry-title">', '</h1>' );
+			echo '<div class="title-wrap">';
+			the_title( '<h1 class="entry-title article">', '</h1>' );
+			echo '</div>'; // end .title-wrap
 
-					echo '<p class="entry-byline">';
-						esc_html_e( 'Posted by ', 'pitchfork' );
-						pitchfork_posted_by();
-						esc_html_e( ' on ', 'pitchfork' );
-						pitchfork_posted_on();
-					echo '</p>';
-					
-					echo '</header>';
+			echo get_the_post_thumbnail($post_id, 'full', array( 'class' => 'img-fluid' ));
+			echo '<h4 class="share">Social share icons</h4>';
 
-				}
+			echo '</header>';
 
-				the_content();
+			echo '<div class="content-wrap"><section class="content">';
+			the_content();
+			echo '</section>';
 
-				echo '<footer class="entry-footer default-max-width">';
-					pitchfork_entry_footer();
-				echo '</footer>';
+			echo '<aside class="secondary"><div class="sidebar-wrap">';
 
-				pitchfork_the_post_navigation();
+			echo '<div class="post-meta">';
+			echo '<div class="attribution">';
 
-				// Comments template would go here. 
+			echo get_avatar( get_the_author_meta( 'ID' ), 80, 'mystery' );
 
-			}
+			echo '<div class="entry-byline"><p>';
+				esc_html_e( 'By ', 'pitchfork' );
+				pitchfork_posted_by();
+			echo '</p>';
+			echo '<p>';
+				pitchfork_posted_originally();
+			echo '</p>';
+			echo '</div>';
 
-			?>
-		</article>
-	</main><!-- #main -->
-	
+			echo '</div>';  // end .attribution
+
+			echo '<h4><span class="highlight-black">Categories</span></h4>';
+			echo the_category();
+
+			// echo '<h4><span class="highlight-black">Tags</span></h4>';
+			the_tags('<h4><span class="highlight-black">Tags</span></h4><ul><li>', '</li><li>', '</li></ul>');
+
+			echo '</div></aside></div>'; // end .sidebar-wrap, .secondary, .content-wrap
+
+			echo '<footer class="entry-footer default-max-width">';
+				pitchfork_entry_footer();
+			echo '</footer>';
+
+			pitchfork_the_post_navigation();
+
+			// Comments template would go here.
+
+		}
+
+		?>
+	</article>
+
 <?php
 get_footer();
