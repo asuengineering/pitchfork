@@ -112,10 +112,16 @@ if ( ! function_exists( 'pitchfork_localize_component_header_script' ) ) {
 			'title' => get_bloginfo(),
 			'animateTitle' => $animate_title,
 			'breakpoint' => $mobile_menu_breakpoint,
-			'buttons' => $cta_buttons,
 			'searchUrl' => 'https://search.asu.edu/search',
 			'site' => $searchDomain,
 		);
+
+		// Passing an empty array to UDS Header component in the 'buttons' prop
+		// produces a zero character where the buttons should be. Only passing the prop
+		// if there is actually data to pass.
+		if (! empty($cta_buttons)) {
+			$localized_array['buttons'] = $cta_buttons;
+		}
 
 		/**
 		 * TODO: Add support for logo and partner logo settings.
