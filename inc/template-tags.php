@@ -12,7 +12,11 @@
  * @return $excerpt Post excerpt.
  */
 function pitchfork_add_class_to_excerpt( $excerpt ) {
-	return str_replace( '<p', '<p class="mb-2"', $excerpt );
+	if ( is_singular( 'post' ) ) {
+		return str_replace( '<p', '<p class="lead"', $excerpt );
+	} else {
+		return str_replace( '<p', '<p class="mb-2"', $excerpt );
+	}
 }
 add_filter( 'the_excerpt', 'pitchfork_add_class_to_excerpt' );
 
