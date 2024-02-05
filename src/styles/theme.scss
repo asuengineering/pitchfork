@@ -5,6 +5,7 @@ Loads UDS-Bootstrap-4 and appends additional styles as needed.
 
 // Override image base path for theme css
 $image-assets-path: "/wp-content/themes/pitchfork/src/unity-bootstrap-theme/img";
+$image-theme-path: '/wp-content/themes/pitchfork/src/img';
 
 // Import Bootstrap.
 @import "../unity-bootstrap-theme/unity-bootstrap-theme.bundle";

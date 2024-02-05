@@ -89,18 +89,31 @@ get_header();
 			</section>
 
 		<footer class="entry-footer default-max-width">
-			<?php pitchfork_entry_footer(); ?>
-			<h4><span class="highlight-black">Tags</span></h4>
-			<?php the_tags('<h4><span class="highlight-black">Tags</span></h4><ul><li>', '</li><li>', '</li></ul>'); ?>
+
+			<?php
+			// Echo different footer elements based on post format.
+			// Standard posts (long form) get tags.
+			// Category list as button-tags from the card spec.
+			$tags = get_the_tags();
+			if ( ! empty( $tags ) ) {
+				$taglist = '<div class="tag-list"><span class="fa-regular fa-tags" title="Article tags:"></span><ul>';
+				foreach( $tags as $tag ) {
+					$taglist .= '<li><a class="btn btn-tag btn-tag-alt-white" href="' . esc_url( get_tag_link( $tag->term_id ) ) . '">' . esc_html( $tag->name ) . '</a></li>';
+				}
+				$taglist .= '</ul></div>';
+			}
+			echo $taglist;
+
+			// Aside posts get post navigation elements as tags are less likely to be used.
+			// pitchfork_the_post_navigation();
+
+			?>
+
 		</footer>
 
-		<?php
+		<?php  // Comments template would go here.
 
-		pitchfork_the_post_navigation();
-
-		// Comments template would go here.
-
-	}
+	} // end while_have_posts
 
 	echo '</article>';
 

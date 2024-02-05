@@ -93,6 +93,75 @@ Extra styles for single-feature.php template.
 			}
 		}
 
+		.entry-footer {
+
+			padding: 2rem 0 1rem 0;
+			margin: 2rem 0;
+			border-top: 1px solid $uds-color-base-gray-3;
+
+			// Post tags, used with "standard" post
+			.tag-list {
+				display: flex;
+				justify-content: flex-start;
+				align-items: center;
+				gap: $uds-size-spacing-1;
+
+				ul {
+					padding: 0;
+					margin: 0;
+
+					li {
+						list-style-type: none;
+						float: left;
+						margin-right: $uds-size-spacing-1;
+					}
+				}
+			}
+
+			// Post navigation
+			.nav-links {
+				display: flex;
+				justify-content: space-between;
+				flex-direction: column;
+				gap: $uds-size-spacing-1;
+
+				a {
+					display: block;
+					position: relative;
+					word-break: break-word;
+
+					&:before {
+						background: no-repeat center;
+						background-size: contain;
+						content: "";
+						display: block;
+						height: 12px;
+						position: absolute;
+						top: 4px;
+						width: 15px;
+					}
+				}
+
+				.nav-previous a {
+					padding-left: 25px;
+
+					&:before {
+						background-image: url($image-theme-path + "/arrow-black-left.svg");
+						left: 0;
+					}
+				}
+
+				.nav-next a {
+					padding-right: 25px;
+					text-align: right;
+
+					&:before {
+						background-image: url($image-theme-path + "/arrow-black-right.svg");
+						right: 0;
+					}
+				}
+			}
+		}
 	}
 }
 
@@ -125,16 +194,15 @@ Desktop
 
 		.entry-header {
 
-			// max-height: calc(4em + 515px);
-
 			display: grid;
 			grid-template-columns: 70% 1fr;
-			grid-template-rows: 1fr auto 4em;
+			grid-template-rows: 1fr 5em auto;
 			gap: 0px 0px;
 			grid-auto-flow: row;
 
-			padding-top: 0;
+			margin-bottom: 0;
 
+			padding-top: 0;
 			padding-bottom: $uds-size-spacing-2;
 			border-bottom: 0;
 
@@ -147,6 +215,7 @@ Desktop
 
 				aspect-ratio: 22 / 9;
 				object-fit: cover;
+				object-position: 30% left;
 				width: 100%;
 			}
 
@@ -156,18 +225,14 @@ Desktop
 				z-index: 20;
 				position: relative;
 
-				color: #ffffff;
-				// background-color: $uds-color-base-gray-7;
+				color: $uds-color-base-gray-7;
+				background-color: $uds-color-base-white;
 
-				// color: $uds-color-base-gray-7;
-				// background-color: $uds-color-base-white;
+				padding: 2rem 1rem 1rem 0;
 
-				background-color: rgba(0, 0, 0, 0.7);
-				// background-color: rgba(175, 102, 75, 1);
-				// background: linear-gradient(180deg, rgba(25, 25, 25, 0.25) 0%, rgba(25, 25, 25, 1) calc(100% - 2rem), rgba(25, 25, 25, 1) 100%);
-				// background: linear-gradient(180deg, rgba(25, 25, 25, 0.4) 0%, rgba(175, 102, 75, 1) calc(100% - 2rem), rgba(175, 102, 75, 1) 100%);
-				padding: .5rem 1rem;
-				border: 1px solid #ffffff;
+				h1 {
+					margin: 0;
+				}
 			}
 
 			.share {
