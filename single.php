@@ -32,9 +32,19 @@ get_header();
 
 		<div class="content-wrap">
 
-			<section class="excerpt">
-				<?php the_excerpt(); ?>
-			</section>
+			<?php
+			/**
+			 * Test if post has an excerpt that's been deliberatly created.
+			 * If not, avoid putting it on the page here because of duplicate content.
+			 * (Default excerpt repeats the first 140 characters of the post.)
+			*/
+
+			if ( has_excerpt() ) {
+				echo '<section class="excerpt">';
+				the_excerpt();
+				echo '</section>';
+			}
+			?>
 
 			<aside class="secondary">
 				<div class="sidebar-wrap">
@@ -59,6 +69,7 @@ get_header();
 						<?php
 						// Category list as button-tags from the card spec.
 						$categories = get_the_category();
+						$categorylist = '';
 						if ( ! empty( $categories ) ) {
 							$categorylist = '<ul class="category-list">';
 							foreach( $categories as $category ) {
@@ -70,15 +81,16 @@ get_header();
 						?>
 
 						<?php
-						// Social share intent icons. Probably a plugin later...
+						/**
+						 * Social share intent icons.
+						 * @since v2.1 - Provides preferred support for AddToAny in this sidebar location.
+						 * AddToAny mirrors service used by ASU News.
+						 */
+
+						if ( function_exists( 'ADDTOANY_SHARE_SAVE_KIT' ) ) {
+							ADDTOANY_SHARE_SAVE_KIT();
+						}
 						?>
-						<ul class="social-share">
-							<li><a href="#"><i class="fa-brands fa-square-facebook"></i></a></li>
-							<li><a href="#"><i class="fa-brands fa-square-x-twitter"></i></a></li>
-							<li><a href="#"><i class="fa-brands fa-linkedin"></i></a></li>
-							<li><a href="#"><i class="fa-brands fa-square-instagram"></i></a></li>
-							<li><a href="#"><i class="fa-brands fa-square-github"></i></a></li>
-						</ul>
 
 					</div>
 				</div>
@@ -95,6 +107,7 @@ get_header();
 			// Standard posts (long form) get tags.
 			// Category list as button-tags from the card spec.
 			$tags = get_the_tags();
+			$taglist = '';
 			if ( ! empty( $tags ) ) {
 				$taglist = '<div class="tag-list"><span class="fa-regular fa-tags" title="Article tags:"></span><ul>';
 				foreach( $tags as $tag ) {
@@ -105,7 +118,7 @@ get_header();
 			echo $taglist;
 
 			// Aside posts get post navigation elements as tags are less likely to be used.
-			// pitchfork_the_post_navigation();
+			pitchfork_the_post_navigation();
 
 			?>
 
