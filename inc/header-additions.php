@@ -12,7 +12,7 @@ defined( 'ABSPATH' ) || exit;
  * Theme favicons header hook, provides links to the favicons from the UDS WordPress Theme
  */
 function pitchfork_add_favicons_to_header() {
-	?>/Users/tfserwin/LocalWP/pitchfork/app/public/wp-content/themes/pitchfork/src/unity-bootstrap-theme/img/favicon
+	?>
 <link rel="apple-touch-icon-precomposed" sizes="57x57" href="<?php echo get_template_directory_uri(); ?>/src/unity-bootstrap-theme/img/favicon/apple-touch-icon-57x57.png" />
 <link rel="apple-touch-icon-precomposed" sizes="114x114" href="<?php echo get_template_directory_uri(); ?>/src/unity-bootstrap-theme/img/favicon/apple-touch-icon-114x114.png" />
 <link rel="apple-touch-icon-precomposed" sizes="72x72" href="<?php echo get_template_directory_uri(); ?>/src/unity-bootstrap-theme/img/favicon/apple-touch-icon-72x72.png" />
