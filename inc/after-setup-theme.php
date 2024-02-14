@@ -7,7 +7,7 @@
 
 add_action( 'after_setup_theme', 'pitchfork_theme_setup' );
 if ( ! function_exists( 'pitchfork_theme_setup' ) ) {
-	
+
 	/**
 	 * Setup functions for theme.
 	 *
@@ -60,7 +60,8 @@ if ( ! function_exists( 'pitchfork_theme_setup' ) ) {
 		 * Adding support for Widget edit icons in customizer.
 		 */
 		add_theme_support( 'customize-selective-refresh-widgets' );
-		
+
+		// Add support for post formats: Standard, Aside
+		add_theme_support( 'post-formats', array( 'aside' ));
 	}
 }
-

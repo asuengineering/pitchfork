@@ -98,67 +98,67 @@ Extra styles for single-feature.php template.
 			padding: 2rem 0 1rem 0;
 			margin: 2rem 0;
 			border-top: 1px solid $uds-color-base-gray-3;
+		}
 
-			// Post tags, used with "standard" post
-			.tag-list {
-				display: flex;
-				justify-content: flex-start;
-				align-items: center;
-				gap: $uds-size-spacing-1;
+		// Post tags, used with "standard" post
+		.tag-list {
+			display: flex;
+			justify-content: flex-start;
+			align-items: center;
+			gap: $uds-size-spacing-1;
 
-				ul {
-					padding: 0;
-					margin: 0;
+			ul {
+				padding: 0;
+				margin: 0;
 
-					li {
-						list-style-type: none;
-						float: left;
-						margin-right: $uds-size-spacing-1;
-					}
+				li {
+					list-style-type: none;
+					float: left;
+					margin-right: $uds-size-spacing-1;
+				}
+			}
+		}
+
+		// Post navigation
+		.nav-links {
+			display: flex;
+			justify-content: space-between;
+			flex-direction: column;
+			gap: $uds-size-spacing-1;
+
+			a {
+				display: block;
+				position: relative;
+				word-break: break-word;
+
+				&:before {
+					background: no-repeat center;
+					background-size: contain;
+					content: "";
+					display: block;
+					height: 12px;
+					position: absolute;
+					top: 4px;
+					width: 15px;
 				}
 			}
 
-			// Post navigation
-			.nav-links {
-				display: flex;
-				justify-content: space-between;
-				flex-direction: column;
-				gap: $uds-size-spacing-1;
+			.nav-previous a {
+				padding-left: 25px;
 
-				a {
-					display: block;
-					position: relative;
-					word-break: break-word;
-
-					&:before {
-						background: no-repeat center;
-						background-size: contain;
-						content: "";
-						display: block;
-						height: 12px;
-						position: absolute;
-						top: 4px;
-						width: 15px;
-					}
+				&:before {
+					background-image: url($image-theme-path + "/arrow-black-left.svg");
+					left: 0;
 				}
+			}
 
-				.nav-previous a {
-					padding-left: 25px;
+			.nav-next a {
+				padding-right: 25px;
+				text-align: right;
 
-					&:before {
-						background-image: url($image-theme-path + "/arrow-black-left.svg");
-						left: 0;
-					}
-				}
-
-				.nav-next a {
-					padding-right: 25px;
-					text-align: right;
-
-					&:before {
-						background-image: url($image-theme-path + "/arrow-black-right.svg");
-						right: 0;
-					}
+				&:before {
+					background-image: url($image-theme-path + "/arrow-black-right.svg");
+					right: 0;
 				}
 			}
 		}
@@ -274,5 +274,57 @@ Desktop
 			}
 		}
 
+	}
+}
+
+/*--------------------------------------------------------------
+Post Format: Aside
+--------------------------------------------------------------*/
+.single-format-aside {
+
+	.entry-header {
+		border-bottom: none;
+		padding-bottom: 1rem;
+		margin-bottom: 0;
+	}
+
+	.content-wrap .tag-list {
+		display: block;
+		padding-bottom: 1rem;
+	}
+
+	.content-wrap .post-meta {
+		border-bottom: none;
+	}
+}
+
+@include media-breakpoint-up(lg) {
+
+	.single-format-aside {
+
+		article {
+			background-color: $uds-color-base-gray-1;
+			padding-top: 2rem;
+			padding-bottom: 4rem;
+		}
+
+		.entry-header {
+			display: block;
+			margin-top: 2rem;
+		}
+
+		.content-wrap {
+			background-color: $uds-color-base-white;
+			border: 2px solid $uds-color-base-gray-2;
+			padding: 2rem;
+
+			.tag-list {
+				display: block;
+			}
+		}
+
+		.sidebar-wrap h4 {
+			margin-bottom: $uds-size-spacing-1;
+		}
 	}
 }
