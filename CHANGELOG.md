@@ -5,6 +5,20 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+### Version 2.1
+
+This release provides a new and improved format for blog posts within a site using the Pitchfork theme.
+
+- FIX: Posts will now be formatted by default in a compact design that allows for a larger featured image and a visible post excerpt. Design and usability details will follow in a blog post within the [ASU Engineering Marketing/Communication](https://comm.engineering.asu.edu) site.
+- ADD: Support for a post format called an "aside" is also now available in the post editor. The intent for an "aside" post is to deliver a short-form news update visible in a "feed" elsewhere on your site. Individual posts given this format will appear without a post title, and without a featured image.
+- ADD: Direct support for the social sharing service called [AddtoAny](https://www.addtoany.com/) is provided within the new single.php template. Activate [the official AddtoAny plugin](https://wordpress.org/plugins/add-to-any/) within your site to see social sharing icons appear within the sidebar of your post.
+
+Additional actions taken:
+
+- ADD: Featured images will now be added to site RSS feeds by default.
+- FIX: Removed the zero character that appeared when there was no menu assigned to the primary navigation area of the site.
+- FIX: Corrected expected path for favicons for the theme.
+
 ### Version 2.0.1
 
 - ADD: Package updates from `@asu` to include the "repeatedly #1" innovation footer graphic.
