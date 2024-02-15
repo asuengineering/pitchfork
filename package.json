@@ -6,8 +6,8 @@
   "license": "MIT",
   "devDependencies": {
     "@asu/component-cookie-consent": "^2.0.0",
-    "@asu/component-footer": "^2.0.0",
-    "@asu/component-header": "^2.0.0",
+    "@asu/component-footer": "^2.2.0",
+    "@asu/component-header": "^2.2.0",
     "@asu/unity-bootstrap-theme": "^1.7.6",
     "@babel/core": "^7.0.0",
     "@babel/preset-env": "^7.12.1",
