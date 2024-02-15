@@ -56,5 +56,19 @@ if (! function_exists( 'pitchfork_redirect_author_archive_pages') ) {
 			exit;
 		}
 	}
-	add_action( 'template_redirect', 'pitchfork_redirect_author_archive_pages' );
 }
+add_action( 'template_redirect', 'pitchfork_redirect_author_archive_pages' );
+
+// Add featured image to RSS feeds for posts
+if (! function_exists( 'pitchfork_add_post_thumbnail_to_rss') ) {
+	function pitchfork_add_post_thumbnail_to_rss($content) {
+		global $post;
+		if( has_post_thumbnail( $post->ID ) ) {
+			$content = get_the_content() . '<!-- wp:post-featured-image /--><div class="post-thumbnail">' . get_the_post_thumbnail($post->ID) . '</div>';
+		}
+		return $content;
+	}
+}
+add_filter('the_excerpt_rss', 'pitchfork_add_post_thumbnail_to_rss');
+add_filter('the_content_feed', 'pitchfork_add_post_thumbnail_to_rss');
+
