@@ -50,11 +50,11 @@ if ( ! function_exists( 'pitchfork_pagination' ) ) {
 			array(
 				'mid_size'           => 2,
 				'prev_next'          => true,
-				'prev_text'          => __( '&laquo;', 'uds-wordpress-theme' ),
-				'next_text'          => __( '&raquo;', 'uds-wordpress-theme' ),
+				'prev_text'          => __( '<span class="sr-only">Previous</span>', 'pitchfork' ),
+				'next_text'          => __( '<span class="sr-only">Next</span>', 'pitchfork' ),
 				'type'               => 'array',
 				'current'            => max( 1, get_query_var( 'paged' ) ),
-				'screen_reader_text' => __( 'Posts navigation', 'uds-wordpress-theme' ),
+				'screen_reader_text' => __( 'Posts navigation', 'pitchfork' ),
 			)
 		);
 
@@ -77,7 +77,28 @@ if ( ! function_exists( 'pitchfork_pagination' ) ) {
 				foreach ( $links as $key => $link ) {
 					?>
 					<li class="page-item <?php echo strpos( $link, 'current' ) ? 'active' : ''; ?>">
-						<?php echo str_replace( 'page-numbers', 'page-link', $link ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+						<?php
+						// Use tag processor to add attributes, change CSS classes on any navigation link
+						$processor = new WP_HTML_Tag_Processor( $link );
+						$processor->set_bookmark('start');
+						if ( $processor->next_tag( array( 'class_name' => 'page-numbers' ) ) ) {
+							$processor->add_class( 'page-link');
+							$processor->remove_class( 'page-numbers');
+							$processor->set_attribute( 'data-ga-event', 'select' );
+							$processor->set_attribute( 'data-ga-action', 'click' );
+							$processor->set_attribute( 'data-ga-name', 'onclick' );
+							$processor->set_attribute( 'data-ga-type', 'pagination' );
+							$processor->set_attribute( 'data-ga-region', 'main content' );
+							$processor->set_attribute( 'data-ga', $key);
+						}
+						$link = $processor->get_updated_html();
+
+						// Direct string replacement to add additional classes.
+						// Otherwise, we need 2 additional HTML Tag processors to add these classes.
+						$link = str_replace( 'prev', 'prev page-link-icon', $link ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+						$link = str_replace( 'next', 'next page-link-icon', $link ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+						echo $link;
+						?>
 					</li>
 					<?php
 				}

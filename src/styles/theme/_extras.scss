@@ -120,7 +120,17 @@ flowing under header when rendered.
 	span.page-link {
 		padding: $uds-size-spacing-1 12px;
 	}
+
+	// Remove hover effect for active page marker.
+	.current.page-link:hover {
+		z-index: 3;
+		color: var(--bs-pagination-active-color);
+		background-color: var(--bs-pagination-active-bg);
+		border-color: var(--bs-pagination-active-border-color);
+	}
 }
+
+
 
 /*--------------------------------------------------------------
 5. 404 Error page fixes
