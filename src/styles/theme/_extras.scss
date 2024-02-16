@@ -114,6 +114,7 @@ flowing under header when rendered.
 /*--------------------------------------------------------------
 4. Pagination formatting fix.
 - Span tag produces zero padding from default WP.
+- Remove hover effect for active page marker.
 --------------------------------------------------------------*/
 
 .pagination {
@@ -121,7 +122,6 @@ flowing under header when rendered.
 		padding: $uds-size-spacing-1 12px;
 	}
 
-	// Remove hover effect for active page marker.
 	.current.page-link:hover {
 		z-index: 3;
 		color: var(--bs-pagination-active-color);
@@ -130,10 +130,26 @@ flowing under header when rendered.
 	}
 }
 
+/*--------------------------------------------------------------
+5. Add support for core/file block. Format label and button color.
+--------------------------------------------------------------*/
+
+main {
+	.wp-block-file:not(.wp-element-button) {
+		font-size: 16px;
+	}
+
+	.wp-block-file *+.wp-block-file__button {
+		background-color: $uds-color-base-maroon;
+		color: $uds-color-base-white;
+		font-weight: 700;
+	}
+}
+
 
 
 /*--------------------------------------------------------------
-5. 404 Error page fixes
+6. 404 Error page fixes
 --------------------------------------------------------------*/
 .error404 div[class^='uds-hero'] .search-form-inline {
 
@@ -157,7 +173,7 @@ flowing under header when rendered.
 }
 
 /*--------------------------------------------------------------
-6. Border and spacing for index.php site title display.
+7. Border and spacing for index.php site title display.
 --------------------------------------------------------------*/
 .home .index-title {
 	padding-bottom: $uds-size-spacing-2;
