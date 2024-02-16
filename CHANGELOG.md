@@ -16,6 +16,8 @@ This release provides a new and improved format for blog posts within a site usi
 Additional actions taken:
 
 - ADD: Featured images will now be added to site RSS feeds by default.
+- ADD: Added data layer tracking to pagination elements when visible in a template.
+- ADD: Support added for the `core/file` block to allow for PDF embeds to happen via native WordPress function.
 - FIX: Removed the zero character that appeared when there was no menu assigned to the primary navigation area of the site.
 - FIX: Corrected expected path for favicons for the theme.
 
