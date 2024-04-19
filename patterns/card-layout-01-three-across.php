@@ -1,8 +1,8 @@
 <?php
 /**
- * Title: Cards - Three across
+ * Title: Card Layout: 3 Across
  * Slug: pitchfork/cards-three-across
- * Categories: pitchfork-cards
+ * Categories: pitchfork-card-layouts
  * Block Types: core
  */
 ?>

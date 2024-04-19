@@ -62,9 +62,15 @@ if ( function_exists( 'register_block_pattern_category' ) ) {
 	);
 
 	register_block_pattern_category(
-		'pitchfork-cards',
+		'pitchfork-card',
 		array( 'label' => __( 'Pitchfork: Cards', 'pitchfork' ) )
 	);
+
+	register_block_pattern_category(
+		'pitchfork-card-layouts',
+		array( 'label' => __( 'Pitchfork: Card Layouts', 'pitchfork' ) )
+	);
+
 }
 
 if ( ! function_exists( 'pitchfork_gutenberg_css' ) ) {
