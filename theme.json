@@ -1,6 +1,23 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/theme.json",
 	"version": 2,
+	"styles": {
+		"spacing": {
+			"blockGap": "2rem"
+		},
+		"blocks": {
+			"core/post-title": {
+				"spacing": {
+					"padding": {
+						"top": "0",
+						"right": "0",
+						"bottom": "0",
+						"left": "0"
+					}
+				}
+			}
+		}
+	},
 	"settings": {
 		"layout": {
 			"contentSize": "1200px"
@@ -17,7 +34,7 @@
 			],
 			"margin": true,
 			"padding": true,
-			"blockGap": "2rem",
+			"blockGap": true,
 			"spacingScale": {
 				"steps": 0
 			},
@@ -702,20 +719,6 @@
 							"name": "ASU Gray 2"
 						}
 					]
-				}
-			}
-		}
-	},
-	"styles": {
-		"blocks": {
-			"core/post-title": {
-				"spacing": {
-					"padding": {
-						"top": "0",
-						"right": "0",
-						"bottom": "0",
-						"left": "0"
-					}
 				}
 			}
 		}
