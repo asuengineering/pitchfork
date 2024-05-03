@@ -4,7 +4,7 @@ var __webpack_exports__ = {};
   !*** ./src/scripts/block-variations.js ***!
   \*****************************************/
 /**
- * JS file to add block styles and variations to various core blocks. 
+ * JS file to add block styles and variations to various core blocks.
  * - core/paragraph, add lead style.
  * - core/button, add size selection, rework CSS for UDS styles.
  * - core/list, add list styles.
@@ -103,6 +103,13 @@ wp.domReady(() => {
     name: 'copy-divider',
     label: 'Copy Divider (Gold)'
   });
+
+  /** Post template block (within query loop). Add style for post column */
+  wp.blocks.registerBlockStyle('core/post-template', [{
+    name: 'post-column',
+    label: 'Post Column',
+    isDefault: false
+  }]);
 });
 /******/ })()
 ;

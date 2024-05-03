@@ -56,10 +56,6 @@ if ( ! function_exists( 'pitchfork_remove_core_patterns' ) ) {
 
 // Add block patterns for Pitchfork
 if ( function_exists( 'register_block_pattern_category' ) ) {
-	register_block_pattern_category(
-		'pitchfork-directory',
-		array( 'label' => __( 'Pitchfork: Directory', 'pitchfork' ) )
-	);
 
 	register_block_pattern_category(
 		'pitchfork-card',
@@ -69,6 +65,16 @@ if ( function_exists( 'register_block_pattern_category' ) ) {
 	register_block_pattern_category(
 		'pitchfork-card-layouts',
 		array( 'label' => __( 'Pitchfork: Card Layouts', 'pitchfork' ) )
+	);
+
+	register_block_pattern_category(
+		'pitchfork-section',
+		array( 'label' => __( 'Pitchfork: Content section', 'pitchfork' ) )
+	);
+
+	register_block_pattern_category(
+		'pitchfork-fullpage',
+		array( 'label' => __( 'Pitchfork: Page templates', 'pitchfork' ) )
 	);
 
 }

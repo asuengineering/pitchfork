@@ -6,6 +6,7 @@
 - core/image
 - core/table
 - core/divider
+- core/post-template
 --------------------------------------------------------------*/
 
 
@@ -15,11 +16,11 @@
 
 // Lead Paragraph
 p.is-style-lead {
-	@extend .lead
+	@extend .lead;
 }
 
 
-/*--------------------------------------------------------------
+/* --------------------------------------------------------------
 2. core/button. Add styles from UDS-Bootstrap manually.
 See: /inc/blocks:93 for explination.
 --------------------------------------------------------------*/
@@ -192,6 +193,33 @@ a.wp-block-button__link {
 			max-width: 16rem;
 			width: 100%;
 			position: absolute;
+		}
+	}
+}
+
+
+/*--------------------------------------------------------------
+6. core/post-template
+- Provides support for post-column block style, native blocks only.
+--------------------------------------------------------------*/
+/* Addition of .is-layout-flow here prevents style from taking effect
+if the block is configured to use the grid layout instead of flow content. */
+
+.is-style-post-column.is-layout-flow {
+	.wp-block-post:not(:first-child) {
+		.wp-block-post-featured-image {
+			float: inline-start;
+			margin-inline-end: $uds-size-spacing-3;
+			aspect-ratio: 1;
+			width: $uds-size-spacing-10;
+			height: $uds-size-spacing-10;
+			margin-bottom: 0;
+
+			img {
+				object-fit: cover;
+				height: 100%;
+				width: 100%;
+			}
 		}
 	}
 }
