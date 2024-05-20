@@ -5,7 +5,26 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
-### Version 2.1
+## Version 2.2
+
+This release supports work done within Pitchfork Blocks to add a new set of blocks that redefine how cards work within the editor.
+
+**Patterns**
+
+- ADD: New patterns make it easy to to deploy single cards with various features. The following card patterns were added: icon and text link card, story card, event card, degree card.
+- ADD: A new pattern using a query loop and the new `acf/card-v2` block was added to the library.
+- ADD: A new pattern was also included to make a "post column" layout using core blocks only. As originally seen within the home pages of In The Loop and Inner Circle.
+- UPDATE: Existing card patterns which utilized the older card blocks were updated to use the new card blocks.
+
+**Data Layer**
+
+- ADD: The process of giving a `core/button`​ block a custom name in the editor will automatically add all needed data layer tags to properly track any desired call to action.
+- CHANGE: Example block patterns for video and regular heroes + the content overlap block now include renamed buttons by default.
+- CHANGE: Patterns that include a layout of three cards and a button now include a renamed button by default.
+
+**Package Versions**
+
+## Version 2.1
 
 This release provides a new and improved format for blog posts within a site using the Pitchfork theme.
 
@@ -21,14 +40,14 @@ Additional actions taken:
 - FIX: Removed the zero character that appeared when there was no menu assigned to the primary navigation area of the site.
 - FIX: Corrected expected path for favicons for the theme.
 
-### Version 2.0.1
+## Version 2.0.1
 
 - ADD: Package updates from `@asu` to include the "repeatedly #1" innovation footer graphic.
 - FIX: Replaced the icon for the service formerly known as Twitter in the endorsed footer section with the new brand logo. (Bye bye birdie.)
 - FIX: Footer menu now uses markup for BS5 accordions in mobile presentation. When paired with the Pitchfork Blocks plugin, these accordions will now also emit events tracked by the ASU GA4 data layer.
 - FIX: Author archive pages are now redirected to the home page of the site by default. Function can be easily overridden by a child theme if desired for an individual application.
 
-### Version 2.0
+## Version 2.0
 
 This version updates its references to the Unity Design system from the deprecated `@asu/bootstrap-4-theme` package to the current `@asu/unity-bootstrap-theme` package. Plugins that still rely on markup from the older package will need to be updated correspondingly with this release.
 
@@ -52,15 +71,15 @@ This version updates its references to the Unity Design system from the deprecat
 - FIX: Removed the possibility of fatal PHP errors which occur when the theme is activated without the Advanced Custom Fields plugin. The root cause of most of those errors is a call to the missing `get_field` function provided by the plugin. All references to `get_field` were replaced with other native WordPress functions (`get_option`, `get_post_meta`) to prevent the error from occuring.
 - ADD: The theme now defines an explicit save and load point for any ACF-JSON configuration files in use by the theme.
 
-### Version 1.9.2
+## Version 1.9.2
 
 - ADD: Support for the new `acf/profile-data` block within [Pitchfork People](https://github.com/asuengineering/pitchfork-people) was added to `theme.json`.
 
-### Version 1.9.1 (Bug Fix)
+## Version 1.9.1 (Bug Fix)
 
 FIX: Previous release used a reference to `get_stylesheet_directory_uri()` to enqueue assets from the theme. This function works correctly for when there is no child theme active. But, this results in assets not being loaded correctly when a child theme is present. Changed references to `get_template_directory_uri()` to force the assets to enqueue from the parent theme instead.
 
-### Version 1.9
+## Version 1.9
 
 This release was a maintenance update of the theme, primarily to update all package references to the old `@asu-design-system` with new references to `@asu` (https://github.com/orgs/ASU/packages).
 
@@ -71,7 +90,7 @@ This release was a maintenance update of the theme, primarily to update all pack
 - CHANGE: The option to link/unlink the site title in the header was also removed from the customizer. This configuration is also not supported by `@asu/component-header`.
 - FIX: The focus outline for a linked image was not displaying correctly. Added additional CSS rules to address the issue.
 
-### Version 1.8
+## Version 1.8
 
 - FIX: The gold underline in the header was not applied to the current page if it was a listed element in the navigation. Also, the gold underline for the home icon was always present no matter what page was viewed. Both errors addressed.
 - FIX: The background color picker was visible but empty for blocks which explicitly disabled support for that feature. Fixed with additional declarations in `theme.json`
@@ -79,13 +98,13 @@ This release was a maintenance update of the theme, primarily to update all pack
 - FIX: Base URL for the site header was set to `'/'` instead of `site_url()` which made site title links for subsites (site.asu.edu/sitename) incorrectly link to the parent URL instead of the current site URL.
 - ADD: Added support for `core/post-title` as a way to replace the page title included in `page.php` if no title replacement block is present.
 
-### Version 1.7.1 (Bug fix)
+## Version 1.7.1 (Bug fix)
 
 A previous attempt to prevent site content from scrolling under the header inadvertantly caused click events mapped to the navbar to stop firing. The result was that all dropdown menus stopped functioning.
 
 - FIX: Added JS event monitor to attach `.scrolled` class to header and rewrote CSS appropriately for proper top margin on the `<main>` element. Removed previous attempt to `unwrap()` #asuHeader to restore mapped click events for dropdowns.
 
-### Version 1.7
+## Version 1.7
 
 - ADD: Support for `acf/profiles` block added to `theme.json`
 - ADD: Created block pattern categories for **Pitchfork: Directory** and **Pitchfork: Cards**
@@ -99,13 +118,13 @@ A previous attempt to prevent site content from scrolling under the header inadv
 - ADD: https://wordpress.asu.edu/pitchfork/docs/profile-block-manual/
 - ADD: https://wordpress.asu.edu/pitchfork/docs/block-patterns/
 
-### Version 1.6.1
+## Version 1.6.1
 
 - FIXED: A CSS selector using `:has()` was being used to set the margin top for the new global header. That CSS rule is unsupported by Firefox and older versions of Safari. Used JS to remove wrapper around header element and rewrote the rule to use CSS adjacent siblings again to handle scrolled state.
 - ADDED: Support for incoming `acf/profile-manual` block was added to `theme.json`
 - REMOVED: Removed references to Query Monitor plugin intended for debugging the new header.
 
-### Version 1.6
+## Version 1.6
 
 A fast-follower release from the previous milestone, Pitchfork v1.6 now incorporates the `component-header` elements from the Unity Design system.
 
@@ -122,7 +141,7 @@ A fast-follower release from the previous milestone, Pitchfork v1.6 now incorpor
 
 - REMOVED: Removed panels and options from the customizer which are no longer necessary to configure the site properly.
 
-### Version 1.5
+## Version 1.5
 
 The previous version of the Pitchfork theme (v1.4) introduced a bug into the mobile version of the header in which the links from the main navigation would not scroll correctly within the dropdown menu. This important update addresses this issue and adds improvements to the remainder of the controls for the header.
 
@@ -138,32 +157,32 @@ The previous version of the Pitchfork theme (v1.4) introduced a bug into the mob
   - New URL is within the settings menu at `/wp-admin/options-general.php?page=pitchfork-settings`
 - ADD: Global header now includes ASU GA data-layer attributes.
 
-### Version 1.4
+## Version 1.4
 
 - ADDED: Global footer now includes the 2023 innovation lockup graphic.
 - ADDED: Updated ASU Bootstrap UI kit to v7.17.12 (latest).
 - ADDED: Added support for Github Updater plugin.
 
-### Version 1.3
+## Version 1.3
 
 - FIX: Add support for `.alignleft`, `.alignright` and `.aligncenter` classes.
 - FIX: Remove extra bullet point from nested `<ul>` elements in `.uds-list`.
 - FIX: Remove Lavidge tracking code from header. Causes unpredictable results when not enqueued properly.
 
-### Version 1.2
+## Version 1.2
 
 - FIX: Resolve PHP notice for missing array value within the global header.
 - FIX: core/columns block now supports a limited color palette for background colors.
 - FIX: The drop-shadow style of the core/image block no longer exceeds the margin of the block.
 - FIX: page.php and single.php now support for acf/hero-video as a replacement for the page/post title.
 
-### Version 1.1
+## Version 1.1
 
 - Includes `theme.json` rules for new `content-media-overlap` block.
 - Filters out default labels for archive page titles.
 - Limits scope of a CSS rule only intended for `single.php`
 
-### Version 1.0
+## Version 1.0
 
 - Initial stable deployment of the theme.
 - Includes `theme.json` support for all blocks from the accompanying Pitchfork Blocks plugin.

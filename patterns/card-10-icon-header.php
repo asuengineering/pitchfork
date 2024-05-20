@@ -1,6 +1,6 @@
 <?php
 /**
- * Title: Card: Icon Card
+ * Title: Card: Icon Header
  * Slug: pitchfork/card-icon
  * Categories: pitchfork-card
  * Block Types: core

@@ -1,8 +1,8 @@
 <?php
 /**
- * Title: Card: Query Loop
+ * Title: Card Layout: 3 Across with Query Loop
  * Slug: pitchfork/card-queryloop
- * Categories: pitchfork-card
+ * Categories: pitchfork-card-layouts
  * Block Types: core
  */
 ?>
