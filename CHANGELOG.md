@@ -25,6 +25,11 @@ This release supports work done within Pitchfork Blocks to add a new set of bloc
 
 **Package Versions**
 
+| Package                   | Old version | Updated Version |
+| ------------------------- | ----------- | --------------- |
+| `unity-bootstrap-package` | 1.9.4       | 1.9.15 (latest) |
+| `component-header`        | 2.2.3       | 2.2.5 (latest)  |
+
 ## Version 2.1
 
 This release provides a new and improved format for blog posts within a site using the Pitchfork theme.
