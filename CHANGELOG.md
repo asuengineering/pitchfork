@@ -15,6 +15,7 @@ This release supports work done within Pitchfork Blocks to add a new set of bloc
 - ADD: A new pattern using a query loop and the new `acf/card-v2` block was added to the library.
 - ADD: A new pattern was also included to make a "post column" layout using core blocks only. As originally seen within the home pages of In The Loop and Inner Circle.
 - UPDATE: Existing card patterns which utilized the older card blocks were updated to use the new card blocks.
+- ADD: A pattern representing a whole page with a two column layout was added to the library.
 
 **Data Layer**
 
