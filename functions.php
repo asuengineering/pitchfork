@@ -40,11 +40,14 @@ require get_template_directory() . '/inc/theme-options.php';
  *
  * (ACF_Field_Unique_ID.php)
  * Adds field that assigns a random ID to a block.
+ * Initalized by following init() function.
+ * See: https://github.com/philipnewcomer/ACF-Unique-ID-Field
  * - Used in PF Blocks - acf/accordion, acf/card-foldable
  * - Used in PF People - acf/profiles, acf/profile-data
  */
 require get_template_directory() . '/inc/acf-menu-select/acf-menu-select.php';
 require get_template_directory() . '/inc/ACF_Field_Unique_ID.php';
+ASUEngineering\ACF_Unique_ID_Field\ACF_Field_Unique_ID::init();
 
 // Customizer options.
 require get_template_directory() . '/inc/customizer/customizer-sanitizers.php';
