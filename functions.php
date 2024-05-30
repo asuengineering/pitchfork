@@ -31,6 +31,21 @@ require get_template_directory() . '/inc/class-unity-react-header-ctabtn-walker.
 // Theme options page includes controls for the theme's multisite behavior and analytics.
 require get_template_directory() . '/inc/theme-options.php';
 
+/**
+ * ACF field extensions. May be shared among Pitchfork supporting plugins.
+ *
+ * (acf-menu-select.php)
+ * Add field for selecting a menu object from existing menus in DB
+ * - Used in PF Blocks - acf/sidebar
+ *
+ * (ACF_Field_Unique_ID.php)
+ * Adds field that assigns a random ID to a block.
+ * - Used in PF Blocks - acf/accordion, acf/card-foldable
+ * - Used in PF People - acf/profiles, acf/profile-data
+ */
+require get_template_directory() . '/inc/acf-menu-select/acf-menu-select.php';
+require get_template_directory() . '/inc/ACF_Field_Unique_ID.php';
+
 // Customizer options.
 require get_template_directory() . '/inc/customizer/customizer-sanitizers.php';
 require get_template_directory() . '/inc/customizer/customizer-preview-js.php';
