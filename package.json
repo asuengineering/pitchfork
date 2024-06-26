@@ -1,7 +1,7 @@
 {
   "name": "pitchfork-theme",
   "description": "An ASU Engineering project, powered by WPGulp.",
-  "version": "2.2.1-beta",
+  "version": "2.2.1",
   "repository": "asuengineering/pitchfork",
   "license": "MIT",
   "devDependencies": {

@@ -5,6 +5,27 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## Version 2.2.1
+
+**Concurrent Release**
+
+This release is being made with a concurrent release to the accompanying [Pitchfork Blocks plugin](https://github.com/asuengineering/pitchfork-blocks).
+
+If you are using the Pitchfork Blocks plugin with this theme, please ensure that you upgrade the plugin to at least v2.1.1 PRIOR to updating the theme to v2.2.1. Updating the theme before the plugin will result in a fatal PHP error for redeclaring a pair of classes that were moved from the plugin to the theme for this release.
+
+The following changes were made:
+
+- CHANGE: Two custom field definitions for ACF were moved from the Pitchfork Blocks plugin to this theme. This allows the fields to be reused in multiple plugins without needing to be redefined in each application. The fields that now available include a menu selection control a unique ID field.
+- ADD: A new pattern for the "degree card" layout was added to the pattern library.
+
+**Package Versions**
+
+| Package                   | Old version | Updated Version |
+| ------------------------- | ----------- | --------------- |
+| `unity-bootstrap-package` | 1.9.15      | unchanged       |
+| `component-header`        | 2.2.5       | unchanged       |
+| `component-footer`        | 2.2.0       | unchanged       |
+
 ## Version 2.2
 
 This release supports work done within Pitchfork Blocks to add a new set of blocks that redefine how cards work within the editor.
