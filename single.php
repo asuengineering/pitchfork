@@ -33,7 +33,7 @@ get_header();
 				<?php the_title( '<h1 class="entry-title article">', '</h1>' ); ?>
 				</div>
 
-				<?php echo get_the_post_thumbnail($post_id, 'full', array( 'class' => 'img-fluid' )); ?>
+				<?php echo get_the_post_thumbnail(get_the_ID(), 'full', array( 'class' => 'img-fluid' )); ?>
 
 			</header>
 
