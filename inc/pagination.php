@@ -80,7 +80,6 @@ if ( ! function_exists( 'pitchfork_pagination' ) ) {
 						<?php
 						// Use tag processor to add attributes, change CSS classes on any navigation link
 						$processor = new WP_HTML_Tag_Processor( $link );
-						$processor->set_bookmark('start');
 						if ( $processor->next_tag( array( 'class_name' => 'page-numbers' ) ) ) {
 							$processor->add_class( 'page-link');
 							$processor->remove_class( 'page-numbers');
