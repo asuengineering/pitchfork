@@ -5,6 +5,16 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## Version 2.3
+
+**Package Versions**
+
+| Package                   | Old version | Updated Version |
+| ------------------------- | ----------- | --------------- |
+| `unity-bootstrap-package` | 1.9.15      | 1.15.3          |
+| `component-header`        | 2.2.5       | 2.3.3           |
+| `component-footer`        | 2.2.0       | 2.2.2           |
+
 ## Version 2.2.1
 
 **Concurrent Release**
