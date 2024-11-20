@@ -72,8 +72,9 @@ Desktop styles
       list-style-type: none;
       display: flex;
       padding-left: 0;
-      li:not(:first-child) {
-        margin-left: $uds-size-spacing-3;
+      gap: .5rem 1rem;
+      li:nth-child(-n + 2) {
+        white-space: nowrap;
       }
       &.person-contact-info {
         margin-bottom: $uds-size-spacing-2;
@@ -81,6 +82,9 @@ Desktop styles
           display: flex;
           flex-direction: column;
           margin: 0;
+          span {
+            font-weight: normal;
+          }
         }
       }
       &.person-social-medias a {
