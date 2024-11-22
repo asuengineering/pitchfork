@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## Version 2.3
 
+This release contains a critical fix to address a PHP error that can occur when updating to WordPress core v6.7.0.
+
+This theme update should be applied concurrently with the v2.2.0 [Pitchfork Blocks](https://github.com/asuengineering/pitchfork-blocks) plugin release before attempting to update to WP core files to the latest version.
+
+- FIX: Removed unnecessary HTML Tag processor call to problematic `set_bookmark` method. This prevents critial PHP errors from appearing when rendering pages that use the `archive.php` template or any included pagination functions. See Trac ticket [#62290](https://core.trac.wordpress.org/ticket/62290) for more details.
+- CHANGE: Updated Unity Design kit assets to latest from ASU package library. Package changes include an update to the "repeatedly ranked" graphic in the global footer.
+
 **Package Versions**
 
 | Package                   | Old version | Updated Version |
