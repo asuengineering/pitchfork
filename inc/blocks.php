@@ -85,7 +85,7 @@ if ( ! function_exists( 'pitchfork_gutenberg_css' ) ) {
 	 */
 	function pitchfork_gutenberg_css() {
 		add_theme_support( 'editor-styles' );
-		add_editor_style( 'dist/css/theme.css' );
+		add_editor_style( get_parent_theme_file_uri( 'dist/css/theme.css' ) );
 	}
 }
 add_action( 'after_setup_theme', 'pitchfork_gutenberg_css' );
