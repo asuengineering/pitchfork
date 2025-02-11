@@ -114,3 +114,6 @@ $uds-component-button-padding-x-medium: 1rem;
 $uds-component-button-padding-x: 2rem;
 $uds-component-list-ol-styles-steplist-styles-li-padding-bottom: 2rem;
 $uds-component-border-radius: 400rem;
+
+// Accessibility
+$a11y-target-size-minimum: 1.5rem; // Only required for certain links, see docs: https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum

@@ -42,6 +42,10 @@ a.page-link:hover {
   color: $uds-color-base-gray-7;
   text-decoration: none;
 }
+.page-item.active a.page-link:hover {
+  color: $uds-color-base-gray-1;
+}
+
 span.page-link {
   padding-left: 0;
   padding-right: 0;

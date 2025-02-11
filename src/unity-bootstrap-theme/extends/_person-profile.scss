@@ -4,6 +4,9 @@ Desktop styles
 .uds-person-profile {
   --max-width: 800px;
   --pic-size: 180px;
+  --grid-pic-size: 282px;
+  --grid-info-size: 308px;
+  --grid-info-max-size: 395px;
   --person-profession-bottom-margin: 16px;
   --person-name-size: 24px;
   --name-top-margin: 8px;
@@ -63,6 +66,12 @@ Desktop styles
       h4 {
         margin: 0;
         font-size: $uds-size-font-medium;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        line-clamp: 2;
+        -webkit-box-orient: vertical;
       }
     }
     .more-link {
@@ -93,12 +102,48 @@ Desktop styles
       }
     }
   }
+  /* Grid Profile styles */
+  &.uds-grid-profile {
+    flex-direction: column;
+    max-width: var(--grid-info-max-size);
+    .person {
+      margin-left: 0;
+      .person-contact-info {
+        flex-direction: column;
+      }
+      .description-and-social,
+      address.person-address
+      {
+        display: none;
+      }
+      ul {
+        gap: 0px;
+      }
+    }
+    .profile-img-container {
+      width: 100%;
+      height: auto;
+      margin-bottom: 16px;
+      .profile-img-placeholder {
+        width: var(--grid-pic-size);
+        height: fit-content;
+        max-width: 100%;
+        .profile-img {
+          width: var(--grid-pic-size);
+          max-width: 100%;
+          height: auto;
+          aspect-ratio: 1 / 1;
+        }
+      }
+    }
+  }
 }
 /*--------------------------------------------------------------
 Mobile Styles
 --------------------------------------------------------------*/
 @include media-breakpoint-down(md) {
-  .uds-person-profile {
+  .uds-person-profile
+  {
     max-width: 300px;
     flex-direction: column;
     .person {
@@ -120,6 +165,9 @@ Mobile Styles
           margin-left: 0;
         }
       }
+    }
+    &.uds-grid-profile {
+      max-width: var(--grid-info-size);
     }
   }
 }

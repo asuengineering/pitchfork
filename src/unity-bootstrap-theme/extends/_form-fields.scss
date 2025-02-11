@@ -68,6 +68,11 @@ form.uds-form {
     border-radius: none;
   }
 
+  input[type="submit"]:focus {
+    box-shadow: $uds-color-base-white 0 0 0 2px, $uds-color-base-gray-7 0px 0px 0px 4px !important;
+    border: 0 !important;
+  }
+
   /* Radios and Checkboxes - For more flexible control, this is a departure
     from Bootstrap 4 custom Checkboxes and Radios as described in:
     https://getbootstrap.com/docs/4.0/components/forms/#checkboxes-and-radios-1
@@ -230,15 +235,6 @@ form.uds-form {
     // Radios and checks individual labels shouldn't be colored.
     .form-check-input:valid ~ .form-check-label {
       color: $uds-color-base-gray-7;
-    }
-  }
-  &.needs-validation {
-    .invalid-feedback {
-      display: none;
-    }
-
-    .valid-feedback {
-      display: none;
     }
   }
 
