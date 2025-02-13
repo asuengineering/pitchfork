@@ -6,9 +6,9 @@
   "license": "MIT",
   "dependencies": {
     "@asu/component-cookie-consent": "^2.0.0",
-    "@asu/component-footer": "^2.2.0",
-    "@asu/component-header": "^2.2.0",
-    "@asu/unity-bootstrap-theme": "^1.14.1",
+    "@asu/component-footer": "2.2.3",
+    "@asu/component-header": "2.3.3",
+    "@asu/unity-bootstrap-theme": "1.20.2",
     "gulp-wp": "0.6.9"
   }
 }
