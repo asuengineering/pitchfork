@@ -5,6 +5,25 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## Version 2.4
+
+This release updates packages from the Unity Design System to reflect current styles and options available for the blocks within [Pitchfork People](https://github.com/asuengineering/pitchfork-people). It also incorporates a change to the size of the innovation image within the global footer.
+
+- ADD: New patterns added to the pattern library include the **Story + Thumb (Row)** pattern and the **Icon + Heading** pattern.
+- CHANGE: Several patterns were recategorized to allow for easier access to the complete set of patterns which use the `core/query-loop` block. The full pattern library can be viewed at `/wp-admin/site-editor.php?path=/patterns`
+- ADD: A new page template called **No title** was added to the theme. Unlike the default template, the No title template does not automatically echo a page title prior to the output of `the_content()`. Use the `core/title` block to include that content elsewhere within the page design.
+- ADD: A new theme option allows for the direct inclusion of a tracking code from Microsoft Clarity.
+- UPDATE: The `unity-boostrap-theme` package was updated to the latest release.
+- UPDATE: The global header and global footer packages were updated to the last release point prior to the Unity component consolidation effort that took place in February 2025.
+
+**Package Versions**
+
+| Package                   | Old version | Updated Version |
+| ------------------------- | ----------- | --------------- |
+| `unity-bootstrap-package` | 1.15.3      | 1.20.2          |
+| `component-header`        | 2.2.0       | 2.3.3           |
+| `component-footer`        | 2.2.0       | 2.2.2           |
+
 ## Version 2.3
 
 This release contains a critical fix to address a PHP error that can occur when updating to WordPress core v6.7.0.

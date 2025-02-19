@@ -35,16 +35,16 @@ Theme updates can optionally be managed from the admin dashboard through the use
 
 This theme leverages the following libraries for functionality delivered within certain blocks.
 
-- This theme loads a copy of the distributed CSS, JS and image files from the [Bootstrap 4 library](https://github.com/ASU/asu-unity-stack/tree/dev/packages/bootstrap4-theme) within the ASU Unity design kit.
+- This theme loads a copy of the distributed CSS, JS and image files from the [Unity Boostrap library](https://github.com/orgs/ASU/packages/npm/package/unity-bootstrap-theme) within the ASU Unity design kit.
 - The header included with the current version of the theme is the `@asu/component-header` package from the Unity project.
-- The footer for the theme uses the Bootstrap 4 markup.
-- The customizer provides options for enabling the ASU Global Analytics tags required for any site under the `asu.edu` umbrella.
-- The customizer also provides options for uploading an endorsed logo for inclusion in the global footer area.
+- The footer for the theme uses a combination of local markup for the dark sections of the footer along with the `@asu/component-footer` package for the gray and gold sections at the bottom.
+- The global analytics tags (GA4) tags required for any site within ASU are loaded automatically if the domain includes `asu.edu`.
+- The customizer provides options for uploading an endorsed logo for inclusion in the global footer area.
 
 ## Development
 
 - Run `npm install` and `composer install` prior to local development.
-- SASS and JS compile & watch tasks are triggered via WP-Gulp and `npm start` from the project root.
+- SASS and JS compile & watch tasks are triggered via [Gulp WP](https://github.com/cr0ybot/gulp-wp) and `npx gulp-wp` from the project root.
 
 ## Release Notes
 
