@@ -28,6 +28,7 @@ $hotjar_site_id        = '';
 $site_gtm_container_id = get_option('options_pitchfork_options_gtm_container');
 $site_ga_tracking_id   = get_option('options_pitchfork_options_ga_tracking');
 $hotjar_site_id        = get_option('options_pitchfork_options_hotjar_site_id');
+$clarity_site_id       = get_option('options_pitchfork_options_ms_clarity_site_id');
 
 
 // Set ASU analytics option to enabled/disabled based on the URL for the site.
@@ -50,7 +51,7 @@ if ( strpos ( $siteurl, 'asu.edu') === false ) {
 
 	<?php
 
-	// ASU Hub Analytics.
+	// ASU Hub analytics.
 	if ( 'enabled' === $asu_hub_analytics ) {
 		include get_template_directory() . '/inc/analytics/asu-hub-analytics-tracking-code.php';
 	}
@@ -60,14 +61,19 @@ if ( strpos ( $siteurl, 'asu.edu') === false ) {
 		include get_template_directory() . '/inc/analytics/google-tag-manager-tracking-code.php';
 	}
 
-	// Site Google Analytics.
+	// Site Google Aanalytics.
 	if ( ! empty( $site_ga_tracking_id ) ) {
 		include get_template_directory() . '/inc/analytics/google-analytics-tracking-code.php';
 	}
 
-	// Hotjar Analytics.
+	// Hotjar analytics.
 	if ( ! empty( $hotjar_site_id ) ) {
 		include get_template_directory() . '/inc/analytics/hotjar-tracking-code.php';
+	}
+
+	// Microsoft Clarity analytics
+	if ( ! empty( $clarity_site_id ) ) {
+		include get_template_directory() . '/inc/analytics/clarity-tracking-code.php';
 	}
 	?>
 
