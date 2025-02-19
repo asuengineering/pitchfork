@@ -13,10 +13,10 @@ This release updates packages from the Unity Design System to reflect current st
 - CHANGE: Several patterns were recategorized to allow for easier access to the complete set of patterns which use the `core/query-loop` block. The full pattern library can be viewed at `/wp-admin/site-editor.php?path=/patterns`
 - ADD: A new page template called **No title** was added to the theme. Unlike the default template, the No title template does not automatically echo a page title prior to the output of `the_content()`. Use the `core/title` block to include that content elsewhere within the page design.
 - ADD: A new theme option allows for the direct inclusion of a tracking code from Microsoft Clarity.
-- UPDATE: The `unity-boostrap-theme` package was updated to the latest release.
-- UPDATE: The global header and global footer packages were updated to the last release point prior to the Unity component consolidation effort that took place in February 2025.
 
 **Package Versions**
+
+The global header and global footer packages were updated to the last release point prior to the Unity component consolidation effort that took place in February 2025.
 
 | Package                   | Old version | Updated Version |
 | ------------------------- | ----------- | --------------- |
