@@ -68,8 +68,18 @@ if ( function_exists( 'register_block_pattern_category' ) ) {
 	);
 
 	register_block_pattern_category(
+		'pitchfork-content',
+		array( 'label' => __( 'Pitchfork: Content', 'pitchfork' ) )
+	);
+
+	register_block_pattern_category(
 		'pitchfork-section',
-		array( 'label' => __( 'Pitchfork: Content section', 'pitchfork' ) )
+		array( 'label' => __( 'Pitchfork: Section', 'pitchfork' ) )
+	);
+
+	register_block_pattern_category(
+		'pitchfork-loops',
+		array( 'label' => __( 'Pitchfork: Query Loops', 'pitchfork' ) )
 	);
 
 	register_block_pattern_category(

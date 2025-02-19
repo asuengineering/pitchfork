@@ -223,3 +223,30 @@ if the block is configured to use the grid layout instead of flow content. */
 		}
 	}
 }
+
+/*--------------------------------------------------------------
+6. core/group
+
+- Provides support for Story + Thumb (Row) block patterns.
+--------------------------------------------------------------*/
+@include media-breakpoint-down(sm) {
+	.wp-block-group.story-thumb {
+		flex-direction: column;
+
+		.wp-block-image {
+
+			&.size-thumbnail,
+			&.size-medium {
+				img {
+					width: 576px; //exact width of $sm breakpoint
+				}
+			}
+		}
+
+		.wp-block-post-featured-image {
+			img {
+				max-width: 400px !important; //arbitrary measurement
+			}
+		}
+	}
+}

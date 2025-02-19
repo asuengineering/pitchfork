@@ -1,8 +1,8 @@
 <?php
 /**
  * Title: Post Column Layout
- * Slug: pitchfork/section-10-post-column
- * Categories: pitchfork-section
+ * Slug: pitchfork/loop-10-post-column
+ * Categories: pitchfork-loops
  * Block Types: core
  */
 ?>
