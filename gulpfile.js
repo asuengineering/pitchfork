@@ -57,11 +57,6 @@ gulp.task("upboot", function (done) {
 	Part 2. Copy additional asu package assets for use within the theme.
 	------------------------------------------------------------- */
 
-	// UDS cookie-consent JS files
-	gulp
-		.src(paths.node + "/@asu/component-cookie-consent/dist/*.js")
-		.pipe(gulp.dest(paths.dev + "/component-cookie-consent/js"));
-
 	// UDS component-header JS files
 	gulp
 		.src(paths.node + "/@asu/component-header/dist/**/*")

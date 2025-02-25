@@ -31,9 +31,6 @@ function pitchfork_enqueue_scripts() {
 	wp_enqueue_script ( 'component-footer-vendor', get_template_directory_uri()  . '/src/component-footer/js/vendor.umd.js', array( 'wp-element', 'wp-components' ), null, false );
 	wp_enqueue_script ( 'component-footer', get_template_directory_uri()  . '/src/component-footer/js/asuFooter.umd.js', array( 'wp-element', 'wp-components' ), null, false );
 
-	wp_enqueue_script ( 'component-cookie-vendor', get_template_directory_uri()  . '/src/component-cookie-consent/js/vendor.umd.js', array( 'wp-element', 'wp-components' ), null, false );
-	wp_enqueue_script ( 'component-cookie', get_template_directory_uri()  . '/src/component-cookie-consent/js/asuCookieConsent.umd.js', array( 'wp-element', 'wp-components' ), null, false );
-
 	// Custom scripts from the theme. Includes init files for above components.
 	$custom_js_version = $theme_version . '.' . filemtime( get_template_directory() . '/dist/js/custom.js' );
 	wp_enqueue_script( 'pitchfork-custom', get_template_directory_uri() . '/dist/js/custom.js', array('bootstrap-bundle'), $custom_js_version, true );

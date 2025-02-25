@@ -5,7 +5,6 @@
   "repository": "asuengineering/pitchfork",
   "license": "MIT",
   "dependencies": {
-    "@asu/component-cookie-consent": "^2.0.0",
     "@asu/component-footer": "2.2.3",
     "@asu/component-header": "2.3.3",
     "@asu/unity-bootstrap-theme": "1.20.2",
