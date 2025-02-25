@@ -5,6 +5,16 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## Version 2.4.1
+
+ASU Enterprise Technology announced on February 20, 2025 that it will [deploy a new cookie consent banner](https://engineering-marcomm.slack.com/archives/C02FD95N2F9/p1740072364003159) to all websites via the ASU GTM container. That change necessitated the following minor release.
+
+- REMOVE: The cookie consent package from the Unity Design System was removed from the theme.
+
+| Package                   | Old version | Updated Version |
+| ------------------------- | ----------- | --------------- |
+| `unity-bootstrap-package` | 2.1.0       | removed         |
+
 ## Version 2.4
 
 This release updates packages from the Unity Design System to reflect current styles and options available for the blocks within [Pitchfork People](https://github.com/asuengineering/pitchfork-people). It also incorporates a change to the size of the innovation image within the global footer.
