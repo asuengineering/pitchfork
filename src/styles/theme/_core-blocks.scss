@@ -250,3 +250,18 @@ if the block is configured to use the grid layout instead of flow content. */
 		}
 	}
 }
+
+
+/*--------------------------------------------------------------
+7. core/details
+--------------------------------------------------------------*/
+
+/**
+ * Adjust default focus state of block to match UDS standards
+ * Ticket: https://asudev.jira.com/browse/WCMAA-398
+ */
+
+details summary:focus {
+	outline: none !important;
+	box-shadow: rgb(255, 255, 255) 0px 0px 0px 2px, rgb(25, 25, 25) 0px 0px 0px 4px !important;
+}
