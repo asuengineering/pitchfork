@@ -33,9 +33,10 @@
                 "fa-youtube-square": "YouTube"
             },
             "default_value": "fa-square",
-            "return_format": "value",
+            "return_format": "array",
             "multiple": 0,
             "allow_null": 0,
+            "allow_in_bindings": 1,
             "ui": 0,
             "ajax": 0,
             "placeholder": ""
@@ -59,5 +60,5 @@
     "active": true,
     "description": "Creates select box with pre-filled FA icon choices for the social media menu.",
     "show_in_rest": 0,
-    "modified": 1697563162
+    "modified": 1743714352
 }

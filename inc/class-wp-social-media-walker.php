@@ -71,23 +71,37 @@ if ( ! class_exists( 'WP_Social_Media_Walker' ) ) {
 
 			$title = apply_filters( 'the_title', $item->title, $item->ID );
 
-			// Get ACF dropdown setting for FA icon class.
-			$icon = '';
-			$icon = get_post_meta( $item->ID, 'menu_social_media_icon', true );
+			/**
+			 * Get ACF dropdown setting for FA icon.
+			 * Configured to return an array with both the label and the value.
+			 * Value of selection from ACF = icon class name from Font Awesome.
+			 * The label of the ACF field = part of the ARIA label for the icon.
+			 */
+			$icon_class = '';
+			$icon_label = '';
+			$icon = get_field( 'menu_social_media_icon', $item->ID );
 
-			if ('fa-square' == $icon) {
-				$icon = 'fas ' . $icon;
+			if (is_array ($icon)) {
+				$icon_class = $icon['value'];
+				$icon_label = $icon['label'];
+			}
+
+			do_action('qm/debug', $icon_class);
+			do_action('qm/debug', $icon_label);
+
+			if ('fa-square' == $icon_class) {
+				$icon_class = 'fas ' . $icon_class;
 			} else {
-				$icon = 'fab ' . $icon;
+				$icon_class = 'fab ' . $icon_class;
 			}
 
 			// Temporary fix for X (formerly Twitter) icon rebranding
-			if ('fa-square-twitter' == $icon) {
-				$icon = 'fa-brands fa-square-x-twitter';
+			if ('fa-square-twitter' == $icon_class) {
+				$icon_class = 'fa-brands fa-square-x-twitter';
 			}
 
 			$item_output = $args->before
-				. "<a id='menu-item-$item->ID' $class_names $attributes ><span class='$icon'>"
+				. "<a id='menu-item-$item->ID' $class_names $attributes ><span title='$icon_label Social Media Icon' class='$icon_class'>"
 				. '</span></a> '
 				. $args->after;
 
