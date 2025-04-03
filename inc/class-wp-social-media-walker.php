@@ -86,9 +86,6 @@ if ( ! class_exists( 'WP_Social_Media_Walker' ) ) {
 				$icon_label = $icon['label'];
 			}
 
-			do_action('qm/debug', $icon_class);
-			do_action('qm/debug', $icon_label);
-
 			if ('fa-square' == $icon_class) {
 				$icon_class = 'fas ' . $icon_class;
 			} else {
