@@ -39,23 +39,12 @@ window.addEventListener("DOMContentLoaded", event => {
 	});
 });
 
-window.addEventListener("DOMContentLoaded", event => {
-	AsuCookieConsent.initCookieConsent({
-		targetSelector: "#cookie-consent-container",
-		props: {
-			enableCookieConsent: true,
-			expirationTime: 90, // Number of days to expire the consent
-		},
-	});
-})
-
 /*
 Adding "scrolled" event listener to header wrapper to make CSS rule for adjacent siblings easier.
 */
 
 document.addEventListener('DOMContentLoaded', function () {
 	var headerContainer = document.getElementById('header-container');
-
 	window.addEventListener('scroll', function () {
 		if (window.scrollY === 0) {
 			headerContainer.classList.remove('scrolled');
