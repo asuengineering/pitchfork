@@ -5,6 +5,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## Version 2.4.2
+
+This theme release addresses accessibility concerns discovered in the UDS accessibility audit.
+
+- FIX: Adjust `WP_Social_Media_Walker` class to include accessible labels for social media icons in the global footer. ([WCMMA-396](https://asudev.jira.com/browse/WCMAA-396))
+- FIX: Apply UDS focus state styles to `core/details` block. ([WCMMA-398](https://asudev.jira.com/browse/WCMAA-398))
+- FIX: Remove init script for cookie consent banner.
+
 ## Version 2.4.1
 
 ASU Enterprise Technology announced on February 20, 2025 that it will [deploy a new cookie consent banner](https://engineering-marcomm.slack.com/archives/C02FD95N2F9/p1740072364003159) to all websites via the ASU GTM container. That change necessitated the following minor release.
