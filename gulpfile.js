@@ -57,15 +57,15 @@ gulp.task("upboot", function (done) {
 	Part 2. Copy additional asu package assets for use within the theme.
 	------------------------------------------------------------- */
 
-	// UDS component-header JS files
+	// UDS component-header-footer JS files
 	gulp
-		.src(paths.node + "/@asu/component-header/dist/**/*")
-		.pipe(gulp.dest(paths.dev + "/component-header/js"));
+		.src(paths.node + "/@asu/component-header-footer/dist/**/*")
+		.pipe(gulp.dest(paths.dev + "/component-header-footer/"));
 
 	// UDS component-footer JS files
-	gulp
-		.src(paths.node + "/@asu/component-footer/dist/**/*")
-		.pipe(gulp.dest(paths.dev + "/component-footer/js"));
+	// gulp
+	// 	.src(paths.node + "/@asu/component-footer/dist/**/*")
+	// 	.pipe(gulp.dest(paths.dev + "/component-footer/js"));
 
 	done();
 });

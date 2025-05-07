@@ -24,12 +24,11 @@ function pitchfork_enqueue_scripts() {
 	$bs_js_version = $theme_version . '.' . filemtime( get_template_directory() . '/src/unity-bootstrap-theme/js/bootstrap.bundle.min.js' );
 	wp_enqueue_script( 'bootstrap-bundle', get_template_directory_uri() . '/src/unity-bootstrap-theme/js/bootstrap.bundle.min.js', array(), $bs_js_version );
 
-	// Component header, footer and cookie consent.
-	wp_enqueue_script ( 'component-header-vendor', get_template_directory_uri()  . '/src/component-header/js/vendor.umd.js', array( 'wp-element', 'wp-components' ), null, false );
-	wp_enqueue_script ( 'component-header', get_template_directory_uri()  . '/src/component-header/js/asuHeader.umd.js', array( 'wp-element', 'wp-components' ), null, false );
+	// Component header and footer.
+	wp_enqueue_script ( 'component-header-footer', get_template_directory_uri()  . '/src/component-header-footer/asuHeaderFooter.umd.js', array( 'wp-element', 'wp-components' ), null, true );
 
-	wp_enqueue_script ( 'component-footer-vendor', get_template_directory_uri()  . '/src/component-footer/js/vendor.umd.js', array( 'wp-element', 'wp-components' ), null, false );
-	wp_enqueue_script ( 'component-footer', get_template_directory_uri()  . '/src/component-footer/js/asuFooter.umd.js', array( 'wp-element', 'wp-components' ), null, false );
+	// wp_enqueue_script ( 'component-footer-vendor', get_template_directory_uri()  . '/src/component-footer/js/vendor.umd.js', array( 'wp-element', 'wp-components' ), null, false );
+	// wp_enqueue_script ( 'component-footer', get_template_directory_uri()  . '/src/component-footer/js/asuFooter.umd.js', array( 'wp-element', 'wp-components' ), null, false );
 
 	// Custom scripts from the theme. Includes init files for above components.
 	$custom_js_version = $theme_version . '.' . filemtime( get_template_directory() . '/dist/js/custom.js' );
@@ -37,7 +36,6 @@ function pitchfork_enqueue_scripts() {
 
 	// Data layer events monitoring
 	wp_enqueue_script( 'component-data-layer', get_template_directory_uri()  . '/src/unity-bootstrap-theme/js/data-layer.js', array(), null, false );
-
 
 	// Font Awesome. Kit licensed and distributed by ASU Engineering for use with this theme.
 	wp_enqueue_script ( 'font-awesome-kit', 'https://kit.fontawesome.com/51b562cd96.js', array(), null, false );

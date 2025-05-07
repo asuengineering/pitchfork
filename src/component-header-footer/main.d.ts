@@ -1,12 +1,12 @@
 import React from 'react';
 
+// Header Section
 export interface Logo {
   alt: string;
   src: string;
   mobileSrc: string;
-  brandLink: string;
+  brandLink?: string;
 }
-
 
 export interface Button {
   href: string;
@@ -14,7 +14,7 @@ export interface Button {
   text: string;
   classes?: string;
   onClick?: () => void;
-  onClick?: () => void;
+  onFocus?: () => void;
 }
 
 export interface NavTreeProps {
@@ -53,4 +53,42 @@ export interface HeaderProps {
   site: string;
 }
 
-export const ASUHeader: React.FunctionComponent<HeaderProps>
+export const ASUHeader: React.ReactNode<HeaderProps>
+
+// Footer Section
+export interface Link {
+  url: string;
+  title: string;
+  text: string;
+}
+
+export interface Column {
+  title: string;
+  links: Link[];
+}
+
+export interface Social {
+  logoUrl: string;
+  unitLogo: string;
+  mediaLinks?: {
+    facebook?: string;
+    twitter?: string;
+    instagram?: string;
+    linkedIn?: string;
+    youtube?: string;
+  };
+}
+
+export interface Contact {
+  title: string;
+  contactLink: string;
+  contributionLink?: string;
+  columns?: Column[];
+}
+
+export interface FooterProps {
+  social: Social;
+  contact: Contact;
+}
+
+export const ASUFooter: React.ReactNode<FooterProps>

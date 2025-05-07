@@ -4,7 +4,7 @@ Includes header, footer, cookie consent.
 */
 
 window.addEventListener("DOMContentLoaded", event => {
-	AsuHeader.initGlobalHeader({
+	AsuHeaderFooter.initGlobalHeader({
 		targetSelector: "#header-container",
 		props: {
 			loggedIn: udsHeaderVars.loggedIn,
@@ -31,7 +31,7 @@ window.addEventListener("DOMContentLoaded", event => {
 });
 
 window.addEventListener("DOMContentLoaded", event => {
-	AsuFooter.initASUFooter({
+	AsuHeaderFooter.initASUFooter({
 		targetSelector: "#asu-react-footer",
 		props: {
 			// contact: udsFooterVars
