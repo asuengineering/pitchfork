@@ -5,13 +5,25 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
-## Version 2.4.2
+## Version 2.5.0
 
-This theme release addresses accessibility concerns discovered in the UDS accessibility audit.
+This theme release updates source packages from the Unity Design System project. Also included are fixes for accessibility concerns discovered in an ongoing accessibility audit for Pitchfork and related products.
 
+- FIX: Alt text for "repeatedly ranked" image in the global footer fixed to properly reflect the actual text within the image. ([WCMMA-395](https://asudev.jira.com/browse/WCMAA-395))
 - FIX: Adjust `WP_Social_Media_Walker` class to include accessible labels for social media icons in the global footer. ([WCMMA-396](https://asudev.jira.com/browse/WCMAA-396))
 - FIX: Apply UDS focus state styles to `core/details` block. ([WCMMA-398](https://asudev.jira.com/browse/WCMAA-398))
-- FIX: Remove init script for cookie consent banner.
+- FIX: Remove init scripts for cookie consent banner.
+
+**Package Versions**
+
+The deprecated UDS global header and global footer packages were removed to use the new consolidated library which contains both elements.
+
+| Package                   | Old version | Updated Version |
+| ------------------------- | ----------- | --------------- |
+| `unity-bootstrap-package` | 1.20.2      | 1.25.0          |
+| `component-header-footer` | (initial)   | 1.0.9           |
+| `component-header`        | 2.2.0       | removed         |
+| `component-footer`        | 2.2.0       | removed         |
 
 ## Version 2.4.1
 
@@ -19,9 +31,9 @@ ASU Enterprise Technology announced on February 20, 2025 that it will [deploy a 
 
 - REMOVE: The cookie consent package from the Unity Design System was removed from the theme.
 
-| Package                   | Old version | Updated Version |
-| ------------------------- | ----------- | --------------- |
-| `unity-bootstrap-package` | 2.1.0       | removed         |
+| Package                    | Old version | Updated Version |
+| -------------------------- | ----------- | --------------- |
+| `component-cookie-consent` | 2.1.0       | removed         |
 
 ## Version 2.4
 
