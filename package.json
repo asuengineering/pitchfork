@@ -6,7 +6,7 @@
   "license": "MIT",
   "dependencies": {
     "@asu/component-header-footer": "^1.0.9",
-    "@asu/unity-bootstrap-theme": "1.20.2",
+    "@asu/unity-bootstrap-theme": "latest",
     "gulp-wp": "0.6.9"
   }
 }

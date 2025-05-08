@@ -111,13 +111,59 @@
   }
 }
 
+
+
+a {
+  &.text-gold, .bg-gray-7 & {
+    &:link,
+    &:hover,
+    &:focus {
+      color: $uds-color-base-gold !important;
+    }
+    &:visited:not(.btn) {
+      color: $uds-color-base-darkgold !important;
+    }
+  }
+
+}
+
+
+// a.text-gold:hover,
+// a.text-gold:focus {
+//   color: $uds-color-base-gold !important;
+// }
+// a.text-gold:visited:not(.btn) {
+//   color: $uds-color-base-darkgold !important;
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*a:hover,
+a:focus {
+  color: $uds-color-base-gold !important;
+}
+a:visited:not(.btn) {
+  color: $uds-color-base-darkgold !important;
+}
+
 a.text-gold:hover,
 a.text-gold:focus {
   color: $uds-color-base-gold !important;
 }
 a.text-gold:visited:not(.btn) {
-  color: #daa000 !important;
-}
+  color: $uds-color-base-darkgold !important;
+}*/
 
 /*--------------------------------------------------------------
 0 to SM breakpoint included
