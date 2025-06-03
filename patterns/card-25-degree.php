@@ -24,7 +24,7 @@
 
 <!-- wp:buttons {"lock":{"move":true,"remove":false},"layout":{"type":"flex","justifyContent":"left","orientation":"vertical","flexWrap":"wrap"}} -->
 <div class="wp-block-buttons"><!-- wp:button {"backgroundColor":"asu-maroon","lock":{"move":true,"remove":false},"className":"is-style-"} -->
-<div class="wp-block-button is-style-"><a class="wp-block-button__link has-asu-maroon-background-color has-background wp-element-button">Degree Details</a></div>
+<div class="wp-block-button is-style-"><a class="wp-block-button__link has-asu-maroon-background-color has-background wp-element-button">Degree details</a></div>
 <!-- /wp:button -->
 
 <!-- wp:button {"backgroundColor":"asu-gold","lock":{"move":true,"remove":false},"className":"is-style-"} -->
