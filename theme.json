@@ -109,6 +109,21 @@
 					"name": "ASU Orange"
 				},
 				{
+					"slug": "asu-copper",
+					"color": "#Af674B",
+					"name": "ASU Copper"
+				},
+				{
+					"slug": "asu-turquoise",
+					"color": "#4AB7C4",
+					"name": "ASU Turquoise"
+				},
+				{
+					"slug": "asu-pink",
+					"color": "#E74873",
+					"name": "ASU Pink"
+				},
+				{
 					"slug": "white",
 					"color": "#FFFFFF",
 					"name": "White"
