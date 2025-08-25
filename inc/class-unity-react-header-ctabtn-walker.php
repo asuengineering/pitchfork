@@ -22,7 +22,7 @@ if ( ! class_exists('Pitchfork_React_Header_CTAButtons') ) {
 			$output .= '';
 		}
 
-        function start_el(&$output, $item, $depth=0, $args=[], $id=0) {
+        function start_el( &$output, $item, $depth = 0, $args = null, $id = 0 ) {
 
 			// Unserialize contatenated $output string as array.
 			// If this is the first object, it'll be empty. Even if there are no CTA buttons
@@ -61,8 +61,15 @@ if ( ! class_exists('Pitchfork_React_Header_CTAButtons') ) {
 			 */
 			if ( $depth == 0 ) {
 
-				// Check for the presence of children.
-				if ( $args->walker->has_children ) {
+				// Check for the presence of children (guard array/object/null cases).
+				$has_children = false;
+				if ( is_object( $args ) && property_exists( $args, 'has_children' ) ) {
+					$has_children = (bool) $args->has_children;
+				} elseif ( is_array( $args ) && isset( $args['has_children'] ) ) {
+					$has_children = (bool) $args['has_children'];
+				}
+
+				if ( $has_children ) {
 					$output .= '';
 					return;
 				}
