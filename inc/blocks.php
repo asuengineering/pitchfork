@@ -54,40 +54,73 @@ if ( ! function_exists( 'pitchfork_remove_core_patterns' ) ) {
 	add_action( 'after_setup_theme', 'pitchfork_remove_core_patterns' );
 }
 
-// Add block patterns for Pitchfork
-if ( function_exists( 'register_block_pattern_category' ) ) {
+// // Add block patterns for Pitchfork
+// if ( function_exists( 'register_block_pattern_category' ) ) {
+
+// 	register_block_pattern_category(
+// 		'pitchfork-card',
+// 		array( 'label' => __( 'Pitchfork: Cards', 'pitchfork' ) )
+// 	);
+
+// 	register_block_pattern_category(
+// 		'pitchfork-card-layouts',
+// 		array( 'label' => __( 'Pitchfork: Card Layouts', 'pitchfork' ) )
+// 	);
+
+// 	register_block_pattern_category(
+// 		'pitchfork-content',
+// 		array( 'label' => __( 'Pitchfork: Content', 'pitchfork' ) )
+// 	);
+
+// 	register_block_pattern_category(
+// 		'pitchfork-section',
+// 		array( 'label' => __( 'Pitchfork: Section', 'pitchfork' ) )
+// 	);
+
+// 	register_block_pattern_category(
+// 		'pitchfork-loops',
+// 		array( 'label' => __( 'Pitchfork: Query Loops', 'pitchfork' ) )
+// 	);
+
+// 	register_block_pattern_category(
+// 		'pitchfork-fullpage',
+// 		array( 'label' => __( 'Pitchfork: Page templates', 'pitchfork' ) )
+// 	);
+
+// }
+
+// Register pattern categories at the correct time.
+add_action( 'init', function () {
+
+	if ( ! function_exists( 'register_block_pattern_category' ) ) {
+		return; // Older WP; nothing to do.
+	}
 
 	register_block_pattern_category(
 		'pitchfork-card',
-		array( 'label' => __( 'Pitchfork: Cards', 'pitchfork' ) )
+		[ 'label' => __( 'Pitchfork: Cards', 'pitchfork' ) ]
 	);
-
 	register_block_pattern_category(
 		'pitchfork-card-layouts',
-		array( 'label' => __( 'Pitchfork: Card Layouts', 'pitchfork' ) )
+		[ 'label' => __( 'Pitchfork: Card Layouts', 'pitchfork' ) ]
 	);
-
 	register_block_pattern_category(
 		'pitchfork-content',
-		array( 'label' => __( 'Pitchfork: Content', 'pitchfork' ) )
+		[ 'label' => __( 'Pitchfork: Content', 'pitchfork' ) ]
 	);
-
 	register_block_pattern_category(
 		'pitchfork-section',
-		array( 'label' => __( 'Pitchfork: Section', 'pitchfork' ) )
+		[ 'label' => __( 'Pitchfork: Section', 'pitchfork' ) ]
 	);
-
 	register_block_pattern_category(
 		'pitchfork-loops',
-		array( 'label' => __( 'Pitchfork: Query Loops', 'pitchfork' ) )
+		[ 'label' => __( 'Pitchfork: Query Loops', 'pitchfork' ) ]
 	);
-
 	register_block_pattern_category(
 		'pitchfork-fullpage',
-		array( 'label' => __( 'Pitchfork: Page templates', 'pitchfork' ) )
+		[ 'label' => __( 'Pitchfork: Page templates', 'pitchfork' ) ]
 	);
-
-}
+}, 10 );
 
 if ( ! function_exists( 'pitchfork_gutenberg_css' ) ) {
 	/**
