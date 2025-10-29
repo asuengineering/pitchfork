@@ -32,6 +32,7 @@ if ( ! function_exists( 'pitchfork_unregister_native_blocks' ) ) {
 		unset( $registered_blocks['core/quote'] );
 		unset( $registered_blocks['core/preformatted'] );
 		unset( $registered_blocks['core/verse'] );
+		unset( $registered_blocks['core/accordion'] );
 
 		// Strip the array down to just the keys.
 		$registered_blocks = array_keys( $registered_blocks );
