@@ -28,6 +28,10 @@
 			"style": false,
 			"width": false
 		},
+		"shadow": {
+			"defaultPresets": false,
+			"presets": []
+		},
 		"spacing": {
 			"units": [
 				"rem"
@@ -327,10 +331,10 @@
 			},
 			"core/columns": {
 				"border": {
-					"color": false,
+					"color": true,
 					"radius": false,
-					"style": false,
-					"width": false
+					"style": true,
+					"width": true
 				},
 				"spacing": {
 					"units": [
@@ -368,6 +372,12 @@
 						"%"
 					]
 				},
+				"border": {
+					"color": true,
+					"radius": false,
+					"style": true,
+					"width": true
+				},
 				"color": {
 					"palette": [
 						{
@@ -391,6 +401,14 @@
 							"name": "ASU Gray 7"
 						}
 					]
+				}
+			},
+			"core/group": {
+				"border": {
+					"color": true,
+					"radius": false,
+					"style": true,
+					"width": true
 				}
 			},
 			"core/image": {
