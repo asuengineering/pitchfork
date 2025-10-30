@@ -67,6 +67,9 @@ require get_template_directory() . '/inc/pagination.php';
 // Remove support for a couple of the native WordPress blocks.
 require get_template_directory() . '/inc/blocks.php';
 
+// Block binding elements. Create bound value for 'current_permalink'
+require get_template_directory() . '/inc/block-bindings.php';
+
 // Filter HTML output to add data-layer attributes
 require get_template_directory() . '/inc/data-layer-filters.php';
 
