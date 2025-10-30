@@ -5,6 +5,35 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## Version 2.6.0
+
+This theme release updates source packages from the Unity Design system and adds three missing brand colors to the included color palette.
+
+- CHANGE: Add new version of footer rankings image.
+- FIX: Breadcrumb block no longer hidden in mobile view. Resolves [DACW-136](https://asudev.jira.com/browse/DACW-136) from the ASU digital accessibility project.
+- FIX: Unset or missing menus within `/nav-menus.php` should no longer produce PHP warnings.
+- REMOVE: Remove native `core/accordions` block from block picker. The `acf/accordions` block pattern found within [Pitchfork Blocks](https://comm.engineering.asu.edu/pitchfork/docs/accordion/) is our preferred block solution and is compliant with brand and data layer standards.
+
+**UDS secondary colors**
+
+- ADD: Add ASU Copper (#Af674B), ASU Turquiose (#4AB7C4) and ASU Pink (#E74973) to `theme.json` general color palette.
+- ADD: Enable border control for `core/columns` `core/column` and `core/group` blocks.
+
+**Advanced Custom Fields support**
+
+- FIX: Remove `unique ID` as an available custom field definition within ACF.
+  - This field is no longer utilized by any blocks supplied in the Pitchfork system of block plugins.
+  - Removal of this field definition also addresses a possible PHP fatal error that can arise when the theme is activated before the ACF Pro plugin is activated or available.
+- FIX: Address PHP 8.2 deprecation warnings in custom ACF `menu selector` field defintion. Warnings triggered when `acf/sidebar` was added to a page.
+- FIX: Address "translation too early" notices caused by change within ACF options page registration best practices.
+
+**Package Versions**
+
+| Package                   | Old version | Updated Version |
+| ------------------------- | ----------- | --------------- |
+| `unity-bootstrap-package` | 1.25.0      | 1.30.3          |
+| `component-header-footer` | 1.0.9       | 1.1.1           |
+
 ## Version 2.5.0
 
 This theme release updates source packages from the Unity Design System project. Also included are fixes for accessibility concerns discovered in an ongoing accessibility audit for Pitchfork and related products.
