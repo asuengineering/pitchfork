@@ -19,6 +19,13 @@ This theme release updates source packages from the Unity Design system and adds
 - ADD: Add ASU Copper (#Af674B), ASU Turquiose (#4AB7C4) and ASU Pink (#E74973) to `theme.json` general color palette.
 - ADD: Enable border control for `core/columns` `core/column` and `core/group` blocks.
 
+**Query loop buttons**
+
+Previously, users were unable to add a button to a pattern of cards produced within a standard query loop. This was because the `href` of the button was unable to be set to the link of the looped post. The following two additions to the theme address this shortcoming.
+
+- ADD: Register `pitchfork/current-permalink` as bindable data source attribute.
+- ADD: Add button with bound URL attribute to `Card layout: 3 Across with Query Loop` pattern.
+
 **Advanced Custom Fields support**
 
 - FIX: Remove `unique ID` as an available custom field definition within ACF.

@@ -17,8 +17,14 @@
 <!-- /wp:acf/card-v2-header -->
 
 <!-- wp:group {"metadata":{"name":"Card Content"}} -->
-<div class="wp-block-group"><!-- wp:post-excerpt {"moreText":"Read more","excerptLength":60} /--></div>
+<div class="wp-block-group"><!-- wp:post-excerpt {"moreText":"","showMoreOnNewLine":false,"excerptLength":60} /--></div>
 <!-- /wp:group -->
+
+<!-- wp:buttons -->
+<div class="wp-block-buttons"><!-- wp:button {"metadata":{"bindings":{"url":{"source":"pitchfork/current-permalink"}}},"className":"is-style-primary"} -->
+<div class="wp-block-button is-style-primary"><a class="wp-block-button__link wp-element-button" href="">Read more</a></div>
+<!-- /wp:button --></div>
+<!-- /wp:buttons -->
 
 <!-- wp:post-terms {"term":"category","separator":""} /-->
 <!-- /wp:acf/card-v2 -->
