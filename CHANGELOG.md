@@ -9,7 +9,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 This theme release updates source packages from the Unity Design system and adds three missing brand colors to the included color palette.
 
-- CHANGE: Add new version of footer rankings image.
+- UPDATE: Release includes the new version of footer rankings image.
+- ADD: Add pattern for [image and text block](https://zeroheight.com/9f0b32a56/p/09c092-image-and-text-block) to the pattern library.
+- ADD: Add pattern for [inset content box](https://zeroheight.com/9f0b32a56/p/790573-inset-content-box) to pattern library.
 - FIX: Breadcrumb block no longer hidden in mobile view. Resolves [DACW-136](https://asudev.jira.com/browse/DACW-136) from the ASU digital accessibility project.
 - FIX: Unset or missing menus within `/nav-menus.php` should no longer produce PHP warnings.
 - REMOVE: Remove native `core/accordions` block from block picker. The `acf/accordions` block pattern found within [Pitchfork Blocks](https://comm.engineering.asu.edu/pitchfork/docs/accordion/) is our preferred block solution and is compliant with brand and data layer standards.
@@ -17,7 +19,7 @@ This theme release updates source packages from the Unity Design system and adds
 **UDS secondary colors**
 
 - ADD: Add ASU Copper (#Af674B), ASU Turquiose (#4AB7C4) and ASU Pink (#E74973) to `theme.json` general color palette.
-- ADD: Enable border control for `core/columns` `core/column` and `core/group` blocks.
+- ADD: Enable border control for `core/media-text`, `core/columns`, `core/column` and `core/group` blocks.
 
 **Query loop buttons**
 
