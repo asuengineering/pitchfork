@@ -417,6 +417,14 @@
 					"customDuotone": false
 				}
 			},
+			"core/media-text": {
+				"border": {
+					"color": true,
+					"radius": false,
+					"style": true,
+					"width": true
+				}
+			},
 			"core/table": {
 				"color": {
 					"palette": [],
