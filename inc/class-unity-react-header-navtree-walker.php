@@ -7,22 +7,21 @@
  * props for the ASU React Header.
  *
  * @package Pitchfork
- *
  */
 
-if ( ! class_exists('Pitchfork_React_Header_Navtree') ) {
+ if ( ! class_exists( 'Pitchfork_React_Header_Navtree' ) ) {
 
-    class Pitchfork_React_Header_Navtree extends Walker_Nav_Menu {
+	class Pitchfork_React_Header_Navtree extends Walker_Nav_Menu {
 
-		function start_lvl( &$output, $depth = 0, $args = null ) {
+		public function start_lvl( &$output, $depth = 0, $args = null ) {
 			$output .= '';
 		}
 
-		function end_lvl( &$output, $depth = 0, $args = null ) {
+		public function end_lvl( &$output, $depth = 0, $args = null ) {
 			$output .= '';
 		}
 
-        function start_el(&$output, $item, $depth=0, $args=[], $id=0) {
+		public function start_el( &$output, $item, $depth = 0, $args = null, $id = 0 ) {
 
 			// Unserialize contatenated $output string as array.
 			// If this is the first object, it'll be empty. Set it up with default structure.
@@ -36,33 +35,39 @@ if ( ! class_exists('Pitchfork_React_Header_Navtree') ) {
 				// There is not normally a menu item associated with the home page, but the
 				// home icon can still be underlined if we are on the home page.
 				// Use is_front_page() and assign selected class to home icon if true.
+
 				if (is_front_page()) {
 					$start_navTree->selected = true;
 				}
 
-				$prop = array();
-				$prop[] = $start_navTree;
+				$prop = [ $start_navTree ];
 
 			} else {
-				$prop = maybe_unserialize($output);
+
+                $tmp_prop  = maybe_unserialize( $output );
+				$prop = is_array( $tmp_prop ) ? $tmp_prop : [];
+
 			}
 
-			// Gather ACF properties from the menu item.
-			$isCTA = false;
-			$exIcon = false;
+            // Bail early if $item isn't a menu item object (extra hardening).
+			if ( ! is_object( $item ) ) {
+				$output = maybe_serialize( $prop );
+				return;
+			}
 
-			$isCTA = get_post_meta( $item->ID, 'menu_cta_button', true );
+			// Gather ACF properties from the menu item. Works without ACF active.
+			$isCTA    = (bool) get_post_meta( $item->ID, 'menu_cta_button', true );
 			$btnColor = get_post_meta( $item->ID, 'menu_cta_button_color', true );
-			$exIcon = get_post_meta( $item->ID, 'menu_external_link', true );
+			$exIcon   = (bool) get_post_meta( $item->ID, 'menu_external_link', true );
 
 			// Create $entry object from $item data. Prep to insert into the correct place.
-			$entry = new stdClass();
-			$entry->id = $item->ID;
-			$entry->href = $item->url;
-			$entry->text = $item->title;
-			$entry->target = $item->target;
-			$entry->title = $item->attr_title;
-			$entry->exIcon = $exIcon;
+			$entry           = new stdClass();
+			$entry->id       = isset( $item->ID ) ? $item->ID : 0;
+			$entry->href     = isset( $item->url ) ? $item->url : '';
+			$entry->text     = isset( $item->title ) ? $item->title : '';
+			$entry->target   = isset( $item->target ) ? $item->target : '';
+			$entry->title    = isset( $item->attr_title ) ? $item->attr_title : '';
+			$entry->exIcon   = $exIcon;
 
 			do_action('qm/debug', $depth);
 
@@ -86,20 +91,19 @@ if ( ! class_exists('Pitchfork_React_Header_Navtree') ) {
 			 */
 			if ( $depth == 0 ) {
 
-				// Is this a CTA button?
-				// Bail if so. This is a button and there's another walker for that.
+                // Top-level CTAs are handled by a separate walker; skip them here.
 				if ( $isCTA ) {
-					$output .= '';
+					$output = maybe_serialize( $prop );
 					return;
 				}
 
 				// Check for the presence of children. Add array wrapper for future depth.
 				if ( $args->walker->has_children ) {
-					$entry->items = array();
+					$entry->items = [];
 				}
 
 				// Add active menu class if $item is the current menu item or is the current item's ancestor.
-				if ( ( $item->current ) || ( $item->current_item_ancestor ) ) {
+				if ( ! empty( $item->current ) || ! empty( $item->current_item_ancestor ) ) {
 					$entry->selected = true;
 				}
 
@@ -119,6 +123,19 @@ if ( ! class_exists('Pitchfork_React_Header_Navtree') ) {
 				 * For now, leave mega menu CTA button option unsupported. Render all level 2 CTA buttons
 				 * as column "footer" buttons instead.
 				 */
+
+                // Ensure we have a valid parent object to attach to.
+				if ( $parentKey === null || ! isset( $prop[ $parentKey ] ) || ! is_object( $prop[ $parentKey ] ) ) {
+					$output = maybe_serialize( $prop );
+					return;
+				}
+
+				// Ensure ->items exists and is an array on the parent.
+				if ( ! isset( $prop[ $parentKey ]->items ) || ! is_array( $prop[ $parentKey ]->items ) ) {
+					$prop[ $parentKey ]->items = [];
+				}
+
+				// CTA at depth 1 -> treat as a column footer button.
 				if ( $isCTA ) {
 					$entry->type = 'button';
 				}
@@ -135,7 +152,7 @@ if ( ! class_exists('Pitchfork_React_Header_Navtree') ) {
 
 					// Also, we'll need to wrap this in another empty array.
 					// The children will be pushed into this array later in the script.
-					$entry = array($entry);
+					$entry = [ $entry ];
 
 					// Put it where it belongs.
 					// array_key_last will provide the last array key for $prop.
@@ -150,7 +167,7 @@ if ( ! class_exists('Pitchfork_React_Header_Navtree') ) {
 					// Otherwise, push $entry into array created by this $items previous sibling.
 
 					if ( empty($prop[$parentKey]->items)) {
-						$entry = array($entry);
+						$entry = [ $entry ];
 						$prop[$parentKey]->items[] = $entry;
 					} else {
 						$prop[$parentKey]->items[0][] = $entry;
