@@ -185,12 +185,34 @@
 				// Find the grandparent last key, and the parent->items last index key.
 				$grandparentKey = array_key_last($prop);
 
+                // Ensure we have a valid grandparent object to attach to.
+                if ( $grandparentKey === null || ! isset( $prop[ $grandparentKey ] ) || ! is_object( $prop[ $grandparentKey ] ) ) {
+					$output = maybe_serialize( $prop );
+					return;
+				}
+
+				// Ensure items array exists and has at least one column.
+				if ( ! isset( $prop[ $grandparentKey ]->items ) || ! is_array( $prop[ $grandparentKey ]->items ) ) {
+					$prop[ $grandparentKey ]->items = [];
+				}
+				if ( empty( $prop[ $grandparentKey ]->items ) ) {
+					$prop[ $grandparentKey ]->items[] = [];
+				}
+
 				$parentItems = $prop[$grandparentKey]->items;
 				$parentItemsKey = array_key_last($parentItems);
+
+                // Final check against data corruption
+                if ( $parentItemsKey === null ) {
+					$prop[ $grandparentKey ]->items[] = [];
+					$parentItemsKey = 0;
+				}
 
 				// Push $entry into correct place.
 				$prop[$grandparentKey]->items[$parentItemsKey][] = $entry;
 
+			} else {
+				// Depth > 2: ignore.
 			}
 
 			// Convert $prop back to a string so it can be passed to the next iteration of start_el.
@@ -198,8 +220,8 @@
 
         }
 
-        function end_el(&$output, $item, $depth=0, $args=[], $id=0) {
-            $output .= '';
-        }
+		public function end_el( &$output, $item, $depth = 0, $args = null ) {
+			$output .= '';
+		}
     }
 }
