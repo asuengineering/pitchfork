@@ -5,6 +5,10 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## Version 2.6.1
+
+- FIX: Address error in `class-unity-react-header-navtree-walker.php` which prevented mega menus from creating more than one column.
+
 ## Version 2.6.0
 
 This theme release updates source packages from the Unity Design system and adds three missing brand colors to the included color palette.

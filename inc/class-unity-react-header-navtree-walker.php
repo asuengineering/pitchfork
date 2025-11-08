@@ -9,7 +9,7 @@
  * @package Pitchfork
  */
 
- if ( ! class_exists( 'Pitchfork_React_Header_Navtree' ) ) {
+if ( ! class_exists( 'Pitchfork_React_Header_Navtree' ) ) {
 
 	class Pitchfork_React_Header_Navtree extends Walker_Nav_Menu {
 
