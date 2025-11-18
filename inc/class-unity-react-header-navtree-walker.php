@@ -69,8 +69,6 @@ if ( ! class_exists( 'Pitchfork_React_Header_Navtree' ) ) {
 			$entry->title    = isset( $item->attr_title ) ? $item->attr_title : '';
 			$entry->exIcon   = $exIcon;
 
-			do_action('qm/debug', $depth);
-
 			/**
 			 * Depth 0: First level
 			 * - If CTA button = true, skip. Create additional walker to output separate prop.
