@@ -269,7 +269,7 @@ Cards - Table of Contents
 
 .card-title a,
 .card-title a:visited {
-  color: $uds-color-base-gray-7;
+  color: $asu-gray-1;
   text-decoration: none;
 }
 
@@ -296,7 +296,7 @@ Cards - Table of Contents
 
 .card-footer-link a,
 .card-footer-link a:visited {
-  color: $uds-color-base-gray-7;
+  color: $asu-gray-1;
   text-decoration: none;
   font-weight: bold;
   display: block;
@@ -510,7 +510,7 @@ Cards - Table of Contents
 }
 
 .accordion-item  {
-  border-color: $uds-color-base-gray-3;
+  border-color: $asu-gray-5;
   border-left: $uds-size-spacing-1 solid $uds-color-base-gold;
   height: auto;
 
@@ -519,11 +519,11 @@ Cards - Table of Contents
   }
 
   &.accordion-item-gray {
-    border-left-color: $uds-color-base-gray-4;
+    border-left-color: $asu-gray-4;
   }
 
   &.accordion-item-dark {
-    border-left-color: $uds-color-base-gray-7;
+    border-left-color: $asu-gray-1;
   }
 
   .accordion-header {
@@ -544,7 +544,7 @@ Cards - Table of Contents
     }
 
     &:hover {
-      background-color: $uds-color-base-gray-2;
+      background-color: $asu-gray-6;
     }
 
     h3 {
@@ -559,7 +559,7 @@ Cards - Table of Contents
       a, button {
         margin: .4rem .3rem;
         padding: .6rem .7rem;
-        color: $uds-color-base-gray-7;
+        color: $asu-gray-1;
         text-decoration: none;
         display: flex;
         flex-wrap: nowrap;
@@ -586,8 +586,8 @@ Cards - Table of Contents
 
         &:focus {
           outline: none!important;
-          box-shadow: 0 0 0 1px $uds-color-base-gray-7 !important;
-          border: 1px solid $uds-color-base-gray-7 !important;
+          box-shadow: 0 0 0 1px $asu-gray-1 !important;
+          border: 1px solid $asu-gray-1 !important;
           margin: 4px;
           width: -webkit-fill-available;
         }
@@ -596,12 +596,12 @@ Cards - Table of Contents
     }
 
     + div > .accordion-body, + .accordion-body{ // TODO: remove '+ .accordion-body' after next major breaking change release. This is for backward compatibility
-      border-top: 1px solid $uds-color-base-gray-3;
+      border-top: 1px solid $asu-gray-5;
     }
   }
 
   .accordion-body {
-    background-color: $uds-color-base-gray-1;
+    background-color: $asu-gray-7;
 
     > p:first-child {
       margin-top: $uds-size-spacing-2;
@@ -617,7 +617,7 @@ Cards - Table of Contents
 6. Foldable - Desktop Disable
 --------------------------------------------------------------------*/
 @mixin desktop-disable {
-  border-left: 1px solid $uds-color-base-gray-3;
+  border-left: 1px solid $asu-gray-5;
 
   .accordion-header {
     h4 a, h4 button {
@@ -698,14 +698,14 @@ Cards - Table of Contents
 .accordion {
   &:focus {
     outline: none!important;
-    box-shadow: 0 0 0 1px $uds-color-base-gray-7 !important;
-    border: 1px solid $uds-color-base-gray-7 !important;
+    box-shadow: 0 0 0 1px $asu-gray-1 !important;
+    border: 1px solid $asu-gray-1 !important;
     margin: 4px;
     width: -webkit-fill-available;
   }
   .accordion-item {
-    border-bottom: 1px solid $uds-color-base-gray-3;
-    border-top: 1px solid $uds-color-base-gray-3;
+    border-bottom: 1px solid $asu-gray-5;
+    border-top: 1px solid $asu-gray-5;
   }
   .accordion-header .accordion-icon {
     display: flex;
@@ -747,7 +747,7 @@ Cards - Table of Contents
 --------------------------------------------------------------------*/
 .media-type-overlay {
   background-color: white;
-  border: 1px solid $uds-color-base-gray-3;
+  border: 1px solid $asu-gray-5;
   border-radius: 32px;
   width: 64px;
   height: 64px;
@@ -765,7 +765,7 @@ Cards - Table of Contents
   color: $white;
 
   .fa-video {
-    color: $uds-color-base-gray-7;
+    color: $asu-gray-1;
     font-size: 2rem;
   }
 }
@@ -774,4 +774,116 @@ Cards - Table of Contents
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+
+/*------------------------------------------------------------------
+12. Content Spotlight
+--------------------------------------------------------------------*/
+
+.content-spotlight {
+  position: relative;
+  background-color: #000;
+  overflow: hidden;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 20rem $uds-size-spacing-4 $uds-size-spacing-6 $uds-size-spacing-4;
+  min-height: 600px;
+
+  @include media-breakpoint-up(lg) {
+    padding: $uds-size-spacing-12 $uds-size-spacing-6;
+    min-height: auto;
+  }
+}
+
+.content-spotlight-image-container {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.content-spotlight-image-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  left: 0;
+}
+
+.content-spotlight-image {
+  width: 85%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 15%;
+
+  @include media-breakpoint-down(lg) {
+    height: 55%;
+    width: 100%;
+    left: 0;
+    top: 0;
+    object-position: center;
+  }
+}
+
+.content-spotlight-overlay {
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(180deg, rgba(25,25,25,0) 0%, rgba(25,25,25,0) 25%, rgba(25,25,25,1) 45%);
+  z-index: 1;
+
+  @include media-breakpoint-up(lg) {
+     background-image: linear-gradient(86.74deg, #000000 25%, rgba(0, 0, 0, 0) 55.34%);
+  }
+}
+
+.content-spotlight-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+  width: 100%;
+  margin-top: auto;
+
+  @include media-breakpoint-up(lg) {
+    gap: .75rem;
+  }
+
+  & > *:last-child {
+    margin-top: 0.75rem;
+  }
+
+  @include media-breakpoint-up(lg) {
+    max-width: 50%;
+    margin-top: 0;
+  }
+}
+
+.content-spotlight-icon {
+  color: $uds-color-base-gold;
+  font-size: 25px;
+}
+
+.content-spotlight-title {
+  color: $uds-color-base-white;
+  margin: 0;
+
+  .highlight {
+    color: $uds-color-base-gold;
+  }
+}
+
+.content-spotlight-description {
+  font-family: $uds-font-family-base;
+  font-size: $uds-size-font-large;
+  color: $uds-color-base-white;
+  margin: 0;
+  max-width: 100%;
+
+  @include media-breakpoint-up(lg) {
+    max-width: 420px;
+  }
 }
