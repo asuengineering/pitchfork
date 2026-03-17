@@ -207,7 +207,7 @@ const exampleNavTree = [{
 	}]]
 }];
 
-// console.log(udsHeaderVars.navTree);
+console.log(udsHeaderVars);
 // console.log(exampleNavTree);
 
 window.addEventListener("DOMContentLoaded", event => {

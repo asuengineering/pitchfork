@@ -7,6 +7,7 @@ Initialize ASU React Components.
 Includes header, footer, cookie consent.
 */
 
+console.log(udsHeaderVars);
 window.addEventListener("DOMContentLoaded", event => {
   AsuHeaderFooter.initGlobalHeader({
     targetSelector: "#header-container",
@@ -24,6 +25,7 @@ window.addEventListener("DOMContentLoaded", event => {
       partnerLogo: udsHeaderVars.partnerLogo,
       animateTitle: udsHeaderVars.animateTitle,
       expandOnHover: udsHeaderVars.expandOnHover,
+      // expandOnHover: false,
       parentOrg: udsHeaderVars.parentOrg,
       parentOrgUrl: udsHeaderVars.parentOrgUrl,
       breakpoint: udsHeaderVars.breakpoint,

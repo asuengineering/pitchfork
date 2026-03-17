@@ -20,8 +20,12 @@ if ( ! function_exists( 'pitchfork_localize_component_header_script' ) ) {
 		 * Handles situations in which ACF fields have not been set by exclusively setting default options.
 		 */
 
-		$animate_title = get_option('options_animate_title');
-		$expand_on_hover = get_option('options_expand_on_hover');
+		$animate_title_raw   = get_option( 'options_animate_title' );
+		$expand_on_hover_raw = get_option( 'options_expand_on_hover' );
+
+		// Normalize to real booleans so JS receives literal true/false
+		$animate_title   = filter_var( $animate_title_raw, FILTER_VALIDATE_BOOLEAN );
+		$expand_on_hover = filter_var( $expand_on_hover_raw, FILTER_VALIDATE_BOOLEAN );
 
 		$mobile_menu_breakpoint = get_option('options_mobile_menu_breakpoint');
 		if (empty($mobile_menu_breakpoint )) {
@@ -115,6 +119,8 @@ if ( ! function_exists( 'pitchfork_localize_component_header_script' ) ) {
 			'searchUrl' => 'https://search.asu.edu/search',
 			'site' => $searchDomain,
 		);
+
+		do_action('qm/debug', $localized_array);
 
 		// Passing an empty array to UDS Header component in the 'buttons' prop
 		// produces a zero character where the buttons should be. Only passing the prop
