@@ -24,3 +24,13 @@ $image-theme-path: '/wp-content/themes/pitchfork/src/img';
 
 // Partials only applicable for the theme.
 @import 'theme/list';
+
+
+/**
+ * TEMP: Adjust visited color for links in the header. Conflict occurs within:
+ * - component-header-footer: v1.3.2 and
+ * - unity-bootstrap-theme: v1.36.3
+ */
+#asuHeader a:visited {
+	color: #191919;
+}
