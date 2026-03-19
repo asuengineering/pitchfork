@@ -7,6 +7,7 @@
 - core/table
 - core/divider
 - core/post-template
+- core/pagination
 --------------------------------------------------------------*/
 
 
@@ -264,4 +265,116 @@ if the block is configured to use the grid layout instead of flow content. */
 details summary:focus {
 	outline: none !important;
 	box-shadow: rgb(255, 255, 255) 0px 0px 0px 2px, rgb(25, 25, 25) 0px 0px 0px 4px !important;
+}
+
+/*--------------------------------------------------------------
+7. core/pagination
+--------------------------------------------------------------*/
+.wp-block-query-pagination {
+
+	.wp-block-query-pagination-previous,
+	.wp-block-query-pagination-next {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		width: 2.25rem;
+		height: 2.25rem;
+		padding: 0;
+		border-radius: 50%;
+		text-decoration: none;
+		font-weight: 700;
+		color: $uds-color-base-gray-7;
+		box-sizing: border-box;
+	}
+
+	.wp-block-query-pagination-previous-arrow,
+	.wp-block-query-pagination-next-arrow {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		width: 1rem;
+		height: 1rem;
+		line-height: 1;
+		font-size: 0;
+		overflow: visible;
+		color: inherit;
+	}
+
+	.wp-block-query-pagination-previous-arrow::before,
+	.wp-block-query-pagination-next-arrow::before {
+		content: "";
+		display: block;
+		width: 1rem;
+		height: 1rem;
+		background-color: currentColor;
+
+		-webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 448 512'%3E%3Cpath fill='black' d='M207.029 381.476L12.686 187.132c-9.373-9.373-9.373-24.569 0-33.941l22.667-22.667c9.357-9.357 24.522-9.375 33.901-.04L224 284.505l154.745-154.021c9.379-9.335 24.544-9.317 33.901.04l22.667 22.667c9.373 9.373 9.373 24.569 0 33.941L240.971 381.476c-9.373 9.372-24.569 9.372-33.942 0z'/%3E%3C/svg%3E");
+		-webkit-mask-repeat: no-repeat;
+		-webkit-mask-position: center;
+		-webkit-mask-size: contain;
+
+		mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 448 512'%3E%3Cpath fill='black' d='M207.029 381.476L12.686 187.132c-9.373-9.373-9.373-24.569 0-33.941l22.667-22.667c9.357-9.357 24.522-9.375 33.901-.04L224 284.505l154.745-154.021c9.379-9.335 24.544-9.317 33.901.04l22.667 22.667c9.373 9.373 9.373 24.569 0 33.941L240.971 381.476c-9.373 9.372-24.569 9.372-33.942 0z'/%3E%3C/svg%3E");
+		mask-repeat: no-repeat;
+		mask-position: center;
+		mask-size: contain;
+	}
+
+	.wp-block-query-pagination-previous-arrow::before {
+		transform: rotate(90deg);
+	}
+
+	.wp-block-query-pagination-next-arrow::before {
+		transform: rotate(270deg);
+	}
+
+	.wp-block-query-pagination-previous:hover,
+	.wp-block-query-pagination-next:hover {
+		background-color: $uds-color-base-gray-2;
+	}
+
+	.wp-block-query-pagination-previous:focus,
+	.wp-block-query-pagination-previous:focus-visible,
+	.wp-block-query-pagination-next:focus,
+	.wp-block-query-pagination-next:focus-visible {
+		color: $uds-color-base-maroon;
+		background-color: $uds-color-base-gray-2;
+		outline: 0;
+		box-shadow: 0 0 0 2px #fff, 0 0 0 4px #191919 !important;
+	}
+
+	.wp-block-query-pagination-numbers {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		gap: 1rem;
+
+		.page-numbers {
+			display: inline-flex;
+			align-items: center;
+			justify-content: center;
+			border-radius: 50%;
+			padding: 0;
+			width: 2.25rem;
+			height: 2.25rem;
+
+			text-decoration: none;
+			font-weight: 700;
+
+			color: $uds-color-base-gray-7;
+
+			&.current {
+				z-index: 3;
+				color: #ffffff;
+				background-color: #8c1d40;
+				border-color: rgba(0, 0, 0, 0);
+			}
+
+			&:focus {
+				color: $uds-color-base-maroon;
+				background-color: $uds-color-base-gray-2;
+				outline: 0;
+				box-shadow: 0 0 0 2px #fff, 0 0 0 4px #191919 !important;
+			}
+		}
+	}
 }
