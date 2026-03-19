@@ -68,6 +68,10 @@ function pitchfork_enqueue_block_editor_assets() {
 	$js_heading_highlights = $theme_version . '.' . filemtime( get_template_directory() . '/dist/js/heading-highlights.js' );
 	wp_enqueue_script( 'uds-heading-highlights', get_template_directory_uri() . '/dist/js/heading-highlights.js', array( 'wp-rich-text', 'wp-element', 'wp-editor' ), $js_heading_highlights );
 
+	// Applying heading highlight classes to core/headings block.
+	$js_pagination_settings = $theme_version . '.' . filemtime( get_template_directory() . '/dist/js/pagination-settings.js' );
+	wp_enqueue_script( 'uds-pagination-settings', get_template_directory_uri() . '/dist/js/pagination-settings.js', array( 'wp-hooks', 'wp-element', 'wp-components', 'wp-block-editor', 'wp-data', 'wp-compose' ), $js_pagination_settings );
+
 	// Block modifications.
 	$blocks_js_version = $theme_version . '.' . filemtime( get_template_directory() . '/dist/js/block-variations.js' );
 	wp_enqueue_script( 'pitchfork-block-mods', get_template_directory_uri() . '/dist/js/block-variations.js',  array( 'wp-blocks', 'wp-dom' ), $blocks_js_version , true );
