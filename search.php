@@ -111,7 +111,7 @@ $found_posts = (int) $wp_query->found_posts;
 		<aside class="search-results-sidebar" aria-label="<?php esc_attr_e( 'Search sidebar', 'pitchfork' ); ?>">
 			<section class="search-sidebar-section">
 				<h3 class="search-sidebar-title">Page list</h3>
-				<p>Still searching? An alphabetical list of all pages within this site follows below.</p>
+				<p>Still searching? Browse this alphabetical page list:</p>
 
 				<nav aria-label="<?php esc_attr_e( 'Page sitemap', 'pitchfork' ); ?>">
 					<ul class="page-sitemap">

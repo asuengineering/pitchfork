@@ -55,41 +55,6 @@ if ( ! function_exists( 'pitchfork_remove_core_patterns' ) ) {
 	add_action( 'after_setup_theme', 'pitchfork_remove_core_patterns' );
 }
 
-// // Add block patterns for Pitchfork
-// if ( function_exists( 'register_block_pattern_category' ) ) {
-
-// 	register_block_pattern_category(
-// 		'pitchfork-card',
-// 		array( 'label' => __( 'Pitchfork: Cards', 'pitchfork' ) )
-// 	);
-
-// 	register_block_pattern_category(
-// 		'pitchfork-card-layouts',
-// 		array( 'label' => __( 'Pitchfork: Card Layouts', 'pitchfork' ) )
-// 	);
-
-// 	register_block_pattern_category(
-// 		'pitchfork-content',
-// 		array( 'label' => __( 'Pitchfork: Content', 'pitchfork' ) )
-// 	);
-
-// 	register_block_pattern_category(
-// 		'pitchfork-section',
-// 		array( 'label' => __( 'Pitchfork: Section', 'pitchfork' ) )
-// 	);
-
-// 	register_block_pattern_category(
-// 		'pitchfork-loops',
-// 		array( 'label' => __( 'Pitchfork: Query Loops', 'pitchfork' ) )
-// 	);
-
-// 	register_block_pattern_category(
-// 		'pitchfork-fullpage',
-// 		array( 'label' => __( 'Pitchfork: Page templates', 'pitchfork' ) )
-// 	);
-
-// }
-
 // Register pattern categories at the correct time.
 add_action( 'init', function () {
 
@@ -120,6 +85,10 @@ add_action( 'init', function () {
 	register_block_pattern_category(
 		'pitchfork-fullpage',
 		[ 'label' => __( 'Pitchfork: Page templates', 'pitchfork' ) ]
+	);
+	register_block_pattern_category(
+		'pitchfork-search',
+		[ 'label' => __( 'Pitchfork: Search', 'pitchfork' ) ]
 	);
 }, 10 );
 
