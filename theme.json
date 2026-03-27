@@ -329,6 +329,32 @@
 					]
 				}
 			},
+			"core/search": {
+				"color": {
+					"palette": [
+						{
+							"slug": "asu-maroon",
+							"color": "#8C1D40",
+							"name": "ASU Maroon"
+						},
+						{
+							"slug": "asu-gold",
+							"color": "#FFC627",
+							"name": "ASU Gold"
+						},
+						{
+							"slug": "gray-4",
+							"color": "#BFBFBF",
+							"name": "ASU Gray 4"
+						},
+						{
+							"slug": "gray-7",
+							"color": "#191919",
+							"name": "ASU Gray 7"
+						}
+					]
+				}
+			},
 			"core/columns": {
 				"border": {
 					"color": true,

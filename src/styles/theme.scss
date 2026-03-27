@@ -18,6 +18,7 @@ $image-theme-path: '/wp-content/themes/pitchfork/src/img';
 @import 'theme/extras';
 @import 'theme/core-blocks';
 @import 'theme/page';
+@import 'theme/search';
 
 // Template for single.php
 @import 'templates/compact';

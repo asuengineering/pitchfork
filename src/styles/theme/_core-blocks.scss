@@ -8,6 +8,7 @@
 - core/divider
 - core/post-template
 - core/pagination
+- core/search
 --------------------------------------------------------------*/
 
 
@@ -226,7 +227,7 @@ if the block is configured to use the grid layout instead of flow content. */
 }
 
 /*--------------------------------------------------------------
-6. core/group
+7. core/group
 
 - Provides support for Story + Thumb (Row) block patterns.
 --------------------------------------------------------------*/
@@ -254,7 +255,7 @@ if the block is configured to use the grid layout instead of flow content. */
 
 
 /*--------------------------------------------------------------
-7. core/details
+8. core/details
 --------------------------------------------------------------*/
 
 /**
@@ -268,7 +269,7 @@ details summary:focus {
 }
 
 /*--------------------------------------------------------------
-8. core/pagination
+9. core/pagination
 --------------------------------------------------------------*/
 .wp-block-query-pagination {
 
@@ -395,6 +396,47 @@ details summary:focus {
 				outline: 0;
 				box-shadow: 0 0 0 2px #fff, 0 0 0 4px #191919 !important;
 			}
+		}
+	}
+}
+
+/*--------------------------------------------------------------
+10. core/search
+--------------------------------------------------------------*/
+.wp-block-search__button {
+	margin-left: $uds-size-spacing-3;
+	border-radius: 6400px;
+	font-weight: 700;
+	padding: 1em 2em;
+	border-color: #ffffff;
+	border-width: 2px;
+
+	&:hover {
+		color: #ffffff;
+		border-color: #191919;
+	}
+
+	&.has-asu-gold-background-color {
+		color: #191919;
+
+		&:hover {
+			border-color: $uds-color-base-gold;
+		}
+	}
+
+	&.has-asu-maroon-background-color {
+
+		&:hover {
+			background-color: #771936;
+			border-color: #771936;
+		}
+	}
+
+	&.has-gray-4-background-color {
+		color: #191919;
+
+		&:hover {
+			border-color: #c9c9c9;
 		}
 	}
 }

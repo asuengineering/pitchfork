@@ -1,0 +1,45 @@
+/*--------------------------------------------------------------
+Styles for search.php
+--------------------------------------------------------------*/
+
+body.search {
+	.page-header {
+		padding: $uds-size-spacing-4 0;
+	}
+
+	.search-results-main {
+		margin-bottom: $uds-size-spacing-6;
+	}
+
+	.search-result {
+		padding: 0; // Reset from page template
+		margin-bottom: $uds-size-spacing-6;
+
+		.search-result-title {
+			margin-bottom: $uds-size-spacing-1;
+		}
+
+		.search-result-excerpt {
+			padding-left: $uds-size-spacing-2;
+			margin-left: $uds-size-spacing-1;
+			border-left: 2px solid $uds-color-base-gold;
+		}
+	}
+
+	.search-results-sidebar {
+		margin-bottom: $uds-size-spacing-6;
+
+		.search-sidebar-section {
+			background-color: $uds-color-base-gray-1;
+			padding: $uds-size-spacing-4;
+		}
+	}
+}
+
+@include media-breakpoint-up(md) {
+	.wrapper-results {
+		display: grid;
+		grid-template-columns: 2fr 1fr;
+		gap: $uds-size-spacing-6;
+	}
+}
