@@ -5,6 +5,24 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## Version 2.7.0
+
+This release updates the global header and footer packages to the latest versions from Unity. It also introduces UDS-aligned styling for core pagination and search blocks, along with improvements to the theme’s native search experience.
+
+- **FIX:** Corrected global header menu hover behavior; previously defaulted to always enabled.
+- **FIX:** Applied temporary CSS workaround for visited link styles in the global header (pending upstream fix from Unity).
+- **NEW:** Added UDS-aligned styles for `core/pagination` and `core/search` blocks.
+- **NEW:** Restricted `core/pagination` block settings to configurations consistent with UDS guidelines.
+- **NEW:** Enhanced `searchform.php` and `search.php` with improved markup and styling for native WordPress search results.
+- **NEW:** Added a reusable search block pattern to the pattern library.
+
+**Package Versions**
+
+| Package                   | Previous Version | Updated Version |
+| ------------------------- | ---------------- | --------------- |
+| `unity-bootstrap-package` | 1.30.3           | 1.36.3          |
+| `component-header-footer` | 1.1.1            | 1.3.2           |
+
 ## Version 2.6.1
 
 - FIX: Address error in `class-unity-react-header-navtree-walker.php` which prevented mega menus from creating more than one column.
