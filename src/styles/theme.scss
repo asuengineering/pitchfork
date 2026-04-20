@@ -28,10 +28,15 @@ $image-theme-path: '/wp-content/themes/pitchfork/src/img';
 
 
 /**
- * TEMP: Adjust visited color for links in the header. Conflict occurs within:
+ * TEMP: Adjust visited color for various links in UDS.
+ * Conflict for the header + grid links occurs within:
  * - component-header-footer: v1.3.2 and
  * - unity-bootstrap-theme: v1.36.3
  */
 #asuHeader a:visited {
 	color: #191919;
+}
+
+.uds-grid-links a:visited {
+	color: unset !important;
 }
